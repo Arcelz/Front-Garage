@@ -52,18 +52,18 @@
         });
 */
  //});
-/*jQuery(document).ready(function(){
+jQuery(document).ready(function(){
             $.ajax({
                 type: "GET",
                 headers : {
                     Authorization : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjEyM2FwaWdhcmFnZTQ1NiJ9.eyJpc3MiOiJhcGkuZ2FyYWdlIiwiYXVkIjoiYXBpLmdhcmFnZSIsImp0aSI6IjEyM2FwaWdhcmFnZTQ1NiIsImlhdCI6MTQ5MzMwNTQyOCwibmJmIjoxNDkzMzA1NDg4LCJleHAiOjE0OTMzMDkwMjgsIlBlcm1pXHUwMGU3XHUwMGUzbyI6WyIxQyIsIjFWIiwiMUQiLCIyQyIsIjJWIiwiMkQiLCIzQyIsIjNWIiwiM0QiLCI0QyIsIjRWIiwiNEQiLCI1QyIsIjVWIiwiNUQiLCI2QyIsIjZWIiwiNkQiLCI3QyIsIjdWIiwiN0QiLCI4QyIsIjhWIiwiOEQiLCI5QyIsIjlWIiwiOUQiLCIxMEMiLCIxMFYiLCIxMEQiLCIxMUMiLCIxMVYiLCIxMUQiLCIxMkMiLCIxMlYiLCIxMkQiLCIxM0MiLCIxM1YiLCIxM0QiLCIxNEMiLCIxNFYiLCIxNEQiLCIxNUMiLCIxNVYiLCIxNUQiLCIxNkMiLCIxNlYiLCIxNkQiLCIxN0MiLCIxN1YiLCIxN0QiLCIxOEMiLCIxOFYiLCIxOEQiLCIxOUMiLCIxOVYiLCIxOUQiLCIyMEMiLCIyMFYiLCIyMEQiLCIyMUMiLCIyMVYiLCIyMUQiLCIyMkMiLCIyMlYiLCIyMkQiLCIyM0MiLCIyM1YiLCIyM0QiLCIyNEMiLCIyNFYiXSwiTm9tZSI6IkFETUlOIiwiQ2FyZ28iOiJBRE1JTiJ9.FpiiZLD-ALSEpMOzuBJwIlT33FwGYwU3wmVqVC_mBIA'
                 },
                 contentType : 'application/x-www-form-urlencoded',
-                url: "http://ifg.redesbrasil.com/cargos",
+                url: "http://ifg.redesbrasil.com/usuarios/",
                 success: function( data )
                 {
                     console.log( data );
                 }
             });
 
-});*/
+});
