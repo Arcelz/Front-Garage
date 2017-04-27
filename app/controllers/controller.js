@@ -3,7 +3,17 @@ app.controller('HomeCtrl', function ($scope) {
 });
 app.controller('FornecedorCtrl', function ($scope) {
 });
-app.controller('UsuarioCtrl', function($scope){
+app.controller('UsuarioCtrl', function($scope,$http){
+    $http.get('http://ifg.redesbrasil.com/usuarios',{
+        headers: {'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='}
+    })
+        .success(function(data, status, headers, config) {
+            console.log(data);
+        })
+        .error(function(data, status, headers, config) {
+            // erro!
+            // você pode verificar o parâmetro "status" para ver o código HTTP do erro
+        });
 });
 app.controller('ClienteCtrl', function ($scope) {
 });
