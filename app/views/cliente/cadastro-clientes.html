@@ -1,0 +1,136 @@
+<!--start container-->
+<div class="container">
+
+    <!--chart dashboard start-->
+    <form id="form-cadastro-cliente">
+        <p class="caption">Cadastro de Clientes</p>
+
+        <div class="divider"></div>
+        <!--Form Advance-->
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="card-panel">
+                    <!--<h4 class="header2">Form Advance</h4>-->
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="nome" type="text">
+                                    <label for="nome">Nome Completo</label>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="cpf" type="text">
+                                    <label for="cpf">CPF</label>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="celular" type="text">
+                                    <label for="celular">Celular</label>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="email" type="text">
+                                    <label for="email">E-mail</label>
+                                </div>
+
+
+                                <div class="input-field col s6">
+                                    <input id="endereco" type="text">
+                                    <label for="endereco">Endereço</label>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="bairro" type="text">
+                                    <label for="bairro">Bairro</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="cidade" type="text">
+                                    <label for="cidade">Cidade</label>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="estado" type="text">
+                                    <label for="estado">Estado</label>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="pais" type="text">
+                                    <label for="pais">Pais</label>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="cep" type="text">
+                                    <label for="cep">CEP</label>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="row">
+                                        <div class="input-field col s11">
+                                            <button class="btn cyan waves-effect waves-light right" type="submit"
+                                                    id="enviar" name="action">Salvar
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--chart dashboard end-->
+
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+    </form>
+</div>
+<script>
+    $(function () {
+        $("#form-cadastro").validate({
+            rules: {
+                nome: {required: true},
+                cpf: {required: true},
+                celular: {required: true},
+                email: {required: true},
+                endereco: {required: true},
+                bairro: {required: true},
+                cidade: {required: true},
+                estado: {required: true},
+                pais: {required: true},
+                cep: {required: true},
+            },
+            messages: {
+                nome: {required: "Por favor, informe seu nome."},
+                cpf: {required: "Por favor, informe seu cpf."},
+                celular: {required: "Por favor, informe seu celular."},
+                email: {required: "Por favor, informe seu e-mail."},
+                endereco: {required: "Por favor, informe seu endereço."},
+                bairro: {required: "Por favor, informe seu bairro."},
+                cidade: {required: "Por favor, informe seu cidade."},
+                estado: {required: "Por favor, informe seu estado."},
+                pais: {required: "Por favor, informe seu pais."},
+                cep: {required: "Por favor, informe seu cep."},
+
+                errorElement: 'div',
+                errorPlacement: function (error, element) {
+                    var placement = $(element).data('error');
+                    if (placement) {
+                        $(placement).append(error)
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+            }
+        });
+    });
+
+    function carregar(pagina) {
+        $("#div-modal").load(pagina);
+    }
+</script>
