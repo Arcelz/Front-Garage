@@ -4,8 +4,9 @@ app.controller('HomeCtrl', function ($scope) {
 app.controller('FornecedorCtrl', function ($scope) {
 });
 app.controller('UsuarioCtrl', function($scope,$http){
+    $('select').material_select();
     $http.get('http://ifg.redesbrasil.com/usuarios',{
-        headers: {'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='}
+        headers: {'Authorization': $.cookie("token")}
     })
         .success(function(data, status, headers, config) {
             console.log(data);
