@@ -1,263 +1,102 @@
-﻿<!DOCTYPE html>
-<html data-ng-app="app" ng-strict-di xmlns="http://www.w3.org/1999/html">
+﻿
+<!DOCTYPE html>
+<html data-ng-app="app" ng-strict-di>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    <title data-ng-bind="title"></title>
-    <style>
-        .ng-hide {
-            display: none!important;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
 
-    <!-- inject-vendor:css -->
-    <link rel="stylesheet" href="content/css/vendor/materialize.css">
-    <link href="content/css/vendor/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Global stylesheets -->
+    <link href="assets/css/font-google.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
     <link href="content/js/toastr/toastr.css" rel="stylesheet" />
-    <!-- endinject -->
-    <!-- inject-vendor:js -->
+    <!-- /global stylesheets -->
+
+    <!-- Core JS files -->
+
+    <!-- /theme JS files -->
+
 </head>
+
 <body>
-<!-- START HEADER -->
-<!-- START HEADER -->
+<div data-ng-include="'app/layout/shell.html'"></div>
 
-<header id="header" class="page-topbar">
-    <!-- start header nav-->
-    <div class="navbar-fixed">
-        <nav class="cyan">
-            <div class="nav-wrapper">
-                <h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="content/img/materialize-logo.png" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1>
-                <ul class="right hide-on-med-and-down">
-                    <li class="search-out">
-                        <input type="text" class="search-out-text">
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light show-search"><i class="mdi-action-search"></i></a>
-                    </li>
-                    <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
-                    </li>
-                    <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
-                    </li>
-                    <!-- Dropdown Trigger -->
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <!-- end header nav-->
-</header>
-<!-- END HEADER -->
+<script type="text/javascript" src="content/js/materialize.min.js"></script>
 
-<!-- //////////////////////////////////////////////////////////////////////////// -->
+<script src="content/js/jquery-3.2.1.min.js"></script>
+<script src="content/js/angular/angular.js"></script>
+<script src="content/js/angular-animate/angular-animate.js"></script>
+<script src="content/js/angular-route/angular-route.js"></script>
+<script src="content/js/angular-sanitize/angular-sanitize.js"></script>
+<script src="content/js/toastr/toastr.js"></script>
+<script src="content/js/moment/moment.js"></script>
+<script src="content/js/extras.angular.plus/ngplus-overlay.js"></script>
+<!-- endinject -->
+<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+<!-- /core JS files -->
 
-<!-- START MAIN -->
-<div id="main">
-    <!-- START WRAPPER -->
-    <div class="wrapper">
+<!-- Theme JS files -->
+<script type="text/javascript" src="assets/js/plugins/visualization/d3/d3.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+<script type="text/javascript" src="assets/js/plugins/forms/styling/switchery.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+<script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/pickers/daterangepicker.js"></script>
 
-        <!-- START LEFT SIDEBAR NAV-->
-        <aside id="left-sidebar-nav">
-            <ul id="slide-out" class="side-nav fixed leftside-navigation">
-                <li class="user-details cyan darken-2">
-                    <div class="row">
-                        <div class="col col s4 m4 l4">
-                            <img src="app/resources/img/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
-                        </div>
-                        <div class="col col s8 m8 l8">
-                            <ul id="profile-dropdown" class="dropdown-content">
-                                <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
-                                </li>
-                                <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
-                                </li>
-                                <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                                </li>
-                                <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
-                                </li>
-                            </ul>
-                            <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown" id="nome">Nome<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                            <p class="user-roal" id="cargo">Cargo</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="bold"><a href="home" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
-                </li>
+<script type="text/javascript" src="assets/js/core/app.js"></script>
+<script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
 
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Cadastros</a>
-                            <div class="collapsible-body">
-                                <ul class="collapsible collapsible-accordion">
-                                    <li class="bold"><a href="fornecedores" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Fornecedores</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a  href="fornecedores" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
+<script type="text/javascript" src="assets/js/plugins/ui/ripple.min.js"></script>
 
-                                        </div>
+<!-- inject:js -->
+<!-- Bootstrapping -->
+<script src="app/app.module.js"></script>
 
-                                    </li>
-                                    <li class="bold"><a href="#/clientes" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Cliente</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a href="#/clientes" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
+<!-- Reusable Blocks/Modules -->
+<script src="app/blocks/exception/exception.module.js"></script>
+<script src="app/blocks/exception/exception-handler.provider.js"></script>
+<script src="app/blocks/exception/exception.js"></script>
+<script src="app/blocks/logger/logger.module.js"></script>
+<script src="app/blocks/logger/logger.js"></script>
+<script src="app/blocks/router/router.module.js"></script>
+<script src="app/blocks/router/routehelper.js"></script>
 
-                                        </div>
+<!-- core module -->
+<script src="app/core/core.module.js"></script>
+<script src="app/core/constants.js"></script>
+<script src="app/core/config.js"></script>
+<script src="app/core/dataservice.js"></script>
 
-                                    </li>
-                                    <li class="bold"><a href="#/funcionarios" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Funcionario</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a  href="#/funcionarios" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
+<!-- layout -->
+<script src="app/layout/layout.module.js"></script>
+<script src="app/layout/shell.js"></script>
+<script src="app/layout/sidebar.js"></script>
 
-                                        </div>
+<!--widgets-->
+<script src="app/widgets/widgets.module.js"></script>
+<script src="app/widgets/ccSidebar.js"></script>
+<script src="app/widgets/ccSpinner.js"></script>
+<script src="app/widgets/ccWidgetClose.js"></script>
+<script src="app/widgets/ccWidgetHeader.js"></script>
+<script src="app/widgets/ccWidgetMinimize.js"></script>
 
-                                    </li>
-                                    <li class="bold"><a href="#/usuarios" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Usuario</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a  href="#/usuarios" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
+<!-- dashboard -->
+<script src="app/dashboard/dashboard.module.js"></script>
+<script src="app/dashboard/config.route.js"></script>
+<script src="app/dashboard/dashboard.js"></script>
 
-                                        </div>
-
-                                    </li>
-                                    <li class="bold"><a href="#/categorias" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Categoria</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a  href="#/categorias" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
-
-                                        </div>
-
-                                    </li>
-                                    <li class="bold"><a href="#/veiculos" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Veiculo</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a  href="#/veiculos" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
-
-                                        </div>
-
-                                    </li>
-                                    <li class="bold"><a href="#/marcas" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Marca</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a  href="#/marcas" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
-
-                                        </div>
-
-                                    </li>
-                                    <li class="bold"><a href="#/modelos" class="collapsible-header waves-effect waves-cyan"><i class="mdi-navigation-menu"></i> Modelo</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a  href="#/modelos" style="color:#444;" ><i class="mdi-image-control-point"></i>Novo</a></li>
-                                                <li><a style="color:#444;"><i class="mdi-action-search"></i>Pesquisar</a></li>
-                                            </ul>
-
-                                        </div>
-
-                                    </li>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="li-hover"><div class="divider"></div></li>
-
-
-            </ul>
-            <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>
-        </aside>
-        <!-- END LEFT SIDEBAR NAV-->
-
-        <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-        <!-- START CONTENT -->
-        <div ng-view></div>
-
-
-    </div>
-    <!-- END WRAPPER -->
-
-</div>
-<!-- END MAIN -->
-
-
-
-<!-- //////////////////////////////////////////////////////////////////////////// -->
-
-<!-- START FOOTER -->
-<footer class="page-footer">
-
-    <div class="footer-copyright">
-        <div class="container">
-            Copyright © 2015 <a class="grey-text text-lighten-4" href="http://themeforest.net/user/geekslabs/portfolio?ref=geekslabs" target="_blank">GeeksLabs</a> All rights reserved.
-            <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://geekslabs.com/">GeeksLabs</a></span>
-        </div>
-    </div>
-</footer><!-- jQuery Library -->
-    <!-- inject-vendor:js -->
-
-    <script src="content/js/jquery-3.2.1.min.js"></script>
-    <script src="content/js/angular/angular.js"></script>
-    <script src="content/js/angular-animate/angular-animate.js"></script>
-    <script src="content/js/angular-route/angular-route.js"></script>
-    <script src="content/js/angular-sanitize/angular-sanitize.js"></script>
-    <script type="text/javascript" src="content/js/materialize.min.js"></script>
-    <script src="content/js/toastr/toastr.js"></script>
-    <script src="content/js/moment/moment.js"></script>
-    <script src="content/js/extras.angular.plus/ngplus-overlay.js"></script>
-    <!-- endinject -->
-
-
-    <!-- inject:js -->
-    <!-- Bootstrapping -->
-    <script src="app/app.module.js"></script>
-
-    <!-- Reusable Blocks/Modules -->
-    <script src="app/blocks/exception/exception.module.js"></script>
-    <script src="app/blocks/exception/exception-handler.provider.js"></script>
-    <script src="app/blocks/exception/exception.js"></script>
-    <script src="app/blocks/logger/logger.module.js"></script>
-    <script src="app/blocks/logger/logger.js"></script>
-    <script src="app/blocks/router/router.module.js"></script>
-    <script src="app/blocks/router/routehelper.js"></script>
-
-    <!-- core module -->
-    <script src="app/core/core.module.js"></script>
-    <script src="app/core/constants.js"></script>
-    <script src="app/core/config.js"></script>
-    <script src="app/core/dataservice.js"></script>
-
-
-    <!-- dashboard -->
-    <script src="app/dashboard/dashboard.module.js"></script>
-    <script src="app/dashboard/config.route.js"></script>
-    <script src="app/dashboard/dashboard.js"></script>
-
-
-<!--categorias module-->
-<script src="app/categoria/categoria.module.js"></script>
-<script src="app/categoria/config.route.js"></script>
-<script src="app/categoria/categoria.js"></script>
-
-
-    <!-- endinject -->
+<!--avengers module-->
+<script src="app/avengers/avengers.module.js"></script>
+<script src="app/avengers/config.route.js"></script>
+<script src="app/avengers/avengers.js"></script>
 </body>
 </html>

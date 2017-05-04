@@ -15,13 +15,14 @@
          * but this is easier to maintain.
          */ 
         'app.core',
-        'ui.router',
+        'app.widgets',
+
         /*
          * Feature areas
          */
         'app.avengers',
-        'app.categorias',
         'app.dashboard',
+        'app.layout'
     ]);
 
 })();
