@@ -1,5 +1,4 @@
-﻿
-<!-- Main navbar -->
+﻿<!-- Main navbar -->
 <div class="navbar navbar-inverse bg-indigo">
     <div class="navbar-header">
         <a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
@@ -300,7 +299,7 @@
                         </div>
 
                         <div class="sidebar-user-material-menu">
-                            <a data-target="#user-nav" data-toggle="collapse"><span>My account</span> <i class="caret"></i></a>
+                            <a href="#user-nav" data-toggle="collapse"><span>My account</span> <i class="caret"></i></a>
                         </div>
                     </div>
 
@@ -321,34 +320,29 @@
                 <!-- Main navigation -->
                 <div class="sidebar-category sidebar-category-visible">
                     <div class="category-content no-padding">
-                        <div class="navigation navigation-main navigation-accordion">
+                        <ul class="navigation navigation-main navigation-accordion">
 
                             <!-- Main -->
                             <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li class="active"><a href="index.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                             <li>
-                                <a data-target="#pag-nav" data-toggle="collapse" ><i class="icon-stack2"></i> <span>Page layouts</span></a>
-                                <div class="navigation-wrapper collapse" id="pag-nav" aria-expanded="false">
-                                    <ul class="navigation">
-                                        <li><a href="layout_navbar_fixed.html">Fixed navbar</a></li>
-                                        <li><a href="layout_navbar_sidebar_fixed.html">Fixed navbar &amp; sidebar</a></li>
-                                        <li><a href="layout_sidebar_fixed_native.html">Fixed sidebar native scroll</a></li>
-                                        <li><a href="layout_navbar_hideable.html">Hideable navbar</a></li>
-                                        <li><a href="layout_navbar_hideable_sidebar.html">Hideable &amp; fixed sidebar</a></li>
-                                        <li><a href="layout_footer_fixed.html">Fixed footer</a></li>
-                                        <li class="navigation-divider"></li>
-                                        <li><a href="boxed_default.html">Boxed with default sidebar</a></li>
-                                        <li><a href="boxed_mini.html">Boxed with mini sidebar</a></li>
-                                        <li><a href="boxed_full.html">Boxed full width</a></li>
-                                    </ul>
-                                </div>
-
-
+                                <a href="#"><i class="icon-stack2"></i> <span>Page layouts</span></a>
+                                <ul>
+                                    <li><a href="layout_navbar_fixed.html">Fixed navbar</a></li>
+                                    <li><a href="layout_navbar_sidebar_fixed.html">Fixed navbar &amp; sidebar</a></li>
+                                    <li><a href="layout_sidebar_fixed_native.html">Fixed sidebar native scroll</a></li>
+                                    <li><a href="layout_navbar_hideable.html">Hideable navbar</a></li>
+                                    <li><a href="layout_navbar_hideable_sidebar.html">Hideable &amp; fixed sidebar</a></li>
+                                    <li><a href="layout_footer_fixed.html">Fixed footer</a></li>
+                                    <li class="navigation-divider"></li>
+                                    <li><a href="boxed_default.html">Boxed with default sidebar</a></li>
+                                    <li><a href="boxed_mini.html">Boxed with mini sidebar</a></li>
+                                    <li><a href="boxed_full.html">Boxed full width</a></li>
+                                </ul>
                             </li>
                             <li>
-                                <a data-target="#layout-nav" data-toggle="collapse"><i class="icon-copy"></i> <span>Layouts</span></a>
-                                <div class="navigation-wrapper collapse" id="layout-nav" aria-expanded="false">
-                                <ul class="navigation">
+                                <a href="#"><i class="icon-copy"></i> <span>Layouts</span></a>
+                                <ul>
                                     <li><a href="../../../layout_1/LTR/index.html" id="layout1">Layout 1</a></li>
                                     <li><a href="index.html" id="layout2">Layout 2 <span class="label bg-warning-400">Current</span></a></li>
                                     <li><a href="../../../layout_3/LTR/index.html" id="layout3">Layout 3</a></li>
@@ -356,12 +350,10 @@
                                     <li><a href="../../../layout_5/LTR/index.html" id="layout5">Layout 5</a></li>
                                     <li class="disabled"><a href="../../../layout_6/LTR/index.html" id="layout6">Layout 6 <span class="label label-transparent">Coming soon</span></a></li>
                                 </ul>
-                                </div>
                             </li>
                             <li>
-                                <a data-target="#color-nav" data-toggle="collapse"><i class="icon-droplet2"></i> <span>Color system</span></a>
-                                <div class="navigation-wrapper collapse" id="color-nav" aria-expanded="false">
-                                <ul class="navigation">
+                                <a href="#"><i class="icon-droplet2"></i> <span>Color system</span></a>
+                                <ul>
                                     <li><a href="colors_primary.html">Primary palette</a></li>
                                     <li><a href="colors_danger.html">Danger palette</a></li>
                                     <li><a href="colors_success.html">Success palette</a></li>
@@ -380,11 +372,9 @@
                                     <li><a href="colors_grey.html">Grey palette</a></li>
                                     <li><a href="colors_slate.html">Slate palette</a></li>
                                 </ul>
-                                </div>
                             </li>
                             <li>
-                                <a data-target="#start-nav" data-toggle="collapse"><i class="icon-stack"></i> <span>Starter kit</span></a>
-                                <div class="navigation-wrapper collapse" id="start-nav" aria-expanded="false">
+                                <a href="#"><i class="icon-stack"></i> <span>Starter kit</span></a>
                                 <ul>
                                     <li><a href="starters/horizontal_nav.html">Horizontal navigation</a></li>
                                     <li><a href="starters/1_col.html">1 column</a></li>
@@ -412,7 +402,6 @@
                                     <li><a href="starters/layout_navbar_fixed_both.html">Both navbars fixed</a></li>
                                     <li><a href="starters/layout_fixed.html">Fixed layout</a></li>
                                 </ul>
-                                </div>
                             </li>
                             <li><a href="changelog.html"><i class="icon-list-unordered"></i> <span>Changelog <span class="label bg-blue-400">1.5</span></span></a></li>
                             <li><a href="../../RTL/default/index.html"><i class="icon-width"></i> <span>RTL version</span></a></li>
@@ -421,8 +410,7 @@
                             <!-- Forms -->
                             <li class="navigation-header"><span>Forms</span> <i class="icon-menu" title="Forms"></i></li>
                             <li>
-                                <a data-target="#form-nav" data-toggle="collapse"><i class="icon-pencil3"></i> <span>Form components</span></a>
-                                <div class="navigation-wrapper collapse" id="form-nav" aria-expanded="false">
+                                <a href="#"><i class="icon-pencil3"></i> <span>Form components</span></a>
                                 <ul>
                                     <li><a href="form_inputs_basic.html">Basic inputs</a></li>
                                     <li><a href="form_checkboxes_radios.html">Checkboxes &amp; radios</a></li>
@@ -430,15 +418,13 @@
                                     <li><a href="form_controls_extended.html">Extended controls</a></li>
                                     <li><a href="form_floating_labels.html">Floating labels</a></li>
                                     <li>
-                                        <a data-target="#form2-nav" data-toggle="collapse">Selects</a>
-                                        <div class="navigation-wrapper collapse" id="form2-nav" aria-expanded="false">
-                                            <ul>
+                                        <a href="#">Selects</a>
+                                        <ul>
                                             <li><a href="form_select2.html">Select2 selects</a></li>
                                             <li><a href="form_multiselect.html">Bootstrap multiselect</a></li>
                                             <li><a href="form_select_box_it.html">SelectBoxIt selects</a></li>
                                             <li><a href="form_bootstrap_select.html">Bootstrap selects</a></li>
                                         </ul>
-                                        </div>
                                     </li>
                                     <li><a href="form_tag_inputs.html">Tag inputs</a></li>
                                     <li><a href="form_dual_listboxes.html">Dual Listboxes</a></li>
@@ -446,7 +432,6 @@
                                     <li><a href="form_validation.html">Validation</a></li>
                                     <li><a href="form_inputs_grid.html">Inputs grid</a></li>
                                 </ul>
-                                </div>
                             </li>
                             <li>
                                 <a href="#"><i class="icon-file-css"></i> <span>JSON forms</span></a>
@@ -1065,7 +1050,7 @@
                             </li>
                             <!-- /page kits -->
 
-                        </div>
+                        </ul>
                     </div>
                 </div>
                 <!-- /main navigation -->
@@ -1122,7 +1107,7 @@
             </div>
             <!-- /page header -->
 
-            <div ng-view=""></div>
+
             <!-- Content area -->
         </div>
         <!-- /content area -->
@@ -1133,6 +1118,25 @@
 </div>
 <!-- /page content -->
 
+</div>
 <!-- /page container -->
+<!-- Core JS files -->
+<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+<!-- /core JS files -->
 
-<!-- inject-vendor:js -->
+<!-- Theme JS files -->
+<script type="text/javascript" src="assets/js/plugins/visualization/d3/d3.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+<script type="text/javascript" src="assets/js/plugins/forms/styling/switchery.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+<script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/pickers/daterangepicker.js"></script>
+
+<script type="text/javascript" src="assets/js/core/app.js"></script>
+<script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
+
+<script type="text/javascript" src="assets/js/plugins/ui/ripple.min.js"></script>
+<!-- /theme JS files -->
