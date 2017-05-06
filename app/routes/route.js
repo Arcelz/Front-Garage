@@ -24,6 +24,14 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
         //template: '<div><h4>Homeee</h4></div>',
         //controller: 'DashboardCtrl'
       })
+       .state('funcionario', {
+        url: '/funcionarios',
+        parent: 'common',
+        templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
+        controller:'Funcionario',
+        controllerAs: 'vm'
+        
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'app/login/login.html',
