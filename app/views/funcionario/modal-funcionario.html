@@ -1,0 +1,29 @@
+
+		            <!-- Inline form modal -->
+					<div id="modal_form_inline" class="modal fade" data-backdrop="static">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+                                    <button type="button" class="close" id="testeFechar" data-dismiss="modal">×</button>
+									<h5 class="modal-title">Cadastrado de Cargo</h5>
+								</div>
+
+								<form action="" class="form-inline">
+									<div class="modal-body">
+										<div class="form-group has-feedback">
+											<label>Nome: </label>
+											<input type="text" placeholder="Nome" class="form-control" ng-model="vm.nomeCargo" >
+											<div class="form-control-feedback">
+												<i class="icon-user text-muted"></i>
+											</div>
+										</div>										
+									</div>
+
+									<div class="modal-footer text-center">
+										<button ng-click="salvarCargo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- /inline form modal -->

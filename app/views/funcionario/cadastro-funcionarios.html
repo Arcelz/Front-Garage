@@ -1,119 +1,68 @@
-	
-  
-  
-    <!-- Page header -->
+<!-- Page header -->
 				<div class="page-header page-header-default">
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li><a href="#!/"><i class="icon-home2 position-left"></i> Home</a></li>
 						  
 							<li class="active"> Cadastro de Funcionario</li>
+							
 						</ul>					
 					</div>
 				</div>
 				<!-- /page header -->
-
+						
   			<!-- Content area -->
 				<div class="content">
-
+					
 					<!-- 2 columns form -->
-					<form class="form-horizontal" action="#">
-						<div class="panel panel-flat">
+					<form class="form-horizontal" action="">
+						<div ng-show="mensagem" class="row">
+							<div class="col-md-6">							
+									<div class="alert alert-success alert-styled-left alert-arrow-left alert-bordered">
+										<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+										<span class="text-semibold">{{mensagem}}</span> 
+								    </div>
+							</div>
+						</div>
+						<div class="panel panel-flat">						
 							<div class="panel-heading">
-								<h5 class="panel-title">Multiple columns</h5>
-								<div class="heading-elements">
-									<ul class="icons-list">
-				                		<li><a data-action="collapse"></a></li>
-				                		<li><a data-action="reload"></a></li>
-				                		<li><a data-action="close"></a></li>
-				                	</ul>
-			                	</div>
+								<h5 class="panel-title">Cadastro de Funcionario</h5>
+								
 							</div>
 
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-6">
 										<fieldset>
-											<legend class="text-semibold"><i class="icon-reading position-left"></i> Personal details</legend>
+											<legend class="text-semibold"><i class="icon-reading position-left"></i> Dados Pessoais </legend>
 
 											<div class="form-group">
-												<label class="col-lg-3 control-label">Enter your name:</label>
+												<label class="col-lg-3 control-label">Nome:</label>
 												<div class="col-lg-9">
-													<input type="text" class="form-control" placeholder="Eugene Kopyov">
+													<input type="text" class="form-control" placeholder="Nome" ng-model="vm.nome">
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label class="col-lg-3 control-label">Enter your password:</label>
+												<label class="col-lg-3 control-label">CPF:</label>
 												<div class="col-lg-9">
-													<input type="password" class="form-control" placeholder="Your strong password">
+													<input type="text" class="form-control" placeholder="CPF" ng-model="vm.cpf">
 												</div>
 											</div>
 
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Select your state:</label>
-												<div class="col-lg-9">
-													<select data-placeholder="Select your state" class="select">
-														<option></option>
-														<optgroup label="Alaskan/Hawaiian Time Zone">
-															<option value="AK">Alaska</option>
-															<option value="HI">Hawaii</option>
-														</optgroup>
-														<optgroup label="Pacific Time Zone">
-															<option value="CA">California</option>
-															<option value="NV">Nevada</option>
-															<option value="WA">Washington</option>
-														</optgroup>
-														<optgroup label="Mountain Time Zone">
-															<option value="AZ">Arizona</option>
-															<option value="CO">Colorado</option>
-															<option value="WY">Wyoming</option>
-														</optgroup>
-														<optgroup label="Central Time Zone">
-															<option value="AL">Alabama</option>
-															<option value="AR">Arkansas</option>
-															<option value="KY">Kentucky</option>
-														</optgroup>
-														<optgroup label="Eastern Time Zone">
-															<option value="CT">Connecticut</option>
-															<option value="DE">Delaware</option>
-															<option value="WV">West Virginia</option>
-														</optgroup>
-													</select>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Attach screenshot:</label>
-												<div class="col-lg-9">
-													<input type="file" class="file-styled">
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Your message:</label>
-												<div class="col-lg-9">
-													<textarea rows="5" cols="5" class="form-control" placeholder="Enter your message here"></textarea>
-												</div>
-											</div>
-										</fieldset>
-									</div>
-
-									<div class="col-md-6">
-										<fieldset>
-						                	<legend class="text-semibold"><i class="icon-truck position-left"></i> Shipping details</legend>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Your name:</label>
+											<div class="form-group"ng-controller="Funcionario">
+												<label class="col-lg-3 control-label">Cargo:</label>
 												<div class="col-lg-9">
 													<div class="row">
 														<div class="col-md-6">
-															<input type="text" placeholder="First name" class="form-control">
+															<div class="mb-15">
+									                            <select ng-model="vm.cargo" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione o Cargo" class="select">
+									                            <option value="">Selecione o Cargo</option>								                               
+																   
+									                            </select>
+								                            </div>								                            
 														</div>
-
-														<div class="col-md-6">
-															<input type="text" placeholder="Last name" class="form-control">
-														</div>
+														<button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_inline"> <i class="icon-plus22"></i></button></td>														
 													</div>
 												</div>
 											</div>
@@ -121,62 +70,79 @@
 											<div class="form-group">
 												<label class="col-lg-3 control-label">Email:</label>
 												<div class="col-lg-9">
-													<input type="text" placeholder="eugene@kopyov.com" class="form-control">
+													<input type="text" placeholder="eugene@kopyov.com" class="form-control" ng-model="vm.email">
 												</div>
-											</div>
+											</div>							
 
 											<div class="form-group">
-												<label class="col-lg-3 control-label">Phone #:</label>
-												<div class="col-lg-9">
-													<input type="text" placeholder="+99-99-9999-9999" class="form-control">
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Location:</label>
+												<label class="col-lg-3 control-label">Telefone:</label>
 												<div class="col-lg-9">
 													<div class="row">
-														<div class="col-md-6">
-															<div class="mb-15">
-									                            <select data-placeholder="Select your country" class="select">
-									                            	<option></option>
-									                                <option value="1">Canada</option> 
-									                                <option value="2">USA</option> 
-									                                <option value="3">Australia</option> 
-									                                <option value="4">Germany</option> 
-									                            </select>
-								                            </div>
-
-								                            <input type="text" placeholder="ZIP code" class="form-control">
+														<div class="col-md-4">
+															<input type="text" placeholder="Telefone" class="form-control" ng-model="vm.contato">
 														</div>
+												<label class="col-lg-3 control-label">Celular:</label>
+														<div class="col-md-4">
+															<input type="text" placeholder="Celular" class="form-control" ng-model="vm.contato1">
+														</div>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</div>
 
-														<div class="col-md-6">
-															<input type="text" placeholder="State/Province" class="form-control mb-15">
-															<input type="text" placeholder="City" class="form-control">
+									<div class="col-md-6">
+										<fieldset>
+						                	<legend class="text-semibold"><i class=" position-left"></i> </legend>									
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Logradouro:</label>
+												<div class="col-lg-9">
+													<input type="text" placeholder="Logradouro" class="form-control" ng-model="vm.logradouro">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Bairro:</label>
+												<div class="col-lg-9">
+													<input type="text" placeholder="Bairro" class="form-control" ng-model="vm.bairro">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Estado:</label>
+												<div class="col-lg-9">
+													<div class="row">
+														<div class="col-md-4">
+															<input type="text" placeholder="Estado" class="form-control" ng-model="vm.estado">
+														</div>
+												<label class="col-lg-3 control-label">Cidade:</label>
+														<div class="col-md-4">
+															<input type="text" placeholder="Cidade" class="form-control" ng-model="vm.cidade">
 														</div>
 													</div>
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label class="col-lg-3 control-label">Address:</label>
+												<label class="col-lg-3 control-label">Pais:</label>
 												<div class="col-lg-9">
-													<input type="text" placeholder="Your address of living" class="form-control">
+													<div class="row">
+														<div class="col-md-4">
+															<input type="text" placeholder="Pais" class="form-control" ng-model="vm.pais">
+														</div>
+												<label class="col-lg-3 control-label">Cep:</label>
+														<div class="col-md-4">
+															<input type="text" placeholder="Cep" class="form-control" ng-model="vm.cep">
+														</div>
+													</div>
 												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Additional message:</label>
-												<div class="col-lg-9">
-													<textarea rows="5" cols="5" class="form-control" placeholder="Enter your message here"></textarea>
-												</div>
-											</div>
+											</div>											
 										</fieldset>
 									</div>
 								</div>
 
 								<div class="text-right">
-									<button type="submit" class="btn btn-primary">Submit form <i class="icon-arrow-right14 position-right"></i></button>
+									<button type="submit" ng-click="salvar()" ng-disabled="mensagem" class="btn btn-primary">Salvar <i class="icon-arrow-right14 position-right"></i></button>
 								</div>
 							</div>
 						</div>
@@ -193,7 +159,7 @@
 				</div>
 				<!-- /content area -->
 
-  
+				<div data-ng-include="'app/views/funcionario/modal-funcionario.html'"></div>
 
 	
 
