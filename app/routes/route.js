@@ -1,6 +1,7 @@
 app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
 
-
+	   $httpProvider.interceptors.push('tokenInterceptor');
+	   
      $stateProvider
       .state('common', {
         templateUrl: 'app/layout/menu.html',

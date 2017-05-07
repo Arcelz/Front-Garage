@@ -17,32 +17,44 @@ app.controller('Home', function ($scope,$rootScope) {
     // $rootScope.bodylayout = '';
     angular.element(document.querySelector("body")).removeClass("login-container login-cover");
 });
-app.controller('Funcionario', function ($scope,$rootScope) {
+app.controller('Funcionario', function ($scope,$rootScope, data) {
     $scope.cargo = null;                       
     $scope.cargoResultados = [];
 
     selectCargos();
-    function selectCargos(){ //função para inserir o select colocar a função de get;
-           // $http({
-            //method: 'GET',
-            //url: '/Admin/GetTestAccounts',
-            //data: { applicationId: 3 }
-        //}).success(function (result) {
-        //$scope.testAccounts = result;
-        $scope.cargoResultados = [ {  "pk_cargos": "1","nome": "ADMIN","status": "ATIVO"}, {"pk_cargos": "3","nome": "matheus","status": "ATIVO"}];
+    function selectCargos(){ 
+        data.get('http://ifg.redesbrasil.com/cargos').then(function(data){
+           // console.log(data);
+            $scope.cargoResultados = data.data;
+        });        
+        //$scope.cargoResultados = [ {  "pk_cargos": "1","nome": "ADMIN","status": "ATIVO"}, {"pk_cargos": "3","nome": "matheus","status": "ATIVO"}];
     };
 
     $scope.salvarCargo  = function(){
-        var nome = {"nome" : $scope.vm.nomeCargo};
-        console.log(nome);
+        //var nome = {"nome" : $scope.vm.nomeCargo};
+        //sconsole.log(nome);
         // Chamara função para salvar
-        selectCargos();//depois que salvar o cargo no model eu chamo a função;
+        console.log($scope.form2);
+        data.realizarPost('http://ifg.redesbrasil.com/cargos', $scope.form2).then(function(data){
+            //console.log(data);
+           //$scope.mensagem = data;
+           
+        });
+        selectCargos();
+        //depois que salvar o cargo no model eu chamo a função;
         //$modalInstance.close();
         //angular.element(document.getElementById("testeFechar"))
+        ///$scope.vm = {};
     };
 
     $scope.salvar = function(){
-        console.log($scope.vm);
+        //console.log($scope.vm);
+        //$scope.vm = {};
+        ///var teste = {"t":$scope.form};
+        data.realizarPost('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function(data){
+            //console.log(data);
+           $scope.mensagem = data;
+        });
 
         $scope.mensagem ="Funcionario Salvo com Sucesso";
     }
@@ -50,8 +62,3 @@ app.controller('Funcionario', function ($scope,$rootScope) {
 
     // $rootScope.bodylayout = '';
     //angular.element(document.querySelector("body")).removeClass("login-container login-cover");
-
-    
-
-
-});
