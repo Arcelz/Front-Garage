@@ -3,7 +3,7 @@ angular
     .factory('data', data);
 
 /* @ngInject */
-function data($http) {
+function data($http,AuthService) {
     var service = {
         test: test,
         get: get,
@@ -11,7 +11,8 @@ function data($http) {
     };
     var config = {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+            'Authorization': AuthService.getToken()
         }
     };
     return service;
@@ -20,7 +21,8 @@ function data($http) {
     }
 
     function get(caminho) {
-        return $http.get(caminho)
+        console.log(config);
+        return $http.get(caminho,config)
             .then(getCompleto)
             .catch(function (message) {
                 console.log(('XHR Failed for get') + (message));

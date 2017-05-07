@@ -18,47 +18,45 @@ app.controller('Home', function ($scope,$rootScope) {
     angular.element(document.querySelector("body")).removeClass("login-container login-cover");
 });
 app.controller('Funcionario', function ($scope,$rootScope, data) {
-    $scope.cargo = null;                       
+    $scope.cargo = null;
     $scope.cargoResultados = [];
 
     selectCargos();
-    function selectCargos(){ 
-        data.get('http://ifg.redesbrasil.com/cargos').then(function(data){
-           // console.log(data);
+    function selectCargos() {
+        data.get('http://ifg.redesbrasil.com/cargos').then(function (data) {
             $scope.cargoResultados = data.data;
-        });        
+        });
         //$scope.cargoResultados = [ {  "pk_cargos": "1","nome": "ADMIN","status": "ATIVO"}, {"pk_cargos": "3","nome": "matheus","status": "ATIVO"}];
     };
 
-    $scope.salvarCargo  = function(){
+    $scope.salvarCargo = function () {
         //var nome = {"nome" : $scope.vm.nomeCargo};
         //sconsole.log(nome);
         // Chamara função para salvar
         console.log($scope.form2);
-        data.realizarPost('http://ifg.redesbrasil.com/cargos', $scope.form2).then(function(data){
-            //console.log(data);
-           //$scope.mensagem = data;
-           
+        data.realizarPost('http://ifg.redesbrasil.com/cargos', $scope.form2).then(function (data) {
+            selectCargos();
+
         });
-        selectCargos();
+
         //depois que salvar o cargo no model eu chamo a função;
         //$modalInstance.close();
         //angular.element(document.getElementById("testeFechar"))
         ///$scope.vm = {};
     };
 
-    $scope.salvar = function(){
+    $scope.salvar = function () {
         //console.log($scope.vm);
         //$scope.vm = {};
         ///var teste = {"t":$scope.form};
-        data.realizarPost('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function(data){
+        data.realizarPost('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (data) {
             //console.log(data);
-           $scope.mensagem = data;
+            $scope.mensagem = data;
         });
 
-        $scope.mensagem ="Funcionario Salvo com Sucesso";
+        $scope.mensagem = "Funcionario Salvo com Sucesso";
     }
 
-
+    })
     // $rootScope.bodylayout = '';
     //angular.element(document.querySelector("body")).removeClass("login-container login-cover");
