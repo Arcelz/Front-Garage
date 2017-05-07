@@ -1,52 +1,82 @@
-<!--start container-->
-<div class="container">
+<!-- Page header -->
+				<div class="page-header page-header-default">
+					<div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li><a href="#!/"><i class="icon-home2 position-left"></i> Home</a></li>
 
-	<!--chart dashboard start-->
+							<li class="active"> Cadastro de Modelos</li>
 
-  <form id="form-cadastro">
-    <p class="caption">Cadastro Modelo Veiculo</p>
+						</ul>
+					</div>
+				</div>
+				<!-- /page header -->
 
-    <div class="divider"></div>
-  <!--Form Advance-->
-  <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="card-panel">
-        <!--<h4 class="header2">Form Advance</h4>-->
-          <div class="row">
-            <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input id="nome" name="nome" type="text">
-                    <label for="nome">Modelo do Veiculo</label>
-                  </div>
+  			<!-- Content area -->
+				<div class="content">
 
-                  <div class="input-field col s6">
-                    <input id="cpf" name="cpf" type="text">
-                    <label for="cpf">Descrição do Modelo do Veiculo</label>
-                  </div>
+					<!-- 2 columns form -->
+					<form class="form-horizontal" action="">
+						<div ng-show="mensagem" class="row">
+							<div class="col-md-6">
+									<div class="alert alert-success alert-styled-left alert-arrow-left alert-bordered">
+										<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+										<span class="text-semibold">{{mensagem}}</span>
+								    </div>
+							</div>
+						</div>
+						<div class="panel panel-flat">
+							<div class="panel-heading">
+								<h5 class="panel-title">Cadastro de Modelo</h5>
 
-            <div class="row">
+							</div>
 
-              <div class="row">
-                <div class="input-field col s11">
-                  <button class="btn cyan waves-effect waves-light right" type="submit" id="enviar"name="action">Salvar
-                    <i class="mdi-content-send right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-                </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    </div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6">
+										<fieldset>
+											<legend class="text-semibold"><i class="icon-reading position-left"></i> Dados </legend>
 
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Nome:</label>
+												<div class="col-lg-9">
+													<input type="text" class="form-control" placeholder="Nome" ng-model="vm.nome">
+												</div>
+											</div>
 
-	<!--chart dashboard end-->
-
-	<!-- //////////////////////////////////////////////////////////////////////////// -->
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Descrição:</label>
+												<div class="col-lg-9">
+													<input type="text" class="form-control" placeholder="Descricao" ng-model="vm.cpf">
+												</div>
+											</div>
 
 
-</form>
-</div>
+										</fieldset>
+									</div>
+
+								</div>
+
+								<div class="text-right">
+									<button type="submit" ng-click="salvar()" ng-disabled="mensagem" class="btn btn-primary">Salvar <i class="icon-arrow-right14 position-right"></i></button>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!-- /2 columns form -->
+
+
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+					</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
+
+
+	<!-- /theme JS files -->

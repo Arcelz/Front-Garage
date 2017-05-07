@@ -1,136 +1,156 @@
-<!--start container-->
-<div class="container">
+<!-- Page header -->
+				<div class="page-header page-header-default">
+					<div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li><a href="#!/"><i class="icon-home2 position-left"></i> Home</a></li>
 
-    <!--chart dashboard start-->
-    <form id="form-cadastro-cliente">
-        <p class="caption">Cadastro de Clientes</p>
+							<li class="active"> Cadastro de Cliente</li>
 
-        <div class="divider"></div>
-        <!--Form Advance-->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="card-panel">
-                    <!--<h4 class="header2">Form Advance</h4>-->
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s6">
-                                    <input id="nome" type="text">
-                                    <label for="nome">Nome Completo</label>
-                                </div>
+						</ul>
+					</div>
+				</div>
+				<!-- /page header -->
 
-                                <div class="input-field col s6">
-                                    <input id="cpf" type="text">
-                                    <label for="cpf">CPF</label>
-                                </div>
+  			<!-- Content area -->
+				<div class="content">
 
-                                <div class="input-field col s6">
-                                    <input id="celular" type="text">
-                                    <label for="celular">Celular</label>
-                                </div>
+					<!-- 2 columns form -->
+					<form class="form-horizontal" action="">
+						<div ng-show="mensagem" class="row">
+							<div class="col-md-6">
+									<div class="alert alert-success alert-styled-left alert-arrow-left alert-bordered">
+										<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+										<span class="text-semibold">{{mensagem}}</span>
+								    </div>
+							</div>
+						</div>
+						<div class="panel panel-flat">
+							<div class="panel-heading">
+								<h5 class="panel-title">Cadastro de Cliente</h5>
 
-                                <div class="input-field col s6">
-                                    <input id="email" type="text">
-                                    <label for="email">E-mail</label>
-                                </div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6">
+										<fieldset>
+											<legend class="text-semibold"><i class="icon-reading position-left"></i> Dados Pessoais </legend>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Nome:</label>
+												<div class="col-lg-9">
+													<input type="text" class="form-control" placeholder="Nome" ng-model="vm.nome">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">CPF:</label>
+												<div class="col-lg-9">
+													<input type="text" class="form-control" placeholder="CPF" ng-model="vm.cpf">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Email:</label>
+												<div class="col-lg-9">
+													<input type="text" placeholder="eugene@kopyov.com" class="form-control" ng-model="vm.email">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Telefone:</label>
+												<div class="col-lg-9">
+													<div class="row">
+														<div class="col-md-4">
+															<input type="text" placeholder="Telefone" class="form-control" ng-model="vm.contato">
+														</div>
+												<label class="col-lg-3 control-label">Celular:</label>
+														<div class="col-md-4">
+															<input type="text" placeholder="Celular" class="form-control" ng-model="vm.contato1">
+														</div>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+
+									<div class="col-md-6">
+										<fieldset>
+						                	<legend class="text-semibold"><i class=" position-left"></i> </legend>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Logradouro:</label>
+												<div class="col-lg-9">
+													<input type="text" placeholder="Logradouro" class="form-control" ng-model="vm.logradouro">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Bairro:</label>
+												<div class="col-lg-9">
+													<input type="text" placeholder="Bairro" class="form-control" ng-model="vm.bairro">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Estado:</label>
+												<div class="col-lg-9">
+													<div class="row">
+														<div class="col-md-4">
+															<input type="text" placeholder="Estado" class="form-control" ng-model="vm.estado">
+														</div>
+												<label class="col-lg-3 control-label">Cidade:</label>
+														<div class="col-md-4">
+															<input type="text" placeholder="Cidade" class="form-control" ng-model="vm.cidade">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-lg-3 control-label">Pais:</label>
+												<div class="col-lg-9">
+													<div class="row">
+														<div class="col-md-4">
+															<input type="text" placeholder="Pais" class="form-control" ng-model="vm.pais">
+														</div>
+												<label class="col-lg-3 control-label">Cep:</label>
+														<div class="col-md-4">
+															<input type="text" placeholder="Cep" class="form-control" ng-model="vm.cep">
+														</div>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+
+								<div class="text-right">
+									<button type="submit" ng-click="salvar()" ng-disabled="mensagem" class="btn btn-primary">Salvar <i class="icon-arrow-right14 position-right"></i></button>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!-- /2 columns form -->
 
 
-                                <div class="input-field col s6">
-                                    <input id="endereco" type="text">
-                                    <label for="endereco">Endereço</label>
-                                </div>
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+					</div>
+					<!-- /footer -->
 
-                                <div class="input-field col s6">
-                                    <input id="bairro" type="text">
-                                    <label for="bairro">Bairro</label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="cidade" type="text">
-                                    <label for="cidade">Cidade</label>
-                                </div>
+				</div>
+				<!-- /content area -->
 
-                                <div class="input-field col s6">
-                                    <input id="estado" type="text">
-                                    <label for="estado">Estado</label>
-                                </div>
-
-                                <div class="input-field col s6">
-                                    <input id="pais" type="text">
-                                    <label for="pais">Pais</label>
-                                </div>
-
-                                <div class="input-field col s6">
-                                    <input id="cep" type="text">
-                                    <label for="cep">CEP</label>
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="row">
-                                        <div class="input-field col s11">
-                                            <button class="btn cyan waves-effect waves-light right" type="submit"
-                                                    id="enviar" name="action">Salvar
-                                                <i class="mdi-content-send right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+				<div data-ng-include="'app/views/funcionario/modal-funcionario.html'"></div>
 
 
-        <!--chart dashboard end-->
-
-        <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 
-    </form>
-</div>
-<script>
-    $(function () {
-        $("#form-cadastro").validate({
-            rules: {
-                nome: {required: true},
-                cpf: {required: true},
-                celular: {required: true},
-                email: {required: true},
-                endereco: {required: true},
-                bairro: {required: true},
-                cidade: {required: true},
-                estado: {required: true},
-                pais: {required: true},
-                cep: {required: true},
-            },
-            messages: {
-                nome: {required: "Por favor, informe seu nome."},
-                cpf: {required: "Por favor, informe seu cpf."},
-                celular: {required: "Por favor, informe seu celular."},
-                email: {required: "Por favor, informe seu e-mail."},
-                endereco: {required: "Por favor, informe seu endereço."},
-                bairro: {required: "Por favor, informe seu bairro."},
-                cidade: {required: "Por favor, informe seu cidade."},
-                estado: {required: "Por favor, informe seu estado."},
-                pais: {required: "Por favor, informe seu pais."},
-                cep: {required: "Por favor, informe seu cep."},
 
-                errorElement: 'div',
-                errorPlacement: function (error, element) {
-                    var placement = $(element).data('error');
-                    if (placement) {
-                        $(placement).append(error)
-                    } else {
-                        error.insertAfter(element);
-                    }
-                }
-            }
-        });
-    });
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
 
-    function carregar(pagina) {
-        $("#div-modal").load(pagina);
-    }
-</script>
+
+	<!-- /theme JS files -->
