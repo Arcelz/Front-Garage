@@ -1,4 +1,4 @@
-ngular
+angular
     .module('app.core')
     .factory('DataService', DataService);
 
@@ -41,5 +41,3 @@ function DataService($http, AuthService) {
                 });
     }
 }
-
-
