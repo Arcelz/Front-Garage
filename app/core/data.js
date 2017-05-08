@@ -26,6 +26,7 @@ function data($http,AuthService) {
             .then(getCompleto)
             .catch(function (message) {
                 console.log(('XHR Failed for get') + (message));
+                
             });
 
         function getCompleto(data, status, headers, config) {
@@ -35,10 +36,12 @@ function data($http,AuthService) {
 
     function realizarPost(caminho, data) {
         var data = $.param(data);
-        return $http.post(caminho, data, config)
+        console.log(data);
+        return $http.post(caminho, data)
             .then(postCompleto)
             .catch(function (message) {
-                console.log(('XHR Failed for post') + (message));
+                console.log(('XHR Failed for post',message.data));
+                alert(message.data.message);
             });
 
         function postCompleto(data, status, headers, config) {

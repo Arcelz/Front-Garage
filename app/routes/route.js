@@ -12,19 +12,25 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
         parent: 'common',
         templateUrl: 'app/views/home.html',
         controller:'Home',
-        controllerAs: 'vm'
-        //template: '<div><h4>dashboard</h4></div>',
-        //controller: 'DashboardCtrl'
+        controllerAs: 'vm'        
       })
-
-       .state('funcionario', {
+       .state('funcionarioL', {
         url: '/funcionarios',
         parent: 'common',
-        templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
-        controller:'Funcionario',
+        templateUrl: 'app/views/funcionario/listar-funcionarios.html',
+        controller:'FuncionarioListar',
         controllerAs: 'vm'
 
-      }).state('cliente', {
+      })
+       .state('funcionarioN', {
+        url: '/funcionarios/novo',
+        parent: 'common',
+        templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
+        controller:'FuncionarioSalvar',
+        controllerAs: 'vm'
+
+      })
+      .state('cliente', {
        url: '/clientes',
        parent: 'common',
        templateUrl: 'app/views/cliente/cadastro-clientes.html',
