@@ -1,156 +1,216 @@
-<div class="page-header page-header-default">
-  <div class="breadcrumb-line">
-    <ul class="breadcrumb">
-      <li><a href="#!/"><i class="icon-home2 position-left"></i> Home</a></li>
+<div class="container">
 
-      <li class="active"> Cadastro de veiculos</li>
+	<!--chart dashboard start-->
 
-    </ul>
-  </div>
-</div>
-<!-- /page header -->
+    <p class="caption">Cadastro de Veículos</p>
 
-<!-- Content area -->
-<div class="content">
+    <div class="divider"></div>
+  <!--Form Advance-->
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card-panel">
+        <!--<h4 class="header2">Form Advance</h4>-->
+          <div class="row">
+            <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s4">
+                    <select>
+                      <option value="" disabled selected>Escolha a Categoria</option>
 
-
-<div class= "row">
-
-  <!-- Categoria-->
-<div class= "col-md-6">
-
-
-        <!-- Basic layout-->
-        <form action="#">
-          <div class="panel panel-flat">
-            <div class="panel-heading">
-
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-15">
-            <fieldset>
-
-              <legend class="text-semibold"><i class="icon-car position-left"></i> Categoria do Veiculo </legend>
-
-
-              <div class="form-group"ng-controller="Funcionario">
-                <label class="col-lg-3 control-label">Categoria:</label>
-                <div class="col-lg8">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <div class="mb-12">
-                                      <select ng-model="vm.categoria" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione a Categoria" class="select">
-                                      <option value="">Selecione a Categoria</option>
-
-                                      </select>
-                                    </div>
-                    </div>
-                    <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_categoria"> <i class="icon-plus22"></i></button></td>
+                    </select>
+                    <label>Selecione a Categoria</label>
                   </div>
-                  <div data-ng-include="'app/views/veiculo/modal-categoria.html'"></div>
-                </div>
-              </div>
-              </div>
-              </div>
-              </div>
-              </div>
-            </form>
 
-          </div>
+                  <div class="input-field col s2">
+                  <div id="modals-demo" class="section">
+                    <div class="row">
+                      <div class="col s12 m4 l3">
 
-          <!-- Modelo-->
-     <div class= "col-md-6">
-                	<!-- Basic layout-->
-                  <form action="#">
-                    <div class="panel panel-flat">
-                      <div class="panel-heading">
+                      <div class="col s12 m8 l9">
+                        <p><a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add"></i></a>
+                        </p>
 
-                </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-15">
-                      <fieldset>
-
-                        <legend class="text-semibold"><i class="icon-car position-left"></i> Modelo do Veiculo </legend>
-
-
-                        <div class="form-group"ng-controller="Funcionario">
-                          <label class="col-lg-3 control-label">Modelo:</label>
-                          <div class="col-lg8">
+                        <!-- MODAL CADASTRO DA MARCA -->
+                        <div id="modal1" class="modal">
+                          <div class="modal-content">
                             <div class="row">
-                              <div class="col-md-7">
-                                <div class="mb-12">
-                                                <select ng-model="vm.modelo" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione o Modelo" class="select">
-                                                <option value="">Selecione o Moelo</option>
-
-                                                </select>
-                                              </div>
+                              <div class="input-field col s6">
+                                <input id="input-telefone" type="text">
+                                <label for="input-telefone">Nome</label>
                               </div>
-                              <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_modelo"> <i class="icon-plus22"></i></button></td>
+                                <div class="input-field col s6">
+                                <input id="input-telefone" type="text">
+                                <label for="input-telefone">Descrição</label>
+                              </div>
                             </div>
-                            <div data-ng-include="'app/views/veiculo/modal-modelo.html'"></div>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                            <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar</a>
                           </div>
                         </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                      </form>
-                              </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                    <!-- Marca-->
-                    <div class= "col-md-6">
 
-                      <!-- Basic layout-->
-                    <form action="#">
-                    <div class="panel panel-flat">
-                    <div class="panel-heading"></div>
-                    <div class="panel-body">
-                      <div class="row">
-                        <div class="col-md-15">
-                      <fieldset>
 
-                    <legend class="text-semibold"><i class="icon-car position-left"></i> Marca do Veiculo </legend>
+                <div class="input-field col s4">
+                  <select>
+                    <option value="" disabled selected>Escolha a Marca</option>
 
-                    <div class="form-group"ng-controller="Funcionario">
-                    <label class="col-lg-3 control-label">Marca:</label>
-                      <div class="col-lg8">
-                      <div class="row">
-                      <div class="col-md-7">
-                      <div class="mb-12">
-                        <select ng-model="vm.categoria" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione a Marca" class="select">
-                          <option value="">Selecione a Marca</option>
-                        </select>
-                              </div>
+                  </select>
+                  <label>Selecione a Marca</label>
+                </div>
+
+                <div class="input-field col s2">
+                <div id="modals-demo" class="section">
+                  <div class="row">
+                    <div class="col s12 m4 l3">
+
+                    <div class="col s12 m8 l9">
+                      <p><a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add"></i></a>
+                      </p>
+
+                      <!-- MODAL CADASTRO DA MARCA -->
+                      <div id="modal1" class="modal">
+                        <div class="modal-content">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <input id="input-telefone" type="text">
+                              <label for="input-telefone">Nome</label>
+                            </div>
+                              <div class="input-field col s6">
+                              <input id="input-telefone" type="text">
+                              <label for="input-telefone">Descrição</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                          <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar</a>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                            <div class="input-field col s4">
+                              <select>
+                                <option value="" disabled selected>Escolha o Ano</option>
+
+                              </select>
+                              <label>Selecione o Ano</label>
+                            </div>
+
+                            <div class="input-field col s2">
+                            <div id="modals-demo" class="section">
+                              <div class="row">
+                                <div class="col s12 m4 l3">
+
+                                <div class="col s12 m8 l9">
+                                  <p><a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add"></i></a>
+                                  </p>
+
+                                  <!-- MODAL CADASTRO DO ANO -->
+                                  <div id="modal1" class="modal">
+                                    <div class="modal-content">
+                                      <div class="row">
+                                        <div class="input-field col s6">
+                                          <input id="input-telefone" type="text">
+                                          <label for="input-telefone">Nome</label>
+                                        </div>
+                                          <div class="input-field col s6">
+                                          <input id="input-telefone" type="text">
+                                          <label for="input-telefone">Descrição</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                                      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar</a>
+                                    </div>
+                                  </div>
                                 </div>
-                        <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button></td>
-                              </div>
-                              <div data-ng-include="'app/views/veiculo/modal-marca.html'"></div>
                               </div>
                             </div>
+                          </div>
+                        </div>
+              <div class="input-field col s4">
+                <select>
+                  <option value="" disabled selected>Escolha o Modelo</option>
+
+                </select>
+                <label>Selecione o Modelo</label>
+              </div>
+              <div class="input-field col s2">
+              <div id="modals-demo" class="section">
+                <div class="row">
+                  <div class="col s12 m4 l3">
+
+                  <div class="col s12 m8 l9">
+                    <p><a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add"></i></a>
+                    </p>
+
+                    <!-- MODAL CADASTRO DO MODELO -->
+                    <div id="modal1" class="modal">
+                      <div class="modal-content">
+                        <div class="row">
+                          <div class="input-field col s6">
+                            <input id="input-telefone" type="text">
+                            <label for="input-telefone">Nome</label>
+                          </div>
+                            <div class="input-field col s6">
+                            <input id="input-telefone" type="text">
+                            <label for="input-telefone">Descrição</label>
                           </div>
                         </div>
                       </div>
+                      <div class="modal-footer">
+                        <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar</a>
+                      </div>
                     </div>
-                      </form>
-                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <input id="input-telefone" type="text">
+                <label for="input-telefone">Valor de Compra</label>
+              </div>
 
-<!-- /footer -->
+            </div>
+
+
+
+            <div class="row">
+
+              <div class="row">
+                <div class="input-field col s11">
+                  <button class="btn cyan waves-effect waves-light right" type="submit" id="enviar"name="action">Salvar
+                    <i class="mdi-content-send right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+	<!--chart dashboard end-->
+
+	<!-- //////////////////////////////////////////////////////////////////////////// -->
+
 </div>
-</div>
-<!-- /content area -->
 
-
-
-
-
-
-
-
-<!-- Theme JS files -->
-<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
-<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
-
-
-<!-- /theme JS files -->
