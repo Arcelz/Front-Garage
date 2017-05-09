@@ -71,6 +71,14 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
        controllerAs: 'vm'
      })
 
+		 .state('ano', {
+       url: '/anos',
+       parent: 'common',
+       templateUrl: 'app/views/ano/cadastro-ano.html',
+       controller:'Funcionario',
+       controllerAs: 'vm'
+     })
+
       .state('login', {
         url: '/login',
         templateUrl: 'app/login/login.html',
