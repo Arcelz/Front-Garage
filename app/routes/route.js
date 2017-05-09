@@ -1,5 +1,6 @@
 app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
 
+	   $httpProvider.interceptors.push('tokenInterceptor');
 
      $stateProvider
       .state('common', {
@@ -10,28 +11,57 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
         url: '/',
         parent: 'common',
         templateUrl: 'app/views/home.html',
-        controller:'Home',            
+        controller:'Home',
         controllerAs: 'vm'
-        //template: '<div><h4>dashboard</h4></div>',
-        //controller: 'DashboardCtrl'
+
       })
-      .state('categoria', {
-        url: '/categorias',
-        parent: 'common',
-        templateUrl: 'app/views/categoria/cadastro-categorias.html',
-        controller:'Categoria',
-        controllerAs: 'vm'
-        //template: '<div><h4>Homeee</h4></div>',
-        //controller: 'DashboardCtrl'
-      })
-       .state('funcionario', {
+       .state('funcionarioL', {
         url: '/funcionarios',
         parent: 'common',
-        templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
-        controller:'Funcionario',
+        templateUrl: 'app/views/funcionario/listar-funcionarios.html',
+        controller:'FuncionarioListar',
         controllerAs: 'vm'
-        
+
       })
+       .state('funcionarioN', {
+        url: '/funcionarios/novo',
+        parent: 'common',
+        templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
+        controller:'FuncionarioSalvar',
+        controllerAs: 'vm'
+
+      })
+
+      .state('veiculos', {
+       url: '/veiculos',
+       parent: 'common',
+       templateUrl: 'app/views/veiculo/cadastro-veiculos.html',
+       controller:'Funcionario',
+       controllerAs: 'vm'
+
+     })
+      .state('cliente', {
+       url: '/clientes',
+       parent: 'common',
+       templateUrl: 'app/views/cliente/cadastro-clientes.html',
+       controller:'Funcionario',
+       controllerAs: 'vm'
+
+     }).state('marca', {
+       url: '/marcas',
+       parent: 'common',
+       templateUrl: 'app/views/marca/cadastro-marcas.html',
+       controller:'Funcionario',
+       controllerAs: 'vm'
+     })
+
+     .state('modelo', {
+       url: '/modelos',
+       parent: 'common',
+       templateUrl: 'app/views/modelo/cadastro-modelos.html',
+       controller:'Funcionario',
+       controllerAs: 'vm'
+     })
       .state('login', {
         url: '/login',
         templateUrl: 'app/login/login.html',
@@ -47,12 +77,12 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
 
         .state('home', {
-            url: '/',            
-            controller:'Home',            
+            url: '/',
+            controller:'Home',
             controllerAs: 'vm'
         })
         .state('login', {
-            url: '/login',            
+            url: '/login',
             controller:'Login'
         })
          .state('categoria', {
