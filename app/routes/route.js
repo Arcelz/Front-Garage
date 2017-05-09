@@ -1,6 +1,6 @@
 app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
 
-	   $httpProvider.interceptors.push('tokenInterceptor');
+	  // $httpProvider.interceptors.push('tokenInterceptor');
 
      $stateProvider
       .state('common', {
