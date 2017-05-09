@@ -10,7 +10,7 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
         url: '/',
         parent: 'common',
         templateUrl: 'app/views/home.html',
-        controller:'Home',            
+        controller:'Home',
         controllerAs: 'vm'
         //template: '<div><h4>dashboard</h4></div>',
         //controller: 'DashboardCtrl'
@@ -30,8 +30,24 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
         templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
         controller:'Funcionario',
         controllerAs: 'vm'
-        
+
       })
+      .state('veiculos', {
+       url: '/veiculos',
+       parent: 'common',
+       templateUrl: 'app/views/veiculo/cadastro-veiculos.html',
+       controller:'Funcionario',
+       controllerAs: 'vm'
+
+     })
+     .state('categorias', {
+      url: '/categorias',
+      parent: 'common',
+      templateUrl: 'app/views/veiculo/categoria.html',
+      controller:'Funcionario',
+      controllerAs: 'vm'
+
+    })
       .state('login', {
         url: '/login',
         templateUrl: 'app/login/login.html',
@@ -47,12 +63,12 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
 
         .state('home', {
-            url: '/',            
-            controller:'Home',            
+            url: '/',
+            controller:'Home',
             controllerAs: 'vm'
         })
         .state('login', {
-            url: '/login',            
+            url: '/login',
             controller:'Login'
         })
          .state('categoria', {
