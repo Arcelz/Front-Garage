@@ -1,6 +1,6 @@
 app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
 
-	  // $httpProvider.interceptors.push('tokenInterceptor');
+	   //$httpProvider.interceptors.push('tokenInterceptor');
 
      $stateProvider
       .state('common', {
@@ -62,6 +62,15 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
        controller:'Funcionario',
        controllerAs: 'vm'
      })
+
+		 .state('categoria', {
+       url: '/categorias',
+       parent: 'common',
+       templateUrl: 'app/views/categoria/cadastro-categorias.html',
+       controller:'Funcionario',
+       controllerAs: 'vm'
+     })
+
       .state('login', {
         url: '/login',
         templateUrl: 'app/login/login.html',
