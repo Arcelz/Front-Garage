@@ -1,17 +1,18 @@
 angular
     .module('app.core')
-    .factory('data', data);
+    .factory('DataService', DataService);
 
 /* @ngInject */
-function data($http) {
+function DataService($http, AuthService) {
     var service = {
         test: test,
-        get: get,
+        realizarGet: realizarGet,
         realizarPost: realizarPost
     };
     var config = {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+            'Authorization': AuthService.getToken()
         }
     };
     return service;
@@ -19,28 +20,24 @@ function data($http) {
         return alert("data service ok");
     }
 
-    function get(caminho) {
-        return $http.get(caminho)
-            .then(getCompleto)
-            .catch(function (message) {
-                console.log(('XHR Failed for get') + (message));
-            });
-
-        function getCompleto(data, status, headers, config) {
-            return data;
-        }
+    function realizarGet(caminho) {
+        return $http.get(caminho, config)
+            .then(function successCallback(response) {
+                    return response;
+                }
+                , function errorCallback(response) {
+                    return response;
+                });
     }
 
     function realizarPost(caminho, data) {
         var data = $.param(data);
         return $http.post(caminho, data, config)
-            .then(postCompleto)
-            .catch(function (message) {
-                console.log(('XHR Failed for post') + (message));
-            });
-
-        function postCompleto(data, status, headers, config) {
-            return data;
-        }
+            .then(function successCallback(response) {
+                    return response;
+                }
+                , function errorCallback(response) {
+                    return response;
+                });
     }
 }
