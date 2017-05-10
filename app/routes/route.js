@@ -36,7 +36,7 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
        url: '/veiculos',
        parent: 'common',
        templateUrl: 'app/views/veiculo/cadastro-veiculos.html',
-       controller:'Funcionario',
+       controller:'',
        controllerAs: 'vm'
 
      })
@@ -44,14 +44,14 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
        url: '/clientes',
        parent: 'common',
        templateUrl: 'app/views/cliente/cadastro-clientes.html',
-       controller:'Funcionario',
+       controller:'',
        controllerAs: 'vm'
 
      }).state('marca', {
        url: '/marcas',
        parent: 'common',
        templateUrl: 'app/views/marca/cadastro-marcas.html',
-       controller:'Funcionario',
+       controller:'',
        controllerAs: 'vm'
      })
 
@@ -59,7 +59,7 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
        url: '/modelos',
        parent: 'common',
        templateUrl: 'app/views/modelo/cadastro-modelos.html',
-       controller:'Funcionario',
+       controller:'',
        controllerAs: 'vm'
      })
 
@@ -67,7 +67,7 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
        url: '/categorias',
        parent: 'common',
        templateUrl: 'app/views/categoria/cadastro-categorias.html',
-       controller:'Funcionario',
+       controller:'',
        controllerAs: 'vm'
      })
 
@@ -75,7 +75,7 @@ app.config( function($httpProvider, $stateProvider, $urlRouterProvider) {
        url: '/anos',
        parent: 'common',
        templateUrl: 'app/views/ano/cadastro-ano.html',
-       controller:'Funcionario',
+       controller:'',
        controllerAs: 'vm'
      })
 
