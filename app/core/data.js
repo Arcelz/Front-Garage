@@ -7,7 +7,9 @@ function DataService($http, AuthService) {
     var service = {
         test: test,
         realizarGet: realizarGet,
-        realizarPost: realizarPost
+        realizarPost: realizarPost,
+        realizarDelete: realizarDelete,
+        realizarPut: realizarPut
     };
     var config = {
         headers: {
@@ -33,6 +35,27 @@ function DataService($http, AuthService) {
     function realizarPost(caminho, data) {
         var data = $.param(data);
         return $http.post(caminho, data, config)
+            .then(function successCallback(response) {
+                    return response;
+                }
+                , function errorCallback(response) {
+                    return response;
+                });
+    }
+
+      function realizarDelete(caminho) {        
+        return $http.delete(caminho, config)
+            .then(function successCallback(response) {
+                    return response;
+                }
+                , function errorCallback(response) {
+                    return response;
+                });
+    }
+
+    function realizarPut(caminho, data) {
+        var data = $.param(data);
+        return $http.put(caminho, data, config)
             .then(function successCallback(response) {
                     return response;
                 }
