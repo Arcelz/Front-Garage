@@ -9,7 +9,7 @@ app.controller('Login', function ($scope,$location,$state,DataService,AuthServic
             AuthService.setToken(data.data.Token);
             console.log(data.data);
             $scope.botaoLogin=false;
-            $location.path('/');
+            $state.go('home');
         });
     }
 });

@@ -1,4 +1,4 @@
-app.constant('permicao', {
+app.constant('Permicao', {
     cargos: '1',
     clientes: '2',
     clientes_endereco: '3',
