@@ -8,28 +8,20 @@
   <h5 class="modal-title">Cadastrado de Categoria</h5>
 </div>
 
-<form action="" class="form-inline">
+<form action="" class="form-inline" ng-controller="VeiculoSalvar">
   <div class="modal-body">
     <div class="form-group has-feedback">
-      <label>Categoria: </label>
-      <input type="text" placeholder="Categoria" class="form-control" ng-model="vm.nomeVeiculo" >
-      <div class="form-control-feedback">
-        <i class="icon-car text-muted"></i>
-      </div>
-    </div>
-  </div>
-  <div class="modal-body">
-    <div class="form-group has-feedback">
-      <label>Descrição: </label>
-      <input type="text" placeholder="Descricao" class="form-control" ng-model="vm.nomeVeiculo" >
+      <label>Nome: </label>
+      <input type="text" placeholder="Categoria" class="form-control" ng-model="vm.nome"/>
       <div class="form-control-feedback">
         <i class="icon-car text-muted"></i>
       </div>
     </div>
   </div>
 
+
   <div class="modal-footer text-center">
-    <button ng-click="salvarVeiculo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
+    <button ng-click="salvarCategoria()" data-dismiss="modal"  class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
   </div>
 </form>
 </div>
