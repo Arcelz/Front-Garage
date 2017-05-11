@@ -262,29 +262,4 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         });
 
     $urlRouterProvider.otherwise('/');
-    /*
-
-     $urlRouterProvider.otherwise('/');
-
-     $stateProvider
-
-     .state('home', {
-     url: '/',
-     controller:'Home',
-     controllerAs: 'vm'
-     })
-     .state('login', {
-     url: '/login',
-     controller:'Login'
-     })
-     .state('categoria', {
-     url: '/categorias',
-     templateUrl: 'app/categoria/cadastro-categorias.html',
-     controller:'Categoria'
-     })
-     .state('home.dashboard', {
-     url: '/dashboard',
-     templateUrl: 'app/dashboard/dashboard.html',
-     })*/
-
 });
