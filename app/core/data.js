@@ -11,18 +11,19 @@ function DataService($http, AuthService) {
         realizarDelete: realizarDelete,
         realizarPut: realizarPut
     };
-    var config = {
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-            'Authorization': AuthService.getToken()
-        }
-    };
+
     return service;
     function test() {
         return alert("data service ok");
     }
 
     function realizarGet(caminho) {
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                'Authorization': AuthService.getToken()
+            }
+        };
         return $http.get(caminho, config)
             .then(function successCallback(response) {
                     return response;
@@ -33,6 +34,12 @@ function DataService($http, AuthService) {
     }
 
     function realizarPost(caminho, data) {
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                'Authorization': AuthService.getToken()
+            }
+        };
         var data = $.param(data);
         return $http.post(caminho, data, config)
             .then(function successCallback(response) {
@@ -43,7 +50,13 @@ function DataService($http, AuthService) {
                 });
     }
 
-      function realizarDelete(caminho) {        
+      function realizarDelete(caminho) {
+          var config = {
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                  'Authorization': AuthService.getToken()
+              }
+          };
         return $http.delete(caminho, config)
             .then(function successCallback(response) {
                     return response;
@@ -54,6 +67,12 @@ function DataService($http, AuthService) {
     }
 
     function realizarPut(caminho, data) {
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                'Authorization': AuthService.getToken()
+            }
+        };
         var data = $.param(data);
         return $http.put(caminho, data, config)
             .then(function successCallback(response) {
