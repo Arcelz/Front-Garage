@@ -29,6 +29,7 @@
 												<label for="nome" class="col-lg-3 control-label">Nome:</label>
 												<div class="col-lg-9">
 													<input type="text" name="nome" class="form-control" placeholder="Nome" ng-model="form.nome" required/>
+													<input type="hidden"  class="form-control" placeholder="Nome" ng-model="form.pk_funcionario" />
 													<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label">
 														Nome obrigatorio
 													</label>
@@ -43,28 +44,26 @@
 														CPF obrigatorio
 													</label>
 												</div>
-											</div>
+											</div>											
 
-											<div class="form-group"ng-controller="FuncionarioSalvar">
+											<div class="form-group">
 												<label class="col-lg-3 control-label">Cargo:</label>
 												<div class="col-lg-9">
 													<div class="row">
 														<div class="col-md-6">
-															<div class="mb-15" ng-click="selectCargos()">
-									                            <select id="renderedCombo" name="cargo"  ng-model="form.fkCargo" 
-																ng-options="item.pk_cargos as item.nome for item in cargoResultados"
-																	 class="select" required>
-									                            <option  value="">Selecione o Cargo</option>																
+															<div class="mb-15" >
+									                            <select id="renderedCombo2" data-placeholder="Selecione o Cargo" 
+																class="select" data-ng-model="form.fkCargo"  ng-options="item.pk_cargos as item.nome for item in cargoResultados">						                            
+																<option value=""></option>				                               
+																   
 									                            </select>
-																<label ng-show="formulario.$submitted &&  formulario.cargo.$error.required" class="validation-error-label">
-																	Cargo obrigatorio
-																</label>
 								                            </div>								                            
 														</div>
 														<button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_inline"> <i class="icon-plus22"></i></button>														
 													</div>
 												</div>
 											</div>
+										
 
 											<div class="form-group">
 												<label for="email" class="col-lg-3 control-label">Email:</label>
@@ -156,6 +155,9 @@
 								</div>
 
 								<div class="text-right">
+									<a href="#!/funcionarios">
+                                    	<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
+                                	</a>
 									<button ng-disabled="botao" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
 								</div>
 							</div>
@@ -182,11 +184,7 @@
 	<!-- Theme JS files -->
 	<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script> 
 	<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
-	<script>
-			$(".select2-selection select2-selection--single").click(function(){
-			alter("OK");
-		});
-	</script>
+	
 	<!-- /theme JS files -->
 
     

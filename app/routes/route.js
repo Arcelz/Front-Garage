@@ -28,6 +28,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'CargoNovo',
             controllerAs: 'vm'
         })
+         .state('common.cargoEditar', {
+            url: '/cargos/:id',
+            permicao: '1C',
+            templateUrl: 'app/cargo/cadastro-cargos.html',
+            controller: 'CargoEditar',
+            controllerAs: 'vm'
+        })
         .state('common.clienteListar', {
             url: '/clientes',
             permicao: '2V',
@@ -41,6 +48,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             permicao: '2C',
             templateUrl: 'app/cliente/cadastro-clientes.html',
             controller: 'ClienteNovo',
+            controllerAs: 'vm'
+        })
+         .state('common.clienteEditar', {
+            url: '/clientes/:id',
+            permicao: '2C',
+            templateUrl: 'app/cliente/cadastro-clientes.html',
+            controller: 'ClienteEditar',
             controllerAs: 'vm'
         })
         .state('common.compraListar', {
@@ -58,6 +72,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'CompraNovo',
             controllerAs: 'vm'
         })
+        .state('common.compraEditar', {
+            url: '/compras/:id',
+            permicao: '4C',
+            templateUrl: 'app/compra/cadastro-compras.html',
+            controller: 'CompraEditar',
+            controllerAs: 'vm'
+        })
         .state('common.financeiroEntradaListar', {
             url: '/entradas',
             permicao: '6V',
@@ -68,6 +89,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('common.financeiroEntradaNovo', {
             url: '/entradas/novo',
+            permicao: '6C',
+            templateUrl: 'app/entrada/cadastro-entradas.html',
+            controller: 'FinanceiroEntradaNovo',
+            controllerAs: 'vm'
+        })
+        .state('common.financeiroEntradaEditar', {
+            url: '/entradas/:id',
             permicao: '6C',
             templateUrl: 'app/entrada/cadastro-entradas.html',
             controller: 'FinanceiroEntradaNovo',
@@ -87,6 +115,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'FinanceiroSaidaNovo',
             controllerAs: 'vm'
         })
+         .state('common.financeiroSaidaEditar', {
+            url: '/saidas/:id',
+            permicao: '7C',
+            templateUrl: 'app/saida/cadastro-saidas.html',
+            controller: 'FinanceiroSaidaEditar',
+            controllerAs: 'vm'
+        })
         .state('common.fornecedorListar', {
             url: '/fornecedores',
             permicao: '8V',
@@ -99,6 +134,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             permicao: '8C',
             templateUrl: 'app/fornecedor/cadastro-fornecedores.html',
             controller: 'FornecedoresNovo',
+            controllerAs: 'vm'
+        })
+         .state('common.fornecedorEditar', {
+            url: '/fornecedores/:id',
+            permicao: '8C',
+            templateUrl: 'app/fornecedor/cadastro-fornecedores.html',
+            controller: 'FornecedoresEditar',
             controllerAs: 'vm'
         })
         .state('common.funcionarioListar', {
@@ -114,6 +156,14 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             permicao: '10C',
             templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
             controller: 'FuncionarioSalvar',
+            controllerAs: 'vm'
+
+        })
+        .state('common.funcionarioEditar', {
+            url: '/funcionarios/:id',
+            permicao: '10C',
+            templateUrl: 'app/views/funcionario/cadastro-funcionarios.html',
+            controller: 'FuncionarioEditar',
             controllerAs: 'vm'
 
         })
@@ -133,6 +183,14 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controllerAs: 'vm'
 
         })
+        .state('common.grupoEditar', {
+            url: '/grupos/:id',
+            permicao: '12C',
+            templateUrl: 'app/grupo/cadastro-grupos.html',
+            controller: 'GrupoEditar',
+            controllerAs: 'vm'
+
+        })
         .state('common.marcaListar', {
             url: '/marcas',
             permicao: '14V',
@@ -147,6 +205,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'MarcaNovo',
             controllerAs: 'vm'
         })
+           .state('common.marcaEditar', {
+            url: '/marcas/:id',
+            permicao: '14C',
+            templateUrl: 'app/marca/cadastro-marcas.html',
+            controller: 'MarcaEditar',
+            controllerAs: 'vm'
+        })
         .state('common.modeloListar', {
             url: '/modelos',
             permicao: '15V',
@@ -156,6 +221,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('common.modeloNovo', {
             url: '/modelos/novo',
+            permicao: '15C',
+            templateUrl: 'app/modelo/cadastro-modelos.html',
+            controller: 'ModeloNovo',
+            controllerAs: 'vm'
+        })
+         .state('common.modeloEditar', {
+            url: '/modelos/:id',
             permicao: '15C',
             templateUrl: 'app/modelo/cadastro-modelos.html',
             controller: 'ModeloNovo',
@@ -175,6 +247,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'ReparoNovo',
             controllerAs: 'vm'
         })
+        .state('common.reparoEditar', {
+            url: '/reparos/:id',
+            permicao: '18V',
+            templateUrl: 'app/reparo/cadastro-reparos.html',
+            controller: 'ReparoEditar',
+            controllerAs: 'vm'
+        })
         .state('common.tipoReparoListar', {
             url: '/tipo-reparos',
             permicao: '19C',
@@ -187,6 +266,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             permicao: '19V',
             templateUrl: 'app/tipo-reparo/cadastro-tipo-reparos.html',
             controller: 'ReparoTipoNovo',
+            controllerAs: 'vm'
+        })
+         .state('common.tipoReparoEditar', {
+            url: '/tipo-reparos/:id',
+            permicao: '19V',
+            templateUrl: 'app/tipo-reparo/cadastro-tipo-reparos.html',
+            controller: 'ReparoTipoEditar',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoListar', {
@@ -203,6 +289,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'TipoReparoNovo',
             controllerAs: 'vm'
         })
+        .state('common.tipoVeiculoEditar', {
+            url: '/tipo-veiculos/:id',
+            permicao: '20V',
+            templateUrl: 'app/tipo-veiculo/cadastro-tipo-veiculos.html',
+            controller: 'TipoReparoEditar',
+            controllerAs: 'vm'
+        })
         .state('common.usuarioListar', {
             url: '/usuarios',
             permicao: '20C',
@@ -215,6 +308,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             permicao: '20V',
             templateUrl: 'app/usuario/cadastro-usuarios.html',
             controller: 'UsuarioNovo',
+            controllerAs: 'vm'
+        })
+         .state('common.usuarioEditar', {
+            url: '/usuarios/:id',
+            permicao: '20V',
+            templateUrl: 'app/usuario/cadastro-usuarios.html',
+            controller: 'UsuarioEditar',
             controllerAs: 'vm'
         })
         .state('common.veiculoListar', {
@@ -231,6 +331,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'VeiculoNovo',
             controllerAs: 'vm'
         })
+        .state('common.veiculoEditar', {
+            url: '/veiculos/:id',
+            permicao: '23C',
+            templateUrl: 'app/veiculo/cadastro-veiculos.html',
+            controller: 'VeiculoEditar',
+            controllerAs: 'vm'
+        })
         .state('common.vendaListar', {
             url: '/vendas',
             permicao: '23V',
@@ -243,6 +350,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             permicao: '23C',
             templateUrl: 'app/venda/cadastro-vendas.html',
             controller: 'VendaNovo',
+            controllerAs: 'vm'
+        })
+         .state('common.vendaEditar', {
+            url: '/vendas/:id',
+            permicao: '23C',
+            templateUrl: 'app/venda/cadastro-vendas.html',
+            controller: 'VendaEditar',
             controllerAs: 'vm'
         })
         .state('error', {

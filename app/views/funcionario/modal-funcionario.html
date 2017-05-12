@@ -8,11 +8,14 @@
 									<h5 class="modal-title">Cadastrado de Cargo</h5>
 								</div>
 
-								<form action="" class="form-inline" ng-controller="FuncionarioSalvar">
+								<form  name="formulario" action="" class="form-inline" ng-controller="FuncionarioSalvar">
 									<div class="modal-body">
 										<div class="form-group has-feedback">
 											<label>Nome: </label>
-											<input type="text" placeholder="Nome"  class="form-control" ng-model="form2.nome" >
+											<input type="text" placeholder="Nome" name="nome" class="form-control" ng-model="form2.nome" >
+											<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
+												NOme obrigatorio
+											</label>
 											<div class="form-control-feedback">
 												<i class="icon-user text-muted"></i>
 											</div>
