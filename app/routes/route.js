@@ -361,7 +361,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('error', {
             url: '/error',
-            templateUrl: 'app/views/error/error.html',
+            templateUrl: 'app/error/error.html',
             controller: 'Error',
             controllerAs: 'vm',
             params: {error: 'Error', errorMessage: 'Error'}
