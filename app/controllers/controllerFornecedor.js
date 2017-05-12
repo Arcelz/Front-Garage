@@ -1,13 +1,9 @@
 app.controller('FornecedorSalvar', function ($scope,$rootScope, DataService, $document, $window, $location) {
       
     //Função para salvar Funcionario
-    $scope.salvar = function(){
-        console.log($scope.form,"controller");
-        
-        
-        console.log($scope.form.fkCargo, "fk");
+    $scope.salvar = function(){        
 
-        if($scope.pk_funcionario === undefined){
+        if($scope.form.pk_fornecedor === undefined){
             if($scope.formulario.$valid )
             {        
                 $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções      
@@ -16,7 +12,7 @@ app.controller('FornecedorSalvar', function ($scope,$rootScope, DataService, $do
                             $scope.mensagem = response.data.message;
                             $scope.botao = false;
                       }else{
-                          //console.log(response,"asdasd");
+                          $scope.botao = true;
                           $scope.mensagem = response.data.message;
                           $scope.form = {};
                       }
@@ -32,7 +28,7 @@ app.controller('FornecedorSalvar', function ($scope,$rootScope, DataService, $do
                             $scope.mensagem = response.data.message;
                             $scope.botao = false;
                       }else{
-                          //console.log(response,"asdasd");
+                          $scope.botao = true;
                           $scope.mensagem = response.data.message;
                           $scope.form = {};
                       }
@@ -71,7 +67,7 @@ app.controller('FornecedorListar', function ($scope,$rootScope, DataService) {
   $scope.excluirFuncionario = function(){
     //var id = $rootScope.idModalExclusao;
      //console.log( $rootScope.idModalExclusao.pk_funcionario);
-    DataService.realizarDelete('http://ifg.redesbrasil.com/fornecedores/'+ $rootScope.idModalExclusao.pk_funcionario).then(function(data){
+    DataService.realizarDelete('http://ifg.redesbrasil.com/fornecedores/'+ $rootScope.idModalExclusao.pk_fornecedor).then(function(data){
         var index = -1;
         var comArr = eval($scope.lembretes);
         var i;
@@ -109,8 +105,8 @@ app.controller('FornecedorEditar', function ($scope, DataService,$stateParams,$r
       DataService.realizarGet('http://ifg.redesbrasil.com/fornecedores/'+id).then(function(response){
        // console.log(response,"vindo");
      $scope.form = {
-       pk_funcionario: response.data[0].pk_funcionario,
-        nome: response.data[0].nomes,
+       pk_fornecedor: response.data[0].pk_fornecedor,
+        nome: response.data[0].nome,
         cpf: response.data[0].cpf,       
         email: response.data[0].email,
         logradouro: response.data[0].logradouro,
@@ -121,24 +117,10 @@ app.controller('FornecedorEditar', function ($scope, DataService,$stateParams,$r
         contato1:response.data[0].contato1,
         estado:response.data[0].estado,
         pais:response.data[0].pais,
-        fkCargo:   response.data[0].pk_cargos
+        
        
       };
-
-      $rootScope.idC =  response.data[0].pk_cargos;
-      $rootScope.nome = response.data[0].nome;
-       $scope.select = angular.element(document.querySelector('#renderedCombo'));     
-    $scope.select.append('<option selected="selected" label="'+$rootScope.nome+'" value="string:'+$rootScope.idC +'">'+$rootScope.nome+'</option>' );
      
-
-     // $scope.cargoResultados = [ {  "pk_cargos": "1","nome": "ADMIN","status": "ATIVO"}, {"pk_cargos": "3","nome": "matheus","status": "ATIVO"}];
-   // }; 
-      //$scope.cargoResultados = response.data;
-     
-     // $scope.fomr = response.data[0];
-      
-      //response.data;
-       //console.log($scope.form);
     });
    
 
