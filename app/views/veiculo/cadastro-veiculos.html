@@ -1,131 +1,138 @@
-<div class="page-header page-header-default">
-  <div class="breadcrumb-line">
-  <ul class="breadcrumb">
-    <li><a href="#!/"><i class="position-left"></i> </a></li>
-    <li class="active"> Cadastro de veiculos</li>
-  </ul>
+<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="FuncionarioSalvar">
+  <div ng-show="mensagem.length" class="row">
+    <div class="col-md-6">
+        <div class="alert alert-primary alert-bordered">
+          <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+          <span class="text-semibold">{{mensagem}}</span>
+          </div>
+    </div>
   </div>
-</div>
-<!-- Categoria-->
-<div class="content">
-  <div class= "row">
-    <div class= "col-md-6">
-      <!-- Basic layout-->
-        <form action="#">
-          <div class="panel panel-flat">
-            <div class="panel-heading">
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">Cadastro de veiculos</h5>
 
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-15">
+    </div>
+            <div class="panel-body">
+              <div class= "row">
+                <div class= "col-md-6">
             <fieldset>
 
-              <legend class="text-semibold"><i class="icon-car position-left"></i> Categoria do Veiculo </legend>
+              <legend class="text-semibold"><i class="icon-car position-left"></i>Placa</legend>
 
 
               <div class="form-group">
-                <label class="col-lg-3 control-label">Categoria:</label>
+                <label class="col-lg-3 control-label">Placa:</label>
                 <div class="col-lg8">
                   <div class="row">
                     <div class="col-md-7">
                       <div class="mb-12">
-                                      <select ng-model="vm.categoria" ng-options="item.pk_tipo as item.nome for item in categoriaResultados" data-placeholder="Selecione a Categoria" class="select">
-                                      <option value="">Selecione a Categoria</option>
+                                      <select ng-model="vm.Placa" ng-options="item.pk_tipo as item.nome for item in categoriaResultados" data-placeholder="Selecione a Placa" class="select">
+                                      <option value="">Selecione a Placa</option>
 
                                       </select>
                                     </div>
                     </div>
-                    <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_categoria"> <i class="icon-plus22"></i></button></td>
+                    <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_placa"> <i class="icon-plus22"></i></button></td>
                    </div>
-                  <div data-ng-include="'app/views/veiculo/modal-categoria.html'"></div>
+                  <div data-ng-include="'app/views/veiculo/modal-placa.html'"></div>
                  </div>
                </div>
-             </div>
-              </div>
-              </div>
-              </div>
-            </form>
+            </fieldset>
 
-         </div>
+            <fieldset>
 
-         <!-- Modelo-->
-     <div class= "col-md-6">
-                	<!-- Basic layout-->
-                  <form action="#">
-                  <div class="panel panel-flat">
-                  <div class="panel-heading">
-                    </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-15">
+             <!-- Modelo-->
+             <!-- Basic layout-->
+                    <legend class="text-semibold"><i class="icon-car position-left"></i> Marca </legend>
+
+
+                            <div class="form-group">
+                              <label class="col-lg-3 control-label">Marca:</label>
+                              <div class="col-lg8">
+                                <div class="row">
+                                  <div class="col-md-7">
+                                    <div class="mb-12">
+                                                    <select ng-model="vm.marca" ng-options="item.tipo-veiculos_cargo as item.nome for item in cargoResultados" data-placeholder="Selecione a Marca" class="select">
+                                                    <option value="">Selecione a Marca</option>
+
+                                                    </select>
+                                                  </div>
+                                   </div>
+                                  <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button></td>
+                                 </div>
+                                <div data-ng-include="'app/views/veiculo/modal-marca.html'"></div>
+                               </div>
+                             </div>
+
+                         </fieldset>
+                       </div>
+
+
+         <!-- Marca-->
+
+
+
+                   <div class= "col-md-6">
                       <fieldset>
-                        <legend class="text-semibold"><i class="icon-car position-left"></i> Modelo do Veiculo </legend>
 
+                        <legend class="text-semibold"><i class="icon-car position-left"></i> Categoria </legend>
 
                         <div class="form-group">
-                          <label class="col-lg-3 control-label">Modelo:</label>
+                          <label class="col-lg-3 control-label">Categoria:</label>
                           <div class="col-lg8">
                             <div class="row">
                               <div class="col-md-7">
                                 <div class="mb-12">
-                                                <select ng-model="vm.modelo" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione o Modelo" class="select">
-                                                <option value="">Selecione o Moelo</option>
-
-                                                </select>
-                                              </div>
-                               </div>
-                              <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_modelo"> <i class="icon-plus22"></i></button></td>
-                             </div>
-                            <div data-ng-include="'app/views/veiculo/modal-modelo.html'"></div>
-                           </div>
-                         </div>
-                       </div>
+                                  <select ng-model="vm.categoria" ng-options="item.pk_tipo as item.nome for item in cargoResultados" data-placeholder="Selecione a Categoria" class="select">
+                              <option value="">Selecione a Categoria</option>
+                            </select>
+                          </div>
                         </div>
-                        </div>
-                        </div>
-                      </form>
-                              </div>
-                              <!-- Marca-->
-                    <div class= "col-md-6">
-
-                      <!-- Basic layout-->
-                    <form action="#">
-                    <div class="panel panel-flat">
-                    <div class="panel-heading"></div>
-                    <div class="panel-body">
-                      <div class="row">
-                        <div class="col-md-15">
-                      <fieldset>
-
-                    <legend class="text-semibold"><i class="icon-car position-left"></i> Marca do Veiculo </legend>
-
-                    <div class="form-group">
-                    <label class="col-lg-3 control-label">Marca:</label>
-                      <div class="col-lg8">
-                      <div class="row">
-                      <div class="col-md-7">
-                      <div class="mb-12">
-                        <select ng-model="vm.categoria" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione a Marca" class="select">
-                          <option value="">Selecione a Marca</option>
-                        </select>
-                              </div>
-                                </div>
-                        <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button></td>
-                              </div>
-                              <div data-ng-include="'app/views/veiculo/modal-marca.html'"></div>
-                              </div>
-                            </div>
-                           </div>
-                         </div>
-                       </div>
-                       </div>
-                     </form>
+                        <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_categoria"> <i class="icon-plus22"></i></button></td>
                       </div>
+                      <div data-ng-include="'app/views/veiculo/modal-categoria.html'"></div>
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset>
 
-                      <!-- /footer -->
-</div>
-</div>
+                  <legend class="text-semibold"><i class="icon-car position-left"></i> Modelo </legend>
+
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">Modelo:</label>
+                    <div class="col-lg8">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <div class="mb-12">
+                            <select ng-model="vm.modelo" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione o Modelo" class="select">
+                        <option value="">Selecione a Modelo</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_modelo"> <i class="icon-plus22"></i></button></td>
+                </div>
+                <div data-ng-include="'app/views/veiculo/modal-modelo.html'"></div>
+              </div>
+            </div>
+          </fieldset>
+                </div>
+              </div>
+              <div class="text-right">
+                <a href="#!/funcionarios">
+                                    <button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
+                                </a>
+                <button ng-disabled="botao" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
+              </div>
+              </div>
+              </div>
+
+        </form>
+
+
+
+
+        <!-- /footer -->
+
 <!-- /content area -->
 
 <!-- Theme JS files -->

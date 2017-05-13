@@ -1,20 +1,19 @@
-
 <!-- Inline form modal -->
-<div id="modal_form_categoria" class="modal fade" data-backdrop="static">
+<div id="modal_form_placa" class="modal fade" data-backdrop="static">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
                     <button type="button" class="close" id="testeFechar" data-dismiss="modal">×</button>
-  <h5 class="modal-title">Cadastrado de Categoria</h5>
+  <h5 class="modal-title">Cadastrado de Placa</h5>
 </div>
 
-<form action="" class="form-inline" ng-controller="salvarCategoria">
+<form action="" class="form-inline">
   <div class="modal-body">
     <div class="form-group has-feedback">
-      <label>Nome: </label>
-      <input type="text" placeholder="Categoria" class="form-control" ng-model="vm.nome"/>
+      <label>Placa: </label>
+      <input type="text" placeholder="Placa" class="form-control" ng-model="vm.nome" >
       <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
-        Categoria obrigatorio
+        Placa obrigatorio
       </label>
       <div class="form-control-feedback">
         <i class="icon-car text-muted"></i>
@@ -22,9 +21,8 @@
     </div>
   </div>
 
-
   <div class="modal-footer text-center">
-    <button ng-click="salvarCategoria()" data-dismiss="modal"  class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
+    <button ng-click="salvarVeiculo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
   </div>
 </form>
 </div>
