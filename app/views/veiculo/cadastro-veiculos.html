@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="FuncionarioSalvar">
+<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="">
   <div ng-show="mensagem.length" class="row">
     <div class="col-md-6">
         <div class="alert alert-primary alert-bordered">
@@ -65,7 +65,7 @@
                              </div>
 
                          </fieldset>
-                       </div>
+                         </div>
 
 
          <!-- Marca-->
@@ -115,10 +115,12 @@
               </div>
             </div>
           </fieldset>
+
                 </div>
               </div>
+
               <div class="text-right">
-                <a href="#!/funcionarios">
+                <a href="#!/veiculos">
                                     <button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
                                 </a>
                 <button ng-disabled="botao" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
