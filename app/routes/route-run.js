@@ -15,7 +15,7 @@ app.run(function ($transitions, $state, $location, jwtHelper, AuthService) {
         var permi = trans.to().permicao;
         var Permicao = jwtHelper.decodeToken(token)['Permição'];
         var boleanPermicao = false;
-        for (var i = 10; i < Permicao.length; i++) {
+        for (var i = 0; i < Permicao.length; i++) {
             if (Permicao[i] === permi) {
                 return boleanPermicao = true;
             }

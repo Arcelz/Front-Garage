@@ -2,7 +2,7 @@
 <div class="content">
 
 	<!-- 2 columns form -->
-	<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="CompraNovo">
+	<form class="form-horizontal" name="formulario" novalidate ng-controller="CompraNovo">
 		<div ng-show="mensagem.length" class="row">
 			<div class="col-md-6">
 				<div class="alert alert-primary alert-bordered">
@@ -11,16 +11,14 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="panel panel-flat">
 			<div class="panel-heading">
 				<h5 class="panel-title">Cadastro de Compra</h5>
 
 			</div>
+
 			<div class="panel-body">
-				<!-- BLOCO DE SELECT -->
 				<div class="row">
-					<!-- SEELCET POR FORNECEDOR  -->
 					<div class="col-md-6">
 						<fieldset>
 							<legend class="text-semibold"> </legend>
@@ -40,30 +38,28 @@
 										<button type="button" class="btn btn-info btn-float btn-rounded legitRipple" ng-click="adicionarFornecedor()"> <i class="icon-plus22"></i></button>
 									</div>
 								</div>
-							</div>
+							<div>
 							<br/>
 							<br/>
-							<!-- BLOCO DE INSERT FUNCIONARIO  -->
 							<div class="form-group">
 								<div class="col-lg-10">
 									<div class="input-group">
 										<span class="input-group-addon">
 																<i class="icon-user"></i>
 															</span>
-										<input type="text" size="23" maxlength="23" style="text-transform:uppercase" name="nomeFornecedor" class="form-control" disabled="disabled"
+										<input type="text" size="23" maxlength="23" style="text-transform:uppercase" name="nome" class="form-control" disabled="disabled"
 										 ng-model="form.nome" required>
 										<input type="hidden" name="fkFornecedor" class="form-control" placeholder="Nome" ng-model="form.fkFornecedor">
-										<label ng-show="formulario.$submitted &&  formulario.nomeFornecedor.$error.required" class="validation-error-label">
-																Selecionar do Fornecedor Obrigatorio
+										<label ng-show="formulario.$submitted &&  formulario.fkFornecedor.$error.required" class="validation-error-label">
+																Nome do Fornecedor Obrigatorio
 															</label>
 									</div>
 								</div>
 							</div>
-							<!-- / FIM BLOCO DE INSERT FUNCIONARIO  -->
+
 						</fieldset>
 					</div>
-					<!-- /FIM SELECT POR FORNECEDOR  -->
-					<!-- SELECT POR FUNCIONARIO  -->
+
 					<div class="col-md-6">
 						<fieldset>
 							<legend class="text-semibold"> </legend>
@@ -87,42 +83,40 @@
 
 							<br/>
 							<br/>
-							<!-- BLOCO DE INSERT FUNCIONARIO  -->
 							<div class="form-group">
 								<div class="col-lg-10">
 									<div class="input-group">
 										<span class="input-group-addon">
 																<i class="icon-user"></i>
 															</span>
-										<input type="text" name="nomeFuncionario" size="23" maxlength="23" style="text-transform:uppercase" class="form-control" disabled="disabled"
+										<input type="text" name="nome" size="23" maxlength="23" style="text-transform:uppercase" class="form-control" disabled="disabled"
 										 ng-model="form2.nome" required />
 										<input type="hidden" name="fkFuncionario" class="form-control" placeholder="Nome" ng-model="form2.fkFuncionario" />
-										<label ng-show="formulario.$submitted &&  formulario.nomeFuncionario.$error.required" class="validation-error-label">
-																Selecionar Funcionario obrigatorio
+										<label ng-show="formulario.$submitted &&  formulario.fkFuncionario.$error.required" class="validation-error-label">
+																Nome Funcionario obrigatorio
 															</label>
 									</div>
 								</div>
 							</div>
-							<!-- /FIM BLOCO DE INSERT FUNCIONARIO  -->
+
+
 						</fieldset>
 					</div>
-					<!-- /FIM SELECT POR FUNCIONARIO  -->
 				</div>
-				<!-- /FIM BLOCO DE SELECT -->
-				<br/>
-				<br/>
-				<br/>
-				<br/>
 
-				<!-- BLOCO DE PESQUISA POR VEICULO -->
-				<form name="formulario2" class="main-search">
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<div name="formulario2" class="main-search">
 					<div class="input-group content-group">
 						<div class="has-feedback has-feedback-left">
-							<input type="text" name="consulta" ng-keyup="validarInupt()" class="form-control input-xlg" ng-model="consulta" placeholder="PESQUISA PELO VEICULO">
+							<input type="text" name="consulta" class="form-control input-xlg" ng-model="consulta" placeholder="PESQUISA PELO VEICULO"
+							 required/>
 							<div class="form-control-feedback">
 								<i class="icon-search4 text-muted text-size-base"></i>
 							</div>
-							<label ng-show="vazio" class="validation-error-label">
+							<label ng-show="formulario2.consulta.$error" class="validation-error-label">
 												Consulta nao pode ser em Branca
 											</label>
 						</div>
@@ -142,22 +136,21 @@
 							</tr>
 						</table>
 						<div class="input-group-btn">
-							<button ng-click="pesquisarVeiculo()" type="button" class="btn btn-primary btn-xlg">Pesquisar Veiculo</button>
+							<button ng-submit="pesquisarVeiculo()" class="btn btn-primary btn-xlg">Pesquisar Veiculo</button>
 						</div>
 					</div>
-				</form>
-				<!-- /FIM BLOCO DE PESQUISA POR VEICULO -->
-				<br/>
-				<br/>
-				<br/>
+				</div>
 
-				<!-- BLOCO PARA EXEBIR VEICULO NO CARRINHO  -->
+				<br>
+				<br>
+				<br>
+
 				<div ng-show="painelCarrinho">
 					<hr>
 					<div class="bw-tabela-item">
 						<div class="bw-tabela-item__coluna  bw-tabela-item__coluna--detalhes">
 							<span style="text-transform:uppercase" class="bw-tabela-cerveja-nome">{{nome}}</span>
-							<input class="" name="fkVeiculo" ng-model="form.fkVeiculo" type="hidden" required/>
+							<input class="" name="fkVeiculo" ng-model="form.fkVeiculo" type="hidden">
 
 							<span class="label  label-default">{{placa}}</span>
 							<span class="bw-tabela-cerveja-origem">{{ano}}</span>
@@ -173,29 +166,26 @@
 								<input class="" ng-model="form.valor_compra" type="hidden" />
 							</div>
 						</div>
-
+						<label ng-show="formulario.$submitted &&  formulario.fkVeiculo.$error.required" class="validation-error-label">
+								Obrigatorio selecionar um veiculo
+							</label>
 					</div>
 				</div>
-				<!-- / FIM BLOCO PARA EXEBIR VEICULO NO CARRINHO  -->
 				<label ng-show="formulario.$submitted &&  formulario.fkVeiculo.$error.required" class="validation-error-label">
 								Obrigatorio selecionar um veiculo
 					</label>
-				<br/>
-				<br/>
-				<br/>
-				<!-- BLOCO PARA SALVAR E VOLTAR  -->
+				<br>
+				<br>
+				<br>
 				<div class="text-right">
 					<a href="#!/fornecedores">
                                     	<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
                                 	</a>
-					<button ng-disabled="botao" type="submit"  class="btn btn-primary"> Comprar <i class="icon-arrow-right14 position-right"></i></button>
+					<button ng-disabled="botao" ng-submit="salvar()" class="btn btn-primary"> Comprar <i class="icon-arrow-right14 position-right"></i></button>
 				</div>
-				<!--/FIM BLOCO PARA SALVAR E VOLTAR  -->
 			</div>
 		</div>
 	</form>
-
-
 	<!-- /2 columns form -->
 
 
