@@ -1,4 +1,5 @@
-<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="">
+<div class="content">
+<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="VeiculoNovo">
   <div ng-show="mensagem.length" class="row">
     <div class="col-md-6">
         <div class="alert alert-primary alert-bordered">
@@ -9,16 +10,16 @@
   </div>
   <div class="panel panel-flat">
     <div class="panel-heading">
-      <h5 class="panel-title">Cadastro de veiculos</h5>
+    <h5><i class="icon-car position-left"> <class="panel-title">Cadastro de veiculos</h5></i>
 
     </div>
             <div class="panel-body">
               <div class= "row">
                 <div class= "col-md-6">
+
+
+                  <!--/ Placa-->
             <fieldset>
-
-              <legend class="text-semibold"><i class="icon-car position-left"></i>Placa</legend>
-
 
               <div class="form-group">
                 <label class="col-lg-3 control-label">Placa:</label>
@@ -26,56 +27,59 @@
                   <div class="row">
                     <div class="col-md-7">
                       <div class="mb-12">
-                                      <select ng-model="vm.Placa" ng-options="item.pk_tipo as item.nome for item in categoriaResultados" data-placeholder="Selecione a Placa" class="select">
-                                      <option value="">Selecione a Placa</option>
-
-                                      </select>
-                                    </div>
+                        <input type="text" placeholder="Placa" class="form-control" ng-model="vm.nome" >
+                        <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
+                          Placa obrigatorio
+                        </label>
                     </div>
-                    <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_placa"> <i class="icon-plus22"></i></button></td>
+                    </div>
+                    </div>
                    </div>
-                  <div data-ng-include="'app/views/veiculo/modal-placa.html'"></div>
-                 </div>
                </div>
             </fieldset>
 
-            <fieldset>
+                         <!--/ Placa-->
+                   <fieldset>
 
-             <!-- Modelo-->
-             <!-- Basic layout-->
-                    <legend class="text-semibold"><i class="icon-car position-left"></i> Marca </legend>
+                     <div class="form-group">
+                       <label class="col-lg-3 control-label">Ano:</label>
+                       <div class="col-lg-3">
+                         <div class="row">
+                           <div class="col-md-7">
+                             <div class="mb-12">
+                               <input type="text" placeholder="Ano" class="form-control" ng-model="vm.nome" >
+                               <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
+                               </label>
+                           </div>
+                           </div>
+                           </div>
+                          </div>
+                      </div>
+                   </fieldset>
+                   <fieldset>
 
-
-                            <div class="form-group">
-                              <label class="col-lg-3 control-label">Marca:</label>
-                              <div class="col-lg8">
-                                <div class="row">
-                                  <div class="col-md-7">
-                                    <div class="mb-12">
-                                                    <select ng-model="vm.marca" ng-options="item.tipo-veiculos_cargo as item.nome for item in cargoResultados" data-placeholder="Selecione a Marca" class="select">
-                                                    <option value="">Selecione a Marca</option>
-
-                                                    </select>
-                                                  </div>
-                                   </div>
-                                  <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button></td>
-                                 </div>
-                                <div data-ng-include="'app/views/veiculo/modal-marca.html'"></div>
-                               </div>
-                             </div>
-
-                         </fieldset>
+                     <div class="form-group">
+                       <label class="col-lg-3 control-label">Valor de Compra:</label>
+                       <div class="col-lg8">
+                         <div class="row">
+                           <div class="col-md-7">
+                             <div class="mb-12">
+                               <input type="text" placeholder="Compra" class="form-control" ng-model="vm.nome" >
+                               <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
+                              </label>
+                           </div>
+                           </div>
+                           </div>
+                          </div>
+                      </div>
+                   </fieldset>
                          </div>
 
 
-         <!-- Marca-->
-
-
+         <!--/ Categoria-->
 
                    <div class= "col-md-6">
                       <fieldset>
-
-                        <legend class="text-semibold"><i class="icon-car position-left"></i> Categoria </legend>
 
                         <div class="form-group">
                           <label class="col-lg-3 control-label">Categoria:</label>
@@ -94,9 +98,30 @@
                     </div>
                   </div>
                 </fieldset>
+                <!-- Marca-->
                 <fieldset>
+                                  <div class="form-group">
+                                  <label class="col-lg-3 control-label">Marca:</label>
+                                  <div class="col-lg8">
+                                    <div class="row">
+                                      <div class="col-md-7">
+                                        <div class="mb-12">
+                                                        <select ng-model="vm.marca" ng-options="item.tipo-veiculos_cargo as item.nome for item in cargoResultados" data-placeholder="Selecione a Marca" class="select">
+                                                        <option value="">Selecione a Marca</option>
 
-                  <legend class="text-semibold"><i class="icon-car position-left"></i> Modelo </legend>
+                                                        </select>
+                                                      </div>
+                                       </div>
+                                      <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button></td>
+                                     </div>
+                                    <div data-ng-include="'app/views/veiculo/modal-marca.html'"></div>
+                                   </div>
+                                 </div>
+
+                             </fieldset>
+
+                  <!--Modelo !-->
+                <fieldset>
 
                   <div class="form-group">
                     <label class="col-lg-3 control-label">Modelo:</label>
@@ -129,7 +154,7 @@
               </div>
 
         </form>
-
+      </div>
 
 
 
