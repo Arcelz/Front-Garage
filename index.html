@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html data-ng-app="app">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
     <title data-ng-bind="title"></title>
     <style>
         /* This helps the ng-show/ng-hide animations start at the right place. */
         /* Since Angular has this but needs to load, this gives us the class early. */
         .ng-hide {
-            display: none!important;
+            display: none !important;
         }
     </style>
 
@@ -22,8 +23,6 @@
     <link href="app/assets/css/components.css" rel="stylesheet" type="text/css">
     <link href="app/assets/css/colors.css" rel="stylesheet" type="text/css">
     <link href="app/resources/css/brewer.css" rel="stylesheet" type="text/css">
-    
-
     <!-- endinject -->
 
 
@@ -37,12 +36,6 @@
 <script type="text/javascript" src="app/assets/js/plugins/loaders/pace.min.js"></script>
 <script type="text/javascript" src="app/assets/js/core/libraries/bootstrap.min.js"></script>
 <script type="text/javascript" src="app/assets/js/plugins/loaders/blockui.min.js"></script>
-<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.css'>
-
-
-
-
- 
 <!-- /core JS files -->
 
 <!-- Theme JS files -->
@@ -54,35 +47,29 @@
 <script type="text/javascript" src="app/assets/js/plugins/ui/moment/moment.min.js"></script>
 <script type="text/javascript" src="app/assets/js/plugins/pickers/daterangepicker.js"></script>
 <script type="text/javascript" src="app/assets/js/plugins/ui/ripple.min.js"></script>
-
-
 <script src="app/resources/js/angular.js"></script>
-<script src="app/resources/js/ui-bootstrap-tpls-0.6.0.js"></script>
-
 <script src="app/resources/js/angular-ui-router.js"></script>
 <script src="app/resources/js/ngStorage.js"></script>
 <script src="app/resources/js/angular-jwt.js"></script>
-<script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.js'></script>
+
 
 <script src="app/app.js"></script>
 
 <script src="app/core/core.module.js"></script>
 <script src="app/core/data.js"></script>
+<script src="app/constant/permicao-const.js"></script>
+
 <script src="app/core/token.js"></script>
-<script src="app/core/token-interceptor.js"></script>
 
-
-
-
-    <script src="app/routes/route.js"></script>
-    <script src="app/routes/route-run.js"></script>
-    <script src="app/controllers/controller.js"></script>
-    <script src="app/controllers/controllerFuncionario.js"></script>
-    <script src="app/controllers/controllerFornecedor.js"></script>
-    <script src="app/controllers/controllerCompra.js"></script>
-    <script src="app/controllers/controllerVeiculo.js"></script>
-    <script src="app/error/error.js"></script>
+<script src="app/routes/route.js"></script>
+<script src="app/routes/route-run.js"></script>
+<!-- Controllers -->
+<script src="app/error/error.js"></script>
+<script src="app/controllers/controller.js"></script>
+<script src="app/controllers/controllerCliente.js"></script>
+<script src="app/controllers/controllerFuncionario.js"></script>   
+<script src="app/controllers/controllerFornecedor.js"></script>
+<script src="app/controllers/controllerCompra.js"></script>
     
-   
 </body>
 </html>
