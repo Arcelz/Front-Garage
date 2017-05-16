@@ -1,0 +1,62 @@
+<!-- Content area -->
+				<div class="content">
+
+					<!-- Basic datatable -->
+					<div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">Lista de clientes</h5>
+
+						</div>
+
+
+                        <p ng-show="mensagem">{{mensagem}}</p>
+                         <div ng-show="lembretes.length">
+						<table class="table datatable-basic" ng-controller="ClienteListar">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Nome</th>
+									<th>CPF</th>
+									<th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Celular</th>
+									<th class="text-center"></th>
+								</tr>
+							</thead>
+							<tbody>
+                                <tr ng-repeat="lembrete in lembretes">
+                                        <td>{{lembrete.pk_cliente}}</td>
+                                        <td>{{lembrete.nome}}</td>
+                                        <td>{{lembrete.cpf}}</td>
+                                        <td>{{lembrete.email}}</td>
+                                        <td>{{lembrete.contato}}</td>
+                                        <td>{{lembrete.contato1}}</td>
+                                        <td>
+                                            <a href="#!/clientes/{{lembrete.pk_cliente}}">
+                                                <i class="icon-pencil7"></i>
+                                            </a>
+										<!--mostra o icone de excluir e chama o modal -->
+                                            <a href="" ng-click="exibirModal(lembrete)" >
+												<!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
+                                               <i class="icon-trash"></i>
+                                            </a>
+									  <!--FIM -->
+                                        </td>
+
+                                </tr>
+
+							</tbody>
+						</table>
+                         </div>
+					</div>
+					<!-- /scrollable datatable -->
+<div data-ng-include="'app/views/fornecedor/modal-excluir.html'"></div>
+
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+					</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->

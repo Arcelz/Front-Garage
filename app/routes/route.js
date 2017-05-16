@@ -1,6 +1,6 @@
 app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 
-    $httpProvider.interceptors.push('tokenInterceptor');
+    //$httpProvider.interceptors.push('tokenInterceptor');
 
     $stateProvider
         .state('common', {
@@ -44,7 +44,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 
         })
         .state('common.clienteNovo', {
-            url: '/clientes',
+            url: '/clientes/novo',
             permicao: '2C',
             templateUrl: 'app/views/cliente/cadastro-clientes.html',
             controller: 'ClienteNovo',
