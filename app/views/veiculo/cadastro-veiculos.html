@@ -27,7 +27,7 @@
                   <div class="row">
                     <div class="col-md-7">
                       <div class="mb-12">
-                        <input type="text" placeholder="Placa" class="form-control" ng-model="vm.nome" >
+                        <input type="text" placeholder="Placa" class="form-control" ng-model="vm.placa" >
                         <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
                           Placa obrigatorio
                         </label>
@@ -47,7 +47,7 @@
                          <div class="row">
                            <div class="col-md-7">
                              <div class="mb-12">
-                               <input type="text" placeholder="Ano" class="form-control" ng-model="vm.nome" >
+                               <input type="text" placeholder="Ano" class="form-control" ng-model="vm.ano" >
                                <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
                                </label>
                            </div>
@@ -64,7 +64,7 @@
                          <div class="row">
                            <div class="col-md-7">
                              <div class="mb-12">
-                               <input type="text" placeholder="Compra" class="form-control" ng-model="vm.nome" >
+                               <input type="text" placeholder="Compra" class="form-control" ng-model="vm.compra" >
                                <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
                               </label>
                            </div>
@@ -87,7 +87,7 @@
                             <div class="row">
                               <div class="col-md-7">
                                 <div class="mb-12">
-                                  <select ng-model="vm.categoria" ng-options="item.pk_tipo as item.nome for item in cargoResultados" data-placeholder="Selecione a Categoria" class="select">
+                                  <select ng-model="vm.tipo" ng-options="item.pk_tipo as item.nome for item in tipoResultados" data-placeholder="Selecione a Categoria" class="select">
                               <option value="">Selecione a Categoria</option>
                             </select>
                           </div>
@@ -106,7 +106,7 @@
                                     <div class="row">
                                       <div class="col-md-7">
                                         <div class="mb-12">
-                                                        <select ng-model="vm.marca" ng-options="item.tipo-veiculos_cargo as item.nome for item in cargoResultados" data-placeholder="Selecione a Marca" class="select">
+                                                        <select ng-model="vm.marca" ng-options="item.pk_marca as item.nome for item in marcaResultados" data-placeholder="Selecione a Marca" class="select">
                                                         <option value="">Selecione a Marca</option>
 
                                                         </select>
@@ -129,7 +129,7 @@
                       <div class="row">
                         <div class="col-md-7">
                           <div class="mb-12">
-                            <select ng-model="vm.modelo" ng-options="item.pk_cargos as item.nome for item in cargoResultados" data-placeholder="Selecione o Modelo" class="select">
+                            <select ng-model="vm.modelo" ng-options="item.pk_modelo as item.nome for item in modeloResultados" data-placeholder="Selecione o Modelo" class="select">
                         <option value="">Selecione a Modelo</option>
                       </select>
                     </div>

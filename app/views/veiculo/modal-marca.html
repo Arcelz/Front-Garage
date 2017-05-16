@@ -8,17 +8,18 @@
   <h5 class="modal-title">Cadastrado de Marca</h5>
 </div>
 
-<form action="" class="form-inline">
-  <div class="modal-body">
-    <div class="form-group has-feedback">
-      <label>Marca: </label>
-      <input type="text" placeholder="Marca" class="form-control" ng-model="vm.nomeVeiculo" >
-      <div class="form-control-feedback">
-        <i class="icon-car text-muted"></i>
-      </div>
+<div class="modal-body">
+  <div class="form-group has-feedback">
+    <label>Marca: </label>
+    <input type="text" placeholder="Marca" class="form-control" ng-model="vm.marca"/>
+    <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
+    </label>
+    <div class="form-control-feedback">
+      <i class="icon-car text-muted"></i>
     </div>
   </div>
-  
+</div>
+
   <div class="modal-footer text-center">
     <button ng-click="salvarVeiculo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
   </div>

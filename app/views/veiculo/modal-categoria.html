@@ -11,10 +11,10 @@
 
   <div class="modal-body">
     <div class="form-group has-feedback">
-      <label>Nome: </label>
-      <input type="text" placeholder="Categoria" class="form-control" ng-model="vm.nome"/>
+      <label>Categoria: </label>
+      <input type="text" placeholder="Categoria" class="form-control" ng-model="vm.tipo"/>
       <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
-        Categoria obrigatorio
+
       </label>
       <div class="form-control-feedback">
         <i class="icon-car text-muted"></i>
@@ -24,7 +24,7 @@
 
 
   <div class="modal-footer text-center">
-    <button ng-click="salvarCategoria()" data-dismiss="modal"  class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
+    <button ng-click="salvarTipo()" data-dismiss="modal"  class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
   </div>
 
 </div>

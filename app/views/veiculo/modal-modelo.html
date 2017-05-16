@@ -12,13 +12,16 @@
   <div class="modal-body">
     <div class="form-group has-feedback">
       <label>Modelo: </label>
-      <input type="text" placeholder="Modelo" class="form-control" ng-model="vm.nomeVeiculo" >
+      <input type="text" placeholder="Modelo" class="form-control" ng-model="vm.modelo"/>
+      <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
+
+      </label>
       <div class="form-control-feedback">
         <i class="icon-car text-muted"></i>
       </div>
     </div>
   </div>
-  
+
   <div class="modal-footer text-center">
     <button ng-click="salvarVeiculo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
   </div>
