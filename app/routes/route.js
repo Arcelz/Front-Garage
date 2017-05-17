@@ -296,24 +296,24 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'TipoReparoEditar',
             controllerAs: 'vm'
         })
-        .state('common.usuarioListar', {
+         .state('common.usuarioListar', {
             url: '/usuarios',
             permicao: '20C',
-            templateUrl: 'app/views/usuario/cadastro-tipo-veiculos.html',
+            templateUrl: 'app/usuario/listar-usuarios.html',
             controller: 'UsuarioListar',
             controllerAs: 'vm'
         })
         .state('common.usuarioNovo', {
             url: '/usuarios/novo',
             permicao: '20V',
-            templateUrl: 'app/views/usuario/cadastro-usuarios.html',
+            templateUrl: 'app/usuario/cadastro-usuarios.html',
             controller: 'UsuarioNovo',
             controllerAs: 'vm'
         })
          .state('common.usuarioEditar', {
             url: '/usuarios/:id',
             permicao: '20V',
-            templateUrl: 'app/views/usuario/cadastro-usuarios.html',
+            templateUrl: 'app/usuario/cadastro-usuarios.html',
             controller: 'UsuarioEditar',
             controllerAs: 'vm'
         })
