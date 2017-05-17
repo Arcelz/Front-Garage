@@ -1,32 +1,33 @@
-
 <!-- Inline form modal -->
-<div id="modal_form_modelo" class="modal fade" data-backdrop="static">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-                    <button type="button" class="close" id="testeFechar" data-dismiss="modal">×</button>
-  <h5 class="modal-title">Cadastrado de Modelo</h5>
-</div>
-
-<form action="" class="form-inline">
-  <div class="modal-body">
-    <div class="form-group has-feedback">
-      <label>Modelo: </label>
-      <input type="text" placeholder="Modelo" class="form-control" ng-model="vm.modelo"/>
-      <label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
-
-      </label>
-      <div class="form-control-feedback">
-        <i class="icon-car text-muted"></i>
+<div id="modal_form_modelo" class="modal fade" data-backdrop="static" ng-controller="VeiculoNovo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="testeFechar" data-dismiss="modal">×</button>
+        <h5 class="modal-title">Cadastrado de Modelo</h5>
       </div>
+
+      <form action="" class="form-inline">
+        <div class="modal-body">
+          <div class="form-group has-feedback">
+            <div class="col-lg-6">
+              <label>Modelo: </label>
+              <input type="text" placeholder="Modelo"  ng-keyup="validarModar()" class="form-control" ng-model="modal.nome" required/>
+               <label ng-show="exebirErrorModal" class="validation-error-label">
+                  Modelo obrigatorio
+                </label>
+              <div class="form-control-feedback">
+                <i class="icon-car text-muted"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer text-center">
+          <button ng-click="salvarModelo()"  class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
+        </div>
+      </form>
     </div>
   </div>
-
-  <div class="modal-footer text-center">
-    <button ng-click="salvarVeiculo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
-  </div>
-</form>
-</div>
-</div>
 </div>
 <!-- /inline form modal -->
