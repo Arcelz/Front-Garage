@@ -10,148 +10,152 @@
     </div>
     <div class="panel panel-flat">
       <div class="panel-heading">
-        <h5><i class="icon-car position-left"> <class="panel-title">Cadastro de veiculos</h5></i>
+        <h5>
+          <class="panel-title">Cadastro de Veiculo</h5>
 
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-6">
-
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Placa:</label>
-              <div class="col-lg8">
-                <div class="row">
-                  <div class="col-md-7">
-                    <div class="mb-12">
-                      <input type="text" placeholder="Placa" name="placa" class="form-control" ng-model="form.placa" required/>
-                      <label ng-show="formulario.$submitted &&  formulario.placa.$error.required" class="validation-error-label">
+            <fieldset>
+              <legend class="text-semibold"><i class="icon-car position-left"></i> Dados do Veiculo </legend>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Placa:</label>
+                <div class="col-lg8">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="mb-12">
+                        <input type="text" placeholder="Placa" name="placa" class="form-control" ng-model="form.placa" required/>
+                        <input type="hidden" name="pk_veiculo" ng-model="form.pk_veiculo">
+                        <label ng-show="formulario.$submitted &&  formulario.placa.$error.required" class="validation-error-label">
                              Informe a placa
                         </label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Ano:</label>
-              <div class="col-lg-5">
-                <div class="row">
-                  <div class="col-md-7">
-                    <div class="mb-12">
-                      <input type="text" placeholder="Ano" name="ano" class="form-control" ng-model="form.ano" required/>
-                      <label ng-show="formulario.$submitted &&  formulario.ano.$error.required" class="validation-error-label">
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Ano:</label>
+                <div class="col-lg-5">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="mb-12">
+                        <input type="text" placeholder="Ano" name="ano" class="form-control" ng-model="form.ano" required/>
+                        <label ng-show="formulario.$submitted &&  formulario.ano.$error.required" class="validation-error-label">
                         Informe o Ano
                         </label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
 
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Valor de Compra:</label>
-              <div class="col-lg8">
-                <div class="row">
-                  <div class="col-md-7">
-                    <div class="mb-12">
-                      <input type="text" placeholder="Compra" name="valorCompra" class="form-control" ng-model="form.valorCompra" required/>
-                      <label ng-show="formulario.$submitted &&  formulario.valorCompra.$error.required" class="validation-error-label">
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Valor de Compra:</label>
+                <div class="col-lg8">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="mb-12">
+                        <input type="text" placeholder="Compra" name="valorCompra" class="form-control" ng-model="form.valorCompra" required/>
+                        <label ng-show="formulario.$submitted &&  formulario.valorCompra.$error.required" class="validation-error-label">
                           Informe o valor de Compra
                         </label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
+            </fieldset>
           </div>
 
 
           <!-- Categoria-->
 
           <div class="col-md-6">
-
-
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Categoria:</label>
-              <div class="col-lg8">
-                <div class="row">
-                  <div class="col-md-7">
-                    <div class="mb-12">
-                      <select ng-model="form.fkTipo" ng-change="addCDI()" id="selectCategoria" name="fkTipo" ng-init="buscaTipo()" ng-options="buscaTipo.pk_tipo as buscaTipo.nome for buscaTipo in buscasTipos"
-                        class="select" >
-                              <option value="">Selecione a Categoria</option>
+            <fieldset>
+              <legend class="text-semibold"><i class=" position-left"></i> </legend>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Categoria:</label>
+                <div class="col-lg8">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="mb-12">
+                        <select ng-model="form.fkTipo"  ng-change="validacaoSelect()" id="selectCategoria" name="fkTipo" ng-init="buscaTipo()" ng-options="buscaTipo.pk_tipo as buscaTipo.nome for buscaTipo in buscasTipos"
+                          class="select" data->
+                            <option  value="?">Selecione a Categoria </option>
                             </select>
-                            <label ng-show="exebirErroSelectCategoria" class="validation-error-label">
+                        <label ng-show="exebirErroSelectCategoria" class="validation-error-label">
                              Informe o Tipo do veiculo
                         </label>
+                      </div>
                     </div>
+
+                    <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_categoria"> <i class="icon-plus22"></i></button>
                   </div>
 
-                  <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_categoria"> <i class="icon-plus22"></i></button>
                 </div>
-                
               </div>
-            </div>
 
 
-            <!-- / Categoria-->
-            <!-- Marca-->
+              <!-- / Categoria-->
+              <!-- Marca-->
 
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Marca:</label>
-              <div class="col-lg8">
-                <div class="row">
-                  <div class="col-md-7">
-                    <div class="mb-12">
-                      <select ng-model="form.fkMarca" ng-change="addCDI()" ng-init="buscaMarca()" id="selectMarca" name="fkMarca" ng-options="buscaMarca.pk_marca as buscaMarca.nome for buscaMarca in buscasMarcas"
-                        class="select">
-                          <option value="">Selecione a Marca</option>
-
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Marca:</label>
+                <div class="col-lg8">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="mb-12">
+                        <select ng-model="form.fkMarca" ng-change="validacaoSelect()" ng-init="buscaMarca()" id="selectMarca" name="fkMarca" ng-options="buscaMarca.pk_marca as buscaMarca.nome for buscaMarca in buscasMarcas"
+                          class="select">                          
+                            <option value="?">Selecione a Marca </option>
                           </select>
-                            <label ng-show="exebirErroSelectMarca" class="validation-error-label">
+                        <label ng-show="exebirErroSelectMarca" class="validation-error-label">
                                Informe a Marca do veiculo
                         </label>
+                      </div>
                     </div>
+                    <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button>
                   </div>
-                  <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button>
+
                 </div>
-               
               </div>
-            </div>
 
 
-            <!-- / Marca-->
-            <!--Modelo !-->
+              <!-- / Marca-->
+              <!--Modelo !-->
 
 
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Modelo:</label>
-              <div class="col-lg8">
-                <div class="row">
-                  <div class="col-md-7">
-                    <div class="mb-12">
-                      <select ng-model="form.fkModelo" ng-change="addCDI()" id="selectModelo" ng-init="buscaModelo()" name="fkModelo" ng-options="buscaModelo.pk_modelo as buscaModelo.nome for buscaModelo in buscasModelos"
-                        class="select">
-                        <option value="">Selecione a Modelo</option>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Modelo:</label>
+                <div class="col-lg8">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="mb-12">
+                        <select ng-model="form.fkModelo" ng-change="validacaoSelect()" id="selectModelo" ng-init="buscaModelo()" name="fkModelo"
+                          ng-options="buscaModelo.pk_modelo as buscaModelo.nome for buscaModelo in buscasModelos" class="select">
+                         <option value="?">Selecione o Modelo </option>
                       </select>
-                      <label ng-show="exebirErroSelectModelo" class="validation-error-label">
+                        <label ng-show="exebirErroSelectModelo" class="validation-error-label">
                                Informe o Modelo do veiculo
                         </label>
+                      </div>
                     </div>
+                    <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_modelo"> <i class="icon-plus22"></i></button>
                   </div>
-                  <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_modelo"> <i class="icon-plus22"></i></button>
-                </div>
-                
-              </div>
-            </div>
 
-            <!--/Modelo !-->
+                </div>
+              </div>
+
+              <!--/Modelo !-->
+            </fieldset>
           </div>
         </div>
-
+        <hr>
+        <br/>
         <br/>
         <div class="text-right">
           <a href="#!/veiculos">
@@ -166,14 +170,15 @@
   </div>
 
 
-<div data-ng-include="'app/views/veiculo/modal-categoria.html'"></div>
- <div data-ng-include="'app/views/veiculo/modal-marca.html'"></div>
-<div data-ng-include="'app/views/veiculo/modal-modelo.html'"></div>
+  <div data-ng-include="'app/views/veiculo/modal-categoria.html'"></div>
+  <div data-ng-include="'app/views/veiculo/modal-marca.html'"></div>
+  <div data-ng-include="'app/views/veiculo/modal-modelo.html'"></div>
   <!-- /footer -->
 
   <!-- /content area -->
 
   <!-- Theme JS files -->
+  
   <script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
   <script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
 
