@@ -15,7 +15,7 @@
         </div>
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Cadastro de Usuario</h5>
+                <h5 class="panel-title">Cadastro de Reparo</h5>
 
             </div>
 
@@ -28,7 +28,7 @@
                             <div class="form-group col-md-6">
                                 <label for="valor" class="col-lg-3 control-label">Valor:</label>
                                 <div class="col-lg-9">
-                                    <input type="number" name="valor" id="valor" class="form-control" placeholder="Login" ng-model="form.valor" required/>
+                                    <input type="number" name="valor" id="valor" class="form-control" placeholder="Valor" ng-model="form.valor" required/>
                                     <div ng-messages="formulario.valor.$error">
                                         <div ng-messages-include="app/views/messages.html"></div>
                                     </div>
@@ -58,7 +58,7 @@
                                 <label class="col-lg-3 control-label">Veiculo:</label>
                                 <div class="col-lg-9">
                                     <div ng-click="loadVeiculos()">
-                                        <select id="selectVeiculo" name="veiculo" data-placeholder="Selecione o tipo"
+                                        <select id="selectVeiculo" name="veiculo" data-placeholder="Selecione o veiculo"
                                                 class="select" ng-required="true"  data-ng-model="form.fkVeiculo" ng-options="item.pk_veiculo as 'Modelo: '+item.nomeModelo+' Placa: '+item.placa for item in veiculosResultados" >
                                             <option value=""></option>
                                         </select>

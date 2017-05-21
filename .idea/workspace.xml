@@ -31,17 +31,60 @@
       <file leaf-file-name="cadastro-reparos.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reparo/cadastro-reparos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="47" column="42" lean-forward="true" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+            <state relative-caret-position="612">
+              <caret line="75" column="34" lean-forward="true" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
               <folding>
                 <element signature="e#395#402#1" expanded="true" />
-                <element signature="e#5206#5212#0" expanded="true" />
+                <element signature="e#5208#5214#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modal-tipo-reparo.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cadastro-tipo-reparos.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/tipo-reparo/cadastro-tipo-reparos.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="75" lean-forward="false" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
+              <folding>
+                <element signature="e#395#402#1" expanded="true" />
+                <element signature="e#2357#2363#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar-tipo-reparos.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/tipo-reparo/listar-tipo-reparos.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar-reparos.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/reparo/listar-reparos.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar-usuarios.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/usuario/listar-usuarios.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modal-tipo-reparo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reparo/modal-tipo-reparo.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -87,7 +130,6 @@
         <option value="$PROJECT_DIR$/app/views/tipo-reparo/TipoReparoNovo.js" />
         <option value="$PROJECT_DIR$/app/views/usuario/cadastro-usuarios.html" />
         <option value="$PROJECT_DIR$/app/views/usuario/modal-excluir.html" />
-        <option value="$PROJECT_DIR$/app/views/tipo-reparo/listar-tipo-reparos.html" />
         <option value="$PROJECT_DIR$/app/views/tipo-reparo/ReparoTipoListar.js" />
         <option value="$PROJECT_DIR$/app/views/usuario/UsuarioListar.js" />
         <option value="$PROJECT_DIR$/app/views/usuario/listar-usuarios.html" />
@@ -100,8 +142,9 @@
         <option value="$PROJECT_DIR$/app/routes/route.js" />
         <option value="$PROJECT_DIR$/app/views/reparo/listar-reparos.html" />
         <option value="$PROJECT_DIR$/app/views/reparo/ReparoListar.js" />
-        <option value="$PROJECT_DIR$/app/views/reparo/cadastro-reparos.html" />
         <option value="$PROJECT_DIR$/app/views/reparo/modal-tipo-reparo.html" />
+        <option value="$PROJECT_DIR$/app/views/reparo/cadastro-reparos.html" />
+        <option value="$PROJECT_DIR$/app/views/tipo-reparo/listar-tipo-reparos.html" />
       </list>
     </option>
   </component>
@@ -424,7 +467,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31747000" />
+    <option name="totallyTimeSpent" value="32574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -696,26 +739,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tipo-reparo/listar-tipo-reparos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/tipo-reparo/ReparoTipoListar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/usuario/listar-usuarios.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -792,25 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reparo/listar-reparos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tipo-reparo/cadastro-tipo-reparos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="30" column="75" lean-forward="false" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
-          <folding>
-            <element signature="e#395#402#1" expanded="true" />
-            <element signature="e#2357#2363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/usuario/UsuarioListar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -843,22 +851,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reparo/cadastro-reparos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="47" column="42" lean-forward="true" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-          <folding>
-            <element signature="e#395#402#1" expanded="true" />
-            <element signature="e#5206#5212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reparo/modal-tipo-reparo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reparo/cadastro-reparos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="75" column="34" lean-forward="true" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+          <folding>
+            <element signature="e#395#402#1" expanded="true" />
+            <element signature="e#5208#5214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tipo-reparo/listar-tipo-reparos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/usuario/listar-usuarios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reparo/listar-reparos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tipo-reparo/cadastro-tipo-reparos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="75" lean-forward="false" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
+          <folding>
+            <element signature="e#395#402#1" expanded="true" />
+            <element signature="e#2357#2363#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
