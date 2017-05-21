@@ -9,7 +9,7 @@ function AuthService ($localStorage, $q) {
         setToken: function (token) {
             $localStorage.token = token;
         },
-        logout : function (data) {
+        logout : function () {
             delete $localStorage.token;
             $q.when();
         }

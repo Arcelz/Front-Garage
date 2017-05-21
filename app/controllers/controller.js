@@ -1,5 +1,4 @@
 app.controller('Login', function ($scope,$location,$state,DataService,AuthService) {
-    angular.element(document.querySelector("body")).addClass("login-container login-cover");
     /* data.get('https://jsonplaceholder.typicode.com/posts/').then(function (data) {
      console.log(data.data);
      });*/
@@ -14,6 +13,4 @@ app.controller('Login', function ($scope,$location,$state,DataService,AuthServic
     }
 });
 app.controller('Home', function ($scope,$rootScope) {
-    // $rootScope.bodylayout = '';
-    angular.element(document.querySelector("body")).removeClass("login-container login-cover");
 });

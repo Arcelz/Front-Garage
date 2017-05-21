@@ -14,7 +14,6 @@
             <table class="table datatable-basic">
                 <thead>
                 <tr>
-                    <th>#</th>
                     <th>ID</th>
                     <th>Login</th>
                     <th>Nome</th>
@@ -24,7 +23,6 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="lembrete in lembretes">
-                    <td>{{$index}}</td>
                     <td>{{lembrete.usuario_id}}</td>
                     <td>{{lembrete.login}}</td>
                     <td>{{lembrete.f_nome}}</td>
@@ -47,8 +45,9 @@
             </table>
         </div>
     </div>
+
     <!-- /scrollable datatable -->
-    <div data-ng-include="'app/usuario/modal-excluir.html'"></div>
+    <div data-ng-include="'app/views/modal/modal-excluir.html'"></div>
 
     <!-- Footer -->
     <div class="footer text-muted">

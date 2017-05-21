@@ -5,6 +5,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('common', {
             templateUrl: 'app/layout/menu.html',
+            controller: 'MenuController',
             abstract: true,
         })
         .state('home', {
@@ -234,22 +235,22 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controllerAs: 'vm'
         })
         .state('common.reparoListar', {
-            url: '/raparos',
-            permicao: '18C',
-            templateUrl: 'app/views/reparo/cadastro-reparos.html',
+            url: '/reparos',
+            permicao: '18V',
+            templateUrl: 'app/views/reparo/listar-reparos.html',
             controller: 'ReparoListar',
             controllerAs: 'vm'
         })
         .state('common.reparoNovo', {
             url: '/reparos/novo',
-            permicao: '18V',
+            permicao: '18C',
             templateUrl: 'app/views/reparo/cadastro-reparos.html',
             controller: 'ReparoNovo',
             controllerAs: 'vm'
         })
         .state('common.reparoEditar', {
             url: '/reparos/:id',
-            permicao: '18V',
+            permicao: '18C',
             templateUrl: 'app/views/reparo/cadastro-reparos.html',
             controller: 'ReparoEditar',
             controllerAs: 'vm'
@@ -257,7 +258,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         .state('common.tipoReparoListar', {
             url: '/tipo-reparos',
             permicao: '19C',
-            templateUrl: 'app/views/tipo-reparo/cadastro-tipo-reparos.html',
+            templateUrl: 'app/views/tipo-reparo/listar-tipo-reparos.html',
             controller: 'ReparoTipoListar',
             controllerAs: 'vm'
         })
@@ -299,21 +300,21 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
          .state('common.usuarioListar', {
             url: '/usuarios',
             permicao: '20C',
-            templateUrl: 'app/usuario/listar-usuarios.html',
+            templateUrl: 'app/views/usuario/listar-usuarios.html',
             controller: 'UsuarioListar',
             controllerAs: 'vm'
         })
         .state('common.usuarioNovo', {
             url: '/usuarios/novo',
             permicao: '20V',
-            templateUrl: 'app/usuario/cadastro-usuarios.html',
+            templateUrl: 'app/views/usuario/cadastro-usuarios.html',
             controller: 'UsuarioNovo',
             controllerAs: 'vm'
         })
          .state('common.usuarioEditar', {
             url: '/usuarios/:id',
             permicao: '20V',
-            templateUrl: 'app/usuario/cadastro-usuarios.html',
+            templateUrl: 'app/views/usuario/cadastro-usuarios.html',
             controller: 'UsuarioEditar',
             controllerAs: 'vm'
         })
