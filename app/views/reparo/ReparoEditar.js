@@ -52,7 +52,7 @@ app.controller('ReparoEditar', function ($scope, $state, $q, DataService, $state
             DataService.realizarPut('http://ifg.redesbrasil.com/reparos/' + id, $scope.form).then(function (response) {
                 console.log(response)
                 $scope.botao = false;
-                $state.go('ReparoListar');
+                $state.go('common.reparoListar');
             });
         }
     }

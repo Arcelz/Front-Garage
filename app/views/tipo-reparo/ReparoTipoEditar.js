@@ -10,7 +10,6 @@ app.controller('ReparoTipoEditar', function ($scope, $state, $q, DataService, $s
     $scope.salvar = function () {
         if ($scope.formulario.$valid) {
             DataService.realizarPut('http://ifg.redesbrasil.com/tipos-reparos/' + id, $scope.form).then(function (response) {
-                console.log(response)
                 $scope.botao = false;
                 $state.go('common.tipoReparoListar');
             })

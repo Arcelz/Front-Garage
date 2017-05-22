@@ -1,7 +1,7 @@
 angular.module('app.core')
         .factory('tokenInterceptor', function($localStorage,$q,$location){
             var interceptor = {};
-           
+
             interceptor.request = function(config){
                 config.headers = config.headers || {};
                 if($localStorage.token){
@@ -10,7 +10,7 @@ angular.module('app.core')
                     //console.log('Adicionando token na requisição');
                    // console.log(config.headers);
                 };
-                
+
                 return config;
             };
 

@@ -3,9 +3,8 @@ angular
     .factory('DataService', DataService);
 
 /* @ngInject */
-function DataService($http, AuthService) {
+function DataService($http, AuthService,logger) {
     var service = {
-        test: test,
         realizarGet: realizarGet,
         realizarPost: realizarPost,
         realizarDelete: realizarDelete,
@@ -13,9 +12,6 @@ function DataService($http, AuthService) {
     };
 
     return service;
-    function test() {
-        return alert("data service ok");
-    }
 
     function realizarGet(caminho) {
         var config = {
@@ -43,6 +39,7 @@ function DataService($http, AuthService) {
         var data = $.param(data);
         return $http.post(caminho, data, config)
             .then(function successCallback(response) {
+                    logger.success(response.data.status_message);
                     return response;
                 }
                 , function errorCallback(response) {
@@ -59,6 +56,7 @@ function DataService($http, AuthService) {
           };
         return $http.delete(caminho, config)
             .then(function successCallback(response) {
+                    logger.success(response.data.status_message);
                     return response;
                 }
                 , function errorCallback(response) {
@@ -76,6 +74,7 @@ function DataService($http, AuthService) {
         var data = $.param(data);
         return $http.put(caminho, data, config)
             .then(function successCallback(response) {
+                    logger.success(response.data.status_message);
                     return response;
                 }
                 , function errorCallback(response) {

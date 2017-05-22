@@ -25,11 +25,11 @@ app.controller('UsuarioNovo', function ($scope, $rootScope, DataService) {
             }
         }
     }
-
     $scope.salvar = function () {
             if ($scope.formulario.$valid) {
                 DataService.realizarPost('http://ifg.redesbrasil.com/usuarios',$scope.form).then(function (data) {
-                    console.log(data)
+                    $scope.botao = false;
+                    $state.go('common.usuarioListar');
                 });
             }
         }

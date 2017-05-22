@@ -9,9 +9,7 @@ app.controller('ReparoListar', function ($scope,$rootScope, DataService) {
         }else{
             $scope.messagem ="Nenhum";
         }
-
     });
-
     $scope.exibirModal = function(id,index){
         indexRemover = index;
         $scope.modulo = 'REPARO'

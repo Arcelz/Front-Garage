@@ -3,7 +3,6 @@ app.controller('UsuarioEditar', function ($scope, $state, $q, DataService, $stat
     var id = $stateParams.id; //pega o paramentro informado na url
     $scope.funcionarioResultados = [];
     $scope.grupoResultados = [];
-
     DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios').then(function (data) {
         $scope.funcionarioResultados = data.data;
         DataService.realizarGet('http://ifg.redesbrasil.com/grupos').then(function (data2) {
@@ -16,8 +15,6 @@ app.controller('UsuarioEditar', function ($scope, $state, $q, DataService, $stat
                 $scope.form.senha = '**********';
                 angular.element('#renderedCombo2').append('<option  value="' + response.data[0].pk_funcionario + '" selected>' + response.data[0].f_nome + '</option>');
                 angular.element('#renderedCombo3').append('<option  value="' + response.data[0].pk_grupo + '" selected>' + response.data[0].g_nome + '</option>');
-
-
                 $scope.loadGrupos = function () {
                     if (clickedGrupo) {
                         clickedGrupo = false;
@@ -35,8 +32,6 @@ app.controller('UsuarioEditar', function ($scope, $state, $q, DataService, $stat
             });
         });
     });
-
-
     $scope.salvar = function () {
         if ($scope.form.funcionario_id === undefined || $scope.form.funcionario_id === "?") {
             $scope.form.funcionario_id = $("#renderedCombo2 option:selected").val();
@@ -49,9 +44,8 @@ app.controller('UsuarioEditar', function ($scope, $state, $q, DataService, $stat
             DataService.realizarPut('http://ifg.redesbrasil.com/usuarios/' + id, $scope.form).then(function (response) {
                 console.log(response)
                 $scope.botao = false;
-                $state.go('home');
+                $state.go('common.usuarioListar');
             })
         }
-
     }
 });
