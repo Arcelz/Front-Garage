@@ -1,30 +1,29 @@
 <!-- Inline form modal -->
-<div id="modal_tipo_reparo" class="modal fade" data-backdrop="static">
+<div id="modal_tipo_reparo" ng-controller="ReparoNovo" class="modal fade" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" id="testeFechar" data-dismiss="modal">×</button>
-        <h5 class="modal-title">Cadastrado de Marca</h5>
+        <h5 class="modal-title">Cadastro Tipo de Reparo</h5>
       </div>
 
-      <form action="" class="form-inline">
+      <form name="modalFormulario" ng-submit="salvarModalTipo()" class="ng-pristine ng-valid" novalidate>
         <div class="modal-body">
-          <div class="form-group has-feedback">
-            <div class="col-lg-6">
-              <label>Marca: </label>
-              <input type="text" placeholder="Marca" ng-keyup="validarModar()" class="form-control" ng-model="modal.nome">
-              <label ng-show="exebirErrorModal" class="validation-error-label">
-                  Marca obrigatorio
-                </label>
-              <div class="form-control-feedback">
-                <i class="icon-car text-muted"></i>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-12">
+                <label>Tipo de Reparo:</label>
+                <input name="modaltipoNome" data-ng-model="modal.nome" placeholder="Digite o tipo do reparo ex: Motor" class="form-control" type="text" required>
+                <div ng-messages="modalFormulario.modaltipoNome.$error">
+                  <div ng-messages-include="app/views/messages.html"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="modal-footer text-center">
-          <button ng-disabled="botaoModal" ng-click="salvarMarca()" data-dismiss="modal" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Sair</button>
+          <button type="submit" class="btn btn-primary legitRipple">Enviar</button>
         </div>
       </form>
     </div>

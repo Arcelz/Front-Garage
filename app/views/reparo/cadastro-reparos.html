@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-lg-3 control-label">Tipo Reparo:</label>
-                                <div class="col-lg-8">
+                                <div class="col-lg-7">
                                     <div ng-click="loadTipos()">
                                         <select id="selectTipo" name="tipo" data-placeholder="Selecione o tipo"
                                                 class="select" ng-required="true"  data-ng-model="form.fkTipo" ng-options="item.pk_tipo as item.nome for item in tiposResultados" >
@@ -99,7 +99,7 @@
 
 </div>
 <!-- /content area -->
-<div data-ng-include="'app/reparo/modal-tipo-reparo.html'"></div>
+<div data-ng-include="'app/views/reparo/modal-tipo-reparo.html'"></div>
 
 
 <!-- Theme JS files -->
