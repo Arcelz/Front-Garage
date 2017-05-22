@@ -3,7 +3,7 @@ angular
     .factory('DataService', DataService);
 
 /* @ngInject */
-function DataService($http, AuthService,logger) {
+function DataService($http, AuthService,toastr) {
     var service = {
         realizarGet: realizarGet,
         realizarPost: realizarPost,
@@ -39,7 +39,7 @@ function DataService($http, AuthService,logger) {
         var data = $.param(data);
         return $http.post(caminho, data, config)
             .then(function successCallback(response) {
-                    logger.success(response.data.status_message);
+                    toastr.success(response.data.status_message);
                     return response;
                 }
                 , function errorCallback(response) {
@@ -56,7 +56,7 @@ function DataService($http, AuthService,logger) {
           };
         return $http.delete(caminho, config)
             .then(function successCallback(response) {
-                    logger.success(response.data.status_message);
+                    toastr.success(response.data.status_message);
                     return response;
                 }
                 , function errorCallback(response) {
@@ -74,7 +74,7 @@ function DataService($http, AuthService,logger) {
         var data = $.param(data);
         return $http.put(caminho, data, config)
             .then(function successCallback(response) {
-                    logger.success(response.data.status_message);
+                    toastr.success(response.data.status_message);
                     return response;
                 }
                 , function errorCallback(response) {
