@@ -1,5 +1,3 @@
-
-
 <!-- Content area -->
 <div class="content">
 
@@ -8,7 +6,8 @@
         <div ng-show="mensagem.length" class="row">
             <div class="col-md-6">
                 <div class="alert alert-primary alert-bordered">
-                    <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <span class="text-semibold">{{mensagem}}</span>
                 </div>
             </div>
@@ -23,12 +22,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <fieldset>
-                            <legend class="text-semibold"><i class="icon-wrench position-left"></i> Dados do tipo de reparo </legend>
+                            <legend class="text-semibold"><i class="icon-wrench position-left"></i> Dados do tipo de
+                                reparo
+                            </legend>
 
                             <div class="form-group col-md-6">
                                 <label for="tipo" class="col-lg-3 control-label">Tipo nome:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="tipo" id="tipo" class="form-control" placeholder="Tipo reparo ex: Motor" ng-model="form.nome" ng-minlength="2" required/>
+                                    <input type="text" name="tipo" id="tipo" class="form-control"
+                                           placeholder="Tipo reparo ex: Motor" ng-model="form.nome" ng-minlength="2"
+                                           required/>
                                     <div ng-messages="formulario.tipo.$error">
                                         <div ng-messages-include="app/views/messages.html"></div>
                                     </div>
@@ -41,9 +44,10 @@
 
                 <div class="text-right">
                     <a href="#!/tipo-reparos">
-                        <button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
+                        <button class="btn btn-primary"><i class="icon-arrow-left13 position-right"></i> Voltar</button>
                     </a>
-                    <button ng-disabled="botao" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
+                    <button ng-disabled="botao" class="btn btn-primary"> Salvar <i
+                            class="icon-arrow-right14 position-right"></i></button>
                 </div>
             </div>
         </div>
@@ -53,15 +57,13 @@
 
     <!-- Footer -->
     <div class="footer text-muted">
-        &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+        &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov"
+                                                                 target="_blank">Eugene Kopyov</a>
     </div>
     <!-- /footer -->
 
 </div>
 <!-- /content area -->
-
-
-
 
 
 <!-- Theme JS files -->

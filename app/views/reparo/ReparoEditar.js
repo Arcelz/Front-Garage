@@ -38,8 +38,6 @@ app.controller('ReparoEditar', function ($scope, $state, $q, DataService, $state
             });
         });
     });
-
-
     $scope.salvar = function () {
         if ($scope.form.fkTipo === undefined || $scope.form.fkTipo === "") {
             $scope.form.fkTipo = $("#selectTipo option:selected").val();
@@ -48,11 +46,23 @@ app.controller('ReparoEditar', function ($scope, $state, $q, DataService, $state
             $scope.form.fkVeiculo = $("#selectVeiculo option:selected").val();
         }
         if ($scope.form.fkVeiculo != "" && $scope.form.fkTipo != "") {
-            console.log($scope.form)
+            $scope.botao = true;
             DataService.realizarPut('http://ifg.redesbrasil.com/reparos/' + id, $scope.form).then(function (response) {
-                console.log(response)
+                if (response.data.status === 200){
+                    $state.go('common.reparoListar');
+                }
+                else if (response.data.status === 400){
+                    $scope.botao = false;
+                }
+            });
+        }
+    }
+    $scope.salvarModalTipo = function () {
+        if ($scope.modalFormulario.$valid) {
+            DataService.realizarPost('http://ifg.redesbrasil.com/tipos-reparos', $scope.modal).then(function (data) {
                 $scope.botao = false;
-                $state.go('common.reparoListar');
+                angular.element('#selectTipo').append('<option  value="' + data.data.pk_tipo + '" selected>' + data.data.nome + '</option>');
+                angular.element('#modal_tipo_reparo').modal('toggle');
             });
         }
     }

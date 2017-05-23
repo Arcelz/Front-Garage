@@ -3,7 +3,7 @@ angular
     .factory('DataService', DataService);
 
 /* @ngInject */
-function DataService($http, AuthService,toastr) {
+function DataService($http, AuthService, toastr) {
     var service = {
         realizarGet: realizarGet,
         realizarPost: realizarPost,
@@ -39,7 +39,12 @@ function DataService($http, AuthService,toastr) {
         var data = $.param(data);
         return $http.post(caminho, data, config)
             .then(function successCallback(response) {
-                    toastr.success(response.data.status_message);
+                    if (response.data.status === 200) {
+                        toastr.success(response.data.status_message);
+                    }
+                    else if (response.data.status === 400) {
+                        toastr.error(response.data.status_message);
+                    }
                     return response;
                 }
                 , function errorCallback(response) {
@@ -47,16 +52,21 @@ function DataService($http, AuthService,toastr) {
                 });
     }
 
-      function realizarDelete(caminho) {
-          var config = {
-              headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-                  'Authorization': AuthService.getToken()
-              }
-          };
+    function realizarDelete(caminho) {
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                'Authorization': AuthService.getToken()
+            }
+        };
         return $http.delete(caminho, config)
             .then(function successCallback(response) {
-                    toastr.success(response.data.status_message);
+                    if (response.data.status === 200) {
+                        toastr.success(response.data.status_message);
+                    }
+                    else if (response.data.status === 400) {
+                        toastr.error(response.data.status_message);
+                    }
                     return response;
                 }
                 , function errorCallback(response) {
@@ -74,7 +84,12 @@ function DataService($http, AuthService,toastr) {
         var data = $.param(data);
         return $http.put(caminho, data, config)
             .then(function successCallback(response) {
-                    toastr.success(response.data.status_message);
+                    if (response.data.status === 200) {
+                        toastr.success(response.data.status_message);
+                    }
+                    else if (response.data.status === 400) {
+                        toastr.error(response.data.status_message);
+                    }
                     return response;
                 }
                 , function errorCallback(response) {

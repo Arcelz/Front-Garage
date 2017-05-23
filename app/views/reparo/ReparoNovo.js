@@ -12,9 +12,14 @@ app.controller('ReparoNovo', function ($scope, $state, $rootScope, DataService) 
             $scope.form.fkTipo = $("#selectTipo option:selected").val();
         }
         if ($scope.formulario.$valid && $scope.form.fkTipo != "") {
+            $scope.botao = true;
             DataService.realizarPost('http://ifg.redesbrasil.com/reparos', $scope.form).then(function (data) {
-                $scope.botao = false;
-                $state.go('common.reparoListar');
+                if (response.data.status === 200) {
+                    $state.go('common.reparoListar');
+                }
+                else if (response.data.status === 400) {
+                    $scope.botao = false;
+                }
             });
         }
     }

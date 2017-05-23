@@ -9,11 +9,15 @@ app.controller('ReparoTipoEditar', function ($scope, $state, $q, DataService, $s
 
     $scope.salvar = function () {
         if ($scope.formulario.$valid) {
+            $scope.botao = true;
             DataService.realizarPut('http://ifg.redesbrasil.com/tipos-reparos/' + id, $scope.form).then(function (response) {
-                $scope.botao = false;
-                $state.go('common.tipoReparoListar');
-            })
+                if (response.data.status === 200) {
+                    $state.go('common.tipoReparoListar');
+                }
+                else if (response.data.status === 400) {
+                    $scope.botao = false;
+                }
+            });
         }
-
     }
 });

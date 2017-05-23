@@ -27,9 +27,14 @@ app.controller('UsuarioNovo', function ($scope, $rootScope, DataService) {
     }
     $scope.salvar = function () {
             if ($scope.formulario.$valid) {
+                $scope.botao = true;
                 DataService.realizarPost('http://ifg.redesbrasil.com/usuarios',$scope.form).then(function (data) {
-                    $scope.botao = false;
-                    $state.go('common.usuarioListar');
+                    if (response.data.status === 200) {
+                        $state.go('common.usuarioListar');
+                    }
+                    else if (response.data.status === 400) {
+                        $scope.botao = false;
+                    }
                 });
             }
         }

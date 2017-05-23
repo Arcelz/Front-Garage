@@ -40,11 +40,15 @@ app.controller('UsuarioEditar', function ($scope, $state, $q, DataService, $stat
             $scope.form.grupo_id = $("#renderedCombo3 option:selected").val();
         }
         console.log($scope.form)
-        if ($scope.form.funcionario_id != "" || $scope.form.grupo_id != "") {
+        if ($scope.form.funcionario_id != "" && $scope.form.grupo_id != "") {
+            $scope.botao = true;
             DataService.realizarPut('http://ifg.redesbrasil.com/usuarios/' + id, $scope.form).then(function (response) {
-                console.log(response)
-                $scope.botao = false;
-                $state.go('common.usuarioListar');
+                if (response.data.status === 200) {
+                    $state.go('common.usuarioListar');
+                }
+                else if (response.data.status === 400) {
+                    $scope.botao = false;
+                }
             })
         }
     }
