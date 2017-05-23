@@ -1,6 +1,9 @@
 app.controller('UsuarioEditar', function ($scope, $state, $q, DataService, $stateParams, $rootScope) {
     $scope.form = {};
     var id = $stateParams.id; //pega o paramentro informado na url
+    if (id === "") {
+        $state.go('common.usuarioListar');
+    }
     $scope.funcionarioResultados = [];
     $scope.grupoResultados = [];
     DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios').then(function (data) {

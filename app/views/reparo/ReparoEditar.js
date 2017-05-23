@@ -1,6 +1,9 @@
 app.controller('ReparoEditar', function ($scope, $state, $q, DataService, $stateParams, $rootScope) {
     $scope.form = {};
     var id = $stateParams.id; //pega o paramentro informado na url
+    if (id === "") {
+        $state.go('common.reparoListar');
+    }
     $scope.veiculosResultados = [];
     $scope.tiposResultados = [];
 
@@ -20,7 +23,8 @@ app.controller('ReparoEditar', function ($scope, $state, $q, DataService, $state
                 });
                 $scope.form.valor = parseInt(response.data[0].valor);
                 $scope.form.descricao = response.data[0].descricao;
-
+                $scope.formulario.tipo.$error.required = false;
+                $scope.formulario.veiculo.$error.required = false;
                 $scope.loadVeiculos = function () {
                     if (clickedVeiculo) {
                         clickedVeiculo = false;
@@ -48,10 +52,10 @@ app.controller('ReparoEditar', function ($scope, $state, $q, DataService, $state
         if ($scope.form.fkVeiculo != "" && $scope.form.fkTipo != "") {
             $scope.botao = true;
             DataService.realizarPut('http://ifg.redesbrasil.com/reparos/' + id, $scope.form).then(function (response) {
-                if (response.data.status === 200){
+                if (response.data.status === 200) {
                     $state.go('common.reparoListar');
                 }
-                else if (response.data.status === 400){
+                else if (response.data.status === 400) {
                     $scope.botao = false;
                 }
             });
