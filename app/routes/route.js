@@ -216,7 +216,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         .state('common.modeloListar', {
             url: '/modelos',
             permicao: '15V',
-            templateUrl: 'app/views/modelo/cadastro-modelos.html',
+            templateUrl: 'app/views/modelo/listar-modelos.html',
             controller: 'ModeloListar',
             controllerAs: 'vm'
         })
@@ -231,7 +231,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             url: '/modelos/:id',
             permicao: '15C',
             templateUrl: 'app/views/modelo/cadastro-modelos.html',
-            controller: 'ModeloNovo',
+            controller: 'ModeloEditar',
             controllerAs: 'vm'
         })
         .state('common.reparoListar', {
