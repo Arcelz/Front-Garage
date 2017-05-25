@@ -19,13 +19,16 @@
           <div class="col-md-6">
             <fieldset>
               <legend class="text-semibold"><i class="icon-car position-left"></i> Dados do Veiculo </legend>
+              	<label class="text-danger">Campos com ( * )  são OBRIGATORIOS </label>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Placa:</label>
+                <label for="placa" class="col-lg-3 control-label">Placa
+                  <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+                </label>
                 <div class="col-lg8">
                   <div class="row">
                     <div class="col-md-7">
                       <div class="mb-12">
-                        <input type="text" placeholder="Placa" name="placa" class="form-control" ng-model="form.placa" required/>
+                        <input id="placa" type="text" placeholder="Placa" name="placa" class="form-control" ng-model="form.placa" autofocus required/>
                         <input type="hidden" name="pk_veiculo" ng-model="form.pk_veiculo">
                         <label ng-show="formulario.$submitted &&  formulario.placa.$error.required" class="validation-error-label">
                              Informe a placa
@@ -37,12 +40,14 @@
               </div>
 
               <div class="form-group">
-                <label class="col-lg-3 control-label">Ano:</label>
+                <label for="ano" class="col-lg-3 control-label">Ano
+                  <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+                </label>
                 <div class="col-lg-5">
                   <div class="row">
                     <div class="col-md-7">
                       <div class="mb-12">
-                        <input type="text" placeholder="Ano" name="ano" class="form-control" ng-model="form.ano" required/>
+                        <input id="ano" type="text" placeholder="Ano" name="ano" class="form-control" ng-model="form.ano" required/>
                         <label ng-show="formulario.$submitted &&  formulario.ano.$error.required" class="validation-error-label">
                         Informe o Ano
                         </label>
@@ -54,12 +59,14 @@
 
 
               <div class="form-group">
-                <label class="col-lg-3 control-label">Valor de Compra:</label>
-                <div class="col-lg8">
+                <label for="valorCompra" class="col-lg-3 control-label">Valor de Compra
+                  <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="8" width="8" />      
+                </label>
+                <div class="col-lg-8">
                   <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                       <div class="mb-12">
-                        <input type="text" placeholder="Compra" name="valorCompra" class="form-control" ng-model="form.valorCompra" required/>
+                        <input id="valorCompra" type="text" placeholder="Compra" name="valorCompra" class="form-control" ng-model="form.valorCompra" required/>
                         <label ng-show="formulario.$submitted &&  formulario.valorCompra.$error.required" class="validation-error-label">
                           Informe o valor de Compra
                         </label>
@@ -78,7 +85,9 @@
             <fieldset>
               <legend class="text-semibold"><i class=" position-left"></i> </legend>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Categoria:</label>
+                <label for="selectCategoria" class="col-lg-3 control-label">Categoria
+                  <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+                </label>
                 <div class="col-lg8">
                   <div class="row">
                     <div class="col-md-7">
@@ -104,7 +113,9 @@
               <!-- Marca-->
 
               <div class="form-group">
-                <label class="col-lg-3 control-label">Marca:</label>
+                <label for="selectMarca" class="col-lg-3 control-label">Marca
+                  <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+                </label>
                 <div class="col-lg8">
                   <div class="row">
                     <div class="col-md-7">
@@ -130,7 +141,9 @@
 
 
               <div class="form-group">
-                <label class="col-lg-3 control-label">Modelo:</label>
+                <label for="selectModelo" class="col-lg-3 control-label">Modelo
+                  <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+                </label>
                 <div class="col-lg8">
                   <div class="row">
                     <div class="col-md-7">
@@ -182,5 +195,13 @@
   <script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
   <script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
 
+  <!-- Função para subir ate o TOPO  -->
+<script>
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
 
   <!-- /theme JS files -->

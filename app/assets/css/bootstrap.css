@@ -1116,7 +1116,7 @@ a:focus {
 figure {
   margin: 0;
 }
-img {
+.img {
   vertical-align: middle;
 }
 .img-responsive,
