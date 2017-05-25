@@ -1,174 +1,191 @@
+<!-- Content area -->
+<div class="content">
 
-						
-  			<!-- Content area -->
-				<div class="content">
-					
-					<!-- 2 columns form -->
-					<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="FornecedorSalvar">
-						<div ng-show="mensagem.length" class="row">
-							<div class="col-md-6">							
-									<div class="alert alert-primary alert-bordered">
-										<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
-										<span class="text-semibold">{{mensagem}}</span> 
-								    </div>
-							</div>
-						</div>
-						<div class="panel panel-flat">						
-							<div class="panel-heading">
-								<h5 class="panel-title">Cadastro de Fornecedor</h5>
-								
-							</div>
+	<!-- 2 columns form -->
+	<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="FornecedorSalvar">
+		<div ng-show="mensagem.length" class="row">
+			<div class="col-md-6">
+				<div class="alert alert-primary alert-bordered">
+					<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+					<span class="text-semibold">{{mensagem}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-flat">
+			<div class="panel-heading">
+				<h5 class="panel-title">Cadastro de Fornecedor</h5>
 
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-md-6">
-										<fieldset>
-											<legend class="text-semibold"><i class="icon-reading position-left"></i> Dados Pessoais </legend>
+			</div>
 
-											<div class="form-group">
-												<label for="nome" class="col-lg-3 control-label">Nome:</label>
-												<div class="col-lg-9">
-													<input type="text" name="nome" class="form-control" placeholder="Nome" ng-model="form.nome" required/>
-													<input type="hidden"  class="form-control" placeholder="Nome" ng-model="form.pk_fornecedor" />
-													<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<fieldset>
+							<legend class="text-semibold"><i class="icon-reading position-left"></i> Dados Pessoais </legend>
+							 <label class="text-danger">Campos com ( * )  são OBRIGATORIOS </label>
+
+							<div class="form-group">
+								<label for="nome" class="col-lg-3 control-label">Nome
+									 	<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+								</label>
+								<div class="col-lg-9">
+									<input type="text" id="nome" name="nome" class="form-control" placeholder="Nome" ng-model="form.nome" autofocus required/>
+									<input type="hidden" class="form-control" placeholder="Nome" ng-model="form.pk_fornecedor" />
+									<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label">
 														Nome obrigatorio
 													</label>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label for="cpf" class="col-lg-3 control-label">CPF:</label>
-												<div class="col-lg-9">
-													<input type="text" class="form-control" name="cpf" placeholder="CPF" ng-model="form.cpf" required/>
-													<label ng-show="formulario.$submitted && formulario.cpf.$error.required" class="validation-error-label">
-														CPF obrigatorio
-													</label>
-												</div>
-											</div>										
-											<div class="form-group">
-												<label for="email" class="col-lg-3 control-label">Email:</label>
-												<div class="col-lg-9">
-													<input type="text"  name="email" placeholder="eugene@kopyov.com" class="form-control" ng-model="form.email" required/>
-													<label ng-show="formulario.$submitted &&  formulario.email.$error.required" class="validation-error-label">
-														Email obrigatorio
-													</label>
-												</div>
-											</div>							
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Telefone:</label>
-												<div class="col-lg-9">
-													<div class="row">
-														<div class="col-md-4">
-															<input type="text" placeholder="Telefone" class="form-control" ng-model="form.contato">
-														</div>
-												<label class="col-lg-3 control-label">Celular:</label>
-														<div class="col-md-4">
-															<input type="text" placeholder="Celular" name="celular" class="form-control" ng-model="form.contato1" required/>
-															<label ng-show="formulario.$submitted &&  formulario.celular.$error.required" class="validation-error-label">
-																Celular obrigatorio
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-										</fieldset>
-									</div>
-
-									<div class="col-md-6">
-										<fieldset>
-						                	<legend class="text-semibold"><i class=" position-left"></i> </legend>									
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Logradouro:</label>
-												<div class="col-lg-9">
-													<input type="text" placeholder="Logradouro" class="form-control" ng-model="form.logradouro">
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Bairro:</label>
-												<div class="col-lg-9">
-													<input type="text" placeholder="Bairro" class="form-control" ng-model="form.bairro">
-												</div>
-											</div>
-											<div class="form-group">
-												<label for="estado" class="col-lg-3 control-label">Estado:</label>
-												<div class="col-lg-9">
-													<div class="row">
-														<div class="col-md-4">
-															<input type="text" placeholder="Estado" name="estado" class="form-control" ng-model="form.estado" required/>
-															<label ng-show="formulario.$submitted &&  formulario.estado.$error.required" class="validation-error-label">
-																Estado obrigatorio
-															</label>
-														</div>
-												<label  for="cidade" class="col-lg-3 control-label">Cidade:</label>
-														<div class="col-md-4">
-															<input type="text" placeholder="Cidade" name="cidade" class="form-control" ng-model="form.cidade" required/>
-															<label ng-show="formulario.$submitted &&  formulario.cidade.$error.required" class="validation-error-label">
-																Cidade obrigatorio
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Pais:</label>
-												<div class="col-lg-9">
-													<div class="row">
-														<div class="col-md-4">
-															<input type="text" placeholder="Pais" class="form-control" ng-model="form.pais">
-														</div>
-												<label for="cep" class="col-lg-3 control-label">Cep:</label>
-														<div class="col-md-4">
-															<input type="text" name="cep" placeholder="Cep" class="form-control" ng-model="form.cep" required/>
-															<label ng-show="formulario.$submitted &&  formulario.cep.$error.required" class="validation-error-label">
-																CEP obrigatorio
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>											
-										</fieldset>
-									</div>
-								</div>
-
-								<div class="text-right">
-									<a href="#!/fornecedores">
-                                    	<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
-                                	</a>
-									<button ng-disabled="botao" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
 								</div>
 							</div>
-						</div>
-					</form>
-					<!-- /2 columns form -->
 
+							<div class="form-group">
+								<label for="cpf" class="col-lg-3 control-label">CPF
+										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+								</label>
+								<div class="col-lg-9">
+									<input type="text" id="cpf" class="form-control" name="cpf" placeholder="CPF" ng-model="form.cpf" required/>
+									<label ng-show="formulario.$submitted && formulario.cpf.$error.required" class="validation-error-label">
+														CPF obrigatorio
+													</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-lg-3 control-label">Email
+										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+								</label>
+								<div class="col-lg-9">
+									<input type="email" id="email" name="email" placeholder="eugene@kopyov.com" class="form-control" ng-model="form.email" required/>
+									<label ng-show="formulario.$submitted &&  formulario.email.$error.required" class="validation-error-label">
+														Email obrigatorio
+													</label>
+								</div>
+							</div>
 
-					<!-- Footer -->
-					<div class="footer text-muted">
-						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+							<div class="form-group">
+								<label for="telefone" class="col-lg-3 control-label">Telefone
+									<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+								</label>
+								<div class="col-lg-9">
+									<div class="row">
+										<div class="col-md-4">
+											<input id="telefone" type="tel" placeholder="Telefone" class="form-control" ng-model="form.contato">
+										</div>
+										<label for="celular" class="col-lg-3 control-label">Celular
+											<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+										</label>
+										<div class="col-md-4">
+											<input id="celular" type="tel" placeholder="Celular" name="celular" class="form-control" ng-model="form.contato1" required/>
+											<label ng-show="formulario.$submitted &&  formulario.celular.$error.required" class="validation-error-label">
+																Celular obrigatorio
+															</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</fieldset>
 					</div>
-					<!-- /footer -->
 
+					<div class="col-md-6">
+						<fieldset>
+							<legend class="text-semibold"><i class=" position-left"></i> </legend>
+							<br/>
+							<div class="form-group">
+								<label for="logradouro" class="col-lg-3 control-label">Logradouro:</label>
+								<div class="col-lg-9">
+									<input id="logradouro" type="text" placeholder="Logradouro" class="form-control" ng-model="form.logradouro">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="bairro" class="col-lg-3 control-label">Bairro:</label>
+								<div class="col-lg-9">
+									<input id="bairro" type="text" placeholder="Bairro" class="form-control" ng-model="form.bairro">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="estado" class="col-lg-3 control-label">Estado
+									<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+								</label>
+								<div class="col-lg-9">
+									<div class="row">
+										<div class="col-md-4">
+											<input id="estado" type="text" placeholder="Estado" name="estado" class="form-control" ng-model="form.estado" required/>
+											<label ng-show="formulario.$submitted &&  formulario.estado.$error.required" class="validation-error-label">
+																Estado obrigatorio
+															</label>
+										</div>
+										<label for="cidade" class="col-lg-3 control-label">Cidade
+											<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+										</label>
+										<div class="col-md-4">
+											<input id="cidade" type="text" placeholder="Cidade" name="cidade" class="form-control" ng-model="form.cidade" required/>
+											<label ng-show="formulario.$submitted &&  formulario.cidade.$error.required" class="validation-error-label">
+																Cidade obrigatorio
+															</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="pais" class="col-lg-3 control-label">Pais</label>
+								<div class="col-lg-9">
+									<div class="row">
+										<div class="col-md-4">
+											<input id="pais" type="text" placeholder="Pais" class="form-control" ng-model="form.pais">
+										</div>
+										<label for="cep" class="col-lg-3 control-label">Cep
+											<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+										</label>
+										<div class="col-md-4">
+											<input id="cep" type="text" name="cep" placeholder="Cep" class="form-control" ng-model="form.cep" required/>
+											<label ng-show="formulario.$submitted &&  formulario.cep.$error.required" class="validation-error-label">
+																CEP obrigatorio
+															</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</div>
 				</div>
-				<!-- /content area -->
 
-				<div data-ng-include="'app/views/funcionario/modal-funcionario.html'"></div>
+				<div class="text-right">
+					<a href="#!/fornecedores">
+                                    	<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
+                                	</a>
+					<button ng-disabled="botao" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-- /2 columns form -->
 
-	
 
-	
+	<!-- Footer -->
+	<div class="footer text-muted">
+		&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+	</div>
+	<!-- /footer -->
 
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script> 
-	<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
-	<script>
-			$(".select2-selection select2-selection--single").click(function(){
-			alter("OK");
-		});
-	</script>
-	<!-- /theme JS files -->
+</div>
+<!-- /content area -->
 
-    
+<div data-ng-include="'app/views/funcionario/modal-funcionario.html'"></div>
+
+
+
+
+
+<!-- Theme JS files -->
+<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
+<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
+<!-- Função para subir ate o TOPO  -->
+<script>
+	$(document).ready(function () {
+		$('html, body').animate({ scrollTop: 0 }, 'slow');
+		return false;
+	});
+
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
+<!-- /theme JS files -->

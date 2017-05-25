@@ -25,7 +25,9 @@
 						<fieldset>
 							<legend class="text-semibold"> </legend>
 							<div class="form-group">
-								<label class="col-lg-3 control-label">Fornecedor:</label>
+								<label for="selectBuscaFornecedor" class="col-lg-3 control-label">Fornecedor
+									<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+								</label>
 								<div class="col-lg-9">
 									<div class="row">
 										<div class="col-md-6">
@@ -68,7 +70,9 @@
 						<fieldset>
 							<legend class="text-semibold"> </legend>
 							<div class="form-group">
-								<label class="col-lg-3 control-label">Funcionario:</label>
+								<label for="selectBuscaFuncionario" class="col-lg-3 control-label">Funcionario
+									<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+								</label>
 								<div class="col-lg-9">
 									<div class="row">
 										<div class="col-md-6">
@@ -118,7 +122,7 @@
 				<form name="formulario2" class="main-search">
 					<div class="input-group content-group">
 						<div class="has-feedback has-feedback-left">
-							<input type="text" name="consulta" ng-keyup="validarInupt()" class="form-control input-xlg" ng-model="consulta" placeholder="PESQUISA PELO VEICULO">
+							<input type="search" name="consulta" ng-keyup="validarInupt()" class="form-control input-xlg" ng-model="consulta" placeholder="PESQUISA PELA PLACA" autofocus>
 							<div class="form-control-feedback">
 								<i class="icon-search4 text-muted text-size-base"></i>
 							</div>
@@ -215,5 +219,12 @@
 <!-- Theme JS files -->
 <script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
 <script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
-
+<!-- Função para subir ate o TOPO  -->
+<script>
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
 <!-- /theme JS files -->

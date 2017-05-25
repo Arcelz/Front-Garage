@@ -1,6 +1,6 @@
 app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 
-    //$httpProvider.interceptors.push('tokenInterceptor');
+ $httpProvider.interceptors.push('tokenInterceptor');
 
     $stateProvider
         .state('common', {
@@ -14,6 +14,12 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             templateUrl: 'app/views/home.html',
             controller: 'Home',
             controllerAs: 'vm'
+        })
+          .state('acessibilidade', {
+            url: '/acessibilidade',
+            parent: 'common',            
+            templateUrl: 'app/views/acessibilidade/acessibilidade.html'
+           
         })
         .state('common.cargoListar', {
             url: '/cargos/novo',
@@ -216,7 +222,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         .state('common.modeloListar', {
             url: '/modelos',
             permicao: '15V',
-            templateUrl: 'app/views/modelo/cadastro-modelos.html',
+            templateUrl: 'app/views/modelo/listar-modelos.html',
             controller: 'ModeloListar',
             controllerAs: 'vm'
         })
@@ -257,63 +263,63 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('common.tipoReparoListar', {
             url: '/tipo-reparos',
-            permicao: '19C',
+            permicao: '19V',
             templateUrl: 'app/views/tipo-reparo/listar-tipo-reparos.html',
             controller: 'ReparoTipoListar',
             controllerAs: 'vm'
         })
         .state('common.tipoReparoNovo', {
             url: '/tipo-reparos/novo',
-            permicao: '19V',
+            permicao: '19C',
             templateUrl: 'app/views/tipo-reparo/cadastro-tipo-reparos.html',
             controller: 'ReparoTipoNovo',
             controllerAs: 'vm'
         })
         .state('common.tipoReparoEditar', {
             url: '/tipo-reparos/:id',
-            permicao: '19V',
+            permicao: '19C',
             templateUrl: 'app/views/tipo-reparo/cadastro-tipo-reparos.html',
             controller: 'ReparoTipoEditar',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoListar', {
             url: '/tipo-veiculos',
-            permicao: '20C',
+            permicao: '20V',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
             controller: 'TipoReparoListar',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoNovo', {
             url: '/tipo-veiculos/novo',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
             controller: 'TipoReparoNovo',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoEditar', {
             url: '/tipo-veiculos/:id',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
             controller: 'TipoReparoEditar',
             controllerAs: 'vm'
         })
         .state('common.usuarioListar', {
             url: '/usuarios',
-            permicao: '20C',
+            permicao: '20V',
             templateUrl: 'app/views/usuario/listar-usuarios.html',
             controller: 'UsuarioListar',
             controllerAs: 'vm'
         })
         .state('common.usuarioNovo', {
             url: '/usuarios/novo',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/usuario/cadastro-usuarios.html',
             controller: 'UsuarioNovo',
             controllerAs: 'vm'
         })
         .state('common.usuarioEditar', {
             url: '/usuarios/:id',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/usuario/cadastro-usuarios.html',
             controller: 'UsuarioEditar',
             controllerAs: 'vm'
@@ -377,4 +383,8 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         });
 
     $urlRouterProvider.otherwise('/');
+
+      
+
+      
 });

@@ -11,8 +11,8 @@
         <div class="modal-body">
           <div class="form-group has-feedback">
             <div class="col-lg-6">
-              <label>Marca: </label>
-              <input type="text" placeholder="Marca" ng-keyup="validarModar()" class="form-control" ng-model="modal.nome">
+              <label for="nomeMarca">Marca: </label>
+              <input id="nomeMarca" type="text" placeholder="Marca" ng-keyup="validarModar()" class="form-control" ng-model="modal.nome" autofocus/>
               <label ng-show="exebirErrorModal" class="validation-error-label">
                   Marca obrigatorio
                 </label>
