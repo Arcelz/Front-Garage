@@ -24,9 +24,6 @@ angular.module('app.core')
         };
         return interceptor;
 
-<<<<<<< HEAD
-
     });
-=======
-        });
->>>>>>> 557b7207a28a9d4f64d97cb249ea18f9afe1d574
+
+
