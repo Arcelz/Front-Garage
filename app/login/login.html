@@ -13,63 +13,78 @@
         background: url('app/assets/images/login_cover.jpg') no-repeat;
         background-size: cover;
     }
+
     body .page-container {
         padding-top: 40px;
         position: static;
     }
+
     body .page-container .login-form {
         width: 320px;
     }
+
     body .page-container .login-form .thumb {
         margin: 0 auto 20px auto;
     }
+
     body .page-container .login-form,
     body .page-container .registration-form {
         margin: 0 auto 20px auto;
     }
+
     @media (max-width: 480px) {
         .body .page-container .login-form,
         .body .page-container .registration-form {
             width: 100%;
         }
     }
+
     body .page-container .nav-tabs.nav-justified {
         margin-bottom: 0;
     }
+
     body .page-container .nav-tabs.nav-justified > li > a {
-        border-top: 0!important;
+        border-top: 0 !important;
         padding-left: 15px;
         padding-right: 15px;
         background-color: #f5f5f5;
     }
+
     body .page-container .nav-tabs.nav-justified > li:first-child > a {
         border-left: 0;
         border-radius: 3px 0 0 0;
     }
+
     body .page-container .nav-tabs.nav-justified > li:last-child > a {
         border-right: 0;
         border-radius: 0 3px 0 0;
     }
+
     body .page-container .nav-tabs.nav-justified > li.active > a {
         background-color: transparent;
     }
+
     @media (max-width: 768px) {
         body .page-container .nav-tabs.nav-justified {
             padding: 0;
             border-width: 0 0 1px 0;
             border-radius: 0;
         }
+
         body .page-container .nav-tabs.nav-justified:before {
             content: none;
         }
+
         body .page-container .nav-tabs.nav-justified > li > a {
-            border-width: 0!important;
+            border-width: 0 !important;
         }
     }
+
     body .footer {
         left: 0;
         right: 0;
     }
+
     @media (max-width: 768px) {
         .login-options,
         .login-options .text-right {
@@ -90,22 +105,26 @@
             <div class="content pb-20">
 
                 <!-- Form with validation -->
-                <form  class="form-validate" ng-submit="submit()">
+                <form class="form-validate" ng-submit="submit()">
                     <div class="panel panel-body login-form">
                         <div class="text-center">
                             <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
-                            <h5 class="content-group">Entrar em sua conta <small class="display-block">Suas credenciais</small></h5>
+                            <h5 class="content-group">Entrar em sua conta
+                                <small class="display-block">Suas credenciais</small>
+                            </h5>
                         </div>
 
                         <div class="form-group has-feedback has-feedback-left">
-                            <input ng-model="form.login" type="text" class="form-control" placeholder="Username" name="login" required="required">
+                            <input ng-model="form.login" type="text" class="form-control" placeholder="Username"
+                                   name="login" required="required">
                             <div class="form-control-feedback">
                                 <i class="icon-user text-muted"></i>
                             </div>
                         </div>
 
                         <div class="form-group has-feedback has-feedback-left">
-                            <input ng-model="form.senha" type="password" class="form-control" placeholder="Password" name="senha" required="required">
+                            <input ng-model="form.senha" type="password" class="form-control" placeholder="Password"
+                                   name="senha" required="required">
                             <div class="form-control-feedback">
                                 <i class="icon-lock2 text-muted"></i>
                             </div>
@@ -115,7 +134,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label class="checkbox-inline">
-                                        <input type="checkbox" class="styled" >
+                                        <input type="checkbox" class="styled">
                                         Remember
                                     </label>
                                 </div>
@@ -123,7 +142,8 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" ng-disabled="botaoLogin" class="btn bg-pink-400 btn-block">Login <i class="icon-arrow-right14 position-right"></i></button>
+                            <button type="submit" ng-disabled="botaoLogin" class="btn bg-pink-400 btn-block">Login <i
+                                    class="icon-arrow-right14 position-right"></i></button>
                         </div>
 
                     </div>

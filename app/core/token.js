@@ -1,15 +1,15 @@
 angular.module('app.core')
     .factory('AuthService', AuthService);
 
-function AuthService ($localStorage, $q) {
+function AuthService($localStorage, $q) {
     return {
-        getToken : function () {
+        getToken: function () {
             return $localStorage.token;
         },
         setToken: function (token) {
             $localStorage.token = token;
         },
-        logout : function () {
+        logout: function () {
             delete $localStorage.token;
             $q.when();
         }

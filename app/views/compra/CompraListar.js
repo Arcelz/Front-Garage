@@ -4,7 +4,7 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService) {
     $scope.resultadosCompras = [];
 
     DataService.realizarGet('http://ifg.redesbrasil.com/compras').then(function (response) {
-         console.log(response.data);
+        console.log(response.data);
         if (response.data.length) {
             $scope.resultadosCompras = response.data;
             console.log(response.data);
@@ -19,7 +19,7 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService) {
         $rootScope.idModalExclusao = id;
         $('#modal_default').modal('show');
     };
-    
+
     $scope.excluirFuncionario = function () {
         DataService.realizarDelete('http://ifg.redesbrasil.com/veiculos/' + $rootScope.idModalExclusao).then(function (data) {
             if (indexRemover != undefined) {

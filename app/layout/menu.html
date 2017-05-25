@@ -10,169 +10,82 @@
     </div>
 
     <div class="navbar-collapse collapse" id="navbar-mobile">
+
         <ul class="nav navbar-nav">
-            <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-
-            <li class="dropdown">
-               
-
-                <div class="dropdown-menu dropdown-content">
-                    <div class="dropdown-content-heading">
-                        Git updates
-                        <ul class="icons-list">
-                            <li><a href="#"><i class="icon-sync"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <ul class="media-list dropdown-content-body width-350">
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="#" class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-pull-request"></i></a>
-                            </div>
-
-                            <div class="media-body">
-                                Drop the IE <a href="#">specific hacks</a> for temporal inputs
-                                <div class="media-annotation">4 minutes ago</div>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="#" class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-commit"></i></a>
-                            </div>
-
-                            <div class="media-body">
-                                Add full font overrides for popovers and tooltips
-                                <div class="media-annotation">36 minutes ago</div>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="#" class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-branch"></i></a>
-                            </div>
-
-                            <div class="media-body">
-                                <a href="#">Chris Arney</a> created a new <span class="text-semibold">Design</span> branch
-                                <div class="media-annotation">2 hours ago</div>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="#" class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-merge"></i></a>
-                            </div>
-
-                            <div class="media-body">
-                                <a href="#">Eugene Kopyov</a> merged <span class="text-semibold">Master</span> and <span class="text-semibold">Dev</span> branches
-                                <div class="media-annotation">Dec 18, 18:36</div>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="#" class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-pull-request"></i></a>
-                            </div>
-
-                            <div class="media-body">
-                                Have Carousel ignore keyboard events
-                                <div class="media-annotation">Dec 12, 05:46</div>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="dropdown-content-footer">
-                        <a href="#" data-popup="tooltip" title="All activity"><i class="icon-menu display-block"></i></a>
-                    </div>
-                </div>
+            <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a>
             </li>
         </ul>
-
         <div class="navbar-right">
-            
+
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    
+                    <a class="dropdown-toggle legitRipple" data-toggle="dropdown" aria-expanded="false">
+                        <i class="icon-eye"></i>
+                        <span class="visible-xs-inline-block position-right">Cores</span>
+                    </a>
 
                     <div class="dropdown-menu dropdown-content">
                         <div class="dropdown-content-heading">
-                            Activity
+                            Cores
                             <ul class="icons-list">
-                                <li><a href="#"><i class="icon-menu7"></i></a></li>
+                                <li><a><i class="icon-eye"></i></a></li>
                             </ul>
                         </div>
+                        <form ng-submit="cor()" novalidate>
+                            <ul class="media-list dropdown-content-body width-350">
+                                <li class="media">
+                                    <label for="corFundoMenu" class="control-label menu-superior-alto col-xs-12">Cor
+                                        Fundo Menu Superior:</label>
+                                    <input id="corFundoMenu" ng-model="core.corFundoSuperior" class="form-control"
+                                           type="color" name="color">
+                                </li>
 
-                        <ul class="media-list dropdown-content-body width-350">
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#" class="btn bg-success-400 btn-rounded btn-icon btn-xs"><i class="icon-mention"></i></a>
-                                </div>
+                                <li class="media">
+                                    <label for="corLetraMenu" class="control-label menu-superior-alto col-xs-12">Cor
+                                        Letra Menu Superior:</label>
+                                    <input id="corLetraMenu" ng-model="core.corLetraSuperior" class="form-control"
+                                           type="color" name="color">
+                                </li>
 
-                                <div class="media-body">
-                                    <a href="#">Taylor Swift</a> mentioned you in a post "Angular JS. Tips and tricks"
-                                    <div class="media-annotation">4 minutes ago</div>
-                                </div>
-                            </li>
+                                <li class="media">
+                                    <label for="corFundoConteudo" class="control-label menu-superior-alto col-xs-12">Cor
+                                        Fundo Geral:</label>
+                                    <input id="corFundoConteudo" ng-model="core.corFundoGeral" class="form-control"
+                                           type="color" name="color">
+                                </li>
 
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#" class="btn bg-pink-400 btn-rounded btn-icon btn-xs"><i class="icon-paperplane"></i></a>
-                                </div>
+                                <li class="media">
+                                    <label for="corLetraConteudo" class="control-label menu-superior-alto col-xs-12">Cor
+                                        Letra Geral:</label>
+                                    <input id="corLetraConteudo" ng-model="core.corLetraGeral" class="form-control"
+                                           type="color" name="color">
+                                </li>
 
-                                <div class="media-body">
-                                    Special offers have been sent to subscribed users by <a href="#">Donna Gordon</a>
-                                    <div class="media-annotation">36 minutes ago</div>
-                                </div>
-                            </li>
+                            </ul>
+                            <button ng-disabled="botao" class="btn btn-primary"> Salvar Cor</i></button>
 
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#" class="btn bg-blue btn-rounded btn-icon btn-xs"><i class="icon-plus3"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    <a href="#">Chris Arney</a> created a new <span class="text-semibold">Design</span> branch in <span class="text-semibold">Limitless</span> repository
-                                    <div class="media-annotation">2 hours ago</div>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#" class="btn bg-purple-300 btn-rounded btn-icon btn-xs"><i class="icon-truck"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    Shipping cost to the Netherlands has been reduced, database updated
-                                    <div class="media-annotation">Feb 8, 11:30</div>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#" class="btn bg-warning-400 btn-rounded btn-icon btn-xs"><i class="icon-bubble8"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    New review received on <a href="#">Server side integration</a> services
-                                    <div class="media-annotation">Feb 2, 10:20</div>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#" class="btn bg-teal-400 btn-rounded btn-icon btn-xs"><i class="icon-spinner11"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    <strong>January, 2016</strong> - 1320 new users, 3284 orders, $49,390 revenue
-                                    <div class="media-annotation">Feb 1, 05:46</div>
-                                </div>
-                            </li>
-                        </ul>
+                        </form>
                     </div>
                 </li>
+                <li class="dropdown">
+                    <a ng-click="aumentar()" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                        <span><strong>T+</strong></span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a ng-click="restaurar()" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                        <span><strong>T</strong></span>
+                    </a>
 
-                
+                </li>
+                <li class="dropdown">
+                    <a ng-click="diminuir()" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                        <span><strong>T-</strong></span>
+                    </a>
+
+                </li>
+                <li><a ng-click="logout()"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+
             </ul>
         </div>
     </div>
@@ -187,32 +100,21 @@
     <div class="page-content">
 
         <!-- Main sidebar -->
-        <div class="sidebar sidebar-main sidebar-default">
+        <div id="menuLateral" class="sidebar sidebar-main sidebar-default">
             <div class="sidebar-content">
 
                 <!-- User menu -->
                 <div class="sidebar-user-material">
                     <div class="category-content">
                         <div class="sidebar-user-material-content">
-                            <a href="#"><img src="app/assets/images/placeholder.jpg" class="img-circle img-responsive" alt=""></a>
+                            <a href="#"><img src="app/assets/images/placeholder.jpg" class="img-circle img-responsive"
+                                             alt=""></a>
                             <h6>{{nomeUsuario}}</h6>
                         </div>
 
-                        <div class="sidebar-user-material-menu">
-                            <a href="#user-nav" data-toggle="collapse"><span>My account</span> <i class="caret"></i></a>
-                        </div>
                     </div>
 
-                    <div class="navigation-wrapper collapse" id="user-nav">
-                        <ul class="navigation">
-                            <li><a href="#"><i class="icon-user-plus"></i> <span>My profile</span></a></li>
-                            <li><a href="#"><i class="icon-coins"></i> <span>My balance</span></a></li>
-                            <li><a href="#"><i class="icon-comment-discussion"></i> <span><span class="badge bg-teal-400 pull-right">58</span> Messages</span></a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"><i class="icon-cog5"></i> <span>Account settings</span></a></li>
-                            <li><a ng-click="logout()" ><i class="icon-switch2"></i> <span>Logout</span></a></li>
-                        </ul>
-                    </div>
+
                 </div>
                 <!-- /user menu -->
 
@@ -223,79 +125,93 @@
                         <ul class="navigation navigation-main navigation-accordion">
 
                             <!-- Administrativo -->
-                            <li class="navigation-header"><span>Administrativo</span> <i class="icon-menu" title="Main pages"></i></li>
-                            <li class="active"><a href="#!/"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li class="navigation-header"><span>Administrativo</span> <i class="icon-menu"
+                                                                                         title="Main pages"></i></li>
+                            <li><a href="#!/"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                             <li>
                                 <a href="#"><i class="icon-stack2"></i> <span>Acesso ao Sistema</span></a>
                                 <ul>
 
-                                     <li><a href="#!/funcionarios/novo"><span>Usuarios</span></a>
+                                    <li><a href="#!/funcionarios/novo"><span>Usuarios</span></a>
                                         <ul>
-                                               <li><a href="#!/usuarios/novo"> <i class="icon-add"></i> Novo Usuario</a></li>
-                                               <li><a href="#!/usuarios"><i class="icon-search4"></i> Listar Usuario</a></li>
+                                            <li><a href="#!/usuarios/novo"> <i class="icon-add"></i> Novo Usuario</a>
+                                            </li>
+                                            <li><a href="#!/usuarios"><i class="icon-search4"></i> Listar Usuario</a>
+                                            </li>
                                         </ul>
                                     </li>
-                                       <li><a href="#!/funcionarios/novo"><span>Grupos</span></a>
+                                    <li><a href="#!/funcionarios/novo"><span>Grupos</span></a>
                                         <ul>
-                                               <li><a href=""> <i class="icon-add"></i> Novo Grupo</a></li>
-                                               <li><a href=""><i class="icon-search4"></i> Listar Grupo</a></li>
+                                            <li><a href=""> <i class="icon-add"></i> Novo Grupo</a></li>
+                                            <li><a href=""><i class="icon-search4"></i> Listar Grupo</a></li>
                                         </ul>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <!-- /main -->
 
                             <!-- Cadastrados -->
-                            <li class="navigation-header"><span>Cadastrados</span> <i class="icon-menu" title="Appearance"></i></li>
+                            <li class="navigation-header"><span>Cadastrados</span> <i class="icon-menu"
+                                                                                      title="Appearance"></i></li>
                             <li>
                                 <a href="#"><i class="icon-grid"></i> <span>Cadastrados</span></a>
                                 <ul>
                                     <li><a href="#!/funcionarios/novo"><span>Funcionarios</span></a>
                                         <ul>
-                                               <li><a href="#!/funcionarios/novo"> <i class="icon-add"></i> Novo Funcionario</a></li>
-                                               <li><a href="#!/funcionarios"><i class="icon-search4"></i> Listar Funcionario</a></li>
+                                            <li><a href="#!/funcionarios/novo"> <i class="icon-add"></i> Novo
+                                                Funcionario</a></li>
+                                            <li><a href="#!/funcionarios"><i class="icon-search4"></i> Listar
+                                                Funcionario</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#!/funcionarios/novo"><span>Fornecedor</span></a>
                                         <ul>
-                                               <li><a href="#!/fornecedores/novo"> <i class="icon-add"></i> Novo Fornecedor</a></li>
-                                               <li><a href="#!/fornecedores"><i class="icon-search4"></i> Listar Fornecedor</a></li>
+                                            <li><a href="#!/fornecedores/novo"> <i class="icon-add"></i> Novo Fornecedor</a>
+                                            </li>
+                                            <li><a href="#!/fornecedores"><i class="icon-search4"></i> Listar Fornecedor</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li><a href="#!/funcionarios/novo"><span>Veiculos</span></a>
                                         <ul>
-                                               <li><a href="#!/veiculos/novo"> <i class="icon-add"></i> Novo Veiculo</a></li>
-                                               <li><a href="#!/veiculos"><i class="icon-search4"></i> Listar Veiculo</a></li>
+                                            <li><a href="#!/veiculos/novo"> <i class="icon-add"></i> Novo Veiculo</a>
+                                            </li>
+                                            <li><a href="#!/veiculos"><i class="icon-search4"></i> Listar Veiculo</a>
+                                            </li>
                                         </ul>
                                     </li>
-                                   
+
                                 </ul>
                             </li>
                             <!-- /Cadastrados -->
 
                             <!-- Vendas e Compras -->
-                            <li class="navigation-header"><span>Vendas e Compras</span> <i class="icon-menu" title="Layout options"></i></li>
+                            <li class="navigation-header"><span>Vendas e Compras</span> <i class="icon-menu"
+                                                                                           title="Layout options"></i>
+                            </li>
 
                             <li>
                                 <a href="#"><i class="icon-sort"></i> <span>Compra</span></a>
-                                <ul>                                   
+                                <ul>
                                     <li><a href="#!/compras/novo"> <i class="icon-add"></i> Nova Compra</a></li>
-                                    <li><a href="#!/compras"><i class="icon-search4"></i> Listar Compras</a></li>                                     
+                                    <li><a href="#!/compras"><i class="icon-search4"></i> Listar Compras</a></li>
                                 </ul>
                             </li>
 
-                             <li>
+                            <li>
                                 <a href="#"><i class="icon-sort"></i> <span>Venda</span></a>
-                                <ul>                                   
+                                <ul>
                                     <li><a href="#!/compras/novo"> <i class="icon-add"></i> Nova Venda</a></li>
-                                    <li><a href="#!/compras"><i class="icon-search4"></i> Listar Venda</a></li>                                     
+                                    <li><a href="#!/compras"><i class="icon-search4"></i> Listar Venda</a></li>
                                 </ul>
                             </li>
                             <!-- /Vendas e Compras -->
 
                             <!-- Relatorios -->
-                            <li class="navigation-header"><span>Relatorios</span> <i class="icon-menu" title="Data visualization"></i></li>
+                            <li class="navigation-header"><span>Relatorios</span> <i class="icon-menu"
+                                                                                     title="Data visualization"></i>
+                            </li>
 
                             <li>
                                 <a href="#"><i class="icon-stats-dots"></i> <span>Dimple library</span></a>
@@ -345,26 +261,25 @@
         <!-- /main sidebar -->
 
 
-
-     <div class="content-wrapper">
+        <div class="content-wrapper">
             <!-- Page header -->
-				<div class="page-header page-header-default">
-					<div class="breadcrumb-line">
-						<ul class="breadcrumb">
-							<li><a href="#!/"><i class="icon-home2 position-left"></i> Home</a></li>
+            <div class="page-header page-header-default">
+                <div class="breadcrumb-line">
+                    <ul class="breadcrumb">
+                        <li><a href="#!/"><i class="icon-home2 position-left"></i> Home</a></li>
 
-							<!--<li class="active"></li>-->
+                        <!--<li class="active"></li>-->
 
-						</ul>
-					</div>
-				</div>
-				<!-- /page header -->
+                    </ul>
+                </div>
+            </div>
+            <!-- /page header -->
 
-                <div data-ui-view></div>
+            <div data-ui-view></div>
 
-     </div>
-</div>
-<!-- /page content -->
+        </div>
+    </div>
+    <!-- /page content -->
 
 </div>
 <!-- /page container -->

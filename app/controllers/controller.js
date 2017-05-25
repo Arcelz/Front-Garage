@@ -1,16 +1,16 @@
-app.controller('Login', function ($scope,$location,$state,DataService,AuthService) {
+app.controller('Login', function ($scope, $location, $state, DataService, AuthService) {
     /* data.get('https://jsonplaceholder.typicode.com/posts/').then(function (data) {
      console.log(data.data);
      });*/
     $scope.submit = function () {
-        $scope.botaoLogin=true;
-        DataService.realizarPost('http://ifg.redesbrasil.com/auth/login',$scope.form).then(function (data) {
+        $scope.botaoLogin = true;
+        DataService.realizarPost('http://ifg.redesbrasil.com/auth/login', $scope.form).then(function (data) {
             AuthService.setToken(data.data.Token);
             console.log(data.data);
-            $scope.botaoLogin=false;
+            $scope.botaoLogin = false;
             $state.go('home');
         });
     }
 });
-app.controller('Home', function ($scope,$rootScope) {
+app.controller('Home', function ($scope, $rootScope) {
 });

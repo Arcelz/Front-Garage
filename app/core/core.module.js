@@ -1,2 +1,2 @@
- angular.module('app.core', ['ngStorage']);
+angular.module('app.core', ['ngStorage']);
 

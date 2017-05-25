@@ -26,11 +26,11 @@
                     <td>{{lembrete.descricao}}</td>
                     <td>R$ {{lembrete.valor | number:2}}</td>
                     <td>
-                        <a href="#!/reparos/{{lembrete.pk_reparo}}">
+                        <a style="color: black" href="#!/reparos/{{lembrete.pk_reparo}}">
                             <i class="icon-pencil7"></i>
                         </a>
                         <!--mostra o icone de excluir e chama o modal -->
-                        <a href="" ng-click="exibirModal(lembrete,$index)">
+                        <a style="color: red" href="" ng-click="exibirModal(lembrete,$index)">
                             <i class="icon-trash"></i>
                         </a>
                         <!--FIM -->

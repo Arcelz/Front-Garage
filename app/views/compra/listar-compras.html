@@ -1,85 +1,87 @@
 <!-- Content area -->
 <div class="content" ng-controller="CompraListar">
 
-	<!-- Basic datatable -->
-	<div class="panel panel-flat">
-		<div class="panel-heading">
-			<h5 class="panel-title">Lista de Funcionarios</h5>
+    <!-- Basic datatable -->
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h5 class="panel-title">Lista de Funcionarios</h5>
 
-		</div>
+        </div>
 
-		<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
-			<div id="DataTables_Table_0_filter" class="dataTables_filter">
-				<label>
-					<span>Pesquisa: </span>
-					<input type="search" ng-model="filtros" placeholder="Pesquisa... "  aria-controls="DataTables_Table_0" >
-				</label>
-			</div>
-			<div class="dataTables_length" id="DataTables_Table_0_length">
-				<label>						
-						<span > 
-							<a  href="#!/veiculos/novo" class="btn btn-primary"> Nova Compra <i class="icon-arrow-right14 position-right"></i></a>
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+            <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                <label>
+                    <span>Pesquisa: </span>
+                    <input type="search" ng-model="filtros" placeholder="Pesquisa... "
+                           aria-controls="DataTables_Table_0">
+                </label>
+            </div>
+            <div class="dataTables_length" id="DataTables_Table_0_length">
+                <label>
+						<span>
+							<a href="#!/veiculos/novo" class="btn btn-primary"> Nova Compra <i
+                                    class="icon-arrow-right14 position-right"></i></a>
 						</span>
-				</label>
+                </label>
 
-			</div>
+            </div>
 
-		</div>
-		<br/>
+        </div>
+        <br/>
 
-		<p ng-show="mensagem">{{mensagem}}</p>
-		<div ng-show="resultadosCompras.length">
-			<table class="table datatable-basic">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th class="text-center">FORNECEDOR</th>
-						<th class="text-center">FUNCIONARIO</th>
-						<th class="text-center">DATA</th>
-						<th class="text-center">VALOR DA COMPRA </th>
-						<th class="text-center">STATUS COMPRA</th>
+        <p ng-show="mensagem">{{mensagem}}</p>
+        <div ng-show="resultadosCompras.length">
+            <table class="table datatable-basic">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="text-center">FORNECEDOR</th>
+                    <th class="text-center">FUNCIONARIO</th>
+                    <th class="text-center">DATA</th>
+                    <th class="text-center">VALOR DA COMPRA</th>
+                    <th class="text-center">STATUS COMPRA</th>
 
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="compras in resultadosCompras | filter:filtros">
-						<td>{{compras.numero}}</td>
-						<td class="text-center">{{compras.nomeFornecedor | uppercase}}</td>
-						<td class="text-center">{{compras.nomeFuncionario | uppercase}}</td>
-						<td class="text-center">{{compras.datas | date:'dd/MM/yyyy'}}</td>
-						<td class="text-center">$ {{compras.valor_compra | number:2}} </td>
-						<td class="text-center">{{compras.statusCompra}}</td>
-
-
-
-						<td>
-							<a href="#!/compras/{{compras.pk_compra}}" style="color: black">
-                                                <i class="icon-pencil7"></i>
-                                            </a>
-							<!--mostra o icone de excluir e chama o modal -->
-							<a href="" style="color: #F00" ng-click="exibirModal(veiculos.pk_veiculo,$index)">
-								<!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
-								<i class="icon-trash"></i>
-							</a>
-							<!--FIM -->
-						</td>
-
-					</tr>
-
-				</tbody>
-			</table>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="compras in resultadosCompras | filter:filtros">
+                    <td>{{compras.numero}}</td>
+                    <td class="text-center">{{compras.nomeFornecedor | uppercase}}</td>
+                    <td class="text-center">{{compras.nomeFuncionario | uppercase}}</td>
+                    <td class="text-center">{{compras.datas | date:'dd/MM/yyyy'}}</td>
+                    <td class="text-center">$ {{compras.valor_compra | number:2}}</td>
+                    <td class="text-center">{{compras.statusCompra}}</td>
 
 
-		</div>
-	</div>
-	<!-- /scrollable datatable -->
-	<div data-ng-include="'app/views/veiculo/modal-excluir.html'"></div>
+                    <td>
+                        <a href="#!/compras/{{compras.pk_compra}}" style="color: black">
+                            <i class="icon-pencil7"></i>
+                        </a>
+                        <!--mostra o icone de excluir e chama o modal -->
+                        <a href="" style="color: #F00" ng-click="exibirModal(veiculos.pk_veiculo,$index)">
+                            <!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
+                            <i class="icon-trash"></i>
+                        </a>
+                        <!--FIM -->
+                    </td>
 
-	<!-- Footer -->
-	<div class="footer text-muted">
-		&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
-	</div>
-	<!-- /footer -->
+                </tr>
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+    <!-- /scrollable datatable -->
+    <div data-ng-include="'app/views/veiculo/modal-excluir.html'"></div>
+
+    <!-- Footer -->
+    <div class="footer text-muted">
+        &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov"
+                                                                 target="_blank">Eugene Kopyov</a>
+    </div>
+    <!-- /footer -->
 
 </div>
 <!-- /content area -->

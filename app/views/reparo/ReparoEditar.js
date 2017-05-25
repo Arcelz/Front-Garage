@@ -1,4 +1,6 @@
-app.controller('ReparoEditar', function ($scope, $state, $q, DataService, $stateParams, $rootScope) {
+app.controller('ReparoEditar', function ($scope, $state, $q, $stateParams, DataService, MudarCor) {
+    MudarCor.mudarCor();
+
     $scope.form = {};
     var id = $stateParams.id; //pega o paramentro informado na url
     if (id === "") {

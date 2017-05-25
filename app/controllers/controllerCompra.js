@@ -73,19 +73,16 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
                 fkFornecedor: $scope.form.fkFornecedor,
                 fkFuncionario: $scope.form2.fkFuncionario,
                 valorCompra: $scope.form.valor_compra,
-                fkVeiculo : $scope.form.fkVeiculo
+                fkVeiculo: $scope.form.fkVeiculo
             }
-            console.log(objeto,"dados");
+            console.log(objeto, "dados");
             DataService.realizarPost('http://ifg.redesbrasil.com/compras', objeto).then(function (response) {
-                $scope.mensagem = response.data.message;          
+                $scope.mensagem = response.data.message;
 
                 console.log(response);
             });
 
         }
-
-
-        
 
 
     };

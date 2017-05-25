@@ -1,4 +1,6 @@
-app.controller('ReparoNovo', function ($scope, $state, $rootScope, DataService) {
+app.controller('ReparoNovo', function ($scope, $state, $rootScope, $localStorage, DataService,MudarCor) {
+    MudarCor.mudarCor();
+
     $scope.tiposResultados = {};
     $scope.veiculosResultados = {};
     DataService.realizarGet('http://ifg.redesbrasil.com/tipos-reparos').then(function (data) {

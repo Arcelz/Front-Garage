@@ -1,4 +1,6 @@
-app.controller('ReparoListar', function ($scope,$rootScope, DataService) {
+app.controller('ReparoListar', function ($scope,$rootScope, DataService,MudarCor) {
+    MudarCor.mudarCor();
+
     var idModalExclusao;
     var indexRemover;
     $scope.lembretes = [];
