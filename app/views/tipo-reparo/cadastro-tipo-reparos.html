@@ -25,9 +25,12 @@
                             <legend class="text-semibold"><i class="icon-wrench position-left"></i> Dados do tipo de
                                 reparo
                             </legend>
+                            
 
                             <div class="form-group col-md-6">
-                                <label for="tipo" class="col-lg-3 control-label">Tipo nome:</label>
+                                <label for="tipo" class="col-lg-3 control-label">Tipo nome
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+                                </label>
                                 <div class="col-lg-9">
                                     <input type="text" name="tipo" id="tipo" class="form-control"
                                            placeholder="Tipo reparo ex: Motor" ng-model="form.nome" ng-minlength="2"
@@ -69,6 +72,15 @@
 <!-- Theme JS files -->
 <script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
 <script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
+<!-- Função para subir ate o TOPO  -->
+<script>
+	$(document).ready(function () {
+		$('html, body').animate({ scrollTop: 0 }, 'slow');
+		return false;
+	});
+
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
 
 <!-- /theme JS files -->
 

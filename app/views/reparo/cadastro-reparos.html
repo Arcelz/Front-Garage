@@ -26,7 +26,9 @@
                             <legend class="text-semibold"><i class="icon-reading position-left"></i> Dados do Reparo </legend>
 
                             <div class="form-group col-md-6">
-                                <label for="valor" class="col-lg-3 control-label">Valor:</label>
+                                <label for="valor" class="col-lg-3 control-label">Valor
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+                                </label>
                                 <div class="col-lg-9">
                                     <input type="number" name="valor" id="valor" class="form-control" placeholder="Valor" ng-model="form.valor" required/>
                                     <div ng-messages="formulario.valor.$error">
@@ -35,7 +37,9 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="col-lg-3 control-label">Tipo Reparo:</label>
+                                <label class="col-lg-3 control-label">Tipo Reparo
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+                                </label>
                                 <div class="col-lg-7">
                                     <div ng-click="loadTipos()">
                                         <select id="selectTipo" name="tipo" data-placeholder="Selecione o tipo"
@@ -55,7 +59,9 @@
                     <div class="col-md-12">
                         <fieldset>
                             <div class="form-group col-md-6">
-                                <label class="col-lg-3 control-label">Veiculo:</label>
+                                <label for="selectVeiculo" class="col-lg-3 control-label">Veiculo
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+                                </label>
                                 <div class="col-lg-9">
                                     <div ng-click="loadVeiculos()">
                                         <select id="selectVeiculo" name="veiculo" data-placeholder="Selecione o veiculo"
@@ -68,10 +74,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label class="control-label col-lg-2">Descrição:</label>
-                                <div class="col-lg-10">
-                                    <textarea data-ng-model="form.descricao" rows="4" cols="5" class="form-control" placeholder="Descrição do reparo" required></textarea>
+                            
+                           
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-12">
+                        <fieldset>
+                             <div class="form-group col-md-6">
+                                <label for="descricao" class="control-label col-lg-3">Descrição
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="8" />
+                                </label>
+                                <div class="col-lg-9">
+                                    <textarea id="descricao" data-ng-model="form.descricao" rows="4" cols="5" class="form-control" placeholder="Descrição do reparo" required></textarea>
                                 </div>
                             </div>
                         </fieldset>
@@ -106,6 +121,13 @@
 <script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
 <script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
 
-<!-- /theme JS files -->
+<!-- Função para subir ate o TOPO  -->
+<script>
+	$(document).ready(function () {
+		$('html, body').animate({ scrollTop: 0 }, 'slow');
+		return false;
+	});
 
-    
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
+<!-- /theme JS files -->
