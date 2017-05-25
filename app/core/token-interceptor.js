@@ -23,5 +23,4 @@ angular.module('app.core')
             };
             return interceptor;
 
-
         });
