@@ -5,6 +5,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('common', {
             templateUrl: 'app/layout/menu.html',
+            controller: 'MenuController',
             abstract: true,
         })
         .state('home', {
@@ -50,7 +51,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 
         })
         .state('common.clienteNovo', {
-            url: '/clientes',
+            url: '/clientes/novo',
             permicao: '2C',
             templateUrl: 'app/views/cliente/cadastro-clientes.html',
             controller: 'ClienteNovo',
@@ -73,7 +74,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('common.compraNovo', {
             url: '/compras/novo',
-            permicao: '8C',
+            permicao: '4C',
             templateUrl: 'app/views/compra/cadastro-compras.html',
             controller: 'CompraNovo',
             controllerAs: 'vm'
@@ -221,7 +222,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         .state('common.modeloListar', {
             url: '/modelos',
             permicao: '15V',
-            templateUrl: 'app/views/modelo/cadastro-modelos.html',
+            templateUrl: 'app/views/modelo/listar-modelos.html',
             controller: 'ModeloListar',
             controllerAs: 'vm'
         })
@@ -240,85 +241,85 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controllerAs: 'vm'
         })
         .state('common.reparoListar', {
-            url: '/raparos',
-            permicao: '18C',
-            templateUrl: 'app/views/reparo/cadastro-reparos.html',
+            url: '/reparos',
+            permicao: '18V',
+            templateUrl: 'app/views/reparo/listar-reparos.html',
             controller: 'ReparoListar',
             controllerAs: 'vm'
         })
         .state('common.reparoNovo', {
             url: '/reparos/novo',
-            permicao: '18V',
+            permicao: '18C',
             templateUrl: 'app/views/reparo/cadastro-reparos.html',
             controller: 'ReparoNovo',
             controllerAs: 'vm'
         })
         .state('common.reparoEditar', {
             url: '/reparos/:id',
-            permicao: '18V',
+            permicao: '18C',
             templateUrl: 'app/views/reparo/cadastro-reparos.html',
             controller: 'ReparoEditar',
             controllerAs: 'vm'
         })
         .state('common.tipoReparoListar', {
             url: '/tipo-reparos',
-            permicao: '19C',
-            templateUrl: 'app/views/tipo-reparo/cadastro-tipo-reparos.html',
+            permicao: '19V',
+            templateUrl: 'app/views/tipo-reparo/listar-tipo-reparos.html',
             controller: 'ReparoTipoListar',
             controllerAs: 'vm'
         })
         .state('common.tipoReparoNovo', {
             url: '/tipo-reparos/novo',
-            permicao: '19V',
+            permicao: '19C',
             templateUrl: 'app/views/tipo-reparo/cadastro-tipo-reparos.html',
             controller: 'ReparoTipoNovo',
             controllerAs: 'vm'
         })
          .state('common.tipoReparoEditar', {
             url: '/tipo-reparos/:id',
-            permicao: '19V',
+            permicao: '19C',
             templateUrl: 'app/views/tipo-reparo/cadastro-tipo-reparos.html',
             controller: 'ReparoTipoEditar',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoListar', {
             url: '/tipo-veiculos',
-            permicao: '20C',
+            permicao: '20V',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
             controller: 'TipoReparoListar',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoNovo', {
             url: '/tipo-veiculos/novo',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
             controller: 'TipoReparoNovo',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoEditar', {
             url: '/tipo-veiculos/:id',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
             controller: 'TipoReparoEditar',
             controllerAs: 'vm'
         })
         .state('common.usuarioListar', {
             url: '/usuarios',
-            permicao: '20C',
-            templateUrl: 'app/views/usuario/cadastro-tipo-veiculos.html',
+            permicao: '20V',
+            templateUrl: 'app/views/usuario/listar-usuarios.html',
             controller: 'UsuarioListar',
             controllerAs: 'vm'
         })
         .state('common.usuarioNovo', {
             url: '/usuarios/novo',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/usuario/cadastro-usuarios.html',
             controller: 'UsuarioNovo',
             controllerAs: 'vm'
         })
          .state('common.usuarioEditar', {
             url: '/usuarios/:id',
-            permicao: '20V',
+            permicao: '20C',
             templateUrl: 'app/views/usuario/cadastro-usuarios.html',
             controller: 'UsuarioEditar',
             controllerAs: 'vm'
