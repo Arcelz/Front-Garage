@@ -47,7 +47,7 @@
 						<td class="text-center">{{compras.nomeFornecedor | uppercase}}</td>
 						<td class="text-center">{{compras.nomeFuncionario | uppercase}}</td>
 						<td class="text-center">{{compras.datas | date:'dd/MM/yyyy'}}</td>
-						<td class="text-center">$ {{compras.valor_compra | number:2}} </td>
+						<td class="text-center">R$ {{compras.valor_compra | number:2}} </td>
 						<td class="text-center">{{compras.statusCompra}}</td>
 
 
@@ -83,3 +83,12 @@
 
 </div>
 <!-- /content area -->
+
+<!-- Função para subir ate o TOPO  -->
+<script>
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
