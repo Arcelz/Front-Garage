@@ -17,9 +17,9 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
           .state('acessibilidade', {
             url: '/acessibilidade',
-            parent: 'common',            
+            parent: 'common',
             templateUrl: 'app/views/acessibilidade/acessibilidade.html'
-           
+
         })
         .state('common.cargoListar', {
             url: '/cargos/novo',
@@ -286,21 +286,21 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             url: '/tipo-veiculos',
             permicao: '20V',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
-            controller: 'TipoReparoListar',
+            controller: 'TipoVeiculoListar',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoNovo', {
             url: '/tipo-veiculos/novo',
             permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
-            controller: 'TipoReparoNovo',
+            controller: 'TipoVeiculoNovo',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoEditar', {
             url: '/tipo-veiculos/:id',
             permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
-            controller: 'TipoReparoEditar',
+            controller: 'TipoVeiculoEditar',
             controllerAs: 'vm'
         })
         .state('common.usuarioListar', {
@@ -384,7 +384,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
-      
 
-      
+
+
 });
