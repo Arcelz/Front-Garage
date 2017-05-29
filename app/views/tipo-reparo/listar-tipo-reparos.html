@@ -41,17 +41,7 @@
                     </tr>
                 </thead>
                 <tbody>
-<<<<<<< HEAD
-                <tr ng-repeat="lembrete in lembretes">
-                    <td>{{lembrete.pk_tipo}}</td>
-                    <td>{{lembrete.nome}}</td>
-                    <td>
-                        <a style="color: black" href="#!/tipo-reparos/{{lembrete.pk_tipo}}">
-                            <i class="icon-pencil7"></i>
-                        </a>
-                        <!--mostra o icone de excluir e chama o modal -->
-                        <a style="color: red" href="" ng-click="exibirModal(lembrete,$index)">
-=======
+
                     <tr ng-repeat="lembrete in lembretes | filter:filtros">
                         <td class="text-center">{{lembrete.pk_tipo}}</td>
                         <td class="text-center">{{lembrete.nome}}</td>
@@ -61,7 +51,6 @@
                         </a>
                             <!--mostra o icone de excluir e chama o modal -->
                             <a style="color: red" href="" ng-click="exibirModal(lembrete,$index)">
->>>>>>> 557b7207a28a9d4f64d97cb249ea18f9afe1d574
                             <i class="icon-trash"></i>
                         </a>
                             <!--FIM -->
