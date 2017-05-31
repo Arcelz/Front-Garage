@@ -241,6 +241,23 @@
                                 </ul>
                             </li>
                             <!-- /Vendas e Compras -->
+                            <!-- Entrada e Saidas -->
+                            <li class="navigation-header"><span>Financeiros</span> <i class="icon-menu" title="Layout options"></i></li>
+
+                            <li ng-show="permicaoJSON.compra">
+                                <a href="#"><i class="icon-cash"></i> <span>Entrada</span></a>
+                                <ul>
+                                    <li ng-show="permicaoJSON.compraVisualizar"><a href="#!/entradas"><i class="icon-enter"></i> Listar Compras</a></li>
+                                </ul>
+                            </li>
+
+                             <li ng-show="permicaoJSON.venda">
+                                <a href="#"><i class="icon-cash"></i> <span>Saida</span></a>
+                                <ul>
+                                    <li ng-show="permicaoJSON.vendaVisualizar"><a href="#!/saidas"><i class="icon-exit"></i> Listar Venda</a></li>
+                                </ul>
+                            </li>
+                            <!-- Entrada e Saidas -->
 
                             <!-- Relatorios -->
                             <li class="navigation-header"><span>Relatorios</span> <i class="icon-menu" title="Data visualization"></i></li>
