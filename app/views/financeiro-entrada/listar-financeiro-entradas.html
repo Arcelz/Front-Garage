@@ -2,21 +2,21 @@
 <link href="app/assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
 <script src="app/resources/js/jquery.mobile.custom.min.js"></script>
 <script>
-    $(function() {
-        $(".tab-content").on('swiperight',function() {
+    $(function () {
+        $(".tab-content").on('swiperight', function () {
             var $tab = $('#tablist .active').prev();
-            if ($('#tablist .active').text()=== 'CANCELADO')
+            if ($('#tablist .active').text() === 'CANCELADO')
                 angular.element(document.getElementById('pago')).scope().pago();
-            else if($('#tablist .active').text() === 'PAGO')
+            else if ($('#tablist .active').text() === 'PAGO')
                 angular.element(document.getElementById('pendente')).scope().pendente();
             if ($tab.length > 0)
                 $tab.find('a').tab('show');
         });
-        $(".tab-content").on('swipeleft',function() {
+        $(".tab-content").on('swipeleft', function () {
             var $tab = $('#tablist .active').next();
-            if ($('#tablist .active').text()=== 'PENDENTE')
+            if ($('#tablist .active').text() === 'PENDENTE')
                 angular.element(document.getElementById('pago')).scope().pago();
-            else if($('#tablist .active').text() === 'PAGO')
+            else if ($('#tablist .active').text() === 'PAGO')
                 angular.element(document.getElementById('cancelado')).scope().cancelado();
             if ($tab.length > 0)
                 $tab.find('a').tab('show');
@@ -37,9 +37,13 @@
         <div ng-show="lembretes.length">
             <div role="tabpanel" class="tabbable">
                 <ul role="tablist" id="tablist" class="nav nav-tabs nav-tabs-bottom bottom-divided nav-justified">
-                    <li role="presentation" class="active"><a id="pendente" href="#tab1" ng-click="pendente()" target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a></li>
-                    <li role="presentation"><a ng-href="#tab2"id="pago" ng-click="pago()" target="_self" data-toggle="tab" class="legitRipple">PAGO</a></li>
-                    <li role="presentation"><a ng-href="#tab3" id="cancelado"  ng-click="cancelado()" target="_self" data-toggle="tab" class="legitRipple">CANCELADO</a></li>
+                    <li role="presentation" class="active"><a id="pendente" href="#tab1" ng-click="pendente()"
+                                                              target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a>
+                    </li>
+                    <li role="presentation"><a ng-href="#tab2" id="pago" ng-click="pago()" target="_self"
+                                               data-toggle="tab" class="legitRipple">PAGO</a></li>
+                    <li role="presentation"><a ng-href="#tab3" id="cancelado" ng-click="cancelado()" target="_self"
+                                               data-toggle="tab" class="legitRipple">CANCELADO</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -67,7 +71,7 @@
                                 <td>{{lembrete.valor}}</td>
                                 <td><span class="label label-info">{{lembrete.statusFinanceiro}}</span></td>
 
-                                <td >
+                                <td>
                                     <!--mostra o icone de excluir e chama o modal -->
                                     <a style="color: green" href="" ng-click="exibirModal(lembrete,$index)">
                                         <i class="icon-checkmark"></i>
@@ -157,7 +161,7 @@
 <!-- Função para subir ate o TOPO  -->
 <script>
     $(document).ready(function () {
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        $('html, body').animate({scrollTop: 0}, 'slow');
         return false;
     });
 

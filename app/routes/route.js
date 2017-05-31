@@ -347,21 +347,21 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('common.vendaListar', {
             url: '/vendas',
-            permicao: '23V',
+            permicao: '24V',
             templateUrl: 'app/views/venda/listar-vendas.html',
             controller: 'VendaListar',
             controllerAs: 'vm'
         })
         .state('common.vendaNovo', {
             url: '/vendas/novo',
-            permicao: '23C',
+            permicao: '24C',
             templateUrl: 'app/views/venda/cadastro-vendas.html',
             controller: 'VendaNovo',
             controllerAs: 'vm'
         })
         .state('common.vendaEditar', {
             url: '/vendas/:id',
-            permicao: '23C',
+            permicao: '24C',
             templateUrl: 'app/views/venda/cadastro-vendas.html',
             controller: 'VendaEditar',
             controllerAs: 'vm'
