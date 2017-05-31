@@ -89,7 +89,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         .state('common.financeiroEntradaListar', {
             url: '/entradas',
             permicao: '6V',
-            templateUrl: 'app/views/entrada/listar-entradas.html',
+            templateUrl: 'app/views/financeiro-entrada/listar-financeiro-entradas.html',
             controller: 'FinanceiroEntradaListar',
             controllerAs: 'vm'
 

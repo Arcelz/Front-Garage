@@ -1,0 +1,90 @@
+<!-- Content area -->
+<div class="content">
+
+    <!-- Basic datatable -->
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h5 class="panel-title">Lista de Entradas</h5>
+
+        </div>
+
+
+        <p ng-show="mensagem">{{mensagem}}</p>
+        <div ng-show="lembretes.length">
+            <div class="tabbable">
+                <ul class="nav nav-tabs nav-tabs-bottom bottom-divided nav-justified">
+                    <li class="active"><a href="#tab1" ng-click="pendente()" target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a></li>
+                    <li><a ng-href="#tab1" ng-click="pago()" target="_self" data-toggle="tab" class="legitRipple">PAGO</a></li>
+                    <li><a ng-href="#tab1" ng-click="cancelado()" target="_self" data-toggle="tab" class="legitRipple">CANCELADO</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <table class="table datatable-basic">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Compra</th>
+                                <th>Usuario</th>
+                                <th>Usuario Update</th>
+                                <th>Vencimento</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th ng-show="myValue" class="text-center ng-hide"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="lembrete in lembretes">
+                                <td>{{lembrete.pk_entrada}}</td>
+                                <td>{{lembrete.fk_compra}}</td>
+                                <td>{{lembrete.usuarioCriacao}}</td>
+                                <td>{{lembrete.usuarioUpdate}}</td>
+                                <td>{{lembrete.data_vencimento}}</td>
+                                <td>{{lembrete.valor}}</td>
+                                <td><span class="label label-{{corSpan}}">{{lembrete.statusFinanceiro}}</span></td>
+
+                                <td ng-show="myValue" class="ng-hide">
+                                    <!--mostra o icone de excluir e chama o modal -->
+                                    <a style="color: green" href="" ng-click="exibirModal(lembrete,$index)">
+                                        <i class="icon-checkmark"></i>
+                                    </a>
+                                    <!--FIM -->
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tab-pane" id="tab2">
+                        Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid laeggin.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /scrollable datatable -->
+    <div data-ng-include="'app/views/modal/modal.html'"></div>
+
+    <!-- Footer -->
+    <div class="footer text-muted">
+        &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov"
+                                                                 target="_blank">Eugene Kopyov</a>
+    </div>
+    <!-- /footer -->
+
+</div>
+<!-- /content area -->
+
+
+<!-- Função para subir ate o TOPO  -->
+<script>
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
+
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
