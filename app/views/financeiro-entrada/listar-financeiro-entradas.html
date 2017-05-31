@@ -1,4 +1,28 @@
 <!-- Content area -->
+<link href="app/assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
+<script src="app/resources/js/jquery.mobile.custom.min.js"></script>
+<script>
+    $(function() {
+        $(".tab-content").on('swiperight',function() {
+            var $tab = $('#tablist .active').prev();
+            if ($('#tablist .active').text()=== 'CANCELADO')
+                angular.element(document.getElementById('pago')).scope().pago();
+            else if($('#tablist .active').text() === 'PAGO')
+                angular.element(document.getElementById('pendente')).scope().pendente();
+            if ($tab.length > 0)
+                $tab.find('a').tab('show');
+        });
+        $(".tab-content").on('swipeleft',function() {
+            var $tab = $('#tablist .active').next();
+            if ($('#tablist .active').text()=== 'PENDENTE')
+                angular.element(document.getElementById('pago')).scope().pago();
+            else if($('#tablist .active').text() === 'PAGO')
+                angular.element(document.getElementById('cancelado')).scope().cancelado();
+            if ($tab.length > 0)
+                $tab.find('a').tab('show');
+        });
+    });
+</script>
 <div class="content">
 
     <!-- Basic datatable -->
@@ -11,15 +35,15 @@
 
         <p ng-show="mensagem">{{mensagem}}</p>
         <div ng-show="lembretes.length">
-            <div class="tabbable">
-                <ul class="nav nav-tabs nav-tabs-bottom bottom-divided nav-justified">
-                    <li class="active"><a href="#tab1" ng-click="pendente()" target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a></li>
-                    <li><a ng-href="#tab1" ng-click="pago()" target="_self" data-toggle="tab" class="legitRipple">PAGO</a></li>
-                    <li><a ng-href="#tab1" ng-click="cancelado()" target="_self" data-toggle="tab" class="legitRipple">CANCELADO</a></li>
+            <div role="tabpanel" class="tabbable">
+                <ul role="tablist" id="tablist" class="nav nav-tabs nav-tabs-bottom bottom-divided nav-justified">
+                    <li role="presentation" class="active"><a id="pendente" href="#tab1" ng-click="pendente()" target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a></li>
+                    <li role="presentation"><a ng-href="#tab2"id="pago" ng-click="pago()" target="_self" data-toggle="tab" class="legitRipple">PAGO</a></li>
+                    <li role="presentation"><a ng-href="#tab3" id="cancelado"  ng-click="cancelado()" target="_self" data-toggle="tab" class="legitRipple">CANCELADO</a></li>
                 </ul>
 
                 <div class="tab-content">
-                    <div class="tab-pane active" id="tab1">
+                    <div role="tabpanel" class="tab-pane animated flipInX active" id="tab1">
                         <table class="table datatable-basic">
                             <thead>
                             <tr>
@@ -30,7 +54,7 @@
                                 <th>Vencimento</th>
                                 <th>Valor</th>
                                 <th>Status</th>
-                                <th ng-show="myValue" class="text-center ng-hide"></th>
+                                <th class="text-center"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -41,9 +65,9 @@
                                 <td>{{lembrete.usuarioUpdate}}</td>
                                 <td>{{lembrete.data_vencimento}}</td>
                                 <td>{{lembrete.valor}}</td>
-                                <td><span class="label label-{{corSpan}}">{{lembrete.statusFinanceiro}}</span></td>
+                                <td><span class="label label-info">{{lembrete.statusFinanceiro}}</span></td>
 
-                                <td ng-show="myValue" class="ng-hide">
+                                <td >
                                     <!--mostra o icone de excluir e chama o modal -->
                                     <a style="color: green" href="" ng-click="exibirModal(lembrete,$index)">
                                         <i class="icon-checkmark"></i>
@@ -56,9 +80,60 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="tab-pane animated flipInX" id="tab2">
+                        <table role="tabpanel" class="table datatable-basic">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Compra</th>
+                                <th>Usuario</th>
+                                <th>Usuario Update</th>
+                                <th>Vencimento</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="lembrete in lembretes">
+                                <td>{{lembrete.pk_entrada}}</td>
+                                <td>{{lembrete.fk_compra}}</td>
+                                <td>{{lembrete.usuarioCriacao}}</td>
+                                <td>{{lembrete.usuarioUpdate}}</td>
+                                <td>{{lembrete.data_vencimento}}</td>
+                                <td>{{lembrete.valor}}</td>
+                                <td><span class="label label-success">{{lembrete.statusFinanceiro}}</span></td>
+                            </tr>
 
-                    <div class="tab-pane" id="tab2">
-                        Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid laeggin.
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane animated flipInX" id="tab3">
+                        <table role="tabpanel" class="table datatable-basic">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Compra</th>
+                                <th>Usuario</th>
+                                <th>Usuario Update</th>
+                                <th>Vencimento</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="lembrete in lembretes">
+                                <td>{{lembrete.pk_entrada}}</td>
+                                <td>{{lembrete.fk_compra}}</td>
+                                <td>{{lembrete.usuarioCriacao}}</td>
+                                <td>{{lembrete.usuarioUpdate}}</td>
+                                <td>{{lembrete.data_vencimento}}</td>
+                                <td>{{lembrete.valor}}</td>
+                                <td><span class="label label-danger">{{lembrete.statusFinanceiro}}</span></td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

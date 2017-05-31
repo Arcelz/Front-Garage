@@ -1,8 +1,6 @@
 app.controller('FinanceiroEntradaListar', function ($scope,$rootScope, DataService) {
     var idModal;
     var indexRemover;
-    $scope.myValue = true;
-    $scope.corSpan = 'info';
     $scope.lembretes = [];
     DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas').then(function(response){
             $scope.lembretes = response.data;
@@ -24,16 +22,12 @@ app.controller('FinanceiroEntradaListar', function ($scope,$rootScope, DataServi
             }
 
         });
-        $scope.corSpan = 'success';
-        $scope.myValue = false;
     }
 
     $scope.pendente = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas').then(function(response){
                 $scope.lembretes = response.data;
         });
-        $scope.corSpan = 'info';
-        $scope.myValue = true;
     }
 
     $scope.cancelado = function () {
@@ -46,8 +40,6 @@ app.controller('FinanceiroEntradaListar', function ($scope,$rootScope, DataServi
                 $scope.lembretes = response.data;
             }
         });
-        $scope.corSpan = 'danger';
-        $scope.myValue = false;
     }
     $scope.enviar = function(){
         console.log(idModal);
