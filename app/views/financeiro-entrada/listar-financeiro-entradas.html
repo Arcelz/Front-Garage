@@ -5,7 +5,6 @@
     $(function () {
         $(".tab-content").on('swiperight', function () {
             var $tab = $('#tablist .active').prev();
-            console.log($tab.text());
             if ($tab.text() === 'PAGO')
                 angular.element(document.getElementById('pago')).scope().pago();
             else if ($tab.text() === 'PENDENTE')
@@ -15,8 +14,6 @@
         });
         $(".tab-content").on('swipeleft', function () {
             var $tab = $('#tablist .active').next();
-            console.log($tab.text());
-
             if ($tab.text() === 'PAGO')
                 angular.element(document.getElementById('pago')).scope().pago();
             else if ($tab.text() === 'CANCELADO')

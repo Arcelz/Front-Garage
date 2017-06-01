@@ -81,23 +81,10 @@ function DataService($http, AuthService, toastr) {
                 'Authorization': AuthService.getToken()
             }
         };
-        if (data === undefined) {
-            return $http.put(caminho, config)
-                .then(function successCallback(response) {
-                        if (response.data.status === 200) {
-                            toastr.success(response.data.status_message);
-                        }
-                        else if (response.data.status === 400) {
-                            toastr.error(response.data.status_message);
-                        }
-                        return response;
-                    }
-                    , function errorCallback(response) {
-                        return response;
-                    });
+        if (data !== undefined){
+            var data = $.param(data);
         }
         else {
-            var data = $.param(data);
             return $http.put(caminho, data, config)
                 .then(function successCallback(response) {
                         if (response.data.status === 200) {
