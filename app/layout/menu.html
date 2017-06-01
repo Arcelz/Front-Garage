@@ -142,16 +142,16 @@
                                 <a href="#"><i class="icon-users"></i> <span>Acesso ao Sistema</span></a>
                                 <ul>
 
-                                     <li><a href="#!/funcionarios/novo"><span>Usuarios</span></a>
+                                     <li ng-show="permicaoJSON.usuario"><a href="#!/funcionarios/novo"><span>Usuarios</span></a>
                                         <ul>
-                                               <li><a href="#!/usuarios/novo"> <i class="icon-add"></i> Novo Usuario</a></li>
-                                               <li><a href="#!/usuarios"><i class="icon-search4"></i> Listar Usuario</a></li>
+                                               <li ng-show="permicaoJSON.usuarioCriar"><a href="#!/usuarios/novo"> <i class="icon-add"></i> Novo Usuario</a></li>
+                                               <li ng-show="permicaoJSON.usuarioVisualizar"><a href="#!/usuarios"><i class="icon-search4"></i> Listar Usuario</a></li>
                                         </ul>
                                     </li>
-                                       <li><a href="#!/funcionarios/novo"><span>Grupos</span></a>
+                                       <li ng-show="permicaoJSON.grupo"><a href="#!/funcionarios/novo"><span>Grupos</span></a>
                                         <ul>
-                                               <li><a href=""> <i class="icon-add"></i> Novo Grupo</a></li>
-                                               <li><a href=""><i class="icon-search4"></i> Listar Grupo</a></li>
+                                               <li ng-show="permicaoJSON.grupoCriar"><a href=""> <i class="icon-add"></i> Novo Grupo</a></li>
+                                               <li ng-show="permicaoJSON.grupoVisualizar"><a href=""><i class="icon-search4"></i> Listar Grupo</a></li>
                                         </ul>
                                     </li>
 
@@ -164,43 +164,43 @@
                             <li>
                                 <a href="#"><i class="icon-grid"></i> <span>Cadastrados</span></a>
                                 <ul>
-                                    <li><a href="#!/funcionarios/novo"><span>Funcionarios</span></a>
+                                    <li ng-show="permicaoJSON.funcionario"><a href="#!/funcionarios/novo"><span>Funcionarios</span></a>
                                         <ul>
-                                               <li><a href="#!/funcionarios/novo"> <i class="icon-add"></i> Novo Funcionario</a></li>
-                                               <li><a href="#!/funcionarios"><i class="icon-search4"></i> Listar Funcionario</a></li>
+                                               <li ng-show="permicaoJSON.funcionarioCriar"><a href="#!/funcionarios/novo"> <i class="icon-add"></i> Novo Funcionario</a></li>
+                                               <li ng-show="permicaoJSON.funcionarioVisualizar"><a href="#!/funcionarios"><i class="icon-search4"></i> Listar Funcionario</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#!/funcionarios/novo"><span>Fornecedor</span></a>
+                                    <li ng-show="permicaoJSON.fornecedor"><a href="#!/funcionarios/novo"><span>Fornecedor</span></a>
                                         <ul>
-                                               <li><a href="#!/fornecedores/novo"> <i class="icon-add"></i> Novo Fornecedor</a></li>
-                                               <li><a href="#!/fornecedores"><i class="icon-search4"></i> Listar Fornecedor</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="#!/funcionarios/novo"><span>Clientes</span></a>
-                                        <ul>
-                                               <li><a href="#!/clientes/novo"> <i class="icon-add"></i> Novo Cliente</a></li>
-                                               <li><a href="#!/clientes"><i class="icon-search4"></i> Listar clientes</a></li>
+                                               <li ng-show="permicaoJSON.fornecedorCriar"><a href="#!/fornecedores/novo"> <i class="icon-add"></i> Novo Fornecedor</a></li>
+                                               <li ng-show="permicaoJSON.fornecedorVisualizar"><a href="#!/fornecedores"><i class="icon-search4"></i> Listar Fornecedor</a></li>
                                         </ul>
                                     </li>
 
-                                    <li><a href="#!/funcionarios/novo"><span>Veiculos</span></a>
+                                    <li ng-show="permicaoJSON.cliente"><a href="#!/funcionarios/novo"><span>Clientes</span></a>
                                         <ul>
-                                               <li><a href="#!/veiculos/novo"> <i class="icon-add"></i> Novo Veiculo</a></li>
-                                               <li><a href="#!/veiculos"><i class="icon-search4"></i> Listar Veiculo</a></li>
+                                               <li ng-show="permicaoJSON.clienteCriar"><a href="#!/clientes/novo"> <i class="icon-add"></i> Novo Cliente</a></li>
+                                               <li ng-show="permicaoJSON.clienteVisualizar"><a href="#!/clientes"><i class="icon-search4"></i> Listar clientes</a></li>
                                         </ul>
                                     </li>
 
-                                    <li><a href="#!/funcionarios/novo"><span>Modelos</span></a>
+                                    <li ng-show="permicaoJSON.veiculo"><a href="#!/funcionarios/novo"><span>Veiculos</span></a>
                                         <ul>
-                                               <li><a href="#!/modelos/novo"> <i class="icon-add"></i> Novo Modelo</a></li>
-                                               <li><a href="#!/modelos"><i class="icon-search4"></i> Listar Modelos</a></li>
+                                               <li ng-show="permicaoJSON.veiculoCriar"><a href="#!/veiculos/novo"> <i class="icon-add"></i> Novo Veiculo</a></li>
+                                               <li ng-show="permicaoJSON.veiculoVisualizar"><a href="#!/veiculos"><i class="icon-search4"></i> Listar Veiculo</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#!/tipo-reparos"><span>Tipo de Reparo</span></a>
+
+                                    <li ng-show="permicaoJSON.modelo"><a href="#!/funcionarios/novo"><span>Modelos</span></a>
                                         <ul>
-                                               <li><a href="#!/tipo-reparos/novo"> <i class="icon-add"></i> Novo Tipo Reparo</a></li>
-                                               <li><a href="#!/tipo-reparos"><i class="icon-search4"></i> Listar Tipo Reparos</a></li>
+                                               <li ng-show="permicaoJSON.veiculoCriar"><a href="#!/modelos/novo"> <i class="icon-add"></i> Novo Modelo</a></li>
+                                               <li ng-show="permicaoJSON.veiculoVisualizar"><a href="#!/modelos"><i class="icon-search4"></i> Listar Modelos</a></li>
+                                        </ul>
+                                    </li>
+                                    <li ng-show="permicaoJSON.tipoReparo"><a href="#!/tipo-reparos"><span>Tipo de Reparo</span></a>
+                                        <ul>
+                                               <li ng-show="permicaoJSON.tipoReparoCriar"><a href="#!/tipo-reparos/novo"> <i class="icon-add"></i> Novo Tipo Reparo</a></li>
+                                               <li ng-show="permicaoJSON.tipoReparoVisualizar"><a href="#!/tipo-reparos"><i class="icon-search4"></i> Listar Tipo Reparos</a></li>
                                         </ul>
                                     </li>
 
@@ -211,11 +211,11 @@
                              <!-- Manutenção dos Veiculos -->
                             <li class="navigation-header"><span>Manutenção dos Veiculos</span> <i class="icon-menu" title="Layout options"></i></li>
 
-                            <li>
+                            <li ng-show="permicaoJSON.reparo">
                                 <a href="#"><i class="icon-hammer-wrench"></i> <span>Reparos</span></a>
                                 <ul>
-                                    <li><a href="#!/reparos/novo"> <i class="icon-add"></i> Novo Reparo</a></li>
-                                    <li><a href="#!/reparos"><i class="icon-search4"></i> Listar Reparos</a></li>
+                                    <li ng-show="permicaoJSON.reparoCriar"><a href="#!/reparos/novo"> <i class="icon-add"></i> Novo Reparo</a></li>
+                                    <li ng-show="permicaoJSON.reparoVisualizar"><a href="#!/reparos"><i class="icon-search4"></i> Listar Reparos</a></li>
                                 </ul>
                             </li>
 
@@ -225,22 +225,39 @@
                             <!-- Vendas e Compras -->
                             <li class="navigation-header"><span>Vendas e Compras</span> <i class="icon-menu" title="Layout options"></i></li>
 
-                            <li>
+                            <li ng-show="permicaoJSON.compra">
                                 <a href="#"><i class="icon-cash"></i> <span>Compra</span></a>
                                 <ul>
-                                    <li><a href="#!/compras/novo"> <i class="icon-add"></i> Nova Compra</a></li>
-                                    <li><a href="#!/compras"><i class="icon-search4"></i> Listar Compras</a></li>
+                                    <li ng-show="permicaoJSON.compraCriar"><a href="#!/compras/novo"> <i class="icon-add"></i> Nova Compra</a></li>
+                                    <li ng-show="permicaoJSON.compraVisualizar"><a href="#!/compras"><i class="icon-search4"></i> Listar Compras</a></li>
                                 </ul>
                             </li>
 
-                             <li>
+                             <li ng-show="permicaoJSON.venda">
                                 <a href="#"><i class="icon-cash"></i> <span>Venda</span></a>
                                 <ul>
-                                    <li><a href="#!/compras/novo"> <i class="icon-add"></i> Nova Venda</a></li>
-                                    <li><a href="#!/compras"><i class="icon-search4"></i> Listar Venda</a></li>
+                                    <li ng-show="permicaoJSON.vendaCriar"><a href="#!/compras/novo"> <i class="icon-add"></i> Nova Venda</a></li>
+                                    <li ng-show="permicaoJSON.vendaVisualizar"><a href="#!/compras"><i class="icon-search4"></i> Listar Venda</a></li>
                                 </ul>
                             </li>
                             <!-- /Vendas e Compras -->
+                            <!-- Entrada e Saidas -->
+                            <li class="navigation-header"><span>Financeiros</span> <i class="icon-menu" title="Layout options"></i></li>
+
+                            <li ng-show="permicaoJSON.compra">
+                                <a href="#"><i class="icon-enter"></i> <span>Entrada</span></a>
+                                <ul>
+                                    <li ng-show="permicaoJSON.compraVisualizar"><a href="#!/entradas"><i class="icon-search4"></i> Listar Compras</a></li>
+                                </ul>
+                            </li>
+
+                             <li ng-show="permicaoJSON.venda">
+                                <a href="#"><i class="icon-exit"></i> <span>Saida</span></a>
+                                <ul>
+                                    <li ng-show="permicaoJSON.vendaVisualizar"><a href="#!/saidas"><i class="icon-search4"></i> Listar Venda</a></li>
+                                </ul>
+                            </li>
+                            <!-- Entrada e Saidas -->
 
                             <!-- Relatorios -->
                             <li class="navigation-header"><span>Relatorios</span> <i class="icon-menu" title="Data visualization"></i></li>

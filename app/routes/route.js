@@ -1,6 +1,6 @@
 app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 
- $httpProvider.interceptors.push('tokenInterceptor');
+ //$httpProvider.interceptors.push('tokenInterceptor');
 
     $stateProvider
         .state('common', {
@@ -17,9 +17,9 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
           .state('acessibilidade', {
             url: '/acessibilidade',
-            parent: 'common',            
+            parent: 'common',
             templateUrl: 'app/views/acessibilidade/acessibilidade.html'
-           
+
         })
         .state('common.cargoListar', {
             url: '/cargos/novo',
@@ -89,7 +89,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         .state('common.financeiroEntradaListar', {
             url: '/entradas',
             permicao: '6V',
-            templateUrl: 'app/views/entrada/listar-entradas.html',
+            templateUrl: 'app/views/financeiro-entrada/listar-financeiro-entradas.html',
             controller: 'FinanceiroEntradaListar',
             controllerAs: 'vm'
 
@@ -286,21 +286,21 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             url: '/tipo-veiculos',
             permicao: '20V',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
-            controller: 'TipoReparoListar',
+            controller: 'TipoVeiculoListar',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoNovo', {
             url: '/tipo-veiculos/novo',
             permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
-            controller: 'TipoReparoNovo',
+            controller: 'TipoVeiculoNovo',
             controllerAs: 'vm'
         })
         .state('common.tipoVeiculoEditar', {
             url: '/tipo-veiculos/:id',
             permicao: '20C',
             templateUrl: 'app/views/tipo-veiculo/cadastro-tipo-veiculos.html',
-            controller: 'TipoReparoEditar',
+            controller: 'TipoVeiculoEditar',
             controllerAs: 'vm'
         })
         .state('common.usuarioListar', {
@@ -347,21 +347,21 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('common.vendaListar', {
             url: '/vendas',
-            permicao: '23V',
+            permicao: '24V',
             templateUrl: 'app/views/venda/listar-vendas.html',
             controller: 'VendaListar',
             controllerAs: 'vm'
         })
         .state('common.vendaNovo', {
             url: '/vendas/novo',
-            permicao: '23C',
+            permicao: '24C',
             templateUrl: 'app/views/venda/cadastro-vendas.html',
             controller: 'VendaNovo',
             controllerAs: 'vm'
         })
         .state('common.vendaEditar', {
             url: '/vendas/:id',
-            permicao: '23C',
+            permicao: '24C',
             templateUrl: 'app/views/venda/cadastro-vendas.html',
             controller: 'VendaEditar',
             controllerAs: 'vm'
@@ -384,7 +384,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
-      
 
-      
+
+
 });
