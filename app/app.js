@@ -1,1 +1,1 @@
-var app = angular.module('app', ['app.core', 'ui.router', 'angular-jwt', 'ngMessages', 'toastr']);
+var app = angular.module('app', ['app.core', 'ui.router', 'angular-jwt', 'ngMessages', 'toastr','ui.bootstrap']);

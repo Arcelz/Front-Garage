@@ -1,3 +1,4 @@
+<link href="app/resources/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" type="text/css">
 <!-- Content area -->
 <div class="content">
 
@@ -98,12 +99,13 @@
 										<span class="input-group-addon">
 																<i class="icon-user"></i>
 															</span>
-										<input type="text" name="nomeFuncionario" size="23" maxlength="23" style="text-transform:uppercase" class="form-control" disabled="disabled"
-										 ng-model="form2.nome" required />
-										<input type="hidden" name="fkFuncionario" class="form-control" placeholder="Nome" ng-model="form2.fkFuncionario" />
+										<input type="text" name="nomeFuncionario" size="23" maxlength="23" style="text-transform:uppercase" class="form-control"
+										 disabled="disabled" ng-model="form2.nome" required />{{form2.nome}}
+										<input type="hidden" name="fkFuncionario" class="form-control"  ng-model="form2.fkFuncionario" />
 										<label ng-show="formulario.$submitted &&  formulario.nomeFuncionario.$error.required" class="validation-error-label">
 																Selecionar Funcionario obrigatorio
 															</label>
+															{{form2.fkFuncionario}}
 									</div>
 								</div>
 							</div>
@@ -122,7 +124,8 @@
 				<form name="formulario2" class="main-search">
 					<div class="input-group content-group">
 						<div class="has-feedback has-feedback-left">
-							<input type="search" name="consulta" ng-keyup="validarInupt()" class="form-control input-xlg" ng-model="consulta" placeholder="PESQUISA PELA PLACA" autofocus>
+							<input type="search" name="consulta" ng-keyup="validarInupt()" class="form-control input-xlg" ng-model="consulta" placeholder="PESQUISA PELA PLACA"
+							 autofocus>
 							<div class="form-control-feedback">
 								<i class="icon-search4 text-muted text-size-base"></i>
 							</div>
@@ -130,25 +133,26 @@
 												Consulta nao pode ser em Branca
 											</label>
 						</div>
-						<table class="table datatable-basic">
-							<tr ng-repeat="veiculo in VeiculoPesquisa">
-								<td>{{veiculo.pk_veiculo}}</td>
-								<td>{{veiculo.nome}}</td>
-								<td>{{veiculo.placa}}</td>
-								<td>{{veiculo.ano}}</td>
-								<td>{{veiculo.qtd}}</td>
-								<td>{{veiculo.valor_venda}}</td>
-								<td>
-									<a ng-click="adicionarVeiculoCarrinho(veiculo)">
-														<i class="icon-add"></i>
-													</a>
-								</td>
-							</tr>
-						</table>
 						<div class="input-group-btn">
 							<button ng-click="pesquisarVeiculo()" type="button" class="btn btn-primary btn-xlg">Pesquisar Veiculo</button>
 						</div>
+
 					</div>
+					<table class="table datatable-basic">
+						<tr ng-repeat="veiculo in VeiculoPesquisa">
+							<td>{{veiculo.pk_veiculo}}</td>
+							<td>{{veiculo.nome}}</td>
+							<td>{{veiculo.placa}}</td>
+							<td>{{veiculo.ano}}</td>
+							<td>{{veiculo.qtd}}</td>
+							<td>{{veiculo.valor_compra | number:2}}</td>
+							<td>
+								<a ng-click="adicionarVeiculoCarrinho(veiculo)">
+										<i class="icon-add"></i>
+									</a>
+							</td>
+						</tr>
+					</table>
 				</form>
 				<!-- /FIM BLOCO DE PESQUISA POR VEICULO -->
 				<br/>
@@ -173,7 +177,7 @@
 									<input id="q_'+count+'" name="qtd" type="text" maxlength="3" class="bw-tabela-venda-campo-quantidade" value="1">
 									-->
 							</div>
-							<div class="bw-tabela-cerveja-valor-grande">R$ {{valor_compra}}
+							<div class="bw-tabela-cerveja-valor-grande">R$ {{valor_compra | number:2}}
 								<input class="" ng-model="form.valor_compra" type="hidden" />
 							</div>
 						</div>
@@ -184,6 +188,9 @@
 				<label ng-show="formulario.$submitted &&  formulario.fkVeiculo.$error.required" class="validation-error-label">
 								Obrigatorio selecionar um veiculo
 					</label>
+				
+
+
 				<br/>
 				<br/>
 				<br/>
@@ -192,13 +199,14 @@
 					<a href="#!/fornecedores">
                                     	<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
                                 	</a>
-					<button ng-disabled="botao" type="submit"  class="btn btn-primary"> Comprar <i class="icon-arrow-right14 position-right"></i></button>
+					<button ng-disabled="botao" type="submit" class="btn btn-primary"> Comprar <i class="icon-arrow-right14 position-right"></i></button>
+
+					<div data-ng-include="'app/views/compra/modal-parcelamento.html'"></div>
 				</div>
 				<!--/FIM BLOCO PARA SALVAR E VOLTAR  -->
 			</div>
 		</div>
 	</form>
-
 
 	<!-- /2 columns form -->
 
@@ -216,15 +224,22 @@
 
 
 
+
 <!-- Theme JS files -->
 <script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
 <script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
+
+<script type="text/javascript" src="app/resources/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="app/resources/js/bootstrap-datepicker.pt-BR.min.js"></script>
+
+
+
+
+
+
 <!-- Função para subir ate o TOPO  -->
 <script>
-    $(document).ready(function () {
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
-        return false;
-    });
+	$('html, body').animate({ scrollTop: 0 }, 'slow');
 </script>
 <!-- / FIM Função para subir ate o TOPO  -->
 <!-- /theme JS files -->

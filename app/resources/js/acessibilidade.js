@@ -8,36 +8,45 @@ $(document).ready(function () {
     $(document).keydown(function (e) { //Quando uma tecla é pressionada
 
         // BLOCO PARA O FIREFOX
-        if (nomeNavegador.name = "Firefox") {
+        if (nomeNavegador.name = "Firefoxs") {
             var pressedCtrl = false;
             // ALT + SHIFT + 1 SOB ATE O TOPO
-            if (e.which == 18) pressedCtrl = true; //Informando que ALT está acionado
-            if (e.which == 16) pressedCtrl = true;
-            if (e.which == 49 || e.keyCode == 49) {
-                pressedCtrl == true 
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-                return false;
+            if (e.which == 18) {
+                alert("alt");
+             //   pressedCtrl = true; //Informando que ALT está acionado
+                if (e.keyCode == 16) {
+                   // pressedCtrl = true;
+                    if (e.keyCode == 49 || e.keyCode == 49) {
+                        pressedCtrl == true
+                        $('html, body').animate({ scrollTop: 0 }, 'slow');
+                        return false;
+
+                    }
+
+                }
 
             }
+
+
             // FIM DO BLOCO
 
             // ALT + SHIFT + 2 VAI ATE O CORPO DA PAGINA
             if (e.which == 18) pressedCtrl = true; //Informando que ALT está acionado
             if (e.which == 16) pressedCtrl = true;
             if (e.which == 50 || e.keyCode == 50) {
-                pressedCtrl == true 
-               $("html, body").animate({ scrollTop: $("#corpo").scrollTop() }, 'slow');
+                pressedCtrl == true
+                $("html, body").animate({ scrollTop: $("#corpo").scrollTop() }, 'slow');
                 return false;
 
             }
             // FIM DO BLOCO
 
-             // ALT + SHIFT + 2 VAI ATE O FOOTER DA PAGINA
+            // ALT + SHIFT + 2 VAI ATE O FOOTER DA PAGINA
             if (e.which == 18) pressedCtrl = true; //Informando que ALT está acionado
             if (e.which == 16) pressedCtrl = true;
             if (e.which == 51 || e.keyCode == 51) {
-                pressedCtrl == true 
-               $("html, body").animate({ scrollTop: $(document).height()-$(window).height() },'slow');
+                pressedCtrl == true
+                $("html, body").animate({ scrollTop: $(document).height() - $(window).height() }, 'slow');
                 return false;
             }
             // FIM DO BLOCO
@@ -45,12 +54,12 @@ $(document).ready(function () {
         // FIM
 
         // BLOCO PARA O CHROME
-         if (nomeNavegador.name = "Chrome") {
+        if (nomeNavegador.name = "Chrome") {
             var pressedCtrl = false;
             // ALT  + 1 SOB ATE O TOPO
             if (e.which == 18) pressedCtrl = true; //Informando que ALT está acionado          
             if (e.which == 49 || e.keyCode == 49) {
-                pressedCtrl == true 
+                pressedCtrl == true
                 $('html, body').animate({ scrollTop: 0 }, 'slow');
                 return false;
 
@@ -60,18 +69,18 @@ $(document).ready(function () {
             // ALT + 2 VAI ATE O CORPO DA PAGINA
             if (e.which == 18) pressedCtrl = true; //Informando que ALT está acionado            
             if (e.which == 50 || e.keyCode == 50) {
-                pressedCtrl == true 
-               $("html, body").animate({ scrollTop: $("#corpo").scrollTop() }, 'slow');
+                pressedCtrl == true
+                $("html, body").animate({ scrollTop: $("#corpo").scrollTop() }, 'slow');
                 return false;
 
             }
             // FIM DO BLOCO
 
-             // ALT  + 2 VAI ATE O FOOTER DA PAGINA
+            // ALT  + 2 VAI ATE O FOOTER DA PAGINA
             if (e.which == 18) pressedCtrl = true; //Informando que ALT está acionado           
             if (e.which == 51 || e.keyCode == 51) {
-                pressedCtrl == true 
-               $("html, body").animate({ scrollTop: $(document).height()-$(window).height() },'slow');
+                pressedCtrl == true
+                $("html, body").animate({ scrollTop: $(document).height() - $(window).height() }, 'slow');
                 return false;
 
             }
