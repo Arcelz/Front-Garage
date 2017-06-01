@@ -1,4 +1,4 @@
-app.controller('CompraNovo', function ($scope, $rootScope, DataService, $document, $window, $location, $compile) {
+app.controller('CompraNovo', function ($scope, $rootScope, DataService, $document, $window, $location, $compile, $state) {
     var objetoCompra;
     var valorTotalFinal =0;
     var parcela;
@@ -41,6 +41,7 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
             }
             DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {
 
+                console.log(response);
                 if (response.data.status == 400) {
                     $scope.VeiculoPesquisa = {};
                     $scope.mensagem = response.data.message;
@@ -72,8 +73,7 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         }
     };
 
-    $scope.salvar = function () {
-        console.log($scope.formulario.fkFuncionario);
+    $scope.salvar = function () {       
         if ($scope.formulario.$valid) {
 
             objetoCompra = {
@@ -124,18 +124,9 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         objetoFinal['valorTotal'] = valorTotalFinal;
 
         DataService.realizarPost('http://ifg.redesbrasil.com/compras', objetoFinal).then(function (response) {
-            condicao = false;
-            console.log(response);
-            if (response.status == 200) {
-                $state.go('common.usuarioListar');
-            } else {
-
-            }
-
+            condicao = false;                     
+                $state.go('common.compraListar');
         });
-
-        console.log("conc", objetoFinal);
-
     }
 
 
@@ -170,7 +161,6 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         valorTotalFinal = objetoCompra.valorCompra / parcela;
         var html = "";
 
-        //   alert(parcela);
         for (var i = 0; i < parcela; i++) {
             html +=
                 "<div class='content-group-lg'> \n" +
@@ -180,7 +170,6 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
                 "<input id='dataVencimento" + i + "' ng-disabled='dataInput" + i + "' ng-model='modal.vencimento" + i + "' placeholder='Selecione a " + i + " Data de Vencimento' class='form-control' ng-click='open" + i + "($event)' is-open='opened" + i + "' type='text' datepicker-popup='dd/M/yyyy' /> \n" +
                 "</div> \n" +
                 "</div>\n";
-
         }
 
         angular.element('#exibirDatas').html($compile(html)($scope));

@@ -1,0 +1,68 @@
+<div id="modal_parcelamento" class="modal fade" data-backdrop="static">
+	<div class="modal-dialog " align="left">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h5 class="modal-title">COMPRA DO VEICULO</h5>
+			</div>
+
+			<div class="modal-body">
+
+				<div class="form-group">
+					<!--checked="checked"-->
+					<!--/ -->
+					<label class="display-block text-semibold"></label>
+					<label for="dinheiro" class="radio-inline">
+						<input type="radio" ng-click="addDinheiro()" id="dinheiro" name="radio-unstyled-inline-left" >
+						Dinheiro
+					</label>
+
+					<label for="cheque" class="radio-inline">
+						<input type="radio" id="cheque"  ng-click="addParcelas()" name="radio-unstyled-inline-left">
+						Cheque
+					</label>
+				</div>
+
+				<div class="form-group" ng-show="exibirParcelas">
+					<label for="selectParcela" class="col-lg-1 control-label">Parcela:						
+					</label>
+					<div class="col-lg-9">
+						<div class="row">
+							<div class="col-md-2">
+								<div class="mb-15">
+									<select ng-model="parcela" ng-change="realizarCalculo()" id="selectParcela" class="select">						                            
+										<option value=""></option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>				                               
+										
+									</select>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>		
+				
+
+				<div id="exibirDatas">
+
+				</div>
+
+				<h6 nclass="text-semibold" ng-show="exibirValorTotal"> <strong> VALOR TOTAL: R$ {{valorTotal | number:2}} </strong>
+				</h6>
+
+
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" data-dismiss="modal">CANCELAR</button>
+				<button ng-click="salvarCompra()"  class="btn btn-primary">FINALIZAR</button>
+			</div>
+		</div>
+	</div>
+</div>
+
