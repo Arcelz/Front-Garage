@@ -5,18 +5,21 @@
     $(function () {
         $(".tab-content").on('swiperight', function () {
             var $tab = $('#tablist .active').prev();
-            if ($('#tablist .active').text() === 'CANCELADO')
+            console.log($tab.text());
+            if ($tab.text() === 'PAGO')
                 angular.element(document.getElementById('pago')).scope().pago();
-            else if ($('#tablist .active').text() === 'PAGO')
+            else if ($tab.text() === 'PENDENTE')
                 angular.element(document.getElementById('pendente')).scope().pendente();
             if ($tab.length > 0)
                 $tab.find('a').tab('show');
         });
         $(".tab-content").on('swipeleft', function () {
             var $tab = $('#tablist .active').next();
-            if ($('#tablist .active').text() === 'PENDENTE')
+            console.log($tab.text());
+
+            if ($tab.text() === 'PAGO')
                 angular.element(document.getElementById('pago')).scope().pago();
-            else if ($('#tablist .active').text() === 'PAGO')
+            else if ($tab.text() === 'CANCELADO')
                 angular.element(document.getElementById('cancelado')).scope().cancelado();
             if ($tab.length > 0)
                 $tab.find('a').tab('show');
@@ -38,8 +41,7 @@
             <div role="tabpanel" class="tabbable">
                 <ul role="tablist" id="tablist" class="nav nav-tabs nav-tabs-bottom bottom-divided nav-justified">
                     <li role="presentation" class="active"><a id="pendente" href="#tab1" ng-click="pendente()"
-                                                              target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a>
-                    </li>
+                                                              target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a></li>
                     <li role="presentation"><a ng-href="#tab2" id="pago" ng-click="pago()" target="_self"
                                                data-toggle="tab" class="legitRipple">PAGO</a></li>
                     <li role="presentation"><a ng-href="#tab3" id="cancelado" ng-click="cancelado()" target="_self"
