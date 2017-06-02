@@ -1,7 +1,7 @@
 angular.module('app.core')
     .factory('MudarCor', MudarCor);
 
-function MudarCor($localStorage, $q) {
+function MudarCor($localStorage) {
     return {
         mudarCor: function () {
             var letraGeral = $localStorage.corLetraGeral;

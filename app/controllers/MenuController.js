@@ -60,6 +60,22 @@ app.controller('MenuController', function ($scope, $state, $localStorage, AuthSe
             $scope.permicaoJSON['compra'] = true;
             $scope.permicaoJSON['compraVisualizar'] = true;
         }
+        if (permicao[i] === '6C') {
+            $scope.permicaoJSON['entrada'] = true;
+            $scope.permicaoJSON['entradaCriar'] = true;
+        }
+        if (permicao[i] === '6V'){
+            $scope.permicaoJSON['entrada'] = true;
+            $scope.permicaoJSON['entradaVisualizar'] = true;
+        }
+        if (permicao[i] === '7C') {
+            $scope.permicaoJSON['saida'] = true;
+            $scope.permicaoJSON['saidaCriar'] = true;
+        }
+        if (permicao[i] === '7V'){
+            $scope.permicaoJSON['saida'] = true;
+            $scope.permicaoJSON['saidaVisualizar'] = true;
+        }
         if (permicao[i] === '8C') {
             $scope.permicaoJSON['fornecedor'] = true;
             $scope.permicaoJSON['fornecedorCriar'] = true;

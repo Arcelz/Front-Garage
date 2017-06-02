@@ -3,7 +3,15 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
     var indexRemover;
     $scope.lembretes = [];
     DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas').then(function (response) {
-        $scope.lembretes = response.data;
+        $scope.lembretes = [];
+        if (response.data.status === 400) {
+            $scope.lembretes = [{
+                pk_entrada: ''
+            }];
+        }
+        else {
+            $scope.lembretes = response.data;
+        }
     });
     $scope.exibirModal = function (id, index) {
         $scope.title = 'FINANCEIRO ENTRADA'
@@ -14,11 +22,14 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
     };
     $scope.pago = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/1').then(function (response) {
-            if (response.data.length) {
+            $scope.lembretes = [];
+            if (response.data.status === 400) {
+                $scope.lembretes = [{
+                    pk_entrada: ''
+                }];
+            }
+            else {
                 $scope.lembretes = response.data;
-                //console.log(response.data);
-            } else {
-                $scope.messagem = "Nenhum";
             }
 
         });
@@ -26,23 +37,33 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
 
     $scope.pendente = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas').then(function (response) {
-            $scope.lembretes = response.data;
+            $scope.lembretes = [];
+            if (response.data.status === 400) {
+                $scope.lembretes = [{
+                    pk_entrada: ''
+                }];
+            }
+            else {
+                $scope.lembretes = response.data;
+            }
         });
     }
 
     $scope.cancelado = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/2').then(function (response) {
+            $scope.lembretes = [];
             if (response.data.status === 400) {
                 $scope.lembretes = [{
                     pk_entrada: ''
                 }];
-            } else {
+            }
+            else {
                 $scope.lembretes = response.data;
             }
+
         });
     }
     $scope.enviar = function () {
-        console.log(idModal);
         var data = undefined;
         console.log(indexRemover);
         DataService.realizarPut('http://ifg.redesbrasil.com/financeiros-entradas/' + idModal, data).then(function (data) {

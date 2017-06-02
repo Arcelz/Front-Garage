@@ -111,7 +111,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         .state('common.financeiroSaidaListar', {
             url: '/saidas',
             permicao: '7V',
-            templateUrl: 'app/views/saida/listar-saidas.html',
+            templateUrl: 'app/views/financeiro-saida/listar-financeiro-saidas.html',
             controller: 'FinanceiroSaidaListar',
             controllerAs: 'vm'
         })
