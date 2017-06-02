@@ -1,33 +1,64 @@
-app.controller('CompraListar', function ($scope, $rootScope, DataService) {
-    var idModalExclusao;
+app.controller('CompraListar', function ($scope, $rootScope, DataService, $compile, $state) {
+    var idModal;
     var indexRemover;
     $scope.resultadosCompras = [];
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/compras').then(function (response) {
-        console.log(response.data);
-        if (response.data.length) {
-            $scope.resultadosCompras = response.data;
-            console.log(response.data);
-        } else {
-            $scope.mensagem = "Nenhuma Compra Cadastrado";
-        }
 
-    });
+    $scope.carregarCompras = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/compras').then(function (response) {
 
-    $scope.exibirModal = function (id, index) {
+            if (response.data.length) {
+                $scope.resultadosCompras = response.data;
+            } else {
+                $scope.mensagem = "Nenhuma Compra Cadastrado";
+            }
+
+        });
+    }
+
+    $scope.cancelamento = function (id, index) {
+        $scope.title = "CANCELAMENTO DE COMPRA";
+        $scope.msg = "TEM CERTEZA QUE DESEJA CANCELAR A COMPRA " + id;
         indexRemover = index;
-        $rootScope.idModalExclusao = id;
-        $('#modal_default').modal('show');
+        idModal = id;
+
+        angular.element('#modal_mensagens').modal('show');
+
+    }
+
+    $scope.enviar = function () {
+        var obj = {
+            'pkCompra': idModal
+        }
+        DataService.realizarPut('http://ifg.redesbrasil.com/compras/', obj).then(function (data) {
+            console.log(data);
+            if (indexRemover != undefined) {
+                $scope.resultadosCompras.splice(indexRemover, 1);
+            }
+        });
+        angular.element('#modal_mensagens').modal('toggle');
+    }
+
+    $scope.abrirModalExclusao = function (id, index,valor) {
+
+        $scope.modulo = "A COMPRA " + id+", "+"COM VALOR DE R$";        
+        $scope.modulo_valor = valor;
+        indexRemover = index;
+        idModal = id;
+
+        angular.element('#modal_excluir').modal('show');
+
     };
 
-    $scope.excluirFuncionario = function () {
-        DataService.realizarDelete('http://ifg.redesbrasil.com/veiculos/' + $rootScope.idModalExclusao).then(function (data) {
+    $scope.modalExcluir = function(){
+            DataService.realizarDelete('http://ifg.redesbrasil.com/compras/' +idModal).then(function (data) {
             if (indexRemover != undefined) {
-                $scope.resultadosVeiculos.splice(indexRemover, 1);
+                $scope.resultadosCompras.splice(indexRemover, 1);
             }
         });
 
-    };
+
+    }
 
 
 });

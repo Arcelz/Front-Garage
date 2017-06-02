@@ -1,14 +1,14 @@
-app.controller('CompraNovo', function ($scope, $rootScope, DataService, $document, $window, $location, $compile, $state) {
-    var objetoCompra;
+app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document, $window, $location, $compile, $state) {
+    var objetoVenda;
     var valorTotalFinal = 0;
     var parcela;
     var condicao = false;
 
     $scope.fornecedoresResultados = []
 
-    $scope.buscarFornecedor = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/fornecedores').then(function (response) {
-            $scope.fornecedoresResultados = response.data;
+    $scope.buscarCliente = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/clientes').then(function (response) {
+            $scope.clientesResultados = response.data;
         });
 
     };
@@ -19,9 +19,9 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         });
     };
 
-    $scope.adicionarFornecedor = function (teste) {
-        $scope.form.nome = $("#selectBuscaFornecedor option:selected").text();
-        $scope.form.fkFornecedor = $scope.form.buscaCampoFornecedor;
+    $scope.adicionarCliente = function (teste) {
+        $scope.form2.nomeCliente = $("#selectBuscaCliente option:selected").text();
+        $scope.form2.fkCliente = $scope.form2.buscaCampoCliente;
     };
 
     $scope.adicionarFuncionario = function () {
@@ -65,29 +65,27 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         // $scope.carrinhoVeiculos = veiculo;
         $scope.nome = veiculo.nome;
         $scope.placa = veiculo.placa;
-        $scope.ano = veiculo.ano;
-        $scope.valor_compra = veiculo.valor_compra;
+        $scope.ano = veiculo.ano;      
         $scope.form = {
-            fkVeiculo: veiculo.pk_veiculo,
-            valor_compra: veiculo.valor_compra
+            fkVeiculo: veiculo.pk_veiculo           
         }
     };
 
     $scope.salvar = function () {
         if ($scope.formulario.$valid) {
 
-            objetoCompra = {
-                fkFornecedor: $scope.form.fkFornecedor,
-                fkFuncionario: $scope.form2.fkFuncionario,
-                valorCompra: $scope.form.valor_compra,
-                fkVeiculo: $scope.form.fkVeiculo
+            objetoVenda = {
+                fkCliente: $scope.form2.fkCliente,
+                fkFuncionario: $scope.form2.fkFuncionario,               
+                fkVeiculo: $scope.form.fkVeiculo,
+                valorVenda: $scope.form.valorCompra
             }
-
+            
             angular.element('#modal_parcelamento').modal('show');
         }
     };
 
-    $scope.salvarCompra = function () {
+    $scope.salvarVenda = function () {
         if (condicao) {
             parcela = 1
         } else {
@@ -103,10 +101,10 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         }
         var data = new Date();
         var objetoFinal = {
-            'fkFornecedor': objetoCompra.fkFornecedor,
-            'fkFuncionario': objetoCompra.fkFuncionario,
-            'valorCompra': objetoCompra.valorCompra,
-            'fkVeiculo': objetoCompra.fkVeiculo
+            'fkCliente': objetoVenda.fkCliente,
+            'fkFuncionario': objetoVenda.fkFuncionario,
+            'valorVenda': objetoVenda.valorVenda,
+            'fkVeiculo': objetoVenda.fkVeiculo
         };
         var hora = data.getHours(),
             minutos = data.getMinutes(),
@@ -123,12 +121,12 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         }
         objetoFinal['valorTotal'] = valorTotalFinal;
 
-        DataService.realizarPost('http://ifg.redesbrasil.com/compras', objetoFinal).then(function (response) {
+        DataService.realizarPost('http://ifg.redesbrasil.com/vendas', objetoFinal).then(function (response) {
             condicao = false;
             if (response.data.status == 400) {
 
             } else {
-                $state.go('common.compraListar');
+               $state.go('common.vendaListar');
             }
 
         });
@@ -147,8 +145,8 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
             "</div> \n" +
             "</div>\n";
 
-        $scope.valorTotal = objetoCompra.valorCompra;
-        valorTotalFinal = objetoCompra.valorCompra;
+        $scope.valorTotal = objetoVenda.valorVenda;
+        valorTotalFinal = objetoVenda.valorVenda;
         $scope.exibirValorTotal = true;
         $scope.exibirParcelas = false;
         angular.element('#exibirDatas').html($compile(html)($scope));
@@ -163,7 +161,7 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
     };
     $scope.realizarCalculo = function () {
         parcela = $("#selectParcela option:selected").val();
-        valorTotalFinal = objetoCompra.valorCompra / parcela;
+        valorTotalFinal = objetoVenda.valorVenda / parcela;
         var html = "";
 
         for (var i = 0; i < parcela; i++) {

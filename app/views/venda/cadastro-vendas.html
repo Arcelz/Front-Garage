@@ -3,7 +3,7 @@
 <div class="content">
 
 	<!-- 2 columns form -->
-	<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="CompraNovo">
+	<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate>
 		<div ng-show="mensagem.length" class="row">
 			<div class="col-md-6">
 				<div class="alert alert-primary alert-bordered">
@@ -15,7 +15,7 @@
 
 		<div class="panel panel-flat">
 			<div class="panel-heading">
-				<h5 class="panel-title">Cadastro de Compra</h5>
+				<h5 class="panel-title">Cadastro de Venda</h5>
 
 			</div>
 			<div class="panel-body">
@@ -26,15 +26,15 @@
 						<fieldset>
 							<legend class="text-semibold"> </legend>
 							<div class="form-group">
-								<label for="selectBuscaFornecedor" class="col-lg-3 control-label">Fornecedor
+								<label for="selectBuscaCliente" class="col-lg-3 control-label">Cliente
 									<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
 								</label>
 								<div class="col-lg-9">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="mb-15">
-												<select ng-init="buscarFornecedor()" id="selectBuscaFornecedor" data-placeholder="Selecione o Fornecedor" class="select"
-												 ng-model="form.buscaCampoFornecedor" ng-change="adicionarFornecedor()" ng-options="item.pk_fornecedor as item.nome for item in fornecedoresResultados">						                            
+												<select ng-init="buscarCliente()" id="selectBuscaCliente" data-placeholder="Selecione o Cliente" class="select" ng-model="form2.buscaCampoCliente"
+												 ng-change="adicionarCliente()" ng-options="item.pk_cliente as item.nome for item in clientesResultados">						                            
 																<option value=""></option>				                               
 																   
 									                            </select>
@@ -53,11 +53,11 @@
 										<span class="input-group-addon">
 																<i class="icon-user"></i>
 															</span>
-										<input type="text" size="23" maxlength="23" style="text-transform:uppercase" name="nomeFornecedor" class="form-control" disabled="disabled"
-										 ng-model="form.nome" required>
-										<input type="hidden" name="fkFornecedor" class="form-control" placeholder="Nome" ng-model="form.fkFornecedor">
+										<input type="text" size="23" maxlength="23" style="text-transform:uppercase" name="nomeCliente" class="form-control" disabled="disabled"
+										 ng-model="form2.nomeCliente" required>
+										<input type="hidden" name="fkCliente" class="form-control" placeholder="Nome" ng-model="form2.fkCliente">
 										<label ng-show="formulario.$submitted &&  formulario.nomeFornecedor.$error.required" class="validation-error-label">
-																Selecionar do Fornecedor Obrigatorio
+																Selecionar o Cliente Obrigatorio
 															</label>
 									</div>
 								</div>
@@ -177,8 +177,20 @@
 									<input id="q_'+count+'" name="qtd" type="text" maxlength="3" class="bw-tabela-venda-campo-quantidade" value="1">
 									-->
 							</div>
-							<div class="bw-tabela-cerveja-valor-grande">R$ {{valor_compra | number:2}}
-								<input class="" ng-model="form.valor_compra" type="hidden" />
+							<div class="bw-tabela-cerveja-valor-grande">
+								<div class="form-group">
+									<label for="nome" class="col-lg-3 control-label">R$
+									 	
+								</label>
+									<div class="col-lg-9">
+										<input type="text" id="valorVenda" name="valorVenda" class="form-control" placeholder="VALOR DA VENDA" ng-model="form.valorCompra"
+										 autofocus required/>
+										 <label ng-show="formulario.$submitted &&  formulario.valorVenda.$error.required" class="validation-error-label">
+														Valor Obrigatorio
+													</label>
+									</div>
+								</div>
+
 							</div>
 						</div>
 
@@ -201,7 +213,7 @@
                                 	</a>
 					<button ng-disabled="botao" type="submit" class="btn btn-primary"> Comprar <i class="icon-arrow-right14 position-right"></i></button>
 
-					<div data-ng-include="'app/views/compra/modal-parcelamento.html'"></div>
+					<div data-ng-include="'app/views/venda/modal-parcelamento.html'"></div>
 				</div>
 				<!--/FIM BLOCO PARA SALVAR E VOLTAR  -->
 			</div>

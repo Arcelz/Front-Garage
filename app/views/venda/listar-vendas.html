@@ -5,7 +5,7 @@
     <!-- Basic datatable -->
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h5 class="panel-title">LISTA DE COMPRAS</h5>
+            <h5 class="panel-title">LISTA DE VENDAS</h5>
 
         </div>
 
@@ -20,7 +20,7 @@
             <div class="dataTables_length" id="DataTables_Table_0_length">
                 <label>
 						<span>
-							<a href="#!/veiculos/novo" class="btn btn-primary"> Nova Compra <i
+							<a href="#!/vendas/novo" class="btn btn-primary"> Nova Compra <i
                                     class="icon-arrow-right14 position-right"></i></a>
 						</span>
                 </label>
@@ -31,7 +31,7 @@
         <br/>
 
         <p ng-show="mensagem">{{mensagem}}</p>
-        <div ng-show="resultadosCompras.length" ng-init="carregarCompras()">
+        <div ng-show="resultadosVendas.length" ng-init="carregarVendas()">
             <table class="table datatable-basic">
                 <thead>
                     <tr>
@@ -45,21 +45,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="compras in resultadosCompras | filter:filtros">
-                        <td>{{compras.pk_compra}}</td>
-                        <td class="text-center">{{compras.nomeFornecedor | uppercase}}</td>
-                        <td class="text-center">{{compras.nomeFuncionario | uppercase}}</td>
-                        <td class="text-center">{{compras.datas | date:'dd/MM/yyyy'}}</td>
-                        <td class="text-center">$ {{compras.valor_compra | number:2}}</td>
-                        <td class="text-center">{{compras.statusCompra}}</td>
+                    <tr ng-repeat="vendas in resultadosVendas | filter:filtros">
+                        <td>{{vendas.pk_venda}}</td>
+                        <td class="text-center">{{vendas.nomeCliente | uppercase}}</td>
+                        <td class="text-center">{{vendas.nomeFuncionario | uppercase}}</td>
+                        <td class="text-center">{{vendas.dataCriacao | date:'dd/MM/yyyy'}}</td>
+                        <td class="text-center">$ {{vendas.valor_venda | number:2}}</td>
+                        <td class="text-center">{{vendas.statusVenda}}</td>
 
 
                         <td>
-                            <a ng-click="cancelamento(compras.pk_compra,$index)" style="color: black">
+                            <a  ng-click="cancelamento(vendas.pk_venda,$index)" style="color: black">
                             <i class="icon-pencil7"></i>
                         </a>
                             <!--mostra o icone de excluir e chama o modal -->
-                            <a href="" style="color: #F00" ng-click="abrirModalExclusao(compras.pk_compra,$index, compras.valor_compra)">
+                            <a   ng-show="permicaoJSON.vendaDeletar" style="color: #F00" ng-click="abrirModalExclusao(vendas.pk_venda,$index, vendas.valor_venda)">
                                 <!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
                                 <i class="icon-trash"></i>
                             </a>
@@ -89,7 +89,10 @@
 
 <!-- Função para subir ate o TOPO  -->
 <script>
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
+  $(document).ready(function () {
+		$('html, body').animate({ scrollTop: 0 }, 'slow');
+		return false;
+	});
 
 </script>
 <!-- / FIM Função para subir ate o TOPO  -->
