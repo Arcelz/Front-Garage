@@ -1,9 +1,15 @@
-app.controller('VendaListar', function ($scope, $rootScope, DataService,AuthService, $compile, $state, jwtHelper) {
+app.controller('VendaListar', function ($scope, $rootScope,$stateParams, DataService,AuthService, $compile, $state, jwtHelper) {
     var idModal;
     var indexRemover;
     $scope.resultadosCompras = [];
-    var token = AuthService.getToken();
 
+  
+    var id = $stateParams.id; //pega o paramentro informado na url
+    if (id === "" || id=== undefined) {
+        $state.go('common.vendaListar');
+    }
+
+    var token = AuthService.getToken();
 
     var permicao = jwtHelper.decodeToken(token)['Permição'];
     $scope.permicaoJSON = {};
@@ -11,6 +17,10 @@ app.controller('VendaListar', function ($scope, $rootScope, DataService,AuthServ
         if (permicao[i] === '24D') {
             $scope.permicaoJSON['venda'] = true;
             $scope.permicaoJSON['vendaDeletar'] = true;
+        }
+        if (permicao[i] === '24C') {
+            $scope.permicaoJSON['venda'] = true;
+            $scope.permicaoJSON['vendaEditar'] = true;
         }
     }
 

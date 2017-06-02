@@ -128,6 +128,11 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
             if (response.data.status == 400) {
 
             } else {
+                angular.element('#modal_parcelamento').modal('hide');
+                angular.element('#modal_parcelamento').hide();
+                angular.element('.modal-backdrop').hide();
+                angular.element("body").removeClass("modal-open");
+                
                 $state.go('common.compraListar');
             }
 

@@ -54,12 +54,12 @@
                         <td class="text-center">{{compras.statusCompra}}</td>
 
 
-                        <td>
-                            <a ng-click="cancelamento(compras.pk_compra,$index)" style="color: black">
+                        <td ng-show="permicaoJSON.compra">
+                            <a ng-show="permicaoJSON.compraEditar" ng-click="cancelamento(compras.pk_compra,$index)" style="color: black">
                             <i class="icon-pencil7"></i>
                         </a>
                             <!--mostra o icone de excluir e chama o modal -->
-                            <a href="" style="color: #F00" ng-click="abrirModalExclusao(compras.pk_compra,$index, compras.valor_compra)">
+                            <a ng-show="permicaoJSON.compraDeletar" style="color: #F00" ng-click="abrirModalExclusao(compras.pk_compra,$index, compras.valor_compra)">
                                 <!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
                                 <i class="icon-trash"></i>
                             </a>

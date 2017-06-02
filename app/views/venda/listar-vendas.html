@@ -20,7 +20,7 @@
             <div class="dataTables_length" id="DataTables_Table_0_length">
                 <label>
 						<span>
-							<a href="#!/vendas/novo" class="btn btn-primary"> Nova Compra <i
+							<a href="#!/vendas/novo" class="btn btn-primary"> Nova Venda <i
                                     class="icon-arrow-right14 position-right"></i></a>
 						</span>
                 </label>
@@ -54,8 +54,8 @@
                         <td class="text-center">{{vendas.statusVenda}}</td>
 
 
-                        <td>
-                            <a  ng-click="cancelamento(vendas.pk_venda,$index)" style="color: black">
+                        <td ng-show="permicaoJSON.venda">
+                            <a  ng-show="permicaoJSON.vendaEditar" ng-click="cancelamento(vendas.pk_venda,$index)" style="color: black">
                             <i class="icon-pencil7"></i>
                         </a>
                             <!--mostra o icone de excluir e chama o modal -->

@@ -65,9 +65,9 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
         // $scope.carrinhoVeiculos = veiculo;
         $scope.nome = veiculo.nome;
         $scope.placa = veiculo.placa;
-        $scope.ano = veiculo.ano;      
+        $scope.ano = veiculo.ano;
         $scope.form = {
-            fkVeiculo: veiculo.pk_veiculo           
+            fkVeiculo: veiculo.pk_veiculo
         }
     };
 
@@ -76,11 +76,11 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
 
             objetoVenda = {
                 fkCliente: $scope.form2.fkCliente,
-                fkFuncionario: $scope.form2.fkFuncionario,               
+                fkFuncionario: $scope.form2.fkFuncionario,
                 fkVeiculo: $scope.form.fkVeiculo,
                 valorVenda: $scope.form.valorCompra
             }
-            
+
             angular.element('#modal_parcelamento').modal('show');
         }
     };
@@ -126,10 +126,16 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
             if (response.data.status == 400) {
 
             } else {
-               $state.go('common.vendaListar');
+                angular.element('#modal_parcelamento').modal('hide');
+                angular.element('#modal_parcelamento').hide();
+                angular.element('.modal-backdrop').hide();
+                angular.element("body").removeClass("modal-open");               
+                $state.go('common.vendaListar');
             }
 
         });
+
+
     }
 
 
@@ -193,7 +199,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
             $scope.vazio = true;
         } else {
             $scope.vazio = false;
-             var obj = {
+            var obj = {
                 consulta: $scope.consulta
             }
             DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {

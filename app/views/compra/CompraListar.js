@@ -1,8 +1,23 @@
-app.controller('CompraListar', function ($scope, $rootScope, DataService, $compile, $state) {
+app.controller('CompraListar', function ($scope, $rootScope, DataService, $compile, $state, AuthService,jwtHelper ) {
     var idModal;
     var indexRemover;
     $scope.resultadosCompras = [];
 
+    var token = AuthService.getToken();
+
+
+    var permicao = jwtHelper.decodeToken(token)['Permição'];
+    $scope.permicaoJSON = {};
+    for (i = 0; i < permicao.length; i++) {
+        if (permicao[i] === '4D') {
+            $scope.permicaoJSON['compra'] = true;
+            $scope.permicaoJSON['compraDeletar'] = true;
+        }
+        if (permicao[i] === '4C') {
+            $scope.permicaoJSON['compra'] = true;
+            $scope.permicaoJSON['compraEditar'] = true;
+        }
+    }
 
     $scope.carregarCompras = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/compras').then(function (response) {
