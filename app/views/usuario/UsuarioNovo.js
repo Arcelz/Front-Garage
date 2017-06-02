@@ -30,10 +30,10 @@ app.controller('UsuarioNovo', function ($scope, $rootScope,MudarCor, DataService
             if ($scope.formulario.$valid) {
                 $scope.botao = true;
                 DataService.realizarPost('http://ifg.redesbrasil.com/usuarios',$scope.form).then(function (data) {
-                    if (response.data.status === 200) {
+                    if (data.data.status === 200) {
                         $state.go('common.usuarioListar');
                     }
-                    else if (response.data.status === 400) {
+                    else if (data.data.status === 400) {
                         $scope.botao = false;
                     }
                 });

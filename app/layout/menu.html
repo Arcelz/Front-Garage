@@ -137,21 +137,21 @@
 
                             <!-- Administrativo -->
                             <li class="navigation-header"><span>Administrativo</span> <i class="icon-menu" title="Main pages"></i></li>
-                            <li class="active"><a href="#!/"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li><a href="#!/"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                             <li>
                                 <a href="#"><i class="icon-users"></i> <span>Acesso ao Sistema</span></a>
                                 <ul>
 
-                                     <li ng-show="permicaoJSON.usuario"><a href="#!/funcionarios/novo"><span>Usuarios</span></a>
+                                     <li ng-show="permicaoJSON.usuario"><a><span>Usuarios</span></a>
                                         <ul>
                                                <li ng-show="permicaoJSON.usuarioCriar"><a href="#!/usuarios/novo"> <i class="icon-add"></i> Novo Usuario</a></li>
                                                <li ng-show="permicaoJSON.usuarioVisualizar"><a href="#!/usuarios"><i class="icon-search4"></i> Listar Usuario</a></li>
                                         </ul>
                                     </li>
-                                       <li ng-show="permicaoJSON.grupo"><a href="#!/funcionarios/novo"><span>Grupos</span></a>
+                                       <li ng-show="permicaoJSON.grupo"><a><span>Grupos</span></a>
                                         <ul>
-                                               <li ng-show="permicaoJSON.grupoCriar"><a href=""> <i class="icon-add"></i> Novo Grupo</a></li>
-                                               <li ng-show="permicaoJSON.grupoVisualizar"><a href=""><i class="icon-search4"></i> Listar Grupo</a></li>
+                                               <li ng-show="permicaoJSON.grupoCriar"><a href="#!/grupos/novo"> <i class="icon-add"></i> Novo Grupo</a></li>
+                                               <li ng-show="permicaoJSON.grupoVisualizar"><a href="#!/grupos"><i class="icon-search4"></i> Listar Grupo</a></li>
                                         </ul>
                                     </li>
 
