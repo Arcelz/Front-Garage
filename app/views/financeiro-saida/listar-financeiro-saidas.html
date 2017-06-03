@@ -5,19 +5,11 @@
     $(function () {
         $(".tab-content").on('swiperight', function () {
             var $tab = $('#tablist .active').prev();
-            if ($tab.text() === 'PAGO')
-                angular.element(document.getElementById('pago')).scope().pago();
-            else if ($tab.text() === 'PENDENTE')
-                angular.element(document.getElementById('pendente')).scope().pendente();
-            if ($tab.length > 0)
+           if ($tab.length > 0)
                 $tab.find('a').tab('show');
         });
         $(".tab-content").on('swipeleft', function () {
             var $tab = $('#tablist .active').next();
-            if ($tab.text() === 'PAGO')
-                angular.element(document.getElementById('pago')).scope().pago();
-            else if ($tab.text() === 'CANCELADO')
-                angular.element(document.getElementById('cancelado')).scope().cancelado();
             if ($tab.length > 0)
                 $tab.find('a').tab('show');
         });
@@ -31,15 +23,35 @@
             <h5 class="panel-title">Lista de Saidas</h5>
 
         </div>
+          <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+            <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                <label>
+                    <span>Pesquisa: </span>
+                    <input type="search" ng-model="filtros" placeholder="Pesquisa... "
+                           aria-controls="DataTables_Table_0">
+                </label>
+            </div>
+            <div class="dataTables_length" id="DataTables_Table_0_length">
+                <label>
+						<span>
+							<a href="#!/veiculos/novo" class="btn btn-primary"> Nova Compra <i
+                                    class="icon-arrow-right14 position-right"></i></a>
+						</span>
+                </label>
+
+            </div>
+
+        </div>
+        <br/>
 
 
-        <p ng-show="mensagem">{{mensagem}}</p>
-        <div ng-show="lembretes.length">
+     
+        <div>
             <div role="tabpanel" class="tabbable">
                 <ul role="tablist" id="tablist" class="nav nav-tabs nav-tabs-bottom bottom-divided nav-justified">
-                    <li role="presentation" class="active"><a id="pendente" href="#tab1" ng-click="pendente()"
+                    <li role="presentation" class="active"><a id="pendente" href="#tab1"
                                                               target="_self" data-toggle="tab" class="legitRipple">PENDENTE</a></li>
-                    <li role="presentation"><a ng-href="#tab2" id="pago" ng-click="pago()" target="_self"
+                    <li role="presentation"><a ng-href="#tab2" id="pago" target="_self"
                                                data-toggle="tab" class="legitRipple">PAGO</a></li>
                     <li role="presentation"><a ng-href="#tab3" id="cancelado" ng-click="cancelado()" target="_self"
                                                data-toggle="tab" class="legitRipple">CANCELADO</a></li>
@@ -47,11 +59,11 @@
 
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane animated flipInX active" id="tab1">
-                        <table class="table datatable-basic">
+                        <table ng-init="pendente()" class="table datatable-basic">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Compra</th>
+                                <th>Venda</th>
                                 <th>Usuario</th>
                                 <th>Usuario Update</th>
                                 <th>Vencimento</th>
@@ -61,13 +73,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="lembrete in lembretes">
+                            <tr ng-repeat="lembrete in pendenteResultados | filter:filtros">
                                 <td>{{lembrete.pk_saida}}</td>
                                 <td>{{lembrete.fk_venda}}</td>
                                 <td>{{lembrete.usuarioCriacao}}</td>
                                 <td>{{lembrete.usuarioUpdate}}</td>
                                 <td>{{lembrete.data_vencimento}}</td>
-                                <td>{{lembrete.valor}}</td>
+                                <td>R$ {{lembrete.valor | number:2}}</td>
                                 <td><span class="label label-info">{{lembrete.statusFinanceiro}}</span></td>
 
                                 <td>
@@ -84,11 +96,11 @@
                         </table>
                     </div>
                     <div class="tab-pane animated flipInX" id="tab2">
-                        <table role="tabpanel" class="table datatable-basic">
+                        <table ng-init="pago()" role="tabpanel" class="table datatable-basic">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Compra</th>
+                                <th>Venda</th>
                                 <th>Usuario</th>
                                 <th>Usuario Update</th>
                                 <th>Vencimento</th>
@@ -97,13 +109,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="lembrete in lembretes">
+                            <tr ng-repeat="lembrete in pagoResultados | filter:filtros">
                                 <td>{{lembrete.pk_saida}}</td>
-                                <td>{{lembrete.fk_compra}}</td>
+                                <td>{{lembrete.fk_venda}}</td>
                                 <td>{{lembrete.usuarioCriacao}}</td>
                                 <td>{{lembrete.usuarioUpdate}}</td>
                                 <td>{{lembrete.data_vencimento}}</td>
-                                <td>{{lembrete.valor}}</td>
+                                <td>R${{lembrete.valor | number:2}}</td>
                                 <td><span class="label label-success">{{lembrete.statusFinanceiro}}</span></td>
                             </tr>
 
@@ -111,11 +123,11 @@
                         </table>
                     </div>
                     <div class="tab-pane animated flipInX" id="tab3">
-                        <table role="tabpanel" class="table datatable-basic">
+                        <table ng-init="cancelado()" role="tabpanel" class="table datatable-basic">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Compra</th>
+                                <th>Venda</th>
                                 <th>Usuario</th>
                                 <th>Usuario Update</th>
                                 <th>Vencimento</th>
@@ -124,13 +136,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="lembrete in lembretes">
+                            <tr ng-repeat="lembrete in canceladoResultados | filter:filtros">
                                 <td>{{lembrete.pk_saida}}</td>
-                                <td>{{lembrete.fk_compra}}</td>
+                                <td>{{lembrete.fk_venda}}</td>
                                 <td>{{lembrete.usuarioCriacao}}</td>
                                 <td>{{lembrete.usuarioUpdate}}</td>
                                 <td>{{lembrete.data_vencimento}}</td>
-                                <td>{{lembrete.valor}}</td>
+                                <td>R${{lembrete.valor | number:2}}</td>
                                 <td><span class="label label-danger">{{lembrete.statusFinanceiro}}</span></td>
 
                             </tr>
