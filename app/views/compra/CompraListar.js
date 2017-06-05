@@ -1,4 +1,4 @@
-app.controller('CompraListar', function ($scope, $rootScope, DataService, $compile, $state, AuthService,jwtHelper ) {
+app.controller('CompraListar', function ($scope, $rootScope, DataService, $compile, $state, AuthService, jwtHelper) {
     var idModal;
     var indexRemover;
     $scope.resultadosCompras = [];
@@ -19,14 +19,16 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService, $compi
         }
     }
 
-    $scope.carregarCompras = function () {
+    $scope.pendente = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/compras').then(function (response) {
+            $scope.pendenteResultados = response.data;
 
-            if (response.data.length) {
-                $scope.resultadosCompras = response.data;
-            } else {
-                $scope.mensagem = "Nenhuma Compra Cadastrado";
-            }
+        });
+    }
+
+    $scope.canceladas = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/compras/' + 1).then(function (response) {
+            $scope.canceladosResultados = response.data;
 
         });
     }
@@ -48,15 +50,22 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService, $compi
         DataService.realizarPut('http://ifg.redesbrasil.com/compras/', obj).then(function (data) {
             console.log(data);
             if (indexRemover != undefined) {
-                $scope.resultadosCompras.splice(indexRemover, 1);
+                $scope.pendenteResultados.splice(indexRemover, 1);
             }
+
+            DataService.realizarGet('http://ifg.redesbrasil.com/compras/' + 1).then(function (response) {
+                $scope.canceladosResultados =[];
+                $scope.canceladosResultados = response.data;
+
+            });
+
         });
         angular.element('#modal_mensagens').modal('toggle');
     }
 
-    $scope.abrirModalExclusao = function (id, index,valor) {
+    $scope.abrirModalExclusao = function (id, index, valor) {
 
-        $scope.modulo = "A COMPRA " + id+", "+"COM VALOR DE R$";        
+        $scope.modulo = "A COMPRA " + id + ", " + "COM VALOR DE R$";
         $scope.modulo_valor = valor;
         indexRemover = index;
         idModal = id;
@@ -65,14 +74,13 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService, $compi
 
     };
 
-    $scope.modalExcluir = function(){
-            DataService.realizarDelete('http://ifg.redesbrasil.com/compras/' +idModal).then(function (data) {
+    $scope.modalExcluir = function () {
+        DataService.realizarDelete('http://ifg.redesbrasil.com/compras/' + idModal).then(function (data) {
             if (indexRemover != undefined) {
-                $scope.resultadosCompras.splice(indexRemover, 1);
+                $scope.pendenteResultados.splice(indexRemover, 1);
             }
         });
-
-
+         angular.element('#modal_excluir').modal('toggle');
     }
 
 

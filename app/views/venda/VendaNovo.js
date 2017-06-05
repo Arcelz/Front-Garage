@@ -41,7 +41,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
             }
             DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {
 
-                console.log(response);
+
                 if (response.data.status == 400) {
                     $scope.VeiculoPesquisa = {};
                     $scope.mensagem = response.data.message;
@@ -50,7 +50,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
                     $scope.VeiculoPesquisa = response.data;
                 }
 
-                console.log(response);
+
             });
 
         }
@@ -58,17 +58,27 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
 
     };
     $scope.adicionarVeiculoCarrinho = function (veiculo) {
-
         $scope.VeiculoPesquisa = {};
-        console.log(veiculo);
-        $scope.painelCarrinho = true;
-        // $scope.carrinhoVeiculos = veiculo;
-        $scope.nome = veiculo.nome;
-        $scope.placa = veiculo.placa;
-        $scope.ano = veiculo.ano;
-        $scope.form = {
-            fkVeiculo: veiculo.pk_veiculo
-        }
+        var obj = {
+            'consulta' : veiculo.pk_veiculo
+        };
+        DataService.realizarPost('http://ifg.redesbrasil.com/vendas', obj).then(function (response) {
+            console.log("fin", response);
+            if (response.data[0].valorFinal == null) {
+                $scope.valorFinal = veiculo.valor_compra;
+            } else {
+                $scope.valorFinal = response.data[0].valorFinal;
+            }
+
+            $scope.painelCarrinho = true;
+            $scope.nome = veiculo.nome;
+            $scope.placa = veiculo.placa;
+            $scope.ano = veiculo.ano;
+            $scope.form = {
+                fkVeiculo: veiculo.pk_veiculo
+            }
+
+        });
     };
 
     $scope.salvar = function () {
@@ -129,7 +139,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
                 angular.element('#modal_parcelamento').modal('hide');
                 angular.element('#modal_parcelamento').hide();
                 angular.element('.modal-backdrop').hide();
-                angular.element("body").removeClass("modal-open");               
+                angular.element("body").removeClass("modal-open");
                 $state.go('common.vendaListar');
             }
 
@@ -197,7 +207,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
 
         if (pesquisa == "" || pesquisa == undefined) {
             $scope.vazio = true;
-        } else {
+        } else if (pesquisa.length >= 2) {
             $scope.vazio = false;
             var obj = {
                 consulta: $scope.consulta
@@ -213,7 +223,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
                     $scope.VeiculoPesquisa = response.data;
                 }
 
-                console.log(response);
+
             });
 
         }

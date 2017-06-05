@@ -1,11 +1,11 @@
-app.controller('VendaListar', function ($scope, $rootScope,$stateParams, DataService,AuthService, $compile, $state, jwtHelper) {
+app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataService, AuthService, $compile, $state, jwtHelper) {
     var idModal;
     var indexRemover;
     $scope.resultadosCompras = [];
 
-  
+
     var id = $stateParams.id; //pega o paramentro informado na url
-    if (id === "" || id=== undefined) {
+    if (id === "" || id === undefined) {
         $state.go('common.vendaListar');
     }
 
@@ -24,15 +24,16 @@ app.controller('VendaListar', function ($scope, $rootScope,$stateParams, DataSer
         }
     }
 
-    $scope.carregarVendas = function () {
+    $scope.pendente = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/vendas').then(function (response) {
+            $scope.pendenteResultados = response.data;
+        });
+    }
 
-            if (response.data.length) {
-                $scope.resultadosVendas = response.data;
-            } else {
-                $scope.mensagem = "Nenhuma Compra Cadastrado";
-            }
-
+    $scope.canceladas = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/vendas/' + 1).then(function (response) {
+            console.log(response);
+            $scope.canceladosResultados = response.data;
         });
     }
 
@@ -51,10 +52,15 @@ app.controller('VendaListar', function ($scope, $rootScope,$stateParams, DataSer
             'pkVenda': idModal
         }
         DataService.realizarPut('http://ifg.redesbrasil.com/vendas/', obj).then(function (data) {
-            console.log(data);
+           
             if (indexRemover != undefined) {
-                $scope.resultadosVendas.splice(indexRemover, 1);
+                $scope.pendenteResultados.splice(indexRemover, 1);
             }
+
+            DataService.realizarGet('http://ifg.redesbrasil.com/vendas/' + 1).then(function (response) {
+                  $scope.canceladosResultados =[];
+                $scope.canceladosResultados = response.data;
+            });
         });
         angular.element('#modal_mensagens').modal('toggle');
     }
@@ -70,13 +76,12 @@ app.controller('VendaListar', function ($scope, $rootScope,$stateParams, DataSer
     };
 
     $scope.modalExcluir = function () {
-        DataService.realizarDelete('http://ifg.redesbrasil.com/vendas/' + idModal).then(function (data) {
-            console.log(data);
+        DataService.realizarDelete('http://ifg.redesbrasil.com/vendas/' + idModal).then(function (data) {            
             if (indexRemover != undefined) {
-                $scope.resultadosVendas.splice(indexRemover, 1);
+                $scope.pendenteResultados.splice(indexRemover, 1);
             }
         });
-
+        angular.element('#modal_excluir').modal('toggle');
 
     }
 

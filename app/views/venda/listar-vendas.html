@@ -1,3 +1,21 @@
+<link href="app/assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
+<script src="app/resources/js/jquery.mobile.custom.min.js"></script>
+<script>
+    $(function () {
+        $(".tab-content").on('swiperight', function () {
+            var $tab = $('#tablist .active').prev();
+            if ($tab.length > 0)
+                $tab.find('a').tab('show');
+        });
+        $(".tab-content").on('swipeleft', function () {
+            var $tab = $('#tablist .active').next();
+            if ($tab.length > 0)
+                $tab.find('a').tab('show');
+        });
+    });
+
+</script>
+
 <!-- Content area -->
 <div class="content">
 
@@ -30,48 +48,79 @@
         </div>
         <br/>
 
-        <p ng-show="mensagem">{{mensagem}}</p>
-        <div ng-show="resultadosVendas.length" ng-init="carregarVendas()">
-            <table class="table datatable-basic">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th class="text-center">FORNECEDOR</th>
-                        <th class="text-center">FUNCIONARIO</th>
-                        <th class="text-center">DATA</th>
-                        <th class="text-center">VALOR DA COMPRA</th>
-                        <th class="text-center">STATUS COMPRA</th>
+        <div>
+            <div role="tabpanel" class="tabbable">
+                <ul role="tablist" id="tablist" class="nav nav-tabs nav-tabs-bottom bottom-divided nav-justified">
+                    <li role="presentation" class="active"><a id="pendente" href="#tab1" target="_self" data-toggle="tab" class="legitRipple">EFETUADA</a></li>
+                    <li role="presentation"><a ng-href="#tab2" id="pago" target="_self" data-toggle="tab" class="legitRipple">CANCELADA</a></li>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="vendas in resultadosVendas | filter:filtros">
-                        <td>{{vendas.pk_venda}}</td>
-                        <td class="text-center">{{vendas.nomeCliente | uppercase}}</td>
-                        <td class="text-center">{{vendas.nomeFuncionario | uppercase}}</td>
-                        <td class="text-center">{{vendas.dataCriacao | date:'dd/MM/yyyy'}}</td>
-                        <td class="text-center">$ {{vendas.valor_venda | number:2}}</td>
-                        <td class="text-center">{{vendas.statusVenda}}</td>
+                </ul>
 
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane animated flipInX active" id="tab1">
+                        <table ng-init="pendente()" class="table datatable-basic">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th class="text-center">FORNECEDOR</th>
+                                    <th class="text-center">FUNCIONARIO</th>
+                                    <th class="text-center">DATA</th>
+                                    <th class="text-center">VALOR DA COMPRA</th>
+                                    <th class="text-center">STATUS COMPRA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="vendas in pendenteResultados | filter:filtros">
+                                    <td>{{vendas.pk_venda}}</td>
+                                    <td class="text-center">{{vendas.nomeCliente | uppercase}}</td>
+                                    <td class="text-center">{{vendas.nomeFuncionario | uppercase}}</td>
+                                    <td class="text-center">{{vendas.dataCriacao | date:'dd/MM/yyyy'}}</td>
+                                    <td class="text-center">$ {{vendas.valor_venda | number:2}}</td>
+                                    <td class="text-center"> <span class="label label-info">{{vendas.statusVenda}}</span>
+                                    </td>
+                                    <td ng-show="permicaoJSON.venda">
+                                        <a ng-show="permicaoJSON.vendaEditar" ng-click="cancelamento(vendas.pk_venda,$index)" style="color: black">
+                                            <i class="icon-pencil7"></i>
+                                        </a>
+                                        <!--mostra o icone de excluir e chama o modal -->
+                                        <a ng-show="permicaoJSON.vendaDeletar" style="color: #F00" ng-click="abrirModalExclusao(vendas.pk_venda,$index, vendas.valor_venda)">
+                                            <!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
+                                            <i class="icon-trash"></i>
+                                        </a>
+                                        <!--FIM -->
+                                    </td>
+                                </tr>
 
-                        <td ng-show="permicaoJSON.venda">
-                            <a  ng-show="permicaoJSON.vendaEditar" ng-click="cancelamento(vendas.pk_venda,$index)" style="color: black">
-                            <i class="icon-pencil7"></i>
-                        </a>
-                            <!--mostra o icone de excluir e chama o modal -->
-                            <a   ng-show="permicaoJSON.vendaDeletar" style="color: #F00" ng-click="abrirModalExclusao(vendas.pk_venda,$index, vendas.valor_venda)">
-                                <!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
-                                <i class="icon-trash"></i>
-                            </a>
-                            <!--FIM -->
-                        </td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane animated flipInX" id="tab2">
+                        <table ng-init="canceladas()" role="tabpanel" class="table datatable-basic">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th class="text-center">FORNECEDOR</th>
+                                    <th class="text-center">FUNCIONARIO</th>
+                                    <th class="text-center">DATA</th>
+                                    <th class="text-center">VALOR DA COMPRA</th>
+                                    <th class="text-center">STATUS COMPRA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="vendas in canceladosResultados | filter:filtros">
+                                    <td>{{vendas.pk_venda}}</td>
+                                    <td class="text-center">{{vendas.nomeCliente | uppercase}}</td>
+                                    <td class="text-center">{{vendas.nomeFuncionario | uppercase}}</td>
+                                    <td class="text-center">{{vendas.dataCriacao | date:'dd/MM/yyyy'}}</td>
+                                    <td class="text-center">$ {{vendas.valor_venda | number:2}}</td>
+                                    <td class="text-center"><span class="label label-danger">{{vendas.statusVenda}}</span></td>
+                                </tr>
 
-                    </tr>
-
-                </tbody>
-            </table>
-
-
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- /scrollable datatable -->
@@ -89,10 +138,10 @@
 
 <!-- Função para subir ate o TOPO  -->
 <script>
-  $(document).ready(function () {
-		$('html, body').animate({ scrollTop: 0 }, 'slow');
-		return false;
-	});
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
 
 </script>
 <!-- / FIM Função para subir ate o TOPO  -->

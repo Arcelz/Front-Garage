@@ -34,7 +34,7 @@
 										<div class="col-md-6">
 											<div class="mb-15">
 												<select ng-init="buscarFornecedor()" id="selectBuscaFornecedor" data-placeholder="Selecione o Fornecedor" class="select"
-												 ng-model="form.buscaCampoFornecedor" ng-change="adicionarFornecedor()" ng-options="item.pk_fornecedor as item.nome for item in fornecedoresResultados">						                            
+												 ng-model="form2.buscaCampoFornecedor" ng-change="adicionarFornecedor()" ng-options="item.pk_fornecedor as item.nome for item in fornecedoresResultados">						                            
 																<option value=""></option>				                               
 																   
 									                            </select>
@@ -45,7 +45,7 @@
 								</div>
 							</div>
 							<br/>
-							<br/>
+						
 							<!-- BLOCO DE INSERT FUNCIONARIO  -->
 							<div class="form-group">
 								<div class="col-lg-10">
@@ -54,8 +54,8 @@
 																<i class="icon-user"></i>
 															</span>
 										<input type="text" size="23" maxlength="23" style="text-transform:uppercase" name="nomeFornecedor" class="form-control" disabled="disabled"
-										 ng-model="form.nome" required>
-										<input type="hidden" name="fkFornecedor" class="form-control" placeholder="Nome" ng-model="form.fkFornecedor">
+										 ng-model="form2.nomeFornecedor" required>
+										<input type="hidden" name="fkFornecedor" class="form-control" placeholder="Nome" ng-model="form2.fkFornecedor">
 										<label ng-show="formulario.$submitted &&  formulario.nomeFornecedor.$error.required" class="validation-error-label">
 																Selecionar do Fornecedor Obrigatorio
 															</label>
@@ -91,7 +91,7 @@
 							</div>
 
 							<br/>
-							<br/>
+							
 							<!-- BLOCO DE INSERT FUNCIONARIO  -->
 							<div class="form-group">
 								<div class="col-lg-10">
@@ -117,8 +117,7 @@
 				<!-- /FIM BLOCO DE SELECT -->
 				<br/>
 				<br/>
-				<br/>
-				<br/>
+				
 
 				<!-- BLOCO DE PESQUISA POR VEICULO -->
 				<form name="formulario2" class="main-search">
@@ -156,8 +155,7 @@
 				</form>
 				<!-- /FIM BLOCO DE PESQUISA POR VEICULO -->
 				<br/>
-				<br/>
-				<br/>
+				
 
 				<!-- BLOCO PARA EXEBIR VEICULO NO CARRINHO  -->
 				<div ng-show="painelCarrinho">
@@ -193,7 +191,7 @@
 
 				<br/>
 				<br/>
-				<br/>
+			
 				<!-- BLOCO PARA SALVAR E VOLTAR  -->
 				<div class="text-right">
 					<a href="#!/compras">

@@ -1,7 +1,35 @@
-app.controller('FinanceiroSaidaListar', function ($scope, $rootScope, DataService) {
+app.controller('FinanceiroSaidaListar', function ($scope, $rootScope, DataService,$timeout) {
     var idModal;
     var indexRemover;
 
+    // BLOCO PARA ATUALIZALÇAO DO CAIXA DE 5 SEGUNDOS
+    DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/3').then(function (response) {
+
+        $scope.caixa = response.data[0].caixa;
+    });
+    var promise;
+    var contador = 5;
+
+    ativarRefresh();
+
+    function ativarRefresh() {
+        contador--;
+        if (contador === 0) {
+            atualizar();
+            contador = 5;
+        }
+        promise = $timeout(ativarRefresh, 1000);
+    }
+
+    function atualizar() {
+        DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/3').then(function (response) {
+
+            $scope.caixa = response.data[0].caixa;
+        });
+
+
+    }
+    /// FIM DO BLOCO
 
     $scope.exibirModal = function (id, index) {
         $scope.title = 'FINANCEIRO SAIDA'

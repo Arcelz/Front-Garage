@@ -48,6 +48,7 @@ function DataService($http, AuthService, toastr) {
                     return response;
                 }
                 , function errorCallback(response) {
+                     toastr.error(response.data.status_message);
                     return response;
                 });
     }
@@ -70,6 +71,7 @@ function DataService($http, AuthService, toastr) {
                     return response;
                 }
                 , function errorCallback(response) {
+                    toastr.error(response.data.status_message);
                     return response;
                 });
     }
@@ -94,6 +96,7 @@ function DataService($http, AuthService, toastr) {
                         return response;
                     }
                     , function errorCallback(response) {
+                        toastr.error(response.data.status_message);
                         return response;
                     });
         }
@@ -109,6 +112,7 @@ function DataService($http, AuthService, toastr) {
                         return response;
                     }
                     , function errorCallback(response) {
+                        toastr.error(response.data.status_message);
                         return response;
                     });
         }

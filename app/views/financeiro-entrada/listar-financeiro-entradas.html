@@ -1,7 +1,5 @@
 <!-- Content area -->
 <link href="app/assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
-<link href="app/resources/css/select.min.css" rel="stylesheet" type="text/css">
-
 <script src="app/resources/js/jquery.mobile.custom.min.js"></script>
 <script>
     $(function () {
@@ -34,6 +32,14 @@
                     <input type="search" ng-model="filtros" placeholder="Pesquisa... "
                            aria-controls="DataTables_Table_0">
                 </label>
+            </div>
+            <div class="dataTables_length" id="DataTables_Table_0_length">
+                <label>
+						<span>
+							<strong> Valor em Caixa = R${{caixa | number:2}} </strong>
+						</span>
+                </label>
+
             </div>           
 
         </div>

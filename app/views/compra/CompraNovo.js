@@ -20,8 +20,8 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
     };
 
     $scope.adicionarFornecedor = function (teste) {
-        $scope.form.nome = $("#selectBuscaFornecedor option:selected").text();
-        $scope.form.fkFornecedor = $scope.form.buscaCampoFornecedor;
+        $scope.form2.nomeFornecedor = $("#selectBuscaFornecedor option:selected").text();
+        $scope.form2.fkFornecedor = $scope.form2.buscaCampoFornecedor;
     };
 
     $scope.adicionarFuncionario = function () {
@@ -46,7 +46,7 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
                     $scope.VeiculoPesquisa = {};
                     $scope.mensagem = response.data.message;
                 } else {
-                    $scope.mensagem = false;
+                    
                     $scope.VeiculoPesquisa = response.data;
                 }
 
@@ -77,7 +77,7 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         if ($scope.formulario.$valid) {
 
             objetoCompra = {
-                fkFornecedor: $scope.form.fkFornecedor,
+                fkFornecedor: $scope.form2.fkFornecedor,
                 fkFuncionario: $scope.form2.fkFuncionario,
                 valorCompra: $scope.form.valor_compra,
                 fkVeiculo: $scope.form.fkVeiculo
@@ -132,7 +132,7 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
                 angular.element('#modal_parcelamento').hide();
                 angular.element('.modal-backdrop').hide();
                 angular.element("body").removeClass("modal-open");
-                
+
                 $state.go('common.compraListar');
             }
 
@@ -195,27 +195,30 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
     };
 
     $scope.validarInupt = function (pesquisa) {
-
+        console.log(pesquisa.length);
         if (pesquisa == "" || pesquisa == undefined) {
             $scope.vazio = true;
         } else {
             $scope.vazio = false;
-             var obj = {
+            var obj = {
                 consulta: $scope.consulta
             }
-            DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {
+            if (pesquisa.length >= 2) {
+                DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {
 
-                console.log(response);
-                if (response.data.status == 400) {
-                    $scope.VeiculoPesquisa = {};
-                    $scope.mensagem = response.data.message;
-                } else {
-                    $scope.mensagem = false;
-                    $scope.VeiculoPesquisa = response.data;
-                }
+                    console.log(response);
+                    if (response.data.status == 400) {
+                        $scope.VeiculoPesquisa = {};
+                        $scope.mensagem = response.data.message;
+                    } else {
+                        $scope.mensagem = false;
+                        $scope.VeiculoPesquisa = response.data;
+                    }
 
-                console.log(response);
-            });
+                    console.log(response);
+                });
+            }
+
 
         }
 
