@@ -108,6 +108,10 @@ app.controller('MenuController', function ($scope, $state, $localStorage, AuthSe
             $scope.permicaoJSON['modelo'] = true;
             $scope.permicaoJSON['modeloVisualizar'] = true;
         }
+        if (permicao[i] === '17C') {
+            $scope.permicaoJSON['permissao'] = true;
+            $scope.permicaoJSON['permissaoCriar'] = true;
+        }
         if (permicao[i] === '18C') {
             $scope.permicaoJSON['reparo'] = true;
             $scope.permicaoJSON['reparoCriar'] = true;
