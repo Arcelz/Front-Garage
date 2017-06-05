@@ -16,6 +16,7 @@ app.controller('ReparoNovo', function ($scope, $state, $rootScope, $localStorage
         if ($scope.formulario.$valid && $scope.form.fkTipo != "") {
             $scope.botao = true;
             DataService.realizarPost('http://ifg.redesbrasil.com/reparos', $scope.form).then(function (data) {
+                console.log(data)
                 if (data.data.status === 200) {
                     $state.go('common.reparoListar');
                 }

@@ -16,13 +16,14 @@ app.controller('ReparoTipoListar', function ($scope, $rootScope, DataService) {
         $rootScope.idModalExclusao = id.pk_tipo;
         $scope.modulo = 'REPARO TIPO'
         $scope.modulo_nome = id.nome;
-        angular.element('#modal_default').modal();
+        angular.element('#modal_excluir').modal();
     };
-    $scope.excluirFuncionario = function () {
+    $scope.modalExcluir = function () {
         console.log($rootScope.idModalExclusao);
         DataService.realizarDelete('http://ifg.redesbrasil.com/tipos-reparos/' + $rootScope.idModalExclusao).then(function (data) {
             console.log(data);
             $scope.lembretes.splice(indexRemover, 1);
+            angular.element('#modal_excluir').modal('toggle');
 
         });
 

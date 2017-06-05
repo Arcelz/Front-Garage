@@ -17,12 +17,13 @@ app.controller('ReparoListar', function ($scope,$rootScope, DataService,MudarCor
         $scope.modulo = 'REPARO'
         $scope.modulo_nome = id.descricao;
         $rootScope.idModalExclusao = id.pk_reparo;
-        angular.element('#modal_default').modal();
+        angular.element('#modal_excluir').modal();
     };
-    $scope.excluirFuncionario = function(){
+    $scope.modalExcluir = function(){
        DataService.realizarDelete('http://ifg.redesbrasil.com/reparos/'+$rootScope.idModalExclusao).then(function(data){
         console.log(data);
             $scope.lembretes.splice(indexRemover, 1);
-        });
+           angular.element('#modal_excluir').modal('toggle');
+       });
     };
 });

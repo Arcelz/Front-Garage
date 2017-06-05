@@ -1,4 +1,4 @@
-app.controller('UsuarioNovo', function ($scope, $rootScope,MudarCor, DataService) {
+app.controller('UsuarioNovo', function ($scope,$state, $rootScope,MudarCor, DataService) {
     MudarCor.mudarCor();
     $scope.funcionarioResultados = {};
     DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios').then(function (data) {

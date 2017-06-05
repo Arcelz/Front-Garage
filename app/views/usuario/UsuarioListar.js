@@ -17,15 +17,15 @@ app.controller('UsuarioListar', function ($scope,$rootScope, DataService) {
         $scope.modulo = 'USUARIO'
         $scope.modulo_nome = id.login;
         $rootScope.idModalExclusao = id.usuario_id;
-        angular.element('#modal_default').modal();
+        angular.element('#modal_excluir').modal();
     };
-    $scope.excluirFuncionario = function(){
+    $scope.modalExcluir = function(){
         //var id = $rootScope.idModalExclusao;
         console.log( $rootScope.idModalExclusao);
        DataService.realizarDelete('http://ifg.redesbrasil.com/usuarios/'+$rootScope.idModalExclusao).then(function(data){
         console.log(data);
             $scope.lembretes.splice(indexRemover, 1);
-
+           angular.element('#modal_excluir').modal('toggle');
         });
 
     };
