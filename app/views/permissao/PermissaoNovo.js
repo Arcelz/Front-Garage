@@ -53,6 +53,8 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
             DataService.realizarPost('http://ifg.redesbrasil.com/grupos-permissao', $scope.form).then(function (data) {
                 if (data.data.status === 200) {
                     $state.go('common.permissaoNovo');
+                    $scope.botao = false;
+
                 }
                 else if (data.data.status === 400) {
                     $scope.botao = false;
