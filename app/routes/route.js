@@ -240,6 +240,20 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'ModeloNovo',
             controllerAs: 'vm'
         })
+        .state('common.permissaoListar', {
+            url: '/permissoes',
+            permicao: '17V',
+            templateUrl: 'app/views/permissao/listar-permissoes.html',
+            controller: 'PermissaoListar',
+            controllerAs: 'vm'
+        })
+        .state('common.permissaoNovo', {
+            url: '/permissoes/novo',
+            permicao: '17C',
+            templateUrl: 'app/views/permissao/cadastro-permissoes.html',
+            controller: 'PermissaoNovo',
+            controllerAs: 'vm'
+        })
         .state('common.reparoListar', {
             url: '/reparos',
             permicao: '18V',

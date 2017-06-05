@@ -1,0 +1,89 @@
+<!-- Content area -->
+<link href="app/resources/css/select.min.css" rel="stylesheet" type="text/css">
+
+<div class="content">
+
+    <!-- 2 columns form -->
+    <form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate>
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h5 class="panel-title">Relacionar permições a grupo</h5>
+
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <fieldset>
+                            <legend class="text-semibold"><i class="icon-wrench position-left"></i> Dados
+                            </legend>
+
+                            <div class="form-group col-md-6">
+                                <label class="col-lg-3 control-label">Grupo
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+                                </label>
+                                <div class="col-lg-7">
+                                    <div ng-click="loadTipos()">
+                                        <select ng-change="changeGrupo()" id="selectGrupo" name="grupo" data-placeholder="Selecione o grupo"
+                                                class="select" ng-required="true"  data-ng-model="form.grupo_id" ng-options="item.pk_grupo as item.nome for item in gruposResultados" >
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <div ng-messages="formulario.grupo.$error">
+                                        <div ng-messages-include="app/views/messages.html"></div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-info btn-float btn-rounded legitRipple" data-toggle="modal" data-target="#modal_tipo_reparo"> <i class="icon-plus22"></i></button>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-lg-3 control-label">Permissões
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+                                </label>
+                                <div class="col-lg-9">
+                                    <div ng-click="loadPermissoes()">
+                                        <div ng-dropdown-multiselect="" options="example9data" selected-model="permissao" extra-settings="example9settings"></div>                                    </div>
+                                    <div ng-messages="formulario.permissao.$error">
+                                        <div ng-messages-include="app/views/messages.html"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <a href="#!/">
+                        <button class="btn btn-primary"><i class="icon-arrow-left13 position-right"></i> Voltar</button>
+                    </a>
+                    <button ng-disabled="botao" class="btn btn-primary"> Salvar <i
+                            class="icon-arrow-right14 position-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- /2 columns form -->
+
+
+    <!-- Footer -->
+
+    <!-- /footer -->
+
+</div>
+<!-- /content area -->
+
+
+<!-- Theme JS files -->
+<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
+<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
+<!-- Função para subir ate o TOPO  -->
+<script>
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
+
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
+
+<!-- /theme JS files -->
+
