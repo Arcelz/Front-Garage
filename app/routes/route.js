@@ -380,6 +380,13 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             controller: 'VendaEditar',
             controllerAs: 'vm'
         })
+        .state('common.relatorio', {
+            url: '/relatorios',
+            permicao: '24C',
+            templateUrl: 'app/views/relatorio/relatorios.html',
+            controller: 'Relatorio',
+            controllerAs: 'vm',
+        })
         .state('error', {
             url: '/error',
             templateUrl: 'app/error/error.html',

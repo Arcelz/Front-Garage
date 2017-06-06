@@ -1,0 +1,56 @@
+<!-- Content area -->
+<link href="app/resources/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" type="text/css">
+
+<div class="content">
+
+    <!-- 2 columns form -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h5 class="panel-title">Gerar Relatorios</h5>
+
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <fieldset>
+                            <legend class="text-semibold"><i class="icon-wrench position-left"></i> Relatorios
+                            </legend>
+                            <div class="form-group col-md-6">
+                                <label class="col-lg-3 control-label">Relatorio
+                                    <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
+                                </label>
+                                <div class="col-lg-9">
+                                        <select ng-change="changeRelatorio()" id="selectRelatorio" data-placeholder="Selecione o grupo"
+                                                class="select" ng-required="true"  data-ng-model="form.relatorio_id" ng-options="item.id as item.nome for item in relatoriosResultados" >
+                                            <option value=""></option>
+                                        </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div id="add"></div>
+
+            </div>
+        </div>
+
+</div>
+<!-- /content area -->
+
+
+<!-- Theme JS files -->
+<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
+<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
+<!-- Função para subir ate o TOPO  -->
+<script>
+    $(document).ready(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
+
+</script>
+<!-- / FIM Função para subir ate o TOPO  -->
+
+<!-- /theme JS files -->
+
