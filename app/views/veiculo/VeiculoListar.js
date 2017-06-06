@@ -3,26 +3,35 @@ app.controller('VeiculoListar', function ($scope, $rootScope, DataService) {
     var indexRemover;
     $scope.resultadosVeiculos = [];
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/veiculos').then(function (response) {
-        if (response.data.length) {
-            $scope.resultadosVeiculos = response.data;
-            console.log(response.data);
-        } else {
-            $scope.mensagem = "Nenhum Veiculo Cadastrado";
-        }
 
-    });
+    $scope.garagem = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/veiculos/garagem').then(function (response) {            
+                $scope.garagemResultados = response.data;           
+
+        });
+
+    }
+
+      $scope.vendidos = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/veiculos/vendidos').then(function (response) {            
+                $scope.vendidosResultados = response.data;           
+
+        });
+
+    }
+
+   
 
     $scope.exibirModal = function (id, index) {
         indexRemover = index;
         $rootScope.idModalExclusao = id;
         $('#modal_default').modal('show');
     };
-    
+
     $scope.excluirFuncionario = function () {
         DataService.realizarDelete('http://ifg.redesbrasil.com/veiculos/' + $rootScope.idModalExclusao).then(function (data) {
             if (indexRemover != undefined) {
-                $scope.resultadosVeiculos.splice(indexRemover, 1);
+                $scope.garagemResultados.splice(indexRemover, 1);
             }
         });
 

@@ -33,19 +33,23 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="mb-15">
-												<select ng-init="buscarFornecedor()" id="selectBuscaFornecedor" data-placeholder="Selecione o Fornecedor" class="select"
-												 ng-model="form2.buscaCampoFornecedor" ng-change="adicionarFornecedor()" ng-options="item.pk_fornecedor as item.nome for item in fornecedoresResultados">						                            
-																<option value=""></option>				                               
-																   
-									                            </select>
+												<select ng-init="buscarFornecedor()" name="selectCliente" id="selectBuscaFornecedor" data-placeholder="Selecione o Fornecedor"
+												 class="select" ng-model="form2.buscaCampoFornecedor" ng-change="adicionarFornecedor()" ng-options="item.pk_fornecedor as item.nome for item in fornecedoresResultados"
+												 ng-required="true">						                            
+													<option value=""></option>				                               
+													
+												</select>
+												<div ng-messages="formulario.selectCliente.$error">
+													<div ng-messages-include="app/views/messages.html"></div>
+												</div>
 											</div>
 										</div>
 
 									</div>
 								</div>
 							</div>
-							<br/>
-						
+
+
 							<!-- BLOCO DE INSERT FUNCIONARIO  -->
 							<div class="form-group">
 								<div class="col-lg-10">
@@ -54,11 +58,9 @@
 																<i class="icon-user"></i>
 															</span>
 										<input type="text" size="23" maxlength="23" style="text-transform:uppercase" name="nomeFornecedor" class="form-control" disabled="disabled"
-										 ng-model="form2.nomeFornecedor" required>
+										 ng-model="form2.nomeFornecedor">
 										<input type="hidden" name="fkFornecedor" class="form-control" placeholder="Nome" ng-model="form2.fkFornecedor">
-										<label ng-show="formulario.$submitted &&  formulario.nomeFornecedor.$error.required" class="validation-error-label">
-																Selecionar do Fornecedor Obrigatorio
-															</label>
+
 									</div>
 								</div>
 							</div>
@@ -78,11 +80,15 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="mb-15">
-												<select ng-init="buscarFuncionario()" ng-change="adicionarFuncionario()" id="selectBuscaFuncionario" data-placeholder="Selecione o Funcionario"
-												 class="select" ng-model="form2.buscaCampoFuncionario" ng-options="item.pk_funcionario as item.nomes for item in funcionariosResultados">						                            
-																<option value=""></option>				                               
-																   
-									                            </select>
+												<select ng-init="buscarFuncionario()" name="selectFuncionario" ng-change="adicionarFuncionario()" id="selectBuscaFuncionario"
+												 data-placeholder="Selecione o Funcionario" class="select" ng-model="form2.buscaCampoFuncionario" ng-options="item.pk_funcionario as item.nomes for item in funcionariosResultados"
+												 ng-required="true">						                            
+													<option value=""></option>				                               
+													
+												</select>
+												<div ng-messages="formulario.selectFuncionario.$error">
+													<div ng-messages-include="app/views/messages.html"></div>
+												</div>
 											</div>
 										</div>
 
@@ -90,8 +96,8 @@
 								</div>
 							</div>
 
-							<br/>
-							
+
+
 							<!-- BLOCO DE INSERT FUNCIONARIO  -->
 							<div class="form-group">
 								<div class="col-lg-10">
@@ -100,11 +106,9 @@
 																<i class="icon-user"></i>
 															</span>
 										<input type="text" name="nomeFuncionario" size="23" maxlength="23" style="text-transform:uppercase" class="form-control"
-										 disabled="disabled" ng-model="form2.nome" required />
+										 disabled="disabled" ng-model="form2.nome" />
 										<input type="hidden" name="fkFuncionario" class="form-control" ng-model="form2.fkFuncionario" />
-										<label ng-show="formulario.$submitted &&  formulario.nomeFuncionario.$error.required" class="validation-error-label">
-																Selecionar Funcionario obrigatorio
-															</label>
+
 
 									</div>
 								</div>
@@ -116,87 +120,175 @@
 				</div>
 				<!-- /FIM BLOCO DE SELECT -->
 				<br/>
-				<br/>
-				
 
-				<!-- BLOCO DE PESQUISA POR VEICULO -->
-				<form name="formulario2" class="main-search">
-					<div class="input-group content-group">
-						<div class="has-feedback has-feedback-left">
-							<input type="search" name="consulta" ng-keyup="validarInupt(consulta)" class="form-control input-xlg" ng-model="consulta"
-							 placeholder="PESQUISA PELA PLACA" autofocus autocomplete="off" />
-							<div class="form-control-feedback">
-								<i class="icon-search4 text-muted text-size-base"></i>
-							</div>
-							<label ng-show="vazio" class="validation-error-label">
-												Consulta nao pode ser em Branca
-											</label>
-						</div>
-						<div class="input-group-btn">
-							<button ng-click="pesquisarVeiculo()" type="button" class="btn btn-primary btn-xlg">Pesquisar Veiculo</button>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-6">
+							<fieldset>
+
+								<div class="form-group">
+									<label for="placa" class="col-lg-3 control-label">Placa
+										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+									</label>
+									<div class="col-lg8">
+										<div class="row">
+											<div class="col-md-7">
+												<div class="mb-12">
+													<input id="placa" type="text" placeholder="Placa" name="placa" class="form-control" ng-model="form.placa" autofocus required/>
+													<input type="hidden" name="pk_veiculo" ng-model="form.pk_veiculo">
+													<div ng-messages="formulario.placa.$error">
+														<div ng-messages-include="app/views/messages.html"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="ano" class="col-lg-3 control-label">Ano
+										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+									</label>
+									<div class="col-lg-5">
+										<div class="row">
+											<div class="col-md-7">
+												<div class="mb-12">
+													<input id="ano" type="text" placeholder="Ano" name="ano" class="form-control" ng-model="form.ano" required/>
+													<div ng-messages="formulario.ano.$error">
+														<div ng-messages-include="app/views/messages.html"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label for="valorCompra" class="col-lg-3 control-label">Valor Compra
+										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="8" width="8" />      
+									</label>
+									<div class="col-lg-8">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="mb-12">
+													<input id="valorCompra" type="text"  name="valorCompra" class="form-control" ng-model="form.valorCompra"
+													ui-money-mask="2" required />
+													<div ng-messages="formulario.valorCompra.$error">
+														<div ng-messages-include="app/views/messages.html"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
 						</div>
 
+
+						<!-- Categoria-->
+
+						<div class="col-md-6">
+							<fieldset>
+
+								<div class="form-group">
+									<label for="selectCategoria" class="col-lg-3 control-label">Categoria
+										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+									</label>
+									<div class="col-lg8">
+										<div class="row">
+											<div class="col-md-7">
+												<div class="mb-12">
+													<select ng-model="form.fkTipo" data-placeholder="Selecione a Categoria " id="selectCategoria" name="fkTipo" ng-init="buscaTipo()"
+													 ng-options="buscaTipo.pk_tipo as buscaTipo.nome for buscaTipo in buscasTipos" class="select" ng-required="true">
+														<option value=""></option>	
+													</select>
+													<div ng-messages="formulario.fkTipo.$error">
+														<div ng-messages-include="app/views/messages.html"></div>
+													</div>
+
+												</div>
+											</div>
+
+											<button type="button" class="btn btn-primary btn-icon btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_categoria"> <i class="icon-plus22"></i></button>
+										</div>
+
+									</div>
+								</div>
+
+
+								<!-- / Categoria-->
+								<!-- Marca-->
+
+								<div class="form-group">
+									<label for="selectMarca" class="col-lg-3 control-label">Marca
+										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+									</label>
+									<div class="col-lg8">
+										<div class="row">
+											<div class="col-md-7">
+												<div class="mb-12">
+													<select ng-model="form.fkMarca" data-placeholder="Selecione a Marca " ng-init="buscaMarca()" id="selectMarca" name="fkMarca"
+													 ng-options="buscaMarca.pk_marca as buscaMarca.nome for buscaMarca in buscasMarcas" class="select" ng-required="true">                          
+														<option value=""></option>
+													</select>
+													<div ng-messages="formulario.fkMarca.$error">
+														<div ng-messages-include="app/views/messages.html"></div>
+													</div>
+
+												</div>
+											</div>
+											<button type="button" class="btn btn-primary btn-icon btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_marca"> <i class="icon-plus22"></i></button>
+										</div>
+
+									</div>
+								</div>
+
+
+								<!-- / Marca-->
+								<!--Modelo !-->
+
+
+								<div class="form-group">
+									<label for="selectModelo" class="col-lg-3 control-label">Modelo
+									<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
+									</label>
+									<div class="col-lg8">
+										<div class="row">
+											<div class="col-md-7">
+												<div class="mb-12">
+													<select ng-model="form.fkModelo" data-placeholder="Selecione o Modelo " id="selectModelo" ng-init="buscaModelo()" name="fkModelo"
+													 ng-options="buscaModelo.pk_modelo as buscaModelo.nome for buscaModelo in buscasModelos" class="select" ng-required
+													 "true">
+														<option value=""> </option>
+													</select>
+													<div ng-messages="formulario.fkMarca.$error">
+														<div ng-messages-include="app/views/messages.html"></div>
+													</div>
+												</div>
+											</div>
+											<button type="button" class="btn btn-primary btn-icon btn-rounded legitRipple" data-toggle="modal" data-target="#modal_form_modelo"> <i class="icon-plus22"></i></button>
+										</div>
+
+									</div>
+								</div>
+
+								<!--/Modelo !-->
+							</fieldset>
+						</div>
 					</div>
-					<table class="table datatable-basic">
-						<tr ng-repeat="veiculo in VeiculoPesquisa">
-							<td>{{veiculo.pk_veiculo}}</td>
-							<td>{{veiculo.nome}}</td>
-							<td>{{veiculo.placa}}</td>
-							<td>{{veiculo.ano}}</td>
-							<td>{{veiculo.qtd}}</td>
-							<td>{{veiculo.valor_compra | number:2}}</td>
-							<td>
-								<a ng-click="adicionarVeiculoCarrinho(veiculo)">
-										<i class="icon-add"></i>
-									</a>
-							</td>
-						</tr>
-					</table>
-				</form>
-				<!-- /FIM BLOCO DE PESQUISA POR VEICULO -->
-				<br/>
-				
 
-				<!-- BLOCO PARA EXEBIR VEICULO NO CARRINHO  -->
-				<div ng-show="painelCarrinho">
-					<hr>
-					<div class="bw-tabela-item">
-						<div class="bw-tabela-item__coluna  bw-tabela-item__coluna--detalhes">
-							<span style="text-transform:uppercase" class="bw-tabela-cerveja-nome">{{nome}}</span>
-							<input class="" name="fkVeiculo" ng-model="form.fkVeiculo" type="hidden" required/>
 
-							<span class="label  label-default">{{placa}}</span>
-							<span class="bw-tabela-cerveja-origem">{{ano}}</span>
-						</div>
-						<div class="bw-tabela-item__coluna  bw-tabela-item__coluna--valores">
-							<div class="bw-tabela-cerveja-valor-pequeno">
-								<!--<span id="v_'+count+'" name="valorUnitario" type="text" class="bw-tabela-venda-campo-valor-venda" value="valorUnitario">i.valorUnitario.toFixed(2)</span>
-									<span>x</span>
-									<input id="q_'+count+'" name="qtd" type="text" maxlength="3" class="bw-tabela-venda-campo-quantidade" value="1">
-									-->
-							</div>
-							<div class="bw-tabela-cerveja-valor-grande">R$ {{valor_compra | number:2}}
-								<input class="" ng-model="form.valor_compra" type="hidden" />
-							</div>
-						</div>
-
-					</div>
 				</div>
-				<!-- / FIM BLOCO PARA EXEBIR VEICULO NO CARRINHO  -->
-				<label ng-show="formulario.$submitted &&  formulario.fkVeiculo.$error.required" class="validation-error-label">
-								Obrigatorio selecionar um veiculo
-					</label>
-
-
-
+				<hr>
 				<br/>
 				<br/>
-			
+
 				<!-- BLOCO PARA SALVAR E VOLTAR  -->
 				<div class="text-right">
 					<a href="#!/compras">
-                                    	<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
-                                	</a>
+						<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
+					</a>
 					<button ng-disabled="botao" type="submit" class="btn btn-primary"> Comprar <i class="icon-arrow-right14 position-right"></i></button>
 
 					<div data-ng-include="'app/views/compra/modal-parcelamento.html'"></div>
@@ -205,6 +297,10 @@
 			</div>
 		</div>
 	</form>
+
+	<div data-ng-include="'app/views/compra/modal-categoria.html'"></div>
+	<div data-ng-include="'app/views/compra/modal-marca.html'"></div>
+	<div data-ng-include="'app/views/compra/modal-modelo.html'"></div>
 
 	<!-- /2 columns form -->
 

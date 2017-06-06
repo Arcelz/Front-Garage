@@ -1,7 +1,12 @@
-app.controller('VeiculoEditar', function ($scope, $rootScope,$stateParams, DataService) {
+app.controller('VeiculoEditar', function ($scope, $rootScope,$stateParams, DataService, $state) {
     $scope.form = {};
     var id = $stateParams.id; //pega o paramentro informado na url
     $scope.resultadosVeiculos = [];
+
+    if (id ===""){
+        $state.go('common.veiculoListar')
+    }
+  
 
     DataService.realizarGet('http://ifg.redesbrasil.com/veiculos/' + id).then(function (response) {      
 

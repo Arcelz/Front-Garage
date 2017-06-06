@@ -29,60 +29,50 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
         $scope.form2.fkFuncionario = $scope.form2.buscaCampoFuncionario;
 
     };
-    $scope.pesquisarVeiculo = function () {
-        // alert($scope.consulta);
 
-        if ($scope.consulta == undefined || $scope.consulta == '') {
-            $scope.vazio = true;
-        } else {
+    $scope.buscaTipo = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/tipos-veiculos').then(function (data) {
+            $scope.buscasTipos = data.data;
+        });
+    };
 
-            var obj = {
-                consulta: $scope.consulta
-            }
-            DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {
+    $scope.buscaMarca = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/marcas').then(function (data) {
+            $scope.buscasMarcas = data.data;
+        });
+    };
 
-                console.log(response);
-                if (response.data.status == 400) {
-                    $scope.VeiculoPesquisa = {};
-                    $scope.mensagem = response.data.message;
-                } else {
-                    
-                    $scope.VeiculoPesquisa = response.data;
-                }
-
-                console.log(response);
-            });
-
-        }
-
+    $scope.buscaModelo = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/modelos').then(function (data) {
+            $scope.buscasModelos = data.data;
+        });
 
     };
-    $scope.adicionarVeiculoCarrinho = function (veiculo) {
 
-        $scope.VeiculoPesquisa = {};
-        console.log(veiculo);
-        $scope.painelCarrinho = true;
-        // $scope.carrinhoVeiculos = veiculo;
-        $scope.nome = veiculo.nome;
-        $scope.placa = veiculo.placa;
-        $scope.ano = veiculo.ano;
-        $scope.valor_compra = veiculo.valor_compra;
-        $scope.form = {
-            fkVeiculo: veiculo.pk_veiculo,
-            valor_compra: veiculo.valor_compra
-        }
-    };
 
     $scope.salvar = function () {
-        if ($scope.formulario.$valid) {
+        if ($scope.form.fkModelo === undefined || $scope.form.fkModelo === "") {
+            $scope.form.fkModelo = $("#selectModelo option:selected").val();
+        }
+        if ($scope.form.fkMarca === undefined || $scope.form.fkMarca === "") {
+            $scope.form.fkMarca = $("#selectMarca option:selected").val();
+        }
+        if ($scope.form.fkTipo === undefined || $scope.form.fkTipo === "") {
+            $scope.form.fkTipo = $("#selectCategoria option:selected").val();
+        }
 
+        if ($scope.formulario.$valid && $scope.form.fkMarca != "" && $scope.form.fkMarca != "" && $scope.form.fkTipo != "") {
             objetoCompra = {
                 fkFornecedor: $scope.form2.fkFornecedor,
-                fkFuncionario: $scope.form2.fkFuncionario,
-                valorCompra: $scope.form.valor_compra,
-                fkVeiculo: $scope.form.fkVeiculo
+                fkFuncionario: $scope.form2.fkFuncionario,                
+                placa: $scope.form.placa,
+                fkTipo: $scope.form.fkTipo,
+                fkMarca: $scope.form.fkMarca,
+                fkModelo: $scope.form.fkModelo,
+                ano: $scope.form.ano,
+                valorCompra: $scope.form.valorCompra
             }
-
+            
             angular.element('#modal_parcelamento').modal('show');
         }
     };
@@ -94,20 +84,13 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
             parcela = $("#selectParcela option:selected").val();
         }
 
+        //ESTE BLOCO PEGA AS DATAS NO MODAL E COLOCA NO ARRAY
         var dataCliente = {};
         dataCliente = $scope.modal;
+        //---- FIM ----
 
-
-        if (parcela == "") {
-            parcela = 1;
-        }
         var data = new Date();
-        var objetoFinal = {
-            'fkFornecedor': objetoCompra.fkFornecedor,
-            'fkFuncionario': objetoCompra.fkFuncionario,
-            'valorCompra': objetoCompra.valorCompra,
-            'fkVeiculo': objetoCompra.fkVeiculo
-        };
+       
         var hora = data.getHours(),
             minutos = data.getMinutes(),
             segundos = data.getSeconds();
@@ -118,25 +101,25 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
                 ano = dataCliente['vencimento' + i].getFullYear();
             var vencimentoCliente = [ano, mes, dia].join('/') + ' ' + [hora, minutos, segundos].join(':');
 
-            objetoFinal['vencimento' + i] = vencimentoCliente;
-            objetoFinal['parcela'] = parcela;
+            objetoCompra['vencimento' + i] = vencimentoCliente;
+            objetoCompra['parcela'] = parcela;
         }
-        objetoFinal['valorTotal'] = valorTotalFinal;
+        objetoCompra['valorTotal'] = valorTotalFinal;
 
-        DataService.realizarPost('http://ifg.redesbrasil.com/compras', objetoFinal).then(function (response) {
-            condicao = false;
-            if (response.data.status == 400) {
-
-            } else {
-                angular.element('#modal_parcelamento').modal('hide');
-                angular.element('#modal_parcelamento').hide();
-                angular.element('.modal-backdrop').hide();
-                angular.element("body").removeClass("modal-open");
-
-                $state.go('common.compraListar');
-            }
-
-        });
+         DataService.realizarPost('http://ifg.redesbrasil.com/compras', objetoCompra).then(function (response) {
+              condicao = false;
+              if (response.data.status == 400) {
+  
+              } else {
+                  angular.element('#modal_parcelamento').modal('hide');
+                  angular.element('#modal_parcelamento').hide();
+                  angular.element('.modal-backdrop').hide();
+                  angular.element("body").removeClass("modal-open");
+  
+                  $state.go('common.compraListar');
+              }
+  
+          });
     }
 
 
@@ -167,7 +150,7 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
 
     };
     $scope.realizarCalculo = function () {
-        parcela = $("#selectParcela option:selected").val();
+        parcela = $("#selectParcela option:selected").val(); //pega a parcela no select
         valorTotalFinal = objetoCompra.valorCompra / parcela;
         var html = "";
 
@@ -222,11 +205,6 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
 
         }
 
-        /* if ($scope.consulta == undefined) {
-             $scope.vazio = true;
-         } else {
-             $scope.vazio = false;
-         }*/
 
     };
 
@@ -292,6 +270,62 @@ app.controller('CompraNovo', function ($scope, $rootScope, DataService, $documen
     }
 
 
+
+    $scope.salvarModal = function () {
+
+
+        if ($scope.modalMarcaFormulario === undefined) {
+
+
+        } else if ($scope.modalMarcaFormulario.$valid) {
+            var obj = {
+                nome: $scope.modal.nome
+            };
+
+            DataService.realizarPost('http://ifg.redesbrasil.com/marcas', obj).then(function (data) {
+
+                $scope.select = angular.element(document.querySelector('#selectMarca'));
+                $scope.select.append('<option selected  label="' + data.data.nome + '" value="' + data.data.pk_marca + '"  >' + data.data.nome + '</option>');//inseri o novo cargo no final
+
+            });
+
+            $scope.modal.nome = "";
+
+            $('#modal_form_marca').modal('toggle');
+        }
+
+        if ($scope.modalCategoriaFormulario === undefined) {
+
+        } else if ($scope.modalCategoriaFormulario.$valid) {
+            var obj = {
+                nome: $scope.modal.nome
+            };
+            DataService.realizarPost('http://ifg.redesbrasil.com/tipos-veiculos', obj).then(function (data) {
+                $scope.mensagem = data.data.message;
+                $scope.select = angular.element(document.querySelector('#selectCategoria'));
+                $scope.select.append('<option selected  label="' + data.data.nome + '" value="' + data.data.pk_tipo + '"  >' + data.data.nome + '</option>');//inseri o novo cargo no final
+                $scope.fkMarca.$error.required = false;
+            });
+            $scope.modal.nome = "";
+            $('#modal_form_categoria').modal('toggle');
+        }
+
+        if ($scope.modalModeloFormulario === undefined) {
+
+        } else if ($scope.modalModeloFormulario.$valid) {
+            var obj = {
+                nome: $scope.modal.nome
+            };
+            DataService.realizarPost('http://ifg.redesbrasil.com/modelos', obj).then(function (data) {
+                $scope.select = angular.element(document.querySelector('#selectModelo'));
+                $scope.select.append('<option selected  label="' + data.data.nome + '" value="' + data.data.pk_modelo + '"  >' + data.data.nome + '</option>');//inseri o novo cargo no final               
+
+            });
+
+            $scope.modal.nome = "";
+            $('#modal_form_modelo').modal('toggle');
+        }
+    };
 
 
 });

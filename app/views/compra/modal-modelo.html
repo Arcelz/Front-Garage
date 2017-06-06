@@ -1,0 +1,32 @@
+<!-- Inline form modal -->
+<div id="modal_form_modelo" ng-controller="CompraNovo" class="modal fade" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastro de Modelo</h5>
+      </div>
+
+      <form name="modalModeloFormulario" ng-submit="salvarModal()" class="ng-pristine ng-valid" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-12">
+                <label>Modelo:</label>
+                <input name="modalModelo" data-ng-model="modal.nome" placeholder="Digite o nome" class="form-control" type="text" required>
+                <div ng-messages="modalModeloFormulario.modaltipoNome.$error">
+                  <div ng-messages-include="app/views/messages.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Sair</button>
+          <button type="submit" class="btn btn-primary legitRipple">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /inline form modal -->
