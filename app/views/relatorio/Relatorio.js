@@ -32,7 +32,9 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
                    "Quando"
                ]
             };
+            console.log(GeraTela.tabelaRelatorio())
             angular.element('#add').html($compile(GeraTela.relatorioFinanceiro(myObj))($scope));
+            angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio())($scope));
         }
         else if ($scope.form.relatorio_id === 2) {
             angular.element('#add').html($compile(GeraTela.relatorioFinanceiro())($scope));

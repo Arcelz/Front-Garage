@@ -3,8 +3,41 @@ angular.module('app.core')
 function geraTela() {
     var service = {
         relatorioFinanceiro: relatorioFinanceiro,
+        tabelaRelatorio:tabelaRelatorio
     };
     return service;
+
+    function tabelaRelatorio() {
+        return " <table class='table datatable-basic'>"+
+            "<thead>"+
+            "<tr>"+
+            "<th>ID</th>"+
+            "<th>Login</th>"+
+            "<th>Nome</th>"+
+            "<th>Grupo</th>"+
+            "<th class='text-center'></th>"+
+            "</tr>"+
+            "</thead>"+
+            "<tbody>"+
+            "<tr ng-repeat='lembrete in lembretes'>"+
+            "<td>{{lembrete.usuario_id}}</td>"+
+            "<td>{{lembrete.login}}</td>"+
+            "<td>{{lembrete.f_nome}}</td>"+
+            "<td>{{lembrete.g_nome}}</td>"+
+            "<td>"+
+            "<a style='color: black' href=''#!/usuarios/{{lembrete.usuario_id}}'>"+
+            "<i class='icon-pencil7'></i>"+
+            "</a>"+
+            <!--mostra o icone de excluir e chama o modal -->
+            "<a style='color: red' href='' ng-click='exibirModal(lembrete,$index)'>"+
+            "<i class='icon-trash'></i>"+
+            "</a>"+
+            <!--FIM -->
+            "</td>"+
+            "</tr>"+
+            "</tbody>"+
+            "</table>";;
+    }
 
     function relatorioFinanceiro(obj) {
         var textCima = " <div class='col-md-12'><fieldset> ";
