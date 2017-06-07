@@ -3,40 +3,31 @@ angular.module('app.core')
 function geraTela() {
     var service = {
         relatorioFinanceiro: relatorioFinanceiro,
-        tabelaRelatorio:tabelaRelatorio
+        tabelaRelatorio: tabelaRelatorio
     };
     return service;
 
-    function tabelaRelatorio() {
-        return " <table class='table datatable-basic'>"+
-            "<thead>"+
-            "<tr>"+
-            "<th>ID</th>"+
-            "<th>Login</th>"+
-            "<th>Nome</th>"+
-            "<th>Grupo</th>"+
-            "<th class='text-center'></th>"+
-            "</tr>"+
-            "</thead>"+
-            "<tbody>"+
-            "<tr ng-repeat='lembrete in lembretes'>"+
-            "<td>{{lembrete.usuario_id}}</td>"+
-            "<td>{{lembrete.login}}</td>"+
-            "<td>{{lembrete.f_nome}}</td>"+
-            "<td>{{lembrete.g_nome}}</td>"+
-            "<td>"+
-            "<a style='color: black' href=''#!/usuarios/{{lembrete.usuario_id}}'>"+
-            "<i class='icon-pencil7'></i>"+
-            "</a>"+
-            <!--mostra o icone de excluir e chama o modal -->
-            "<a style='color: red' href='' ng-click='exibirModal(lembrete,$index)'>"+
-            "<i class='icon-trash'></i>"+
-            "</a>"+
-            <!--FIM -->
-            "</td>"+
-            "</tr>"+
-            "</tbody>"+
-            "</table>";;
+    function tabelaRelatorio(obj) {
+        var tTabela = '';
+        var vTabela = '';
+        for (var i = 0; i < obj.Nome.length; i++) {
+            tTabela += "<th>"+obj.Nome[i]+"</th>";
+            vTabela += "<td>{{lembrete."+obj.Valor[i]+"}}</td>";
+        }
+        return " <table class='table datatable-basic export-table'>" +
+            "<thead>" +
+            "<tr>" +
+            tTabela+
+            "</tr>" +
+            "</thead>" +
+            "<tbody>" +
+            "<tr ng-repeat='lembrete in lembretes'>" +
+            vTabela+
+            "</td>" +
+            "</tr>" +
+            "</tbody>" +
+            "</table>";
+        ;
     }
 
     function relatorioFinanceiro(obj) {
@@ -46,28 +37,50 @@ function geraTela() {
         var tamanho = obj.Campo.length / 2;
         if (tamanho % 1 === 0.5) {
             tamanho = tamanho + 0.5;
-            for (var i = 1; i <= tamanho; i++) {
-                if (tamanho === i) {
-                    html += textCima + retornaData(obj.Nome[i], obj.Tipo[i], obj.Campo[i]) + textBaixo;
+            var increment = false;
+            var valor = 0;
+            var valor1 = 1;
+            for (var i = 0; i < tamanho; i++) {
+                if (tamanho === i + 1) {
+                    html += textCima + retornaData(obj.Nome[i + valor1], obj.Tipo[i + valor1], obj.Campo[i + valor1]) + textBaixo;
                 } else {
-                    html += textCima + retornaData(obj.Nome[i - 1], obj.Tipo[i - 1], obj.Campo[i - 1]) + retornaData(obj.Nome[i], obj.Tipo[i], obj.Campo[i]) + textBaixo;
+                    if (increment) {
+                        valor++;
+                        valor1++;
+                        html += textCima + retornaData(obj.Nome[i + valor], obj.Tipo[i + valor], obj.Campo[i + valor]) + retornaData(obj.Nome[i + valor1], obj.Tipo[i + valor1], obj.Campo[i + valor1]) + textBaixo;
+                    }
+                    else {
+                        html += textCima + retornaData(obj.Nome[i], obj.Tipo[i], obj.Campo[i]) + retornaData(obj.Nome[i + 1], obj.Tipo[i + 1], obj.Campo[i + 1]) + textBaixo;
+                        increment = true;
+                    }
                 }
             }
         }
-        else {
-            for (var i = 1; i <= tamanho; i++) {
-                html += textCima + retornaData(obj.Nome[i - 1], obj.Tipo[i - 1], obj.Campo[i - 1]) + retornaData(obj.Nome[i], obj.Tipo[i], obj.Campo[i]) + textBaixo;
+        else if (tamanho % 1 === 0) {
+            var increment = false;
+            var valor = 0;
+            var valor1 = 1;
+            for (var i = 0; i < tamanho; i++) {
+                if (increment) {
+                    valor++;
+                    valor1++;
+                    html += textCima + retornaData(obj.Nome[i + valor], obj.Tipo[i + valor], obj.Campo[i + valor]) + retornaData(obj.Nome[i + valor1], obj.Tipo[i + valor1], obj.Campo[i + valor1]) + textBaixo;
+                }
+                else {
+                    html += textCima + retornaData(obj.Nome[i], obj.Tipo[i], obj.Campo[i]) + retornaData(obj.Nome[i + 1], obj.Tipo[i + 1], obj.Campo[i + 1]) + textBaixo;
+                    increment = true;
+                }
             }
         }
         return html;
     }
 
-    function retornaData(nome, tipo,nomeCampo) {
+    function retornaData(nome, tipo, nomeCampo) {
         var nome = nome;
         var ngModel = 'form.' + nome;
         if (tipo === 'Data') {
             return "  <div class='form-group col-md-6'>" +
-                "   <label for='" + nome + "' class='col-lg-3 control-label'>"+nomeCampo+":</label>" +
+                "   <label for='" + nome + "' class='col-lg-3 control-label'>" + nomeCampo + ":</label>" +
                 "<div class='col-lg-9'>" +
                 "<input id='" + nome + "'  ng-model='" + ngModel + "' placeholder='Selecione Data' class='form-control' ng-click='open($event)' is-open='debug." + nome + "' type='text' datepicker-popup='dd/M/yyyy' /> " +
                 "</div>" +
@@ -75,9 +88,17 @@ function geraTela() {
         }
         else if (tipo === 'Texto') {
             return "  <div class='form-group col-md-6'>" +
-                "   <label for='" + nome + "' class='col-lg-3 control-label'>"+nomeCampo+":</label>" +
+                "   <label for='" + nome + "' class='col-lg-3 control-label'>" + nomeCampo + ":</label>" +
                 "<div class='col-lg-9'>" +
-                "<input id='" + nome + "'  ng-model='" + ngModel + "' placeholder='Digite o "+nomeCampo+"' class='form-control'  type='text'/> " +
+                "<input id='" + nome + "'  ng-model='" + ngModel + "' placeholder='Digite " + nomeCampo + "' class='form-control'  type='text'/> " +
+                "</div>" +
+                "</div>";
+        }
+        else if (tipo === "Numero") {
+            return "  <div class='form-group col-md-6'>" +
+                "   <label for='" + nome + "' class='col-lg-3 control-label'>" + nomeCampo + ":</label>" +
+                "<div class='col-lg-9'>" +
+                "<input id='" + nome + "'  ng-model='" + ngModel + "' placeholder='Digite " + nomeCampo + "' class='form-control'  type='text'/> " +
                 "</div>" +
                 "</div>";
         }
