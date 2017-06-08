@@ -21,7 +21,7 @@
     <!-- Basic datatable -->
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h5 class="panel-title">Lista de Entradas</h5>
+            <h5 class="panel-title">CONTAS A PAGAR</h5>
 
         </div>
 
@@ -36,7 +36,7 @@
             <div class="dataTables_length" id="DataTables_Table_0_length">
                 <label>
 						<span>
-							<strong> Valor em Caixa = R${{caixa | number:2}} </strong>
+							<strong> Total a Pagar : R${{caixa | number:2}} </strong>
 						</span>
                 </label>
 
@@ -62,6 +62,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Compra</th>
+                                    <th>Descrição</th>
+                                    <th>Classificação</th>
                                     <th>Usuario</th>
                                     <th>Usuario Update</th>
                                     <th>Vencimento</th>
@@ -74,6 +76,8 @@
                                 <tr ng-repeat="lembrete in pendenteResultados  | filter:filtros">
                                     <td>{{lembrete.pk_entrada}}</td>
                                     <td>{{lembrete.fk_compra}}</td>
+                                    <td>{{lembrete.descricao}}</td>
+                                    <td>{{lembrete.classificacao}}</td>
                                     <td>{{lembrete.usuarioCriacao}}</td>
                                     <td>{{lembrete.usuarioUpdate}}</td>
                                     <td>{{lembrete.data_vencimento}}</td>
@@ -161,7 +165,6 @@
 
 <!-- Função para subir ate o TOPO  -->
 <script>
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
-
+    $("html, body").animate({ scrollTop: $("#corpo").scrollTop() }, 'slow');
 </script>
 <!-- / FIM Função para subir ate o TOPO  -->

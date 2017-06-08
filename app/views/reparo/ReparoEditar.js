@@ -23,7 +23,7 @@ app.controller('ReparoEditar', function ($scope, $state, $q, $stateParams, DataS
                 DataService.realizarGet('http://ifg.redesbrasil.com/tipos-reparos/' + response.data[0].fk_tipos).then(function (data2) {
                     angular.element('#selectTipo').append('<option  value="' + data2.data[0].pk_tipo + '" selected>' + data2.data[0].nome + '</option>');
                 });
-                $scope.form.valor = parseInt(response.data[0].valor);
+                $scope.form.valor = response.data[0].valor;
                 $scope.form.descricao = response.data[0].descricao;
                 $scope.formulario.tipo.$error.required = false;
                 $scope.formulario.veiculo.$error.required = false;
