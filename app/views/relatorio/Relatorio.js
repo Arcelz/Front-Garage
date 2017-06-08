@@ -15,45 +15,113 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
     var nomeCampo = [];
     $scope.changeRelatorio = function () {
         if ($scope.form.relatorio_id === 1) {
+            $scope.nomeTabela = 'Relatorio contas a pagar por fornecedor';
             DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
-                $scope.lembretes = data.data;
-                $scope.nomeTabela = 'Relatorio contas a pagar por fornecedor';
                 /*var myObj = {
-                    "Nome": [  //nome onde sera colocado no ng-model e no id
-                        "Data1",
-                        "Data2",
-                        "Numero"
-                    ],
-                    "Tipo": [ // tipo do campo a ser criado
-                        "Data",
-                        "Data",
-                        "Numero"
-                    ],
-                    "Campo": [ // nome do label
-                        "De",
-                        "Ate",
-                        "Valor"
-                    ]
-                };*/
-                var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
-                    "Nome": [
-                        "ID",
-                        "Nome",
-                        "Valor"
-                    ],
-                    "Valor": [
-                        "pk_fornecedor",
-                        "nome",
-                        "Valor"
-                    ]
-                };
-              //  angular.element('#add').html($compile(GeraTela.relatorioFinanceiro(myObj))($scope));
-                angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio(objTable))($scope));
+                 "Nome": [  //nome onde sera colocado no ng-model e no id
+                 "Data1",
+                 "Data2",
+                 "Numero"
+                 ],
+                 "Tipo": [ // tipo do campo a ser criado
+                 "Data",
+                 "Data",
+                 "Numero"
+                 ],
+                 "Campo": [ // nome do label
+                 "De",
+                 "Ate",
+                 "Valor"
+                 ]
+                 };*/
+                if (data.data.status === 400) {
+                    angular.element('#tabela').html("Nenhum resultado");
+                }
+                else {
+                    $scope.lembretes = data.data;
+                    var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
+                        "Nome": [
+                            "ID",
+                            "Nome",
+                            "Valor"
+                        ],
+                        "Valor": [
+                            "pk_fornecedor",
+                            "nome",
+                            "Valor"
+                        ],
+                        "MascaraValor": [
+                            false,
+                            false,
+                            true
+                        ]
+                    };
+                    //  angular.element('#add').html($compile(GeraTela.relatorioFinanceiro(myObj))($scope));
+                    angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio(objTable))($scope));
+                }
             });
         }
         else if ($scope.form.relatorio_id === 2) {
             $scope.nomeTabela = 'Relatorio contas pagas por fornecedor';
             DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+                if (data.data.status === 400) {
+                    angular.element('#tabela').html("Nenhum resultado");
+                }
+                else {
+                    $scope.lembretes = data.data;
+                    var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
+                        "Nome": [
+                            "ID",
+                            "Nome",
+                            "Valor"
+                        ],
+                        "Valor": [
+                            "pk_fornecedor",
+                            "nome",
+                            "Valor"
+                        ],
+                        "MascaraValor": [
+                            false,
+                            false,
+                            true
+                        ]
+                    };
+                    angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio(objTable))($scope));
+                }
+            });
+        }
+        else if ($scope.form.relatorio_id === 3) {
+            $scope.nomeTabela = 'Relatorio a pagar por cliente';
+            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+                if (data.data.status === 400) {
+                    angular.element('#tabela').html("Nenhum resultado");
+                }
+                else {
+                    $scope.lembretes = data.data;
+                    var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
+                        "Nome": [
+                            "ID",
+                            "Nome",
+                            "Valor"
+                        ],
+                        "Valor": [
+                            "pk_cliente",
+                            "nome",
+                            "Valor"
+                        ],
+                        "MascaraValor": [
+                            false,
+                            false,
+                            true
+                        ]
+                    };
+                    angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio(objTable))($scope));
+                }
+            });
+        }
+        else if ($scope.form.relatorio_id === 4) {
+            $scope.nomeTabela = 'Relatorio contas pagas por cliente';
+            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
                 $scope.lembretes = data.data;
                 var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
                     "Nome": [
@@ -62,12 +130,81 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
                         "Valor"
                     ],
                     "Valor": [
-                        "pk_fornecedor",
+                        "pk_cliente",
                         "nome",
                         "Valor"
+                    ],
+                    "MascaraValor": [
+                        false,
+                        false,
+                        true
                     ]
                 };
                 angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio(objTable))($scope));
+            });
+        }
+        else if ($scope.form.relatorio_id === 5) {
+            $scope.nomeTabela = 'Relatorio reparos a pagar';
+            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+                if (data.data.status === 400) {
+                    angular.element('#tabela').html("Nenhum resultado");
+                }
+                else {
+                    $scope.lembretes = data.data;
+                    var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
+                        "Nome": [
+                            "ID",
+                            "Descricao",
+                            "Placa",
+                            "Valor"
+                        ],
+                        "Valor": [
+                            "fk_compra",
+                            "descricao",
+                            "placa",
+                            "Valor"
+                        ],
+                        "MascaraValor": [
+                            false,
+                            false,
+                            false,
+                            true
+                        ]
+                    };
+                    angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio(objTable))($scope));
+                }
+            });
+        }
+        else if ($scope.form.relatorio_id === 6) {
+            $scope.nomeTabela = 'Relatorio reparos pagos';
+            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+                if (data.data.status === 400) {
+                    angular.element('#tabela').html("Nenhum resultado");
+                }
+                else {
+                    $scope.lembretes = data.data;
+                    var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
+                        "Nome": [
+                            "ID",
+                            "Descricao",
+                            "Placa",
+                            "Valor"
+                        ],
+                        "Valor": [
+                            "fk_compra",
+                            "descricao",
+                            "placa",
+                            "Valor"
+                        ],
+                        "MascaraValor": [
+                            false,
+                            false,
+                            false,
+                            true
+                        ]
+                    };
+                    angular.element('#tabela').html($compile(GeraTela.tabelaRelatorio(objTable))($scope));
+                }
             });
         }
     }

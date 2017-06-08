@@ -12,9 +12,14 @@ function geraTela() {
         var vTabela = '';
         for (var i = 0; i < obj.Nome.length; i++) {
             tTabela += "<th>"+obj.Nome[i]+"</th>";
-            vTabela += "<td>{{lembrete."+obj.Valor[i]+"}}</td>";
+            if(obj.MascaraValor[i]){
+                vTabela += "<td>R$ {{lembrete." + obj.Valor[i] + "| number:2}}</td>";
+            }
+            else{
+                vTabela += "<td>{{lembrete." + obj.Valor[i] + "}}</td>";
+            }
         }
-        return " <table class='table datatable-basic export-table'>" +
+        return " <table class='table datatable-basic'>" +
             "<thead>" +
             "<tr>" +
             tTabela+
