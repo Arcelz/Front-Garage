@@ -119,7 +119,7 @@
 
                     <div class="navigation-wrapper collapse" id="user-nav">
                         <ul class="navigation">
-                            <li><a href="#"><i class="icon-user-plus"></i> <span>My profile</span></a></li>
+                            <li><a href="#"><i class="icon-user-plus"></i> <span>Meu Perfil</span></a></li>
                             <li><a href="#"><i class="icon-coins"></i> <span>My balance</span></a></li>
                             <li><a href="#"><i class="icon-comment-discussion"></i> <span><span
                                     class="badge bg-teal-400 pull-right">58</span> Messages</span></a></li>
@@ -141,7 +141,14 @@
                             <li class="navigation-header"><span>Administrativo</span> <i class="icon-menu"
                                                                                          title="Main pages"></i></li>
                             <li><a href="#!/"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-                            <li>
+                          
+                            <!-- /main -->
+                               <!-- Manutenção dos Veiculos -->
+                            <li class="navigation-header"><span>Segurança</span> <i class="icon-menu"
+                                                                                                  title="Layout options"></i>
+                            </li>
+
+                             <li>
                                 <a href="#"><i class="icon-users"></i> <span>Acesso ao Sistema</span></a>
                                 <ul>
 
@@ -169,7 +176,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!-- /main -->
+                            <!-- /Manutenção dos Veiculos -->
 
                             <!-- Cadastrados -->
                             <li class="navigation-header"><span>Cadastrados</span> <i class="icon-menu"
@@ -250,8 +257,6 @@
                                             class="icon-search4"></i> Listar Reparos</a></li>
                                 </ul>
                             </li>
-
-
                             <!-- /Manutenção dos Veiculos -->
 
                             <!-- Vendas e Compras -->
@@ -284,7 +289,7 @@
                                                                                       title="Layout options"></i></li>
 
                             <li ng-show="permicaoJSON.compra">
-                                <a href="#"><i class="icon-enter"></i> <span>Contas a Pagar</span></a>
+                                <a href="#"><i class="icon-exit "></i> <span>Contas a Pagar</span></a>
                                 <ul>
                                     <li ng-show="permicaoJSON.entradaVisualizar"><a href="#!/entradas"><i
                                             class="icon-search4"></i> Listar Contas</a></li>
@@ -292,7 +297,7 @@
                             </li>
 
                             <li ng-show="permicaoJSON.venda">
-                                <a href="#"><i class="icon-exit"></i> <span>Contas a Receber</span></a>
+                                <a href="#"><i class="icon-enter"></i> <span>Contas a Receber</span></a>
                                 <ul>
                                     <li ng-show="permicaoJSON.saidaVisualizar"><a href="#!/saidas"><i
                                             class="icon-search4"></i> Listar Contas</a></li>
@@ -306,41 +311,8 @@
                             </li>
 
                             <li>
-                                <a href="#"><i class="icon-stats-dots"></i> <span>Dimple library</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">Line charts</a>
-                                        <ul>
-                                            <li><a href="dimple_lines_horizontal.html">Horizontal orientation</a></li>
-                                            <li><a href="dimple_lines_vertical.html">Vertical orientation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Bar charts</a>
-                                        <ul>
-                                            <li><a href="dimple_bars_horizontal.html">Horizontal orientation</a></li>
-                                            <li><a href="dimple_bars_vertical.html">Vertical orientation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Area charts</a>
-                                        <ul>
-                                            <li><a href="dimple_area_horizontal.html">Horizontal orientation</a></li>
-                                            <li><a href="dimple_area_vertical.html">Vertical orientation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Step charts</a>
-                                        <ul>
-                                            <li><a href="dimple_step_horizontal.html">Horizontal orientation</a></li>
-                                            <li><a href="dimple_step_vertical.html">Vertical orientation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="dimple_pies.html">Pie charts</a></li>
-                                    <li><a href="dimple_rings.html">Ring charts</a></li>
-                                    <li><a href="dimple_scatter.html">Scatter charts</a></li>
-                                    <li><a href="dimple_bubble.html">Bubble charts</a></li>
-                                </ul>
+                                <a href="#!/relatorios"><i class="icon-file-pdf"></i> <span>Relatorios</span></a>
+                              
                             </li>
                             <!-- /Relatorios -->
                         </ul>

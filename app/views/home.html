@@ -6,16 +6,31 @@
 
     <div class="panel panel-flat">
         <div class="panel-body">
+            <div class="panel-heading">
+                <h5 class="panel-title" align="center"><strong>Fluxo Financeiro do Mês Atual</strong></h5>
 
+            </div>
             <div class="row">
+                <div class="col-sm-4">
+
+                    <div class="aw-box">
+                        <div class="aw-box__icon">
+                            <i class="fa  fa-heartbeat  fa-3x"></i>
+                        </div>
+                        <div class="aw-box__value">R$ {{receitas}}</div>
+                        <div class="aw-box__title">Entradas</div>
+                    </div>
+
+                </div>
+
                 <div class="col-sm-4">
 
                     <div class="aw-box">
                         <div class="aw-box__icon">
                             <i class="fa  fa-bank  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">R$983.433,20</div>
-                        <div class="aw-box__title">Faturamento total</div>
+                        <div class="aw-box__value">R$ {{saidas}}</div>
+                        <div class="aw-box__title">Saidas</div>
                     </div>
 
                 </div>
@@ -26,23 +41,13 @@
                         <div class="aw-box__icon">
                             <i class="fa  fa-usd  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">R$343.542,59</div>
-                        <div class="aw-box__title">Faturamento no ano</div>
+                        <div class="aw-box__value">R$ {{saldo}}</div>
+                        <div class="aw-box__title">Saldo</div>
                     </div>
 
                 </div>
 
-                <div class="col-sm-4">
 
-                    <div class="aw-box">
-                        <div class="aw-box__icon">
-                            <i class="fa  fa-heartbeat  fa-3x"></i>
-                        </div>
-                        <div class="aw-box__value">R$40.233,40</div>
-                        <div class="aw-box__title">Faturamento no mês</div>
-                    </div>
-
-                </div>
             </div>
 
             <div class="row">
@@ -52,7 +57,7 @@
                         <div class="aw-box__icon">
                             <i class="fa  fa-users  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">1.298</div>
+                        <div class="aw-box__value">{{countClinetes}}</div>
                         <div class="aw-box__title">Total de clientes</div>
                     </div>
 
@@ -62,10 +67,10 @@
 
                     <div class="aw-box">
                         <div class="aw-box__icon">
-                            <i class="fa  fa-battery-empty  fa-3x"></i>
+                            <i class="fa  fa-car  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">123</div>
-                        <div class="aw-box__title">Produtos sem estoque</div>
+                        <div class="aw-box__value">{{countGaragem}}</div>
+                        <div class="aw-box__title">Carros na Garagem</div>
                     </div>
 
                 </div>
@@ -74,10 +79,10 @@
 
                     <div class="aw-box">
                         <div class="aw-box__icon">
-                            <i class="fa  fa-truck  fa-3x"></i>
+                            <i class="fa fa-car  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">3.344</div>
-                        <div class="aw-box__title">Estoque total</div>
+                        <div class="aw-box__value">{{countVendidos}}</div>
+                        <div class="aw-box__title">Carros Vendidos</div>
                     </div>
 
                 </div>
@@ -91,13 +96,10 @@
                         </div>
                         <div class="aw-graph-box__content">
                             <div class="aw-graph-box__no-data">
-                                <i class="fa  fa-line-chart  fa-2x"></i>
-                                <span>20</span>
-                                <span>40</span>
                             </div>
 
                             <div>
-                                <canvas id="lineChart" height="160"></canvas>
+                                <canvas id="vendasPorMes" height="160"></canvas>
                             </div>
                         </div>
                     </div>
@@ -106,16 +108,15 @@
                 <div class="col-sm-6">
                     <div class="aw-graph-box">
                         <div class="aw-graph-box__header">
-                            <h2 class="aw-graph-box__title">Faturamento por representante <small>últimos 12 meses</small></h2>
+                            <h2 class="aw-graph-box__title">Faturamento por Vendedor <small>últimos 12 meses</small></h2>
                         </div>
                         <div class="aw-graph-box__content" style="position: relative">
                             <div class="aw-graph-box__no-data">
-                                <i class="fa  fa-line-chart  fa-2x"></i>
-                                <span>Não há dados</span>
+                                
                             </div>
 
                             <div>
-                                <canvas id="lineChart" height="160"></canvas>
+                                <canvas id="faturamentoVendedores" height="160"></canvas>
                             </div>
                         </div>
                     </div>
@@ -131,3 +132,4 @@
 
 
 <script src="app/resources/js/garagejs/vendors.min.js"></script>
+<script src="app/resources/js/garagejs/Chart.min.js"></script>
