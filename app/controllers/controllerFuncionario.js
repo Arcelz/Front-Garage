@@ -47,7 +47,6 @@ app.controller('FuncionarioSalvar', function ($scope, $rootScope, DataService, $
 
     //Função para salvar Funcionario
     $scope.salvar = function () {
-
         //Caso o fkCargo vier null eu seto o valor que esta no value
         if ($scope.form.fkCargo === null) {
             var ValorA = $("#renderedCombo2 option:selected").val();
@@ -59,7 +58,8 @@ app.controller('FuncionarioSalvar', function ($scope, $rootScope, DataService, $
         // Se vier undefined é pq está criando um novo funcionario, se nao vai para atualizar o funcionario
         if ($scope.form.pk_funcionario === undefined) {
             if ($scope.formulario.$valid) {
-                $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções      
+                $scope.form['avatar'] = $scope.avatar.base64;
+                $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
                 DataService.realizarPost('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (response) {
                     if (response.data.status == 400) {
                         $scope.mensagem = response.data.message;
