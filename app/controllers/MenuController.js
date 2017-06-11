@@ -1,7 +1,9 @@
 app.controller('MenuController', function ($scope, $state, $localStorage, AuthService, jwtHelper, MudarCor) {
     MudarCor.mudarCor();
+    var caminho = 'http://ifg.redesbrasil.com/GarageAPI';
     var token = AuthService.getToken();
     $scope.nomeUsuario = jwtHelper.decodeToken(token)['Nome'];
+    $scope.imagem = caminho+jwtHelper.decodeToken(token)['Avatar'];
 
     $scope.logout = function () {
         AuthService.logout();
