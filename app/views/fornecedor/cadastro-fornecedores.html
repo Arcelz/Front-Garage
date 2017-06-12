@@ -3,14 +3,7 @@
 
 	<!-- 2 columns form -->
 	<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="FornecedorSalvar">
-		<div ng-show="mensagem.length" class="row">
-			<div class="col-md-6">
-				<div class="alert alert-primary alert-bordered">
-					<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
-					<span class="text-semibold">{{mensagem}}</span>
-				</div>
-			</div>
-		</div>
+		
 		<div class="panel panel-flat">
 			<div class="panel-heading">
 				<h5 class="panel-title">Cadastro de Fornecedor</h5>
@@ -22,18 +15,18 @@
 					<div class="col-md-6">
 						<fieldset>
 							<legend class="text-semibold"><i class="icon-reading position-left"></i> Dados Pessoais </legend>
-							 <label class="text-danger">Campos com ( * )  são OBRIGATORIOS </label>
+							<label class="text-danger">Campos com ( * )  são OBRIGATORIOS </label>
 
 							<div class="form-group">
 								<label for="nome" class="col-lg-3 control-label">Nome
 									 	<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
 								</label>
 								<div class="col-lg-9">
-									<input type="text" id="nome" name="nome" class="form-control" placeholder="Nome" ng-model="form.nome" autofocus required/>
+									<input type="text" id="nome" name="nome" class="form-control" placeholder="Nome" ng-model="form.nome" autofocus  required/>
 									<input type="hidden" class="form-control" placeholder="Nome" ng-model="form.pk_fornecedor" />
-									<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label">
-														Nome obrigatorio
-													</label>
+									<div ng-messages="formulario.nome.$error">
+										<div ng-messages-include="app/views/messages.html"></div>
+									</div>
 								</div>
 							</div>
 
@@ -42,10 +35,10 @@
 										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
 								</label>
 								<div class="col-lg-9">
-									<input type="text" id="cpf" class="form-control" name="cpf" placeholder="CPF" ng-model="form.cpf" required/>
-									<label ng-show="formulario.$submitted && formulario.cpf.$error.required" class="validation-error-label">
-														CPF obrigatorio
-													</label>
+									<input type="text" id="cpf" class="form-control" name="cpf" placeholder="CPF" ng-model="form.cpf" ui-br-cpf-mask required/>
+									<div ng-messages="formulario.cpf.$error">
+										<div ng-messages-include="app/views/messages.html"></div>
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
@@ -53,10 +46,10 @@
 										<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />      
 								</label>
 								<div class="col-lg-9">
-									<input type="email" id="email" name="email" placeholder="eugene@kopyov.com" class="form-control" ng-model="form.email" required/>
-									<label ng-show="formulario.$submitted &&  formulario.email.$error.required" class="validation-error-label">
-														Email obrigatorio
-													</label>
+									<input type="text" id="email" name="email" placeholder="eugene@kopyov.com" class="form-control" ng-model="form.email" required/>
+									<div ng-messages="formulario.email.$error">
+										<div ng-messages-include="app/views/messages.html"></div>
+									</div>
 								</div>
 							</div>
 
@@ -67,16 +60,17 @@
 								<div class="col-lg-9">
 									<div class="row">
 										<div class="col-md-4">
-											<input id="telefone" type="tel" placeholder="Telefone" class="form-control" ng-model="form.contato">
+											<input id="telefone" type="tel" name="telefone" placeholder="Telefone" class="form-control" ng-model="form.contato" ui-br-phone-number />
+										
 										</div>
 										<label for="celular" class="col-lg-3 control-label">Celular
 											<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
 										</label>
 										<div class="col-md-4">
-											<input id="celular" type="tel" placeholder="Celular" name="celular" class="form-control" ng-model="form.contato1" required/>
-											<label ng-show="formulario.$submitted &&  formulario.celular.$error.required" class="validation-error-label">
-																Celular obrigatorio
-															</label>
+											<input id="celular" type="tel" placeholder="Celular" name="celular" class="form-control" ng-model="form.contato1" ui-br-phone-number required/>
+											<div ng-messages="formulario.celular.$error">
+												<div ng-messages-include="app/views/messages.html"></div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -109,18 +103,18 @@
 									<div class="row">
 										<div class="col-md-4">
 											<input id="estado" type="text" placeholder="Estado" name="estado" class="form-control" ng-model="form.estado" required/>
-											<label ng-show="formulario.$submitted &&  formulario.estado.$error.required" class="validation-error-label">
-																Estado obrigatorio
-															</label>
+											<div ng-messages="formulario.estado.$error">
+												<div ng-messages-include="app/views/messages.html"></div>
+											</div>
 										</div>
 										<label for="cidade" class="col-lg-3 control-label">Cidade
 											<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
 										</label>
 										<div class="col-md-4">
 											<input id="cidade" type="text" placeholder="Cidade" name="cidade" class="form-control" ng-model="form.cidade" required/>
-											<label ng-show="formulario.$submitted &&  formulario.cidade.$error.required" class="validation-error-label">
-																Cidade obrigatorio
-															</label>
+											<div ng-messages="formulario.cidade.$error">
+												<div ng-messages-include="app/views/messages.html"></div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -137,10 +131,10 @@
 											<img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="10" width="10" />
 										</label>
 										<div class="col-md-4">
-											<input id="cep" type="text" name="cep" placeholder="Cep" class="form-control" ng-model="form.cep" required/>
-											<label ng-show="formulario.$submitted &&  formulario.cep.$error.required" class="validation-error-label">
-																CEP obrigatorio
-															</label>
+											<input id="cep" type="text" name="cep" placeholder="Cep" class="form-control" ng-model="form.cep"  ui-br-cep-mask required/>
+											<div ng-messages="formulario.cep.$error">
+												<div ng-messages-include="app/views/messages.html"></div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -153,7 +147,7 @@
 					<a href="#!/fornecedores">
                                     	<button  class="btn btn-primary"> <i class="icon-arrow-left13 position-right"></i> Voltar </button>
                                 	</a>
-					<button ng-disabled="botao" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
+					<button ng-disabled="botao" type="submit" class="btn btn-primary"> Salvar <i class="icon-arrow-right14 position-right"></i></button>
 				</div>
 			</div>
 		</div>

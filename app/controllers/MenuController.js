@@ -4,7 +4,7 @@ app.controller('MenuController', function ($scope, $state, $localStorage, AuthSe
     var token = AuthService.getToken();
     $scope.nomeUsuario = jwtHelper.decodeToken(token)['Nome'];
     $scope.imagem = caminho+jwtHelper.decodeToken(token)['Avatar'];
-
+   
     $scope.logout = function () {
         AuthService.logout();
         $state.go('login');

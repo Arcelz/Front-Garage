@@ -1,32 +1,30 @@
+<!-- Inline form modal -->
+<div id="modal_form_inline" class="modal fade" data-backdrop="static">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" id="testeFechar" data-dismiss="modal">×</button>
+				<h5 class="modal-title">Cadastrado de Cargo</h5>
+			</div>
 
-		            <!-- Inline form modal -->
-					<div id="modal_form_inline" class="modal fade" data-backdrop="static">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-                                    <button type="button" class="close" id="testeFechar" data-dismiss="modal">×</button>
-									<h5 class="modal-title">Cadastrado de Cargo</h5>
-								</div>
-
-								<form  name="formulario" action="" class="form-inline" ng-controller="FuncionarioSalvar">
-									<div class="modal-body">
-										<div class="form-group has-feedback">
-											<label>Nome: </label>
-											<input type="text" placeholder="Nome" name="nome" class="form-control" ng-model="form2.nome" >
-											<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>
-												NOme obrigatorio
-											</label>
-											<div class="form-control-feedback">
-												<i class="icon-user text-muted"></i>
-											</div>
-										</div>										
-									</div>
-
-									<div class="modal-footer text-center">
-										<button ng-click="salvarCargo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
-									</div>
-								</form>
-							</div>
+			<form name="formulario" action="" class="form-inline" ng-controller="FuncionarioSalvar">
+				<div class="modal-body">
+					<div class="form-group has-feedback">
+						<label>Nome: </label>
+						<input type="text" placeholder="Nome" name="nome" class="form-control" ng-model="form2.nome">
+						<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label" required/>						NOme obrigatorio
+						</label>
+						<div class="form-control-feedback">
+							<i class="icon-user text-muted"></i>
 						</div>
 					</div>
-					<!-- /inline form modal -->
+				</div>
+
+				<div class="modal-footer text-center">
+					<button ng-click="salvarCargo()" data-dismiss="modal" type="submit" class="btn btn-primary">Salvar <i class="icon-plus22"></i></button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- /inline form modal -->
