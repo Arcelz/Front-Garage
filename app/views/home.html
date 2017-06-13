@@ -17,7 +17,7 @@
                         <div class="aw-box__icon">
                             <i class="fa  fa-heartbeat  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">R$ {{receitas}}</div>
+                        <div class="aw-box__value">R$ {{receitas | number:2}}</div>
                         <div class="aw-box__title">Entradas</div>
                     </div>
 
@@ -29,7 +29,7 @@
                         <div class="aw-box__icon">
                             <i class="fa  fa-bank  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">R$ {{saidas}}</div>
+                        <div class="aw-box__value">R$ {{saidas |number:2}}</div>
                         <div class="aw-box__title">Saidas</div>
                     </div>
 
@@ -41,7 +41,7 @@
                         <div class="aw-box__icon">
                             <i class="fa  fa-usd  fa-3x"></i>
                         </div>
-                        <div class="aw-box__value">R$ {{saldo}}</div>
+                        <div class="aw-box__value">R$ {{saldo |number:2}}</div>
                         <div class="aw-box__title">Saldo</div>
                     </div>
 
@@ -131,5 +131,5 @@
 
 
 
-<script src="app/resources/js/garagejs/vendors.min.js"></script>
-<script src="app/resources/js/garagejs/Chart.min.js"></script>
+
+
