@@ -237,7 +237,7 @@ app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
             url: '/modelos/:id',
             permicao: '15C',
             templateUrl: 'app/views/modelo/cadastro-modelos.html',
-            controller: 'ModeloNovo',
+            controller: 'ModeloEditar',
             controllerAs: 'vm'
         })
         .state('common.permissaoListar', {
