@@ -5,6 +5,9 @@ app.controller('FuncionarioSalvar', function ($scope, $state, $rootScope, DataSe
     //$scope.fkCargo = null;                       
     $scope.cargoResultados = [];
 
+    //responsavel para exebir os demais cargos não ta funcionando direito
+
+
     DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (data) {
         console.log(data, "Primeira Consulta");
         $scope.cargoResultados = data.data;
@@ -68,7 +71,7 @@ app.controller('FuncionarioSalvar', function ($scope, $state, $rootScope, DataSe
             if ($scope.avatar !== undefined) {
                 $scope.form['avatar'] = $scope.avatar.base64;
             }
-         
+
             $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
             DataService.realizarPost('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (response) {
                 if (response.data.status == 400) {

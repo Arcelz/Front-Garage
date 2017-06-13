@@ -26,25 +26,28 @@ app.controller('FuncionarioEditar', function ($scope, $state, DataService, $stat
             fkCargo: response.data[0].pk_cargos
 
         };
+        //  $("#renderedCombo2 :selected").remove();
         // ----------------FIM-----------------------
 
         //exibir o cargo que veio do banco
         $scope.select = angular.element(document.querySelector('#renderedCombo2'));
-        $scope.select.html('<option selected label="' + response.data[0].nome + '" value="string:' + response.data[0].pk_cargos + '">' + response.data[0].nome + '</option>');
+        $scope.select.html('<option  label="' + response.data[0].nome + '" value="string:' + response.data[0].pk_cargos + '">' + response.data[0].nome + '</option>');
+
+        teste();
         // ----------------FIM-----------------------
     });
 
     //responsavel para exebir os demais cargos não ta funcionando direito
-    $scope.carregarCargo = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (datas) {            
-            $scope.cargoResultados = datas.data;
-            //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
 
-        });
-        // ----------------FIM-----------------------
+    function  teste(){ DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (datas) {
+        $scope.cargoResultados = datas.data;
+        //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
 
-
+    });
     }
+    // ----------------FIM-----------------------
+
+
 
 
 
