@@ -59,17 +59,15 @@
 
 
               <div class="form-group">
-                <label for="valorCompra" class="col-lg-3 control-label">Valor de Compra
-                  <img src="app/resources/img/asterisk-pr-icon.png" alt="obrigatório" height="8" width="8" />      
+                <label for="valorCompra" class="col-lg-3 control-label">Valor de Compra:
+                      
                 </label>
                 <div class="col-lg-8">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="mb-12">
-                        <input id="valorCompra" type="text" placeholder="Compra" name="valorCompra" class="form-control" ng-model="form.valorCompra" required/>
-                        <label ng-show="formulario.$submitted &&  formulario.valorCompra.$error.required" class="validation-error-label">
-                          Informe o valor de Compra
-                        </label>
+                        <input id="valorCompra" type="text" disabled="disabled" placeholder="Compra" name="valorCompra" class="form-control" ng-model="form.valorCompra" />
+                        
                       </div>
                     </div>
                   </div>
