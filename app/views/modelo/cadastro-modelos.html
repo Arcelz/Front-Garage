@@ -2,15 +2,8 @@
 <div class="content">
 
 	<!-- 2 columns form -->
-	<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate ng-controller="ModeloNovo">
-		<div ng-show="mensagem.length" class="row">
-			<div class="col-md-6">
-				<div class="alert alert-primary alert-bordered">
-					<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
-					<span class="text-semibold">{{mensagem}}</span>
-				</div>
-			</div>
-		</div>
+	<form class="form-horizontal" name="formulario" ng-submit="salvar()" novalidate>
+
 		<div class="panel panel-flat">
 			<div class="panel-heading">
 				<h5 class="panel-title">Cadastro de Modelos</h5>
@@ -27,10 +20,11 @@
 								<label for="nome" class="col-lg-3 control-label">Nome:</label>
 								<div class="col-lg-9">
 									<input type="text" name="nome" class="form-control" placeholder="Nome" ng-model="form.nome" required/>
-									<input type="hidden"  class="form-control" placeholder="Nome" ng-model="form.pk_modelo" />
-									<label ng-show="formulario.$submitted &&  formulario.nome.$error.required" class="validation-error-label">
-										Nome obrigatorio
-									</label>
+									<input type="hidden" class="form-control" placeholder="Nome" ng-model="form.pk_modelo" />
+									<div ng-messages="formulario.nome.$error">
+										<div ng-messages-include="app/views/messages.html"></div>
+									</div>
+
 								</div>
 							</div>
 
@@ -50,27 +44,15 @@
 	</form>
 	<!-- /2 columns form -->
 
-	<!-- Footer -->
-	<div class="footer text-muted">
-		&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
-	</div>
-	<!-- /footer -->
+
 
 </div>
 <!-- /content area -->
 
-<div data-ng-include="'app/views/funcionario/modal-funcionario.html'"></div>
-
-
-
-
-
-<!-- Theme JS files -->
-<script type="text/javascript" src="app/assets/js/plugins/forms/selects/select2.min.js"></script>
-<script type="text/javascript" src="app/assets/js/pages/form_layouts.js"></script>
 <script>
-$(".select2-selection select2-selection--single").click(function(){
-	alter("OK");
-});
+	$(document).ready(function () {
+		$('html, body').animate({ scrollTop: 0 }, 'slow');
+		return false;
+	});
+
 </script>
-<!-- /theme JS files -->
