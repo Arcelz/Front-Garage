@@ -1,13 +1,14 @@
-app.controller('FuncionarioEditar', function ($scope,$state, DataService, $stateParams, $rootScope) {
+app.controller('FuncionarioEditar', function ($scope, $state, DataService, $stateParams, $rootScope) {
     $scope.form = {};
     var id = $stateParams.id; //pega o paramentro informado na url
 
-    if(id==""){
+    if (id == "") {
         $state.go('common.funcionarioListar');
     }
-    //console.log(id);
+
+
     DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios/' + id).then(function (response) {
-         console.log(response);
+        console.log(response);
         //tem que modar o array manualmente
         $scope.form = {
             pk_funcionario: response.data[0].pk_funcionario,
@@ -34,27 +35,54 @@ app.controller('FuncionarioEditar', function ($scope,$state, DataService, $state
     });
 
     //responsavel para exebir os demais cargos não ta funcionando direito
-    DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (datas) {
-        console.log($scope.datas, "editar");
-        $scope.cargoResultados = datas.data;
-        //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
+    $scope.carregarCargo = function () {
+        DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (datas) {            
+            $scope.cargoResultados = datas.data;
+            //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
 
-    });
-    // ----------------FIM-----------------------
+        });
+        // ----------------FIM-----------------------
+
+
+    }
+
+
 
     $scope.salvar = function () {
+        $scope.form.cpf = $("#cpf").val();
+        $scope.form.telefone = $("#telefone").val();
+        $scope.form.celular = $("#celular").val();
+        $scope.form.cep = $("#cep").val();
 
-        DataService.realizarPut('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (response) {
-            console.log(response);
-            if (response.data.status == 400) {
-                $scope.mensagem = response.data.message;
-                $scope.botao = false;
-            } else {
-                $scope.botao = true; ///para desativar o botão para que o usuario não faça varias requisções
-                $scope.mensagem = response.data.message;
-                $scope.form = {}; //limpa o formulario
+        if ($scope.form.cpf !== "" && $scope.form.telefone !== "" && $scope.form.celular !== "" && $scope.form.cep !== "") {
+            $scope.formulario.$valid = true;
+
+        };
+
+        //Caso o fkCargo vier null eu seto o valor que esta no value
+        if ($scope.form.fkCargo === null) {
+            var ValorA = $("#renderedCombo2 option:selected").val();
+            $scope.form.fkCargo = ValorA;
+        }
+        //----------------FIM-----------------------
+
+        if ($scope.formulario.$valid) {
+            if ($scope.avatar !== undefined) {
+                $scope.form['avatar'] = $scope.avatar.base64;
             }
-        });
+
+            $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
+            DataService.realizarPut('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (response) {
+                if (response.data.status == 400) {
+                    $scope.botao = false; //ativa o botao em caso de erro
+                } else {
+                    $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
+                    $state.go('common.funcionarioListar');
+
+                }
+            });
+
+        }
     }
 
 

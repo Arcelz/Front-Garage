@@ -65,15 +65,18 @@ app.controller('FuncionarioSalvar', function ($scope, $state, $rootScope, DataSe
         //----------------FIM-----------------------
 
         if ($scope.formulario.$valid) {
-            $scope.form['avatar'] = $scope.avatar.base64;
+            if ($scope.avatar !== undefined) {
+                $scope.form['avatar'] = $scope.avatar.base64;
+            }
+         
             $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
             DataService.realizarPost('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (response) {
-                if (response.data.status == 400) {                    
+                if (response.data.status == 400) {
                     $scope.botao = false; //ativa o botao em caso de erro
                 } else {
                     $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
                     $state.go('common.funcionarioListar');
-                    
+
                 }
             });
 
