@@ -13,7 +13,9 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
     var arrayNomes = [];
     var tipo = [];
     var nomeCampo = [];
+    $scope.botaoPDF = false;
     $scope.changeRelatorio = function () {
+        $scope.botaoPDF = true;
         if ($scope.form.relatorio_id === 1) {
             $scope.nomeTabela = 'Relatorio contas a pagar por fornecedor';
             DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {

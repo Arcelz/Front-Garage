@@ -40,8 +40,8 @@
             <h5 id="nomePDF" class="text-center panel-title">{{nomeTabela}}</h5>
             <div id="tabela"></div>
             </div>
-            <div class="text-right">
-                <button ng-disabled="botaoPDF"id="pdf" class="btn btn-primary"> PDF <i class="icon-arrow-right14 position-right"></i></button>
+            <div ng-show="botaoPDF" class="text-right">
+                <button id="pdf" class="btn btn-primary"> PDF <i class="icon-arrow-right14 position-right"></i></button>
             </div>
         </div>
 </div>
