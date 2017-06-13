@@ -79,11 +79,11 @@
                                     <td class="text-center"> <span class="label label-info">{{vendas.statusVenda}}</span>
                                     </td>
                                     <td ng-show="permicaoJSON.venda">
-                                        <a ng-show="permicaoJSON.vendaEditar" ng-click="cancelamento(vendas.pk_venda,$index)" style="color: black">
+                                        <a ng-show="permicaoJSON.vendaEditar" ng-click="cancelamento(vendas.pk_venda,$index,vendas.fk_veiculo)" style="color: black">
                                             <i class="icon-pencil7"></i>
                                         </a>
                                         <!--mostra o icone de excluir e chama o modal -->
-                                        <a ng-show="permicaoJSON.vendaDeletar" style="color: #F00" ng-click="abrirModalExclusao(vendas.pk_venda,$index, vendas.valor_venda)">
+                                        <a ng-show="permicaoJSON.vendaDeletar" style="color: #F00" ng-click="abrirModalExclusao(vendas.pk_venda,$index, vendas.valor_venda,vendas.fk_veiculo)">
                                             <!--<input id="id" type="hidden" value="{{lembrete.pk_funcionario}}">-->
                                             <i class="icon-trash"></i>
                                         </a>

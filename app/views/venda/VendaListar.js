@@ -1,6 +1,7 @@
 app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataService, AuthService, $compile, $state, jwtHelper) {
     var idModal;
     var indexRemover;
+    var fkVeiculo;
     $scope.resultadosCompras = [];
 
 
@@ -26,22 +27,24 @@ app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataSe
 
     $scope.pendente = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/vendas').then(function (response) {
+            console.log(response);
             $scope.pendenteResultados = response.data;
         });
     }
 
     $scope.canceladas = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/vendas/' + 1).then(function (response) {
-            console.log(response);
+          
             $scope.canceladosResultados = response.data;
         });
     }
 
-    $scope.cancelamento = function (id, index) {
+    $scope.cancelamento = function (id, index,fk_Veiculo) {
         $scope.title = "CANCELAMENTO DE COMPRA";
         $scope.msg = "TEM CERTEZA QUE DESEJA CANCELAR A VENDA " + id;
         indexRemover = index;
         idModal = id;
+        fkVeiculo = fk_Veiculo;
 
         angular.element('#modal_mensagens').modal('show');
 
@@ -49,9 +52,11 @@ app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataSe
 
     $scope.enviar = function () {
         var obj = {
-            'pkVenda': idModal
+            'pkVenda': idModal,
+            'fk_veiculo': fkVeiculo
         }
-        DataService.realizarPut('http://ifg.redesbrasil.com/vendas/', obj).then(function (data) {
+      
+       DataService.realizarPut('http://ifg.redesbrasil.com/vendas/', obj).then(function (data) {
            
             if (indexRemover != undefined) {
                 $scope.pendenteResultados.splice(indexRemover, 1);
@@ -65,18 +70,24 @@ app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataSe
         angular.element('#modal_mensagens').modal('toggle');
     }
 
-    $scope.abrirModalExclusao = function (id, index, valor) {
+    $scope.abrirModalExclusao = function (id, index, valor,fk_Veiculo) {
 
         $scope.modulo = "A COMPRA " + id + ", " + "COM VALOR DE R$";
         $scope.modulo_valor = valor;
         indexRemover = index;
         idModal = id;
+        fkVeiculo = fk_Veiculo;
 
         angular.element('#modal_excluir').modal('show');
     };
 
     $scope.modalExcluir = function () {
-        DataService.realizarDelete('http://ifg.redesbrasil.com/vendas/' + idModal).then(function (data) {            
+        var obj ={
+            'pkVenda': idModal,
+            'fk_veiculo': fkVeiculo
+        };       
+
+        DataService.realizarDelete('http://ifg.redesbrasil.com/vendas/'+idModal+'/'+fkVeiculo).then(function (data) {            
             if (indexRemover != undefined) {
                 $scope.pendenteResultados.splice(indexRemover, 1);
             }
