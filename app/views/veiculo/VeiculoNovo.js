@@ -1,10 +1,10 @@
 app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService, $document, $window, $location) {
- 
+
     $scope.buscaTipo = function () {
         DataService.realizarGet('http://ifg.redesbrasil.com/tipos-veiculos').then(function (data) {
             $scope.buscasTipos = data.data;
             //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
-                 $("#selectCategoria option").css("text-transform","uppercase");
+            $("#selectCategoria option").css("text-transform", "uppercase");
 
         });
 
@@ -21,14 +21,13 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
             $scope.buscasModelos = data.data;
         });
 
-    };    
+    };
 
     $scope.salvarVeiculo = function () {
-       
+
         if ($scope.formulario.pk_veiculo.$modelValue === undefined) {
             var condicao, condicao2, condicao3;
 
-            console.log($scope.form);
             if ($scope.form === undefined || $scope.form === null) {
                 $scope.exebirErroSelectCategoria = true;
                 $scope.exebirErroSelectMarca = true;
@@ -127,10 +126,16 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
             if ($scope.form.fkModelo === undefined) {
                 $scope.form.fkModelo = $("#selectModelo option:selected").val();
             }
-            console.log($scope.form, "PUT");
+            //sconsole.log($scope.form, "PUT");
             DataService.realizarPut('http://ifg.redesbrasil.com/veiculos', $scope.form).then(function (data) {
-                $scope.mensagem = data.data.message;
-                console.log(data);
+                if (data.data.status == 400) {
+                  
+                  
+                } else {
+                   
+                  $state.go('common.veiculoListar');
+                }
+
             });
 
         }
@@ -150,16 +155,16 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
 
             //console.log(obj);
             DataService.realizarPost('http://ifg.redesbrasil.com/tipos-veiculos', obj).then(function (data) {
-                $scope.mensagem = data.data.message;                
+                $scope.mensagem = data.data.message;
                 $scope.select = angular.element(document.querySelector('#selectCategoria'));
                 $scope.select.append('<option selected  label="' + data.data.nome + '" value="' + data.data.pk_tipo + '"  >' + data.data.nome + '</option>');//inseri o novo cargo no final
-                
+
             });
             $scope.modal.nome = "";
             $('#modal_form_categoria').modal('toggle');
         }
-        
-         $scope.exebirErroSelectCategoria = false;
+
+        $scope.exebirErroSelectCategoria = false;
     };
 
     $scope.salvarMarca = function () {
@@ -190,7 +195,7 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
     };
 
     $scope.salvarModelo = function () {
-        console.log(form);
+
         if ($scope.modal === undefined || $scope.modal === '' || $scope.modal === null) {
             $scope.exebirErrorModal = true;
             $scope.botaoModal = true;
@@ -207,10 +212,10 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
                 $scope.select = angular.element(document.querySelector('#selectModelo'));
                 $scope.select.append('<option selected  label="' + data.data.nome + '" value="' + data.data.pk_modelo + '"  >' + data.data.nome + '</option>');//inseri o novo cargo no final
 
-                console.log(data);
+              //  console.log(data);
 
             });
-            console.log($scope.form, "fk");
+           /// console.log($scope.form, "fk");
             $scope.modal.nome = "";
             $('#modal_form_modelo').modal('toggle');
         }
