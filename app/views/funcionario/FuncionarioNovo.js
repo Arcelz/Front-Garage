@@ -8,7 +8,7 @@ app.controller('FuncionarioSalvar', function ($scope, $state, $rootScope, DataSe
     //responsavel para exebir os demais cargos não ta funcionando direito
 
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (data) {
+    DataService.realizarGet('cargos').then(function (data) {
         console.log(data, "Primeira Consulta");
         $scope.cargoResultados = data.data;
         //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
@@ -20,14 +20,14 @@ app.controller('FuncionarioSalvar', function ($scope, $state, $rootScope, DataSe
     $scope.salvarCargo = function () {
 
         if ($scope.formulario.$valid) {
-            DataService.realizarPost('http://ifg.redesbrasil.com/cargos', $scope.form2).then(function (data) {
+            DataService.realizarPost('cargos', $scope.form2).then(function (data) {
                 console.log(data, "Salvando Cargo");
                 $scope.form2 = ''; //Limpa o Campo dentro do Modal
                 $scope.mensagem = data.data.message;
 
                 //exibir algum error
                 //faz a busca na api atras dos novos cargos
-                DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (datas) {
+                DataService.realizarGet('cargos').then(function (datas) {
                     console.log(datas, "Depois que salvou foi no banco");
                     atualizarDropdow(datas);
                 });
@@ -73,7 +73,7 @@ app.controller('FuncionarioSalvar', function ($scope, $state, $rootScope, DataSe
             }
 
             $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
-            DataService.realizarPost('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (response) {
+            DataService.realizarPost('funcionarios', $scope.form).then(function (response) {
                 if (response.data.status == 400) {
                     $scope.botao = false; //ativa o botao em caso de erro
                 } else {
@@ -84,10 +84,6 @@ app.controller('FuncionarioSalvar', function ($scope, $state, $rootScope, DataSe
             });
 
         }
-
-
-
-
     };
     // ----------------FIM-----------------------
 });

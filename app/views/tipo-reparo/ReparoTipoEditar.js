@@ -4,13 +4,13 @@ app.controller('ReparoTipoEditar', function ($scope, $state, $q, DataService, $s
     if (id === "") {
         $state.go('common.tipoReparoListar');
     }
-    DataService.realizarGet('http://ifg.redesbrasil.com/tipos-reparos/' + id).then(function (data) {
+    DataService.realizarGet('tipos-reparos/' + id).then(function (data) {
         $scope.form.nome = data.data[0].nome;
     });
     $scope.salvar = function () {
         if ($scope.formulario.$valid) {
             $scope.botao = true;
-            DataService.realizarPut('http://ifg.redesbrasil.com/tipos-reparos/' + id, $scope.form).then(function (response) {
+            DataService.realizarPut('tipos-reparos/' + id, $scope.form).then(function (response) {
                 if (response.data.status === 200) {
                     $state.go('common.tipoReparoListar');
                 }

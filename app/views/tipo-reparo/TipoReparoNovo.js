@@ -2,7 +2,7 @@ app.controller('ReparoTipoNovo', function ($scope, $state, $rootScope, DataServi
     $scope.salvar = function () {
         if ($scope.formulario.$valid) {
             $scope.botao = true;
-            DataService.realizarPost('http://ifg.redesbrasil.com/tipos-reparos', $scope.form).then(function (data) {
+            DataService.realizarPost('tipos-reparos', $scope.form).then(function (data) {
                 console.log(data)
 
                 if (data.data.status === 200) {

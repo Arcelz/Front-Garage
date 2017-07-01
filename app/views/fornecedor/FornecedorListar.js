@@ -18,7 +18,7 @@ app.controller('FornecedorListar', function ($scope, $rootScope, DataService,Aut
         }
     }
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/fornecedores').then(function (response) {
+    DataService.realizarGet('fornecedores').then(function (response) {
         if (response.data.length) {
             $scope.lembretes = response.data;
             //console.log(response.data);
@@ -39,7 +39,7 @@ app.controller('FornecedorListar', function ($scope, $rootScope, DataService,Aut
 
     $scope.modalExcluir = function () {
 
-        DataService.realizarDelete('http://ifg.redesbrasil.com/fornecedores/' + $rootScope.idModalExclusao).then(function (data) {
+        DataService.realizarDelete('fornecedores/' + $rootScope.idModalExclusao).then(function (data) {
 
 
             $scope.lembretes.splice($rootScope.indexRemover, 1);

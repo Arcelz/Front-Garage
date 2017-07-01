@@ -4,7 +4,7 @@ app.controller('ModeloListar', function ($scope, $rootScope, DataService) {
     var indexRemover;
     $scope.lembretes = [];
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/modelos').then(function (response) {
+    DataService.realizarGet('modelos').then(function (response) {
         if (response.data.length) {
             $scope.lembretes = response.data;
             //console.log(response.data);
@@ -25,13 +25,11 @@ app.controller('ModeloListar', function ($scope, $rootScope, DataService) {
 
     $scope.modalExcluir = function () {
 
-        DataService.realizarDelete('http://ifg.redesbrasil.com/modelos/' + $rootScope.idModalExclusao).then(function (data) {
+        DataService.realizarDelete('modelos/' + $rootScope.idModalExclusao).then(function (data) {
             $scope.lembretes.splice($rootScope.indexRemover, 1);
             angular.element('#modal_excluir').modal('toggle');
 
         });
 
     };
-
-
 });

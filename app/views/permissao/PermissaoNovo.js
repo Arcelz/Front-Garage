@@ -3,7 +3,7 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
 
     $scope.tiposResultados = {};
     $scope.veiculosResultados = {};
-    DataService.realizarGet('http://ifg.redesbrasil.com/grupos').then(function (data) {
+    DataService.realizarGet('grupos').then(function (data) {
         $scope.gruposResultados = data.data;
     });
     $scope.example9settings = {enableSearch: true};
@@ -20,7 +20,7 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
             }
         }, groupBy: 'permissao',
     };
-    DataService.realizarGet('http://ifg.redesbrasil.com/permissoes').then(function (data) {
+    DataService.realizarGet('permissoes').then(function (data) {
         $scope.permissao = [];
         $scope.example9data = [];
         for (var i = 0; i < data.data.length; i++) {
@@ -32,7 +32,7 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
         }
     });
     $scope.changeGrupo = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/grupos-permissao/' + $scope.form.grupo_id).then(function (data) {
+        DataService.realizarGet('grupos-permissao/' + $scope.form.grupo_id).then(function (data) {
             $scope.permissao = [];
             for (var j = 0; j < $scope.example9data.length; j++) {
                 for (var i = 0; i < data.data.length; i++) {
@@ -50,7 +50,7 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
         if ($scope.formulario.$valid && $scope.permissao !== undefined) {
             $scope.form['permissao_id'] = $scope.permissao;
             $scope.botao = true;
-            DataService.realizarPost('http://ifg.redesbrasil.com/grupos-permissao', $scope.form).then(function (data) {
+            DataService.realizarPost('grupos-permissao', $scope.form).then(function (data) {
                 if (data.data.status === 200) {
                     $state.go('common.permissaoNovo');
                     $scope.botao = false;
@@ -64,7 +64,7 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
     }
     $scope.salvarModalTipo = function () {
         if ($scope.modalFormulario.$valid) {
-            DataService.realizarPost('http://ifg.redesbrasil.com/tipos-reparos', $scope.modal).then(function (data) {
+            DataService.realizarPost('tipos-reparos', $scope.modal).then(function (data) {
                 $scope.botao = false;
                 angular.element('#selectTipo').append('<option  value="' + data.data.pk_tipo + '" selected>' + data.data.nome + '</option>');
                 angular.element('#modal_tipo_reparo').modal('toggle');

@@ -8,7 +8,7 @@ app.controller('VeiculoEditar', function ($scope, $rootScope,$stateParams, DataS
     }
   
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/veiculos/' + id).then(function (response) {      
+    DataService.realizarGet('veiculos/' + id).then(function (response) {
 
         $scope.form = {
             pk_veiculo: response.data[0].pk_veiculo,

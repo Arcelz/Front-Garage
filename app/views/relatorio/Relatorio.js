@@ -2,7 +2,7 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
     MudarCor.mudarCor();
     $scope.relatoriosResultados = [];
     $scope.lembretes = [];
-    DataService.realizarGet('http://ifg.redesbrasil.com/relatorios').then(function (data) {
+    DataService.realizarGet('relatorios').then(function (data) {
         for (var i = 0; i < data.data.length; i++) {
             $scope.relatoriosResultados.push({
                 id: i + 1,
@@ -18,7 +18,7 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
         $scope.botaoPDF = true;
         if ($scope.form.relatorio_id === 1) {
             $scope.nomeTabela = 'Relatorio contas a pagar por fornecedor';
-            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+            DataService.realizarGet('relatorios/' + $scope.form.relatorio_id).then(function (data) {
                 /*var myObj = {
                  "Nome": [  //nome onde sera colocado no ng-model e no id
                  "Data1",
@@ -65,7 +65,7 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
         }
         else if ($scope.form.relatorio_id === 2) {
             $scope.nomeTabela = 'Relatorio contas pagas por fornecedor';
-            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+            DataService.realizarGet('relatorios/' + $scope.form.relatorio_id).then(function (data) {
                 if (data.data.status === 400) {
                     angular.element('#tabela').html("Nenhum resultado");
                 }
@@ -94,7 +94,7 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
         }
         else if ($scope.form.relatorio_id === 3) {
             $scope.nomeTabela = 'Relatorio a pagar por cliente';
-            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+            DataService.realizarGet('relatorios/' + $scope.form.relatorio_id).then(function (data) {
                 if (data.data.status === 400) {
                     angular.element('#tabela').html("Nenhum resultado");
                 }
@@ -123,7 +123,7 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
         }
         else if ($scope.form.relatorio_id === 4) {
             $scope.nomeTabela = 'Relatorio contas pagas por cliente';
-            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+            DataService.realizarGet('relatorios/' + $scope.form.relatorio_id).then(function (data) {
                 $scope.lembretes = data.data;
                 var objTable = { // objeto onde se passa os nomes dos campo das tabelas e seus valores abaixo
                     "Nome": [
@@ -147,7 +147,7 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
         }
         else if ($scope.form.relatorio_id === 5) {
             $scope.nomeTabela = 'Relatorio reparos a pagar';
-            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+            DataService.realizarGet('relatorios/' + $scope.form.relatorio_id).then(function (data) {
                 if (data.data.status === 400) {
                     angular.element('#tabela').html("Nenhum resultado");
                 }
@@ -179,7 +179,7 @@ app.controller('Relatorio', function ($scope, $compile, $state, $rootScope, $loc
         }
         else if ($scope.form.relatorio_id === 6) {
             $scope.nomeTabela = 'Relatorio reparos pagos';
-            DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/' + $scope.form.relatorio_id).then(function (data) {
+            DataService.realizarGet('relatorios/' + $scope.form.relatorio_id).then(function (data) {
                 if (data.data.status === 400) {
                     angular.element('#tabela').html("Nenhum resultado");
                 }

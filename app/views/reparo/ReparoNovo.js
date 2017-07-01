@@ -7,10 +7,10 @@ app.controller('ReparoNovo', function ($scope,$compile, $state, $rootScope, $loc
 
     $scope.tiposResultados = {};
     $scope.veiculosResultados = {};
-    DataService.realizarGet('http://ifg.redesbrasil.com/tipos-reparos').then(function (data) {
+    DataService.realizarGet('tipos-reparos').then(function (data) {
         $scope.tiposResultados = data.data;
     });
-    DataService.realizarGet('http://ifg.redesbrasil.com/veiculos/garagem').then(function (data) {
+    DataService.realizarGet('veiculos/garagem').then(function (data) {
         $scope.veiculosResultados = data.data;
     });
 
@@ -63,7 +63,7 @@ app.controller('ReparoNovo', function ($scope,$compile, $state, $rootScope, $loc
         }
         objetoReparo['valorTotal'] = valorTotalFinal;
         //console.log(objetoReparo);
-         DataService.realizarPost('http://ifg.redesbrasil.com/reparos', objetoReparo).then(function (response) {
+         DataService.realizarPost('reparos', objetoReparo).then(function (response) {
               condicao = false;
               if (response.data.status == 400) {
   
@@ -162,7 +162,7 @@ app.controller('ReparoNovo', function ($scope,$compile, $state, $rootScope, $loc
 
     $scope.salvarModalTipo = function () {
         if ($scope.modalFormulario.$valid) {
-            DataService.realizarPost('http://ifg.redesbrasil.com/tipos-reparos', $scope.modal).then(function (data) {
+            DataService.realizarPost('tipos-reparos', $scope.modal).then(function (data) {
                 $scope.botao = false;
                 angular.element('#selectTipo').append('<option  value="' + data.data.pk_tipo + '" selected>' + data.data.nome + '</option>');
                 angular.element('#modal_tipo_reparo').modal('toggle');

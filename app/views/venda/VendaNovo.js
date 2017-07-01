@@ -7,14 +7,14 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
     $scope.fornecedoresResultados = []
 
     $scope.buscarCliente = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/clientes').then(function (response) {
+        DataService.realizarGet('clientes').then(function (response) {
             $scope.clientesResultados = response.data;
         });
 
     };
 
     $scope.buscarFuncionario = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios').then(function (response) {
+        DataService.realizarGet('funcionarios').then(function (response) {
             $scope.funcionariosResultados = response.data;
         });
     };
@@ -39,7 +39,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
             var obj = {
                 consulta: $scope.consulta
             }
-            DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {
+            DataService.realizarPost('veiculos', obj).then(function (response) {
 
 
                 if (response.data.status == 400) {
@@ -62,7 +62,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
         var obj = {
             'consulta' : veiculo.pk_veiculo
         };
-        DataService.realizarPost('http://ifg.redesbrasil.com/vendas', obj).then(function (response) {
+        DataService.realizarPost('vendas', obj).then(function (response) {
             console.log("fin", response);
             if (response.data[0].valorFinal == null) {
                 $scope.valorFinal = veiculo.valor_compra;
@@ -131,7 +131,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
         }
         objetoFinal['valorTotal'] = valorTotalFinal;
 
-        DataService.realizarPost('http://ifg.redesbrasil.com/vendas', objetoFinal).then(function (response) {
+        DataService.realizarPost('vendas', objetoFinal).then(function (response) {
             condicao = false;
             if (response.data.status == 400) {
 
@@ -212,7 +212,7 @@ app.controller('VendaNovo', function ($scope, $rootScope, DataService, $document
             var obj = {
                 consulta: $scope.consulta
             }
-            DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (response) {
+            DataService.realizarPost('veiculos', obj).then(function (response) {
 
                 console.log(response);
                 if (response.data.status == 400) {

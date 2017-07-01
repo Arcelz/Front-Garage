@@ -1,7 +1,7 @@
 app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService, $document, $window, $location) {
 
     $scope.buscaTipo = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/tipos-veiculos').then(function (data) {
+        DataService.realizarGet('tipos-veiculos').then(function (data) {
             $scope.buscasTipos = data.data;
             //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
             $("#selectCategoria option").css("text-transform", "uppercase");
@@ -11,13 +11,13 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
     };
 
     $scope.buscaMarca = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/marcas').then(function (data) {
+        DataService.realizarGet('marcas').then(function (data) {
             $scope.buscasMarcas = data.data;
         });
     };
 
     $scope.buscaModelo = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/modelos').then(function (data) {
+        DataService.realizarGet('modelos').then(function (data) {
             $scope.buscasModelos = data.data;
         });
 
@@ -92,7 +92,7 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
                 }
 
                 //     console.log(obj,"obj");
-                DataService.realizarPost('http://ifg.redesbrasil.com/veiculos', obj).then(function (data) {
+                DataService.realizarPost('veiculos', obj).then(function (data) {
 
                     if (data.data.status == 400) {
                         $scope.mensagem = data.data.message;
@@ -127,7 +127,7 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
                 $scope.form.fkModelo = $("#selectModelo option:selected").val();
             }
             //sconsole.log($scope.form, "PUT");
-            DataService.realizarPut('http://ifg.redesbrasil.com/veiculos', $scope.form).then(function (data) {
+            DataService.realizarPut('veiculos', $scope.form).then(function (data) {
                 if (data.data.status == 400) {
                   
                   
@@ -154,7 +154,7 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
             }
 
             //console.log(obj);
-            DataService.realizarPost('http://ifg.redesbrasil.com/tipos-veiculos', obj).then(function (data) {
+            DataService.realizarPost('tipos-veiculos', obj).then(function (data) {
                 $scope.mensagem = data.data.message;
                 $scope.select = angular.element(document.querySelector('#selectCategoria'));
                 $scope.select.append('<option selected  label="' + data.data.nome + '" value="' + data.data.pk_tipo + '"  >' + data.data.nome + '</option>');//inseri o novo cargo no final
@@ -177,7 +177,7 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
                 nome: $scope.modal.nome
             }
             //console.log(obj);
-            DataService.realizarPost('http://ifg.redesbrasil.com/marcas', obj).then(function (data) {
+            DataService.realizarPost('marcas', obj).then(function (data) {
                 $scope.mensagem = data.data.message;
 
                 $scope.select = angular.element(document.querySelector('#selectMarca'));
@@ -204,7 +204,7 @@ app.controller('VeiculoNovo', function ($scope, $state, $rootScope, DataService,
                 nome: $scope.modal.nome
             }
             // console.log(obj);
-            DataService.realizarPost('http://ifg.redesbrasil.com/modelos', obj).then(function (data) {
+            DataService.realizarPost('modelos', obj).then(function (data) {
                 $scope.mensagem = data.data.message;
                 $scope.form = {
                     fkModelo: data.data.pk_modelo

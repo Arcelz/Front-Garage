@@ -19,7 +19,7 @@ app.controller('FuncionarioListar', function (AuthService, jwtHelper,$scope, $ro
         }
     }
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios').then(function (response) {
+    DataService.realizarGet('funcionarios').then(function (response) {
         if (response.data.length) {
             $scope.lembretes = response.data; //aqui alimenta o array que preenche a tela
 
@@ -43,7 +43,7 @@ app.controller('FuncionarioListar', function (AuthService, jwtHelper,$scope, $ro
     // função para excluir o funcionario
     $scope.modalExcluir = function () {
 
-        DataService.realizarDelete('http://ifg.redesbrasil.com/funcionarios/' + $rootScope.idModalExclusao).then(function (data) {
+        DataService.realizarDelete('funcionarios/' + $rootScope.idModalExclusao).then(function (data) {
 
 
             $scope.lembretes.splice($rootScope.indexRemover, 1);

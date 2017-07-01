@@ -2,37 +2,37 @@ app.controller('Home', function ($scope, $state, $rootScope, $localStorage, Data
 
 
     //Entradas
-    DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/13').then(function (data) {
+    DataService.realizarGet('relatorios/13').then(function (data) {
        
         $scope.receitas = data.data[0].receitas;
     });
 
     //Saidas
-    DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/12').then(function (data) {
+    DataService.realizarGet('relatorios/12').then(function (data) {
 
         $scope.saidas = data.data[0].despesas;
     });
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/12').then(function (data) {
+    DataService.realizarGet('relatorios/12').then(function (data) {
 
         $scope.saidas = data.data[0].despesas;
     });
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/14').then(function (data) {
+    DataService.realizarGet('relatorios/14').then(function (data) {
         $scope.saldo = data.data[0].saldo;
      
     });
 
-     DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/17').then(function (data) {
+     DataService.realizarGet('relatorios/17').then(function (data) {
         $scope.countClinetes = data.data[0].count;
      
     });
-     DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/19').then(function (data) {
+     DataService.realizarGet('relatorios/19').then(function (data) {
         $scope.countGaragem = data.data[0].garagem;
        
     });
 
-     DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/18').then(function (data) {
+     DataService.realizarGet('relatorios/18').then(function (data) {
         $scope.countVendidos = data.data[0].vendido;
        
     });
@@ -40,7 +40,7 @@ app.controller('Home', function ($scope, $state, $rootScope, $localStorage, Data
 
     
     //GRAFICO DE VENDA POR MES
-    DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/15').then(function(data){
+    DataService.realizarGet('relatorios/15').then(function(data){
         console.log(data);
         var meses = [];
         var valores = [];
@@ -78,7 +78,7 @@ app.controller('Home', function ($scope, $state, $rootScope, $localStorage, Data
     // ----------- FIM ---------
 
     //GRAFICO DE VENDEDORES 
-    DataService.realizarGet('http://ifg.redesbrasil.com/relatorios/16').then(function(data){
+    DataService.realizarGet('relatorios/16').then(function(data){
         console.log(data);
         var nome = [];
         var valores = [];

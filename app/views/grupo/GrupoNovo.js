@@ -3,7 +3,7 @@ app.controller('GrupoSalvar', function ($scope,$state, $rootScope, DataService) 
         console.log($scope.formulario.$valid)
         if ($scope.formulario.$valid) {
             $scope.botao = true;
-            DataService.realizarPost('http://ifg.redesbrasil.com/grupos', $scope.form).then(function (data) {
+            DataService.realizarPost('grupos', $scope.form).then(function (data) {
                 if (data.data.status === 200) {
                     $state.go('common.grupoListar');
                 }

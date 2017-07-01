@@ -21,7 +21,7 @@ app.controller('ReparoListar', function ($scope,$rootScope, DataService,MudarCor
     }
 
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/reparos').then(function(response){
+    DataService.realizarGet('reparos').then(function(response){
         if(response.data.length){
             $scope.lembretes = response.data;
             //console.log(response.data);
@@ -45,13 +45,13 @@ app.controller('ReparoListar', function ($scope,$rootScope, DataService,MudarCor
         var obj = {
             'pkCompra': idModal
         }
-        DataService.realizarPut('http://ifg.redesbrasil.com/reparos/'+ idModal).then(function (data) {
+        DataService.realizarPut('reparos/'+ idModal).then(function (data) {
             
             if (indexRemover != undefined) {
                 $scope.lembretes.splice(indexRemover, 1);
             }
 
-            DataService.realizarGet('http://ifg.redesbrasil.com/reparos').then(function (response) {
+            DataService.realizarGet('reparos').then(function (response) {
                 $scope.lembretes =[];
                 $scope.lembretes = response.data;
 
@@ -71,7 +71,7 @@ app.controller('ReparoListar', function ($scope,$rootScope, DataService,MudarCor
     };
 
     $scope.modalExcluir = function(){
-       DataService.realizarDelete('http://ifg.redesbrasil.com/reparos/'+$rootScope.idModalExclusao).then(function(data){
+       DataService.realizarDelete('reparos/'+$rootScope.idModalExclusao).then(function(data){
        
             $scope.lembretes.splice(indexRemover, 1);
            angular.element('#modal_excluir').modal('toggle');

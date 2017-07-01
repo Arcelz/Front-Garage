@@ -1,11 +1,11 @@
 app.controller('UsuarioNovo', function ($scope,$state, $rootScope,MudarCor, DataService) {
     MudarCor.mudarCor();
     $scope.funcionarioResultados = {};
-    DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios').then(function (data) {
+    DataService.realizarGet('funcionarios').then(function (data) {
         $scope.funcionarioResultados = data.data;
     });
     $scope.grupoResultados = {};
-    DataService.realizarGet('http://ifg.redesbrasil.com/grupos').then(function (data) {
+    DataService.realizarGet('grupos').then(function (data) {
         $scope.grupoResultados = data.data;
     });
     $scope.onBlur = function (form) {
@@ -29,7 +29,7 @@ app.controller('UsuarioNovo', function ($scope,$state, $rootScope,MudarCor, Data
     $scope.salvar = function () {
             if ($scope.formulario.$valid) {
                 $scope.botao = true;
-                DataService.realizarPost('http://ifg.redesbrasil.com/usuarios',$scope.form).then(function (data) {
+                DataService.realizarPost('usuarios',$scope.form).then(function (data) {
                     if (data.data.status === 200) {
                         $state.go('common.usuarioListar');
                     }

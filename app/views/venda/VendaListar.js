@@ -26,14 +26,14 @@ app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataSe
     }
 
     $scope.pendente = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/vendas').then(function (response) {
+        DataService.realizarGet('vendas').then(function (response) {
             console.log(response);
             $scope.pendenteResultados = response.data;
         });
     }
 
     $scope.canceladas = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/vendas/' + 1).then(function (response) {
+        DataService.realizarGet('vendas/' + 1).then(function (response) {
           
             $scope.canceladosResultados = response.data;
         });
@@ -56,13 +56,13 @@ app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataSe
             'fk_veiculo': fkVeiculo
         }
       
-       DataService.realizarPut('http://ifg.redesbrasil.com/vendas/', obj).then(function (data) {
+       DataService.realizarPut('vendas/', obj).then(function (data) {
            
             if (indexRemover != undefined) {
                 $scope.pendenteResultados.splice(indexRemover, 1);
             }
 
-            DataService.realizarGet('http://ifg.redesbrasil.com/vendas/' + 1).then(function (response) {
+            DataService.realizarGet('vendas/' + 1).then(function (response) {
                   $scope.canceladosResultados =[];
                 $scope.canceladosResultados = response.data;
             });
@@ -87,7 +87,7 @@ app.controller('VendaListar', function ($scope, $rootScope, $stateParams, DataSe
             'fk_veiculo': fkVeiculo
         };       
 
-        DataService.realizarDelete('http://ifg.redesbrasil.com/vendas/'+idModal+'/'+fkVeiculo).then(function (data) {            
+        DataService.realizarDelete('vendas/'+idModal+'/'+fkVeiculo).then(function (data) {
             if (indexRemover != undefined) {
                 $scope.pendenteResultados.splice(indexRemover, 1);
             }

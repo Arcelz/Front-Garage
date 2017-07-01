@@ -16,7 +16,7 @@ app.controller('FornecedorSalvar', function ($scope, $state, $rootScope, DataSer
 
             if ($scope.formulario.$valid) {
                 $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções      
-                DataService.realizarPost('http://ifg.redesbrasil.com/fornecedores', $scope.form).then(function (response) {
+                DataService.realizarPost('fornecedores', $scope.form).then(function (response) {
                     if (response.data.status == 400) {
                         $scope.mensagem = response.data.message;
                         $scope.botao = false;
@@ -40,7 +40,7 @@ app.controller('FornecedorSalvar', function ($scope, $state, $rootScope, DataSer
 
             };
             if ($scope.formulario.$valid) {
-                DataService.realizarPut('http://ifg.redesbrasil.com/fornecedores', $scope.form).then(function (response) {
+                DataService.realizarPut('fornecedores', $scope.form).then(function (response) {
 
                     if (response.data.status == 400) {
 

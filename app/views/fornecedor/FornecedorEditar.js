@@ -4,7 +4,7 @@ app.controller('FornecedorEditar', function ($scope, DataService, $stateParams, 
     var idC;
     var nome;
     //console.log(id);
-    DataService.realizarGet('http://ifg.redesbrasil.com/fornecedores/' + id).then(function (response) {
+    DataService.realizarGet('fornecedores/' + id).then(function (response) {
         // console.log(response,"vindo");
         $scope.form = {
             pk_fornecedor: response.data[0].pk_fornecedor,

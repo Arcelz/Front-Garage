@@ -14,7 +14,7 @@ app.controller('ClienteNovo', function ($scope, $rootScope, $state, DataService,
 
         if ($scope.formulario.$valid) {
             $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
-            DataService.realizarPost('http://ifg.redesbrasil.com/clientes', $scope.form).then(function (response) {
+            DataService.realizarPost('clientes', $scope.form).then(function (response) {
                 if (response.data.status == 400) {
                     $scope.botao = false;
                 } else {

@@ -20,14 +20,14 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService, $compi
     }
 
     $scope.pendente = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/compras').then(function (response) {
+        DataService.realizarGet('compras').then(function (response) {
             $scope.pendenteResultados = response.data;
 
         });
     }
 
     $scope.canceladas = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/compras/' + 1).then(function (response) {
+        DataService.realizarGet('compras/' + 1).then(function (response) {
             $scope.canceladosResultados = response.data;
 
         });
@@ -47,13 +47,13 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService, $compi
         var obj = {
             'pkCompra': idModal
         }
-        DataService.realizarPut('http://ifg.redesbrasil.com/compras/', obj).then(function (data) {
+        DataService.realizarPut('compras/', obj).then(function (data) {
             console.log(data);
             if (indexRemover != undefined) {
                 $scope.pendenteResultados.splice(indexRemover, 1);
             }
 
-            DataService.realizarGet('http://ifg.redesbrasil.com/compras/' + 1).then(function (response) {
+            DataService.realizarGet('compras/' + 1).then(function (response) {
                 $scope.canceladosResultados =[];
                 $scope.canceladosResultados = response.data;
 
@@ -75,7 +75,7 @@ app.controller('CompraListar', function ($scope, $rootScope, DataService, $compi
     };
 
     $scope.modalExcluir = function () {
-        DataService.realizarDelete('http://ifg.redesbrasil.com/compras/' + idModal).then(function (data) {
+        DataService.realizarDelete('compras/' + idModal).then(function (data) {
             if (indexRemover != undefined) {
                 $scope.pendenteResultados.splice(indexRemover, 1);
             }

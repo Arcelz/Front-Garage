@@ -7,7 +7,7 @@ app.controller('FuncionarioEditar', function ($scope, $state, DataService, $stat
     }
 
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios/' + id).then(function (response) {
+    DataService.realizarGet('funcionarios/' + id).then(function (response) {
         console.log(response);
         //tem que modar o array manualmente
         $scope.form = {
@@ -39,7 +39,7 @@ app.controller('FuncionarioEditar', function ($scope, $state, DataService, $stat
 
     //responsavel para exebir os demais cargos não ta funcionando direito
 
-    function  teste(){ DataService.realizarGet('http://ifg.redesbrasil.com/cargos').then(function (datas) {
+    function  teste(){ DataService.realizarGet('cargos').then(function (datas) {
         $scope.cargoResultados = datas.data;
         //console.log($scope.cargoResultados,"Primeira Consulta para preencher");
 
@@ -75,7 +75,7 @@ app.controller('FuncionarioEditar', function ($scope, $state, DataService, $stat
             }
 
             $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
-            DataService.realizarPut('http://ifg.redesbrasil.com/funcionarios', $scope.form).then(function (response) {
+            DataService.realizarPut('funcionarios', $scope.form).then(function (response) {
                 if (response.data.status == 400) {
                     $scope.botao = false; //ativa o botao em caso de erro
                 } else {

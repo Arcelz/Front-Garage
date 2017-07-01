@@ -2,7 +2,7 @@ app.controller('UsuarioListar', function ($scope,$rootScope, DataService) {
     var idModalExclusao;
     var indexRemover;
     $scope.lembretes = [];
-    DataService.realizarGet('http://ifg.redesbrasil.com/usuarios').then(function(response){
+    DataService.realizarGet('usuarios').then(function(response){
         if(response.data.length){
             $scope.lembretes = response.data;
             //console.log(response.data);
@@ -22,7 +22,7 @@ app.controller('UsuarioListar', function ($scope,$rootScope, DataService) {
     $scope.modalExcluir = function(){
         //var id = $rootScope.idModalExclusao;
         console.log( $rootScope.idModalExclusao);
-       DataService.realizarDelete('http://ifg.redesbrasil.com/usuarios/'+$rootScope.idModalExclusao).then(function(data){
+       DataService.realizarDelete('usuarios/'+$rootScope.idModalExclusao).then(function(data){
         console.log(data);
             $scope.lembretes.splice(indexRemover, 1);
            angular.element('#modal_excluir').modal('toggle');

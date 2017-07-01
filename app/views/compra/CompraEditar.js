@@ -7,6 +7,4 @@ app.controller('CompraEdidar', function ($scope, $rootScope, DataService) {
          angular.element('#modal_mensagens').modal('show');
 
     }
-
-
 });

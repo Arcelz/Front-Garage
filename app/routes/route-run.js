@@ -13,14 +13,9 @@ app.run(function ($transitions, $state, $location, jwtHelper, AuthService) {
             }
         }
         var permi = trans.to().permicao;
-        var Permicao = jwtHelper.decodeToken(token)['Permição'];
-        var boleanPermicao = false;
-        for (var i = 0; i < Permicao.length; i++) {
-            if (Permicao[i] === permi) {
-                return boleanPermicao = true;
-            }
-        }
-        if (!boleanPermicao) {
+        var Permicao = jwtHelper.decodeToken(token)['Permicao'];
+
+        if (!Permicao[permi]) {
             return trans.router.stateService.target('error', {error: '500', errorMessage: 'Ce nao tem permicao'});
         }
     });

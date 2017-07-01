@@ -7,7 +7,7 @@ app.controller('ClienteEditar', function ($scope, $state, DataService, $statePar
     }
     console.log(id);
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/clientes/' + id).then(function (response) {
+    DataService.realizarGet('clientes/' + id).then(function (response) {
         console.log(response.data);
         $scope.form = {
             pk_cliente: response.data[0].pk_cliente,
@@ -28,7 +28,6 @@ app.controller('ClienteEditar', function ($scope, $state, DataService, $statePar
 
     });
 
-
     $scope.salvar = function () {
         $scope.form.cpf = $("#cpf").val();
         $scope.form.telefone = $("#telefone").val();
@@ -39,10 +38,9 @@ app.controller('ClienteEditar', function ($scope, $state, DataService, $statePar
             $scope.formulario.$valid = true;
 
         };
-
         if ($scope.formulario.$valid) {
             $scope.botao = true; //para desativar o botão para que o usuario não faça varias requisções
-            DataService.realizarPut('http://ifg.redesbrasil.com/clientes', $scope.form).then(function (response) {
+            DataService.realizarPut('clientes', $scope.form).then(function (response) {
                 if (response.data.status == 400) {
                     $scope.botao = false;
                 } else {
@@ -51,9 +49,6 @@ app.controller('ClienteEditar', function ($scope, $state, DataService, $statePar
                     $state.go('common.clienteListar');
                 }
             });
-
         }
     };
-
-
 });

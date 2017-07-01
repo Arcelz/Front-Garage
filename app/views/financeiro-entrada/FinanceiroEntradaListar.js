@@ -3,7 +3,7 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
     var indexRemover;
 
  // BLOCO PARA ATUALIZALÇAO DO CAIXA DE 5 SEGUNDOS
-    DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/3').then(function (response) {
+    DataService.realizarGet('financeiros-entradas/3').then(function (response) {
 
         $scope.caixa = response.data[0].caixa;
     });
@@ -22,7 +22,7 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
     }
 
     function atualizar() {
-        DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/3').then(function (response) {
+        DataService.realizarGet('financeiros-entradas/3').then(function (response) {
 
             $scope.caixa = response.data[0].caixa;
         });
@@ -39,7 +39,7 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
         angular.element('#modal_mensagens').modal();
     };
     $scope.pago = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/1').then(function (response) {
+        DataService.realizarGet('financeiros-entradas/1').then(function (response) {
             $scope.pagoResultados = [];
             if (response.data.status === 400) {
                 $scope.pagoResultados = [{
@@ -54,7 +54,7 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
     }
 
     $scope.pendente = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas').then(function (response) {
+        DataService.realizarGet('financeiros-entradas').then(function (response) {
             $scope.pendenteResultados = [];
             if (response.data.status === 400) {
                 $scope.pendenteResultados = [{
@@ -68,7 +68,7 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
     }
 
     $scope.cancelado = function () {
-        DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/2').then(function (response) {
+        DataService.realizarGet('financeiros-entradas/2').then(function (response) {
             $scope.canceladoResultados = [];
             if (response.data.status === 400) {
                 $scope.canceladoResultados = [{
@@ -84,10 +84,10 @@ app.controller('FinanceiroEntradaListar', function ($scope, $rootScope, DataServ
     $scope.enviar = function () {
         var data = undefined;
         console.log(indexRemover);
-        DataService.realizarPut('http://ifg.redesbrasil.com/financeiros-entradas/' + idModal, data).then(function (data) {
+        DataService.realizarPut('financeiros-entradas/' + idModal, data).then(function (data) {
             $scope.pendenteResultados.splice(indexRemover, 1);
 
-            DataService.realizarGet('http://ifg.redesbrasil.com/financeiros-entradas/1').then(function (response) {
+            DataService.realizarGet('financeiros-entradas/1').then(function (response) {
                 $scope.pagoResultados = [];
                 $scope.pagoResultados = response.data;
 

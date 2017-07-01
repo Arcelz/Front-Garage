@@ -20,7 +20,7 @@ app.controller('ClienteListar', function ($scope, $rootScope, DataService,AuthSe
         }
     }
 
-    DataService.realizarGet('http://ifg.redesbrasil.com/clientes').then(function (response) {
+    DataService.realizarGet('clientes').then(function (response) {
         if (response.data.length) {
             $scope.lembretes = response.data;
             //console.log(response.data);
@@ -41,7 +41,7 @@ app.controller('ClienteListar', function ($scope, $rootScope, DataService,AuthSe
 
     $scope.modalExcluir = function () {
 
-        DataService.realizarDelete('http://ifg.redesbrasil.com/clientes/' + $rootScope.idModalExclusao).then(function (data) {
+        DataService.realizarDelete('clientes/' + $rootScope.idModalExclusao).then(function (data) {
             $scope.lembretes.splice(indexRemover, 1);
             angular.element('#modal_excluir').modal('toggle');
 

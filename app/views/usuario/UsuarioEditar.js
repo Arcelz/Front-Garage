@@ -7,13 +7,13 @@ app.controller('UsuarioEditar', function ($scope, $state, $q, $stateParams, Data
     }
     $scope.funcionarioResultados = [];
     $scope.grupoResultados = [];
-    DataService.realizarGet('http://ifg.redesbrasil.com/funcionarios').then(function (data) {
+    DataService.realizarGet('funcionarios').then(function (data) {
         $scope.funcionarioResultados = data.data;
-        DataService.realizarGet('http://ifg.redesbrasil.com/grupos').then(function (data2) {
+        DataService.realizarGet('grupos').then(function (data2) {
             $scope.grupoResultados = data2.data;
             var clicked = true;
             var clickedGrupo = true;
-            DataService.realizarGet('http://ifg.redesbrasil.com/usuarios/' + id).then(function (response) {
+            DataService.realizarGet('usuarios/' + id).then(function (response) {
                 $scope.form.login = response.data[0].login;
                 $scope.form.senha2 = '**********';
                 $scope.form.senha = '**********';
@@ -46,14 +46,14 @@ app.controller('UsuarioEditar', function ($scope, $state, $q, $stateParams, Data
         console.log($scope.form)
         if ($scope.form.funcionario_id != "" && $scope.form.grupo_id != "") {
             $scope.botao = true;
-            DataService.realizarPut('http://ifg.redesbrasil.com/usuarios/' + id, $scope.form).then(function (response) {
+            DataService.realizarPut('usuarios/' + id, $scope.form).then(function (response) {
                 if (response.data.status === 200) {
                     $state.go('common.usuarioListar');
                 }
                 else if (response.data.status === 400) {
                     $scope.botao = false;
                 }
-            })
+            });
         }
     }
 });

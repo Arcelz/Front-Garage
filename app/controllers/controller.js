@@ -4,7 +4,7 @@ app.controller('Login', function ($scope, $location, $state, DataService, AuthSe
      });*/
     $scope.submit = function () {
         $scope.botaoLogin = true;
-        DataService.realizarPost('http://ifg.redesbrasil.com/auth/login', $scope.form).then(function (data) {
+        DataService.realizarPost('auth/login', $scope.form).then(function (data) {
             AuthService.setToken(data.data.Token);
             $scope.botaoLogin = false;
             $state.go('home');

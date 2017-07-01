@@ -10,7 +10,7 @@ function DataService($http, AuthService, toastr) {
         realizarDelete: realizarDelete,
         realizarPut: realizarPut
     };
-
+    const link = 'http://localhost/php/GarageAPI/';
     return service;
 
     function realizarGet(caminho) {
@@ -20,7 +20,7 @@ function DataService($http, AuthService, toastr) {
                 'Authorization': AuthService.getToken()
             }
         };
-        return $http.get(caminho, config)
+        return $http.get(link+caminho, config)
             .then(function successCallback(response) {
                     return response;
                 }
@@ -37,7 +37,7 @@ function DataService($http, AuthService, toastr) {
             }
         };
         var data = $.param(data);
-        return $http.post(caminho, data, config)
+        return $http.post(link+caminho, data, config)
             .then(function successCallback(response) {
                     if (response.data.status === 200) {
                         toastr.success(response.data.status_message);
@@ -60,7 +60,7 @@ function DataService($http, AuthService, toastr) {
                 'Authorization': AuthService.getToken()
             }
         };
-        return $http.delete(caminho, config)
+        return $http.delete(link+caminho, config)
             .then(function successCallback(response) {
                     if (response.data.status === 200) {
                         toastr.success(response.data.status_message);
@@ -85,7 +85,7 @@ function DataService($http, AuthService, toastr) {
         };
         if (data !== undefined){
             var data = $.param(data);
-            return $http.put(caminho, data, config)
+            return $http.put(link+caminho, data, config)
                 .then(function successCallback(response) {
                         if (response.data.status === 200) {
                             toastr.success(response.data.status_message);
@@ -101,7 +101,7 @@ function DataService($http, AuthService, toastr) {
                     });
         }
         else {
-            return $http.put(caminho, data, config)
+            return $http.put(link+caminho, data, config)
                 .then(function successCallback(response) {
                         if (response.data.status === 200) {
                             toastr.success(response.data.status_message);
