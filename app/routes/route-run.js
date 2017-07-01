@@ -14,9 +14,8 @@ app.run(function ($transitions, $state, $location, jwtHelper, AuthService) {
         }
         var permi = trans.to().permicao;
         var Permicao = jwtHelper.decodeToken(token)['Permicao'];
-
         if (!Permicao[permi]) {
-            return trans.router.stateService.target('error', {error: '500', errorMessage: 'Ce nao tem permicao'});
+            return trans.router.stateService.target('error', {error: '500', errorMessage: 'Você nao tem permição'});
         }
     });
     $transitions.onStart({}, function (trans) {

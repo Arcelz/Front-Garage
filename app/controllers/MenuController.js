@@ -1,6 +1,6 @@
 app.controller('MenuController', function ($scope, $state, $localStorage, AuthService, jwtHelper, MudarCor) {
     MudarCor.mudarCor();
-    var caminho = 'http://ifg.redesbrasil.com/GarageAPI';
+    var caminho = 'http://localhost/php/GarageAPI';
     var token = AuthService.getToken();
     $scope.nomeUsuario = jwtHelper.decodeToken(token)['Nome'];
     $scope.imagem = caminho+jwtHelper.decodeToken(token)['Avatar'];
@@ -43,7 +43,7 @@ app.controller('MenuController', function ($scope, $state, $localStorage, AuthSe
         $(".sidebar-user-material-content h6").css({'color': $scope.core.corLetraGeral});
 
     }
-    var permicao = jwtHelper.decodeToken(token)['Permicao'];
-
+    $scope.permicao = jwtHelper.decodeToken(token)['Permicao'];
+    console.log($scope.permicao);
 });
 
