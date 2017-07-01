@@ -160,7 +160,7 @@
                                                     class="icon-search4"></i> Listar Usuario</a></li>
                                         </ul>
                                     </li>
-                                    <li ng-show="permicao.grupo"><a><span>Grupos</span></a>
+                                    <li><a><span>Grupos</span></a>
                                         <ul>
                                             <li ng-show="permicao.grupoCriar"><a href="#!/grupos/novo"> <i
                                                     class="icon-add"></i> Novo Grupo</a></li>
@@ -168,7 +168,7 @@
                                                     class="icon-search4"></i> Listar Grupo</a></li>
                                         </ul>
                                     </li>
-                                    <li ng-show="permicao.permissao"><a><span>Permissões</span></a>
+                                    <li><a><span>Permissões</span></a>
                                         <ul>
                                             <li ng-show="permicao.permissaoCriar"><a href="#!/permissoes/novo"> <i
                                                     class="icon-add"></i> Relacionar Permissão</a></li>
@@ -184,7 +184,7 @@
                             <li>
                                 <a href="#"><i class="icon-grid"></i> <span>Cadastrados</span></a>
                                 <ul>
-                                    <li ng-show="permicao.funcionario"><a href="#!/funcionarios/novo"><span>Funcionarios</span></a>
+                                    <li><a href="#!/funcionarios/novo"><span>Funcionarios</span></a>
                                         <ul>
                                             <li ng-show="permicao.funcionarioCriar"><a href="#!/funcionarios/novo">
                                                 <i class="icon-add"></i> Novo Funcionario</a></li>
@@ -193,7 +193,7 @@
                                                 Funcionario</a></li>
                                         </ul>
                                     </li>
-                                    <li ng-show="permicao.fornecedor"><a href="#!/funcionarios/novo"><span>Fornecedor</span></a>
+                                    <li><a href="#!/funcionarios/novo"><span>Fornecedor</span></a>
                                         <ul>
                                             <li ng-show="permicao.fornecedorCriar"><a href="#!/fornecedores/novo">
                                                 <i class="icon-add"></i> Novo Fornecedor</a></li>
@@ -202,7 +202,7 @@
                                         </ul>
                                     </li>
 
-                                    <li ng-show="permicao.cliente"><a
+                                    <li><a
                                             href="#!/funcionarios/novo"><span>Clientes</span></a>
                                         <ul>
                                             <li ng-show="permicao.clienteCriar"><a href="#!/clientes/novo"> <i
@@ -212,7 +212,7 @@
                                         </ul>
                                     </li>
 
-                                    <li ng-show="permicao.veiculo"><a
+                                    <li><a
                                             href="#!/funcionarios/novo"><span>Veiculos</span></a>
                                         <ul>                                            
                                             <li ng-show="permicao.veiculoVisualizar"><a href="#!/veiculos"><i
@@ -220,7 +220,7 @@
                                         </ul>
                                     </li>
 
-                                    <li ng-show="permicao.modelo"><a
+                                    <li><a
                                             href="#!/funcionarios/novo"><span>Modelos</span></a>
                                         <ul>
                                             <li ng-show="permicao.veiculoCriar"><a href="#!/modelos/novo"> <i
@@ -229,7 +229,7 @@
                                                     class="icon-search4"></i> Listar Modelos</a></li>
                                         </ul>
                                     </li>
-                                    <li ng-show="permicao.tipoReparo"><a
+                                    <li><a
                                             href="#!/tipo-reparos"><span>Tipo de Reparo</span></a>
                                         <ul>
                                             <li ng-show="permicao.tipoReparoCriar"><a href="#!/tipo-reparos/novo">
@@ -248,7 +248,7 @@
                                                                                                   title="Layout options"></i>
                             </li>
 
-                            <li ng-show="permicao.reparo">
+                            <li>
                                 <a href="#"><i class="icon-hammer-wrench"></i> <span>Reparos</span></a>
                                 <ul>
                                     <li ng-show="permicao.reparoCriar"><a href="#!/reparos/novo"> <i
@@ -264,7 +264,7 @@
                                                                                            title="Layout options"></i>
                             </li>
 
-                            <li ng-show="permicao.compra">
+                            <li>
                                 <a href="#"><i class="icon-cash"></i> <span>Compra</span></a>
                                 <ul>
                                     <li ng-show="permicao.compraCriar"><a href="#!/compras/novo"> <i
@@ -274,7 +274,7 @@
                                 </ul>
                             </li>
 
-                            <li ng-show="permicao.venda">
+                            <li>
                                 <a href="#"><i class="icon-cash"></i> <span>Venda</span></a>
                                 <ul>
                                     <li ng-show="permicao.vendaCriar"><a href="#!/vendas/novo"> <i
@@ -288,7 +288,7 @@
                             <li class="navigation-header"><span>Financeiros</span> <i class="icon-menu"
                                                                                       title="Layout options"></i></li>
 
-                            <li ng-show="permicao.compra">
+                            <li>
                                 <a href="#"><i class="icon-exit "></i> <span>Contas a Pagar</span></a>
                                 <ul>
                                     <li ng-show="permicao.entradaVisualizar"><a href="#!/entradas"><i
@@ -296,7 +296,7 @@
                                 </ul>
                             </li>
 
-                            <li ng-show="permicao.venda">
+                            <li>
                                 <a href="#"><i class="icon-enter"></i> <span>Contas a Receber</span></a>
                                 <ul>
                                     <li ng-show="permicao.saidaVisualizar"><a href="#!/saidas"><i
