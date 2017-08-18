@@ -3,8 +3,9 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
 
     $scope.tiposResultados = {};
     $scope.veiculosResultados = {};
-    DataService.realizarGet('grupos').then(function (data) {
+    DataService.realizarGet('grupos/').then(function (data) {
         $scope.gruposResultados = data.data;
+        console.log(data.data);
     });
     $scope.example9settings = {enableSearch: true};
     $scope.example9settings = {
@@ -15,28 +16,43 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
             else if (groupValue === 'V') {
                 return 'Visualizar'
             }
-            else {
+            else if (groupValue === 'D') {
                 return 'Deletar';
+            }
+            else {
+                return 'Outros';
             }
         }, groupBy: 'permissao',
     };
-    DataService.realizarGet('permissoes').then(function (data) {
+    DataService.realizarGet('permissoes/').then(function (data) {
         $scope.permissao = [];
         $scope.example9data = [];
-        for (var i = 0; i < data.data.length; i++) {
+        var key = Object.keys(data.data);
+        for (var i = 0; i < key.length; i++) {
+            var ar = '';
+            if (key[i].indexOf("Criar") != -1) {
+                ar = 'C';
+            }
+            else if (key[i].indexOf("Visualizar") != -1) {
+                ar = 'V';
+            }
+            else if (key[i].indexOf("Deletar") != -1) {
+                ar = 'D';
+            }
             $scope.example9data.push({
-                id: data.data[i].pk_permissao,
-                label: data.data[i].nome,
-                permissao: data.data[i].permissao
+                id: key[i],
+                label: key[i],
+                permissao: ar
             });
         }
     });
     $scope.changeGrupo = function () {
         DataService.realizarGet('grupos-permissao/' + $scope.form.grupo_id).then(function (data) {
+            console.log(data.data);
             $scope.permissao = [];
             for (var j = 0; j < $scope.example9data.length; j++) {
                 for (var i = 0; i < data.data.length; i++) {
-                    if ($scope.example9data[j].id === data.data[i].permissao_id) {
+                    if ($scope.example9data[j].id === data.data[i].nome) {
                         $scope.permissao.push($scope.example9data[j]);
                     }
                 }
@@ -44,6 +60,7 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
         });
     }
     $scope.salvar = function () {
+        console.log($scope.form);
         if ($scope.form.grupo_id === undefined || $scope.form.grupo_id === "") {
             $scope.form.grupo_id = $("#selectGrupo option:selected").val();
         }

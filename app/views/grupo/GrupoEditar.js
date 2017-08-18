@@ -5,6 +5,7 @@ app.controller('GrupoEditar', function ($scope, $state, $q, DataService, $stateP
         $state.go('common.grupoListar');
     }
     DataService.realizarGet('grupos/' + id).then(function (data) {
+        console.log(data.data);
         $scope.form.nome = data.data[0].nome;
         $scope.form.descricao = data.data[0].descricao;
     });

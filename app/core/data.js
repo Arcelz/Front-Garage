@@ -10,7 +10,7 @@ function DataService($http, AuthService, toastr) {
         realizarDelete: realizarDelete,
         realizarPut: realizarPut
     };
-    const link = 'http://localhost/php/GarageAPI/';
+    const link = 'http://localhost/GarageAPI/';
     return service;
 
     function realizarGet(caminho) {

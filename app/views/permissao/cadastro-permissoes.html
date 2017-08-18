@@ -24,7 +24,7 @@
                                 <div class="col-lg-7">
                                     <div ng-click="loadTipos()">
                                         <select ng-change="changeGrupo()" id="selectGrupo" name="grupo" data-placeholder="Selecione o grupo"
-                                                class="select" ng-required="true"  data-ng-model="form.grupo_id" ng-options="item.pk_grupo as item.nome for item in gruposResultados" >
+                                                class="select" ng-required="true"  data-ng-model="form.grupo_id" ng-options="item.grupo_id as item.nome for item in gruposResultados" >
                                             <option value=""></option>
                                         </select>
                                     </div>

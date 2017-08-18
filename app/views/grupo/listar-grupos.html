@@ -43,11 +43,11 @@
                 <tbody>
 
                 <tr ng-repeat="lembrete in lembretes | filter:filtros">
-                    <td class="text-center">{{lembrete.pk_grupo}}</td>
+                    <td class="text-center">{{lembrete.grupo_id}}</td>
                     <td class="text-center">{{lembrete.nome}}</td>
                     <td class="text-center">{{lembrete.descricao}}</td>
                     <td class="text-center">
-                        <a style="color: BLACK" href="#!/grupos/{{lembrete.pk_grupo}}">
+                        <a style="color: BLACK" href="#!/grupos/{{lembrete.grupo_id}}">
                             <i class="icon-pencil7"></i>
                         </a>
                         <!--mostra o icone de excluir e chama o modal -->
