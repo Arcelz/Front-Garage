@@ -45,6 +45,12 @@ function DataService($http, AuthService, toastr) {
                     else if (response.data.status === 400) {
                         toastr.error(response.data.status_message);
                     }
+                    else if (response.data.status === 401) {
+                        var  msg = response.data.status_message.split(",");
+                        for (var i=0;i<msg.length;i++){
+                            toastr.error(msg[i]);
+                        }
+                    }
                     return response;
                 }
                 , function errorCallback(response) {

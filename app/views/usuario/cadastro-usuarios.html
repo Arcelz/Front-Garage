@@ -28,7 +28,7 @@
                             <div class="form-group col-md-6">
                                 <label for="nome" class="col-lg-3 control-label">Login:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="login" class="form-control" placeholder="Login" ng-model="form.login" ng-minlength="6" ng-maxlength="30" required/>
+                                    <input type="text" name="login" class="form-control" placeholder="Login" ng-model="form.login" ng-minlength="4" ng-maxlength="30" required/>
                                     <div ng-messages="formulario.login.$error">
                                         <div ng-messages-include="app/views/messages.html"></div>
                                     </div>
@@ -83,7 +83,7 @@
                                 <div class="col-lg-9">
                                     <div ng-click="loadGrupos()">
                                     <select id="renderedCombo3" name="grupo" data-placeholder="Selecione o Grupo"
-                                            class="select" ng-required="true" data-ng-model="form.grupo_id"  ng-options="item.pk_grupo as item.nome for item in grupoResultados">
+                                            class="select" ng-required="true" data-ng-model="form.grupo_id"  ng-options="item.grupo_id as item.nome for item in grupoResultados">
                                         <option value=""></option>
                                     </select>
                                     </div>

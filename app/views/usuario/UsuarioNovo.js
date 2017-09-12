@@ -3,10 +3,12 @@ app.controller('UsuarioNovo', function ($scope,$state, $rootScope,MudarCor, Data
     $scope.funcionarioResultados = {};
     DataService.realizarGet('funcionarios').then(function (data) {
         $scope.funcionarioResultados = data.data;
+        console.log(data.data);
     });
     $scope.grupoResultados = {};
     DataService.realizarGet('grupos').then(function (data) {
         $scope.grupoResultados = data.data;
+        console.log(data.data);
     });
     $scope.onBlur = function (form) {
         if ($scope.form.senha2 != undefined) {
