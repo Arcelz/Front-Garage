@@ -67,6 +67,7 @@ app.controller('PermissaoNovo', function ($scope, $document, $state, $rootScope,
         if ($scope.formulario.$valid && $scope.permissao !== undefined) {
             $scope.form['permissao_id'] = $scope.permissao;
             $scope.botao = true;
+            console.log($scope.form);
             DataService.realizarPost('grupos-permissao', $scope.form).then(function (data) {
                 if (data.data.status === 200) {
                     $state.go('common.permissaoNovo');

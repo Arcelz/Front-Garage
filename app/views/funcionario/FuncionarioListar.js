@@ -6,17 +6,17 @@ app.controller('FuncionarioListar', function (AuthService, jwtHelper,$scope, $ro
 
      var token = AuthService.getToken();
     
-    var permicao = jwtHelper.decodeToken(token)['Permição'];
+    var permicao = jwtHelper.decodeToken(token)['Permicao'];
     $scope.permicaoJSON = {};
     for (i = 0; i < permicao.length; i++) {
-        if (permicao[i] === '10D') {
+     /*   if (permicao[i] === '10D') {
             $scope.permicaoJSON['funcionario'] = true;
             $scope.permicaoJSON['funcionarioDeletar'] = true;
         }
         if (permicao[i] === '10C') {
             $scope.permicaoJSON['funcionario'] = true;
             $scope.permicaoJSON['funcionarioEditar'] = true;
-        }
+        }*/
     }
 
     DataService.realizarGet('funcionarios').then(function (response) {

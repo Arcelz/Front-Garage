@@ -107,13 +107,14 @@
                 <div class="sidebar-user-material">
                     <div class="category-content">
                         <div class="sidebar-user-material-content">
-                            <a href="#" style="border: 2px solid #f5eded"><img src="{{imagem}}" class="img-responsive" alt=""></a>
+                            <a href="#" style="border: 2px solid #f5eded"><img src="{{imagem}}" class="img-responsive"
+                                                                               alt=""></a>
                             <h6>{{nomeUsuario | uppercase}}</h6>
                         </div>
 
-                       <!-- <div class="sidebar-user-material-menu">
-                            <a href="#user-nav" data-toggle="collapse"><span>My account</span> <i class="caret"></i></a>
-                        </div> --> 
+                        <!-- <div class="sidebar-user-material-menu">
+                             <a href="#user-nav" data-toggle="collapse"><span>My account</span> <i class="caret"></i></a>
+                         </div> -->
                         <!--/ -->
                     </div>
 
@@ -141,14 +142,14 @@
                             <li class="navigation-header"><span>Administrativo</span> <i class="icon-menu"
                                                                                          title="Main pages"></i></li>
                             <li><a href="#!/"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-                          
+
                             <!-- /main -->
-                               <!-- Manutenção dos Veiculos -->
+                            <!-- Manutenção dos Veiculos -->
                             <li class="navigation-header"><span>Segurança</span> <i class="icon-menu"
-                                                                                                  title="Layout options"></i>
+                                                                                    title="Layout options"></i>
                             </li>
 
-                             <li>
+                            <li>
                                 <a href="#"><i class="icon-users"></i> <span>Acesso ao Sistema</span></a>
                                 <ul>
 
@@ -214,7 +215,7 @@
 
                                     <li><a
                                             href="#!/funcionarios/novo"><span>Veiculos</span></a>
-                                        <ul>                                            
+                                        <ul>
                                             <li ng-show="permicao.veiculoVisualizar"><a href="#!/veiculos"><i
                                                     class="icon-search4"></i> Listar Veiculo</a></li>
                                         </ul>
@@ -288,18 +289,18 @@
                             <li class="navigation-header"><span>Financeiros</span> <i class="icon-menu"
                                                                                       title="Layout options"></i></li>
 
-                            <li>
+                            <li ng-show="permicao.entradaVisualizar">
                                 <a href="#"><i class="icon-exit "></i> <span>Contas a Pagar</span></a>
                                 <ul>
-                                    <li ng-show="permicao.entradaVisualizar"><a href="#!/entradas"><i
+                                    <li><a href="#!/entradas"><i
                                             class="icon-search4"></i> Listar Contas</a></li>
                                 </ul>
                             </li>
 
-                            <li>
+                            <li ng-show="permicao.saidaVisualizar">
                                 <a href="#"><i class="icon-enter"></i> <span>Contas a Receber</span></a>
                                 <ul>
-                                    <li ng-show="permicao.saidaVisualizar"><a href="#!/saidas"><i
+                                    <li><a href="#!/saidas"><i
                                             class="icon-search4"></i> Listar Contas</a></li>
                                 </ul>
                             </li>
@@ -312,7 +313,7 @@
 
                             <li>
                                 <a href="#!/relatorios"><i class="icon-file-pdf"></i> <span>Relatorios</span></a>
-                              
+
                             </li>
                             <!-- /Relatorios -->
                         </ul>
